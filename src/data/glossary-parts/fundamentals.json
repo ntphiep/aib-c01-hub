@@ -1,0 +1,389 @@
+[
+ {
+  "id": "foundation-model",
+  "term": "Foundation model",
+  "full": "Foundation model (FM)",
+  "aliases": [
+   "foundation models",
+   "FM"
+  ],
+  "cat": "GenAI",
+  "what": "Model rất lớn train trên data rộng, chưa gán label, làm được nhiều task như hỏi đáp, viết, tóm tắt.",
+  "means": [
+   "Doanh nghiệp dùng qua API thay vì tự train từ đầu",
+   "Là nền của GenAI app và AI agent"
+  ],
+  "related": [
+   "inference",
+   "token",
+   "fine-tuning"
+  ],
+  "src": {
+   "label": "Bedrock key terminology",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html"
+  }
+ },
+ {
+  "id": "inference",
+  "term": "Inference",
+  "aliases": [
+   "inferencing"
+  ],
+  "cat": "AI Fundamentals",
+  "what": "Bước model đã train sinh output hoặc prediction từ input mới.",
+  "means": [
+   "Cost lặp lại theo từng request, tăng theo volume",
+   "Đề hỏi cost theo usage là hỏi inference, không phải training"
+  ],
+  "related": [
+   "foundation-model",
+   "token"
+  ],
+  "src": {
+   "label": "What is inference",
+   "url": "https://aws.amazon.com/what-is/inferencing/"
+  }
+ },
+ {
+  "id": "structured-data",
+  "term": "Structured data",
+  "aliases": [
+   "structured"
+  ],
+  "cat": "AI Fundamentals",
+  "what": "Data vừa bảng và theo predefined schema: số, short text, ngày.",
+  "means": [
+   "Hợp với ML truyền thống: forecast, churn, fraud",
+   "Dễ search, phân tích và kiểm tra chất lượng"
+  ],
+  "related": [
+   "unstructured-data"
+  ],
+  "src": {
+   "label": "Structured vs unstructured data",
+   "url": "https://aws.amazon.com/compare/the-difference-between-structured-data-and-unstructured-data/"
+  }
+ },
+ {
+  "id": "unstructured-data",
+  "term": "Unstructured data",
+  "aliases": [
+   "unstructured"
+  ],
+  "cat": "AI Fundamentals",
+  "what": "Data không theo schema như email, PDF, ảnh, audio, video.",
+  "means": [
+   "Cần preprocessing trước khi phân tích",
+   "Đất của GenAI, NLP, computer vision, document extraction"
+  ],
+  "related": [
+   "structured-data",
+   "rag"
+  ],
+  "src": {
+   "label": "Structured vs unstructured data",
+   "url": "https://aws.amazon.com/compare/the-difference-between-structured-data-and-unstructured-data/"
+  }
+ },
+ {
+  "id": "model-drift",
+  "term": "Model drift",
+  "aliases": [
+   "drift",
+   "data drift",
+   "concept drift"
+  ],
+  "cat": "AI Fundamentals",
+  "what": "Performance của model giảm dần vì data hoặc thực tế trong production khác lúc train.",
+  "means": [
+   "Data drift: phân phối input đổi; concept drift: quan hệ input và output đúng đổi",
+   "Đáp án đúng gồm monitoring, ngưỡng KPI và retrain khi cần"
+  ],
+  "related": [
+   "inference"
+  ],
+  "src": {
+   "label": "Detecting drift in production",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+  }
+ },
+ {
+  "id": "hallucination",
+  "term": "Hallucination",
+  "aliases": [
+   "hallucinations"
+  ],
+  "cat": "GenAI",
+  "what": "Output sai hoặc gây hiểu lầm mà foundation model trả về với giọng tự tin.",
+  "means": [
+   "RAG giảm risk bằng cách dựa câu trả lời vào tài liệu truy xuất",
+   "Fine-tuned model trả lời câu hỏi có thể tăng risk hallucination"
+  ],
+  "related": [
+   "rag",
+   "foundation-model"
+  ],
+  "src": {
+   "label": "What are AI hallucinations",
+   "url": "https://aws.amazon.com/what-is/ai-hallucinations/"
+  }
+ },
+ {
+  "id": "token",
+  "term": "Token",
+  "aliases": [
+   "tokens"
+  ],
+  "cat": "GenAI",
+  "what": "Đơn vị model đọc và sinh: một từ, một phần của từ, dấu câu hoặc cụm từ phổ biến.",
+  "means": [
+   "Bedrock tính giá theo input token và output token",
+   "Prompt dài thì cost và latency cao hơn"
+  ],
+  "related": [
+   "context-window",
+   "inference"
+  ],
+  "src": {
+   "label": "Bedrock key terminology",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html"
+  }
+ },
+ {
+  "id": "context-window",
+  "term": "Context window",
+  "aliases": [
+   "context windows",
+   "token limit"
+  ],
+  "cat": "GenAI",
+  "what": "Số token tối đa model xử lý trong một request; nhiều model tính chung input và output.",
+  "means": [
+   "Phiên dài quên chi tiết đầu phiên là dấu hiệu chạm giới hạn",
+   "Xử lý bằng tóm tắt lịch sử, chia tài liệu hoặc chỉ truy xuất phần liên quan"
+  ],
+  "related": [
+   "token",
+   "rag"
+  ],
+  "src": {
+   "label": "GPT-5.5 model card",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-55.html"
+  }
+ },
+ {
+  "id": "prompt-engineering",
+  "term": "Prompt engineering",
+  "cat": "GenAI",
+  "what": "Cách thiết kế và liên tục cải tiến input cho GenAI để nhận output mong muốn.",
+  "means": [
+   "Gồm role, task, context, ví dụ mẫu, output format, constraint",
+   "Bước đầu rẻ và nhanh nhất trước RAG hay fine-tuning"
+  ],
+  "related": [
+   "few-shot-prompting",
+   "rag",
+   "fine-tuning"
+  ],
+  "src": {
+   "label": "What is prompt engineering",
+   "url": "https://aws.amazon.com/what-is/prompt-engineering/"
+  }
+ },
+ {
+  "id": "few-shot-prompting",
+  "term": "Few-shot prompting",
+  "aliases": [
+   "few-shot",
+   "zero-shot",
+   "in-context learning"
+  ],
+  "cat": "GenAI",
+  "what": "Đưa vài cặp input và output mẫu vào prompt để model bắt chước; zero-shot là không có ví dụ.",
+  "means": [
+   "Dùng khi cần format hoặc giọng văn nhất quán",
+   "Không đổi parameter của model"
+  ],
+  "related": [
+   "prompt-engineering"
+  ],
+  "src": {
+   "label": "Bedrock prompt engineering",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html"
+  }
+ },
+ {
+  "id": "rag",
+  "term": "RAG",
+  "full": "Retrieval Augmented Generation",
+  "aliases": [
+   "retrieval augmented generation"
+  ],
+  "cat": "GenAI",
+  "what": "Truy xuất thông tin liên quan từ nguồn ngoài rồi chèn vào prompt để model trả lời tốt hơn.",
+  "means": [
+   "Hợp với kiến thức riêng, hay đổi, cần trích dẫn nguồn",
+   "Tài liệu mới vào trong vài phút, không train lại model",
+   "Kém khi phải tóm tắt toàn bộ tài liệu dài"
+  ],
+  "related": [
+   "fine-tuning",
+   "hallucination",
+   "context-window"
+  ],
+  "src": {
+   "label": "RAG vs fine-tuning",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+  }
+ },
+ {
+  "id": "fine-tuning",
+  "term": "Fine-tuning",
+  "aliases": [
+   "fine-tune",
+   "fine-tuned"
+  ],
+  "cat": "GenAI",
+  "what": "Train thêm một model có sẵn bằng data riêng để đổi parameter, thường dùng data có label.",
+  "means": [
+   "Hợp với style, thuật ngữ ngành, task chuyên biệt",
+   "Mất vài giờ tới vài ngày; không hợp fact hay đổi",
+   "Fine-tuned model không trích dẫn nguồn"
+  ],
+  "related": [
+   "rag",
+   "prompt-engineering",
+   "foundation-model"
+  ],
+  "src": {
+   "label": "RAG vs fine-tuning",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+  }
+ },
+ {
+  "id": "ai-agent",
+  "term": "AI agent",
+  "aliases": [
+   "AI agents",
+   "agent",
+   "agents"
+  ],
+  "cat": "GenAI",
+  "what": "Software tự chọn action để đạt goal do người đặt, dùng foundation model, tool, memory.",
+  "means": [
+   "Khác chatbot ở autonomy và tool use: làm việc trên hệ thống thật",
+   "Cần human approval trước action không đảo ngược"
+  ],
+  "related": [
+   "foundation-model",
+   "shadow-ai"
+  ],
+  "src": {
+   "label": "What are AI agents",
+   "url": "https://aws.amazon.com/what-is/ai-agents/"
+  }
+ },
+ {
+  "id": "shadow-ai",
+  "term": "Shadow AI",
+  "aliases": [
+   "shadow generative AI"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Nhân viên dùng AI tool chưa được tổ chức duyệt, khiến data rời khỏi phạm vi kiểm soát.",
+  "means": [
+   "Cung cấp tool approved trước, rồi mới block tool risk cao",
+   "Phân loại công khai: approved, under evaluation, blocked"
+  ],
+  "related": [
+   "ai-agent"
+  ],
+  "src": {
+   "label": "Shadow generative AI",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/navigating-security-landscape-genai/shadow-generative-ai.html"
+  }
+ },
+ {
+  "id": "iso-iec-23053",
+  "term": "ISO/IEC 23053",
+  "aliases": [
+   "23053"
+  ],
+  "cat": "Regulation & Standards",
+  "what": "Chuẩn 2022 đặt framework mô tả AI system dùng ML: các component và chức năng.",
+  "means": [
+   "Cùng ISO/IEC 22989 tạo vocabulary chung giữa business và tech",
+   "Là chuẩn mô tả, không phải requirements để certify"
+  ],
+  "related": [
+   "iso-iec-42001"
+  ],
+  "src": {
+   "label": "ISO/IEC 23053 (AFNOR)",
+   "url": "https://www.boutique.afnor.org/en-gb/standard/iso-iec-230532022/framework-for-artificial-intelligence-ai-systems-using-machine-learning-ml/xs139450/326655"
+  }
+ },
+ {
+  "id": "iso-iec-42001",
+  "term": "ISO/IEC 42001",
+  "aliases": [
+   "42001",
+   "AIMS"
+  ],
+  "cat": "Regulation & Standards",
+  "what": "Chuẩn 2023 đặt requirements để thiết lập, duy trì và cải tiến liên tục AI management system (AIMS).",
+  "means": [
+   "Tổ chức certify được qua certification body bên thứ ba",
+   "Certification của cloud provider không chuyển sang khách hàng"
+  ],
+  "related": [
+   "iso-iec-23053"
+  ],
+  "src": {
+   "label": "AWS ISO/IEC 42001 FAQ",
+   "url": "https://aws.amazon.com/compliance/iso-42001-faqs/"
+  }
+ },
+ {
+  "id": "iso-iec-22989",
+  "term": "ISO/IEC 22989",
+  "aliases": [
+   "22989"
+  ],
+  "cat": "Regulation & Standards",
+  "what": "Chuẩn ISO/IEC định nghĩa thuật ngữ và khái niệm AI dùng chung cho mọi loại tổ chức.",
+  "means": [
+   "Dùng khi đề hỏi unified AI vocabulary giữa business, legal và tech.",
+   "Không phải requirements để certify; certify là ISO/IEC 42001."
+  ],
+  "related": [
+   "iso-iec-23053",
+   "iso-iec-42001"
+  ],
+  "src": {
+   "label": "ISO/IEC 22989 (IEC webstore)",
+   "url": "https://webstore.iec.ch/en/publication/77839"
+  }
+ },
+ {
+  "id": "a2a",
+  "term": "A2A",
+  "full": "Agent-to-Agent protocol",
+  "aliases": [
+   "agent-to-agent"
+  ],
+  "cat": "GenAI",
+  "what": "Protocol chuẩn để agent trên các platform khác nhau trao đổi task và data với nhau.",
+  "means": [
+   "Đề nêu agent của nhiều vendor phải phối hợp: chọn protocol chuẩn như A2A.",
+   "AWS Prescriptive Guidance xếp A2A cho cross-platform agent ecosystem; AgentCore Runtime host được A2A server."
+  ],
+  "related": [
+   "ai-agent"
+  ],
+  "src": {
+   "label": "A2A in AgentCore Runtime",
+   "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html"
+  }
+ }
+]

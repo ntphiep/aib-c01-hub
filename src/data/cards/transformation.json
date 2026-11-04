@@ -1,0 +1,236 @@
+[
+ {
+  "id": "trn-c01",
+  "front": "What should a company do FIRST before selecting AI use cases?",
+  "back": "Assess AI readiness across leadership alignment, data, culture, technical infrastructure, and governance. Chọn use case khi chưa biết gap thì pilot dễ kẹt.",
+  "ref": {
+   "label": "CAF-AI: AI transformation journey",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+  }
+ },
+ {
+  "id": "trn-c02",
+  "front": "Four levels of the AWS generative AI maturity model",
+  "back": "Envision, Experiment, Launch, Scale. Đây là level trong AWS Prescriptive Guidance, khác bộ phase của AWS CAF.",
+  "ref": {
+   "label": "GenAI maturity model: levels",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+  }
+ },
+ {
+  "id": "trn-c03",
+  "front": "Four phases of the AWS CAF transformation journey",
+  "back": "Envision, Align, Launch, Scale, repeated iteratively. Align là phase tìm capability gap và concern của stakeholder.",
+  "ref": {
+   "label": "AWS CAF: cloud transformation journey",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+  }
+ },
+ {
+  "id": "trn-c04",
+  "front": "Many pilots and PoCs, none in production: which maturity level?",
+  "back": "Experiment. Bước tiếp theo là production readiness: infrastructure, governance, observability, support.",
+  "ref": {
+   "label": "GenAI maturity level 2: Experiment",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+  }
+ },
+ {
+  "id": "trn-c05",
+  "front": "Six AWS CAF perspectives",
+  "back": "Business, People, Governance, Platform, Security, Operations. CAF-AI làm giàu các capability này riêng cho AI.",
+  "ref": {
+   "label": "CAF-AI: foundational capabilities",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/foundational-ai-capabilities.html"
+  }
+ },
+ {
+  "id": "trn-c06",
+  "front": "Four transformation domains of AWS CAF",
+  "back": "Technology, Process, Organization, Product. Technology enable process, process enable organization, organization enable product.",
+  "ref": {
+   "label": "AWS CAF: transformation domains",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/accelerating-business-outcomes.html"
+  }
+ },
+ {
+  "id": "trn-c07",
+  "front": "Capability gap groups that block AI transformation",
+  "back": "People, process, technology, governance. Đáp án đúng xử lý gap đang chặn objective, không chỉ mua thêm technology.",
+  "ref": {
+   "label": "CAF-AI: foundational capabilities",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/foundational-ai-capabilities.html"
+  }
+ },
+ {
+  "id": "trn-c08",
+  "front": "Limited budget at the Envision level: what to fund first?",
+  "back": "Prioritized use cases (impact, feasibility, alignment), PoC budget, AI literacy, AI champions. Self-service platform để sau.",
+  "ref": {
+   "label": "GenAI maturity level 1: Envision",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+  }
+ },
+ {
+  "id": "trn-c09",
+  "front": "AI team spends most time finding data across silos",
+  "back": "Data strategy: named data owners, common definitions, a discoverable catalog. CAF-AI Data curation nói data phải discoverable.",
+  "ref": {
+   "label": "CAF-AI: Governance perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+  }
+ },
+ {
+  "id": "trn-c10",
+  "front": "Four principles of data mesh",
+  "back": "Domain ownership, data as a product, self-service data platform, federated governance. BU tự chủ nhưng policy chung vẫn áp.",
+  "ref": {
+   "label": "Data mesh strategy on AWS",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-mesh/introduction.html"
+  }
+ },
+ {
+  "id": "trn-c11",
+  "front": "RAG assistant must not expose documents a user cannot see",
+  "back": "Permission-aware data access: the model retrieves only what the user is authorized to access. Đây là phần data readiness.",
+  "ref": {
+   "label": "Data strategy for generative AI",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-considerations-gen-ai/journey.html"
+  }
+ },
+ {
+  "id": "trn-c12",
+  "front": "Shared responsibility for AI workloads on AWS",
+  "back": "AWS secures the cloud infrastructure; the customer secures its data, access, and usage. Compliance của output vẫn thuộc công ty.",
+  "ref": {
+   "label": "AWS shared responsibility model",
+   "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+  }
+ },
+ {
+  "id": "trn-c13",
+  "front": "Single most significant factor in change adoption (AWS OCA)",
+  "back": "An active and visible sponsor. Sponsor giao lại cho cấp dưới là tín hiệu adoption sẽ chững.",
+  "ref": {
+   "label": "OCA: sponsor roadmap",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/oca-framework-envision-future/sponsor.html"
+  }
+ },
+ {
+  "id": "trn-c14",
+  "front": "AI is central to business strategy: who sponsors?",
+  "back": "A business-side executive sponsor plus line-of-business sponsors, not only IT. AWS yêu cầu sponsor phía business khi adoption là cốt lõi.",
+  "ref": {
+   "label": "OCA: sponsor roadmap",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/oca-framework-envision-future/sponsor.html"
+  }
+ },
+ {
+  "id": "trn-c15",
+  "front": "Legal raised concerns late and delayed launch",
+  "back": "Cross-functional team with legal, compliance, risk from the start, plus a RACI with one accountable owner.",
+  "ref": {
+   "label": "GenAI maturity level 1: Envision",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+  }
+ },
+ {
+  "id": "trn-c16",
+  "front": "Employees fear job loss after an AI announcement",
+  "back": "Transparent communication: timeline, expected outcomes, role impact, reskilling, two-way channels. Im lặng làm tin đồn lan nhanh hơn.",
+  "ref": {
+   "label": "OCA: Engage the Organization",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/engage-organization.html"
+  }
+ },
+ {
+  "id": "trn-c17",
+  "front": "Fear of failure blocks AI experimentation",
+  "back": "Reward experimentation and learning; leaders share failed experiments. AWS khuyên reward hành vi như failing fast.",
+  "ref": {
+   "label": "OCA: Enable Capacity",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html"
+  }
+ },
+ {
+  "id": "trn-c18",
+  "front": "AWS Change Acceleration 6-Point Framework",
+  "back": "Mobilize Team, Align Leaders, Envision the Future, Engage the Organization, Enable Capacity, Make It Stick. Đây là khung change management của AWS.",
+  "ref": {
+   "label": "AWS Change Acceleration 6-Point Framework",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/introduction.html"
+  }
+ },
+ {
+  "id": "trn-c19",
+  "front": "High-impact AI decisions such as claim denials",
+  "back": "Keep human-in-the-loop review and redesign roles toward oversight. AI augment con người, không bỏ trách nhiệm cuối.",
+  "ref": {
+   "label": "GenAI maturity level 3: Launch",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+  }
+ },
+ {
+  "id": "trn-c20",
+  "front": "Skeptical board, credibility needed fast",
+  "back": "A high-impact, low-complexity quick win with available data and a baseline KPI. Quick win không có nghĩa là use case giá trị thấp.",
+  "ref": {
+   "label": "CAF-AI: AI transformation journey",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+  }
+ },
+ {
+  "id": "trn-c21",
+  "front": "BUs duplicate AI tools but want to keep speed",
+  "back": "A federated model: BU teams drive use cases; a central team governs guardrails, model risk, privacy, compliance. AWS blog mô tả 3 model: decentralized, centralized, federated.",
+  "ref": {
+   "label": "AWS blog: GenAI operating models",
+   "url": "https://aws.amazon.com/blogs/machine-learning/generative-ai-operating-models-in-enterprise-organizations-with-amazon-bedrock/"
+  }
+ },
+ {
+  "id": "trn-c22",
+  "front": "Pilot succeeded, rollout to thousands of users next",
+  "back": "Production readiness: ownership, operating model, monitoring, SLA and escalation, cost tracking, governance approvals. Pilot đạt chưa có nghĩa là sẵn sàng production.",
+  "ref": {
+   "label": "GenAI maturity level 2: Experiment",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+  }
+ },
+ {
+  "id": "trn-c23",
+  "front": "Three generative AI operating models in AWS guidance",
+  "back": "Decentralized (LOBs own), centralized (one AI/ML team runs all), federated (LOBs drive, central team governs). Hub-and-spoke là tên ngành gần với federated.",
+  "ref": {
+   "label": "AWS blog: GenAI operating models",
+   "url": "https://aws.amazon.com/blogs/machine-learning/generative-ai-operating-models-in-enterprise-organizations-with-amazon-bedrock/"
+  }
+ },
+ {
+  "id": "trn-c24",
+  "front": "Prosci ADKAR",
+  "back": "Awareness, Desire, Knowledge, Ability, Reinforcement: five elements of individual change. Thiếu phần tử nào thì resistance nằm ở đó.",
+  "ref": {
+   "label": "Prosci ADKAR Model",
+   "url": "https://www.prosci.com/methodology/adkar"
+  }
+ },
+ {
+  "id": "trn-c25",
+  "front": "Where should the AI CoE report?",
+  "back": "To the executives who own the AI strategy, with a short path to the C-suite and incentives tied to business value. CAF-AI: lỗi hay gặp là AI unit không giao business value.",
+  "ref": {
+   "label": "CAF-AI: People perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+  }
+ },
+ {
+  "id": "trn-c26",
+  "front": "Repeatable data sharing between business units",
+  "back": "Data sharing framework: catalog, data products with named owners, standard request and approval, usage terms. Chia sẻ lặp lại được mà vẫn giữ control.",
+  "ref": {
+   "label": "CAF-AI: Governance perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+  }
+ }
+]

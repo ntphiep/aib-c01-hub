@@ -1,0 +1,734 @@
+[
+ {
+  "id": "aws-01",
+  "topic": "aws",
+  "domain": "D1",
+  "task": "1.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A national insurance company with 4,000 employees wants an internal assistant that answers agents' questions about policy rules and claim procedures. The policy documents are updated every week, and the compliance team requires every answer to cite the source document. The company has a small IT team and no data scientists. The CIO wants the solution with the LEAST development effort.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Fine-tune a foundation model on the policy documents every month by using Amazon Bedrock model customization."
+   },
+   {
+    "k": "B",
+    "t": "Use Amazon Bedrock Knowledge Bases to retrieve relevant policy passages and generate answers with citations."
+   },
+   {
+    "k": "C",
+    "t": "Train a custom language model on the policy documents by using Amazon SageMaker AI."
+   },
+   {
+    "k": "D",
+    "t": "Publish the policy documents as Amazon Quick Sight dashboards that agents can filter by topic."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: tài liệu đổi hằng tuần, phải trích nguồn, LEAST development effort, không có data scientist.\n- Knowledge Bases là RAG managed: lấy đoạn liên quan lúc hỏi nên luôn theo bản mới nhất, và trả về nguồn để trích dẫn.",
+  "wrong": {
+   "A": "Fine-tune hằng tháng luôn chậm hơn bản cập nhật hằng tuần, không cho citation, và tốn effort chuẩn bị data train.",
+   "C": "Train model riêng cần data scientist và effort lớn nhất, ngược với yêu cầu LEAST development effort.",
+   "D": "Quick Sight là BI cho data có cấu trúc; dashboard không trả lời câu hỏi trên văn bản policy."
+  },
+  "refs": [
+   {
+    "label": "Bedrock Knowledge Bases",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-02",
+  "topic": "aws",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A consulting firm with 2,500 employees discovers that staff paste client documents into free public chatbots to draft reports and research topics. The managing partner wants to stop this shadow AI usage quickly by giving every employee an approved AI assistant that can search internal documents, produce cited research reports, and automate routine tasks. The firm has no software development team and needs a predictable per-user cost.\nWhich solution should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Block all generative AI websites and publish a policy that bans AI tools until a custom solution is ready."
+   },
+   {
+    "k": "B",
+    "t": "Build a custom chat application on Amazon Bedrock with Knowledge Bases and AgentCore for all employees."
+   },
+   {
+    "k": "C",
+    "t": "Subscribe employees to Amazon Quick and connect it to the firm's document repositories."
+   },
+   {
+    "k": "D",
+    "t": "Approve the public chatbots and require employees to remove client names before pasting documents."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: shadow AI, cần approved assistant nhanh, không có dev team, per-user cost.\n- Amazon Quick là assistant fully managed: Quick Index trả lời trên tài liệu nội bộ, Quick Research ra report có trích dẫn, Quick Flows tự động hoá task.\n- Giá theo user mỗi tháng, có SSO và RBAC cho governance.",
+  "wrong": {
+   "A": "Chỉ chặn mà không có công cụ thay thế thì nhân viên tìm đường khác; không đáp ứng yêu cầu có assistant nhanh.",
+   "B": "Build app riêng cần team dev để build và operate, trong khi firm không có team này.",
+   "D": "Public chatbot là Scope 1: provider có thể dùng data gửi lên; tự xoá tên khách không đủ bảo vệ tài liệu."
+  },
+  "refs": [
+   {
+    "label": "What is Amazon Quick",
+    "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+   },
+   {
+    "label": "Amazon Quick pricing",
+    "url": "https://aws.amazon.com/quick/pricing/"
+   }
+  ]
+ },
+ {
+  "id": "aws-03",
+  "topic": "aws",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A mid-sized bank wants to predict small-business loan defaults by using 12 years of proprietary repayment data. The bank has an in-house team of 8 data scientists. The banking regulator requires the bank to document and control every step of model development, including feature selection, algorithm choice, and validation, and to retrain the model on the bank's own schedule.\nWhich AWS offering BEST fits these requirements?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Amazon Quick, so that credit analysts can ask natural language questions about historical defaults"
+   },
+   {
+    "k": "B",
+    "t": "Amazon Bedrock with a general-purpose foundation model and a prompt that describes the credit policy"
+   },
+   {
+    "k": "C",
+    "t": "A credit scoring product from AWS Marketplace that the vendor trains and updates on its own schedule"
+   },
+   {
+    "k": "D",
+    "t": "Amazon SageMaker AI, so that the data science team builds, trains, and deploys a custom model"
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: data riêng dạng bảng, có team data science, regulator đòi kiểm soát từng bước train và lịch retrain.\n- SageMaker AI cho team tự chọn algorithm, train, validate, deploy, nên giữ full control và tài liệu hoá được.",
+  "wrong": {
+   "A": "Quick hỏi đáp và phân tích data có sẵn, không build model dự đoán default.",
+   "B": "Prompt trên FM chung không cho kiểm soát feature, algorithm hay validation như regulator yêu cầu.",
+   "C": "Vendor giữ quyền train và lịch update, nên bank mất kiểm soát mà regulator đòi."
+  },
+  "refs": [
+   {
+    "label": "What is SageMaker AI",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-04",
+  "topic": "aws",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "An e-commerce company uses Amazon Bedrock to summarize about 2 million customer reviews every night. The summaries feed a product quality report that managers read at 9 AM the next day. Finance reports that inference cost for this job is far above plan and asks for the largest saving without changing the model or reducing the number of reviews processed.\nWhich recommendation should the AI strategist make?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Move the job to the Priority tier so that it finishes sooner and consumes fewer billed hours."
+   },
+   {
+    "k": "B",
+    "t": "Submit the nightly reviews as an Amazon Bedrock batch inference job."
+   },
+   {
+    "k": "C",
+    "t": "Purchase Provisioned Throughput sized for the peak load of the nightly job."
+   },
+   {
+    "k": "D",
+    "t": "Process each review in real time as it arrives so that the load is spread across the day."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: job lớn, kết quả cần sáng hôm sau, không cần real-time, muốn giảm cost mà giữ model.\n- Batch inference của Bedrock rẻ hơn 50% so với on-demand với các model hỗ trợ batch.",
+  "wrong": {
+   "A": "Priority tier có giá token cao hơn Standard; Bedrock on-demand tính theo token, không theo giờ.",
+   "C": "Provisioned Throughput tính theo giờ, trả cả khi job không chạy trong phần lớn ngày.",
+   "D": "Xử lý real-time vẫn tính giá on-demand cho cùng số token, không giảm cost."
+  },
+  "refs": [
+   {
+    "label": "Bedrock pricing",
+    "url": "https://aws.amazon.com/bedrock/pricing/"
+   },
+   {
+    "label": "Bedrock service tiers",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-05",
+  "topic": "aws",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A hospital network is preparing a business case for a GenAI assistant that drafts patient discharge summaries. The CFO asks for an estimate of monthly and annual AWS costs under three adoption scenarios before the board approves any build work. No AWS resources for the project exist yet, and the board meets in two weeks.\nWhich AWS tool should the AI strategist use to produce the estimate?",
+  "options": [
+   {
+    "k": "A",
+    "t": "AWS Pricing Calculator, to model each scenario's estimated costs"
+   },
+   {
+    "k": "B",
+    "t": "AWS Cost Explorer, to forecast the project's spend from its historical usage"
+   },
+   {
+    "k": "C",
+    "t": "AWS Budgets, to set a monthly budget with alerts on forecasted spend"
+   },
+   {
+    "k": "D",
+    "t": "AWS Marketplace, to compare list prices of third-party AI products for the use case"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: business case, ước tính trước khi build, chưa có resource nào.\n- Pricing Calculator là planning tool miễn phí để model solution trước khi build, ra cost upfront, monthly và annual cho từng phương án.",
+  "wrong": {
+   "B": "Cost Explorer phân tích và forecast dựa trên usage đã có; project chưa có usage.",
+   "C": "Budgets theo dõi và alert sau khi phát sinh spend, không tạo estimate cho business case.",
+   "D": "Marketplace là kênh mua software bên thứ ba, không ước tính cost của solution tự build."
+  },
+  "refs": [
+   {
+    "label": "AWS Pricing Calculator",
+    "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-06",
+  "topic": "aws",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 2,
+  "stem": "Six months after launching a GenAI customer service assistant, a telecom company sees AI-related AWS charges grow faster than call volume. Three business units share the assistant. The CFO wants to know which services drive the increase, how much each business unit consumes, and what next quarter's spend will likely be, so that the units can be charged back fairly.\nWhich TWO actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Build a new estimate in AWS Pricing Calculator for each business unit."
+   },
+   {
+    "k": "B",
+    "t": "Use AWS Cost Explorer to analyze spend by service and to forecast next quarter's costs."
+   },
+   {
+    "k": "C",
+    "t": "Move the assistant to a different model provider through AWS Marketplace."
+   },
+   {
+    "k": "D",
+    "t": "Run an AWS Well-Architected Responsible AI Lens review of the assistant."
+   },
+   {
+    "k": "E",
+    "t": "Activate cost allocation tags by business unit, and filter Cost Explorer views by those tags."
+   }
+  ],
+  "answer": [
+   "B",
+   "E"
+  ],
+  "explain": "- Tín hiệu: đã có 6 tháng usage thật, cần driver theo service, tách theo business unit, forecast quý sau.\n- Cost Explorer xem cost tới 13 tháng trước và forecast 18 tháng tới.\n- Cost allocation tag đã activate dùng để lọc Cost Explorer theo business unit, làm nền cho chargeback.",
+  "wrong": {
+   "A": "Pricing Calculator ước tính trước khi build, không phân tích spend thực tế.",
+   "C": "Đổi provider là quyết định kiến trúc, chưa trả lời câu hỏi cost nào tăng và của ai.",
+   "D": "Responsible AI Lens review responsible AI dimension, không phải công cụ cost."
+  },
+  "refs": [
+   {
+    "label": "AWS Cost Explorer",
+    "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html"
+   },
+   {
+    "label": "Cost allocation tags",
+    "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-07",
+  "topic": "aws",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A media company runs custom recommendation models on Amazon SageMaker AI real-time endpoints 24 hours a day. Usage has been stable for 18 months, and leadership plans to keep the service for at least 3 more years. The finance team wants to lower the hourly cost of these endpoints without changing the models, the architecture, or the user experience.\nWhich option should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Move the models to Amazon Bedrock batch inference to receive the batch discount."
+   },
+   {
+    "k": "B",
+    "t": "Buy Compute Savings Plans, which apply to all SageMaker AI instance usage in any Region."
+   },
+   {
+    "k": "C",
+    "t": "Commit to SageMaker AI Savings Plans for a 3-year term."
+   },
+   {
+    "k": "D",
+    "t": "Use AWS Pricing Calculator to lower the rates charged for the running endpoints."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: usage ổn định 24/7, cam kết dài hạn, giữ nguyên kiến trúc.\n- SageMaker AI Savings Plans đổi cam kết USD mỗi giờ trong 1 hoặc 3 năm lấy giá thấp hơn, giảm tới 64%.",
+  "wrong": {
+   "A": "Recommendation real-time không chạy batch được, và chuyển sang Bedrock là đổi kiến trúc.",
+   "B": "Compute Savings Plans áp cho EC2, Fargate, Lambda, không áp cho SageMaker AI.",
+   "D": "Pricing Calculator chỉ ước tính, không thay đổi giá đang tính."
+  },
+  "refs": [
+   {
+    "label": "Machine Learning Savings Plans",
+    "url": "https://aws.amazon.com/savingsplans/ml-pricing/"
+   },
+   {
+    "label": "What are Savings Plans",
+    "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-08",
+  "topic": "aws",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A mid-sized insurer wants an AI agent for claims intake in production within 3 months. An AWS Partner already sells a claims intake agent that runs on Amazon Bedrock AgentCore and has references from two other insurers. Procurement wants to avoid a lengthy new vendor onboarding, negotiate custom pricing and terms, and see the charges on the insurer's existing AWS bill.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Purchase the partner's agent through AWS Marketplace by using a private offer."
+   },
+   {
+    "k": "B",
+    "t": "Build an equivalent claims agent in-house on Amazon Bedrock to avoid third-party dependency."
+   },
+   {
+    "k": "C",
+    "t": "Issue a request for proposal to five vendors and sign a separate contract with the winner."
+   },
+   {
+    "k": "D",
+    "t": "Ask the partner to hand over its source code so that IT can run it as an internal project."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: có partner solution sẵn, timeline 3 tháng, cần giá riêng, charge trên AWS bill, tránh onboarding vendor mới.\n- AWS Marketplace cho mua qua private offer với giá và EULA riêng; charge vào AWS bill rồi AWS trả seller.",
+  "wrong": {
+   "B": "Build lại tốn thời gian hơn 3 tháng và bỏ qua solution đã có reference.",
+   "C": "RFP và hợp đồng riêng chính là onboarding dài mà procurement muốn tránh.",
+   "D": "Partner hiếm khi giao source code; insurer phải tự operate và mất support của vendor."
+  },
+  "refs": [
+   {
+    "label": "What is AWS Marketplace",
+    "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+   },
+   {
+    "label": "AI Agents and Tools",
+    "url": "https://aws.amazon.com/marketplace/solutions/ai-agents-and-tools"
+   }
+  ]
+ },
+ {
+  "id": "aws-09",
+  "topic": "aws",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A health insurer plans to use Amazon Bedrock to summarize member complaint letters that contain personal health information. The privacy committee worries that member data could be used to improve the foundation models or be seen by the model vendor. The chief privacy officer asks the AI strategist to confirm which statements about Amazon Bedrock are accurate before the committee votes.\nWhich statements should the AI strategist confirm? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "AWS and third-party model providers do not use Bedrock inputs or outputs to train their models."
+   },
+   {
+    "k": "B",
+    "t": "Because AWS operates Bedrock, the insurer no longer decides who can access the application or the letters."
+   },
+   {
+    "k": "C",
+    "t": "Bedrock does not share user inputs or model outputs with the model providers."
+   },
+   {
+    "k": "D",
+    "t": "Bedrock shares prompts with model providers only after it removes health information automatically."
+   },
+   {
+    "k": "E",
+    "t": "Using Bedrock makes the summarization process compliant with health privacy law without further review."
+   }
+  ],
+  "answer": [
+   "A",
+   "C"
+  ],
+  "explain": "- Tín hiệu: lo data dùng để train model và lo vendor thấy data.\n- Bedrock FAQ: AWS và model provider không dùng input hay output để train model; input và output không chia sẻ với model provider.",
+  "wrong": {
+   "B": "Theo shared responsibility model, access control và data vẫn là trách nhiệm của customer.",
+   "D": "Bedrock không chia sẻ prompt với model provider ở bất kỳ dạng nào, nên tiền đề sai.",
+   "E": "Bedrock HIPAA eligible, nhưng compliance của quy trình vẫn do customer đánh giá và chịu trách nhiệm."
+  },
+  "refs": [
+   {
+    "label": "Bedrock FAQs",
+    "url": "https://aws.amazon.com/bedrock/faqs/"
+   },
+   {
+    "label": "Bedrock data protection",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-10",
+  "topic": "aws",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A retail bank is launching a GenAI chat assistant for customers. The legal team requires that the assistant never give personalized investment advice and that account numbers or other personal data in conversations are masked. The bank expects to switch foundation models as better ones appear and wants the same protections to apply regardless of which model is used.\nWhich approach BEST meets these requirements?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Fine-tune the current foundation model on refusal examples so that it declines investment questions."
+   },
+   {
+    "k": "B",
+    "t": "Add a disclaimer that asks customers not to share account numbers or ask about investments."
+   },
+   {
+    "k": "C",
+    "t": "Choose the largest available foundation model because larger models refuse unsafe requests more reliably."
+   },
+   {
+    "k": "D",
+    "t": "Use Amazon Bedrock Guardrails with a denied topic for investment advice and filters for personal data."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: chặn một topic, mask PII, cùng safeguard cho mọi model.\n- Guardrails có denied topics và sensitive information filters để block hoặc mask PII; một guardrail áp cho nhiều FM nên đổi model không mất bảo vệ.",
+  "wrong": {
+   "A": "Fine-tune gắn với một model; đổi model thì mất hành vi đã dạy, và không mask PII.",
+   "B": "Disclaimer dựa vào khách tự giác, không phải control kỹ thuật.",
+   "C": "Kích thước model không đảm bảo chặn topic hay mask PII theo yêu cầu legal."
+  },
+  "refs": [
+   {
+    "label": "Bedrock Guardrails",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-11",
+  "topic": "aws",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A manufacturing company is moving its internal GenAI knowledge assistant from pilot to production on Amazon Bedrock. The board's audit committee asks the AI strategist to clarify which responsibilities stay with the company under the AWS shared responsibility model, so that named owners can be added to the AI governance charter.\nWhich responsibilities remain with the company? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Patching the servers that host the foundation models"
+   },
+   {
+    "k": "B",
+    "t": "Deciding which employees and systems can access the assistant and its data"
+   },
+   {
+    "k": "C",
+    "t": "Physical security of the data centers that run Amazon Bedrock"
+   },
+   {
+    "k": "D",
+    "t": "Classifying the knowledge base documents and meeting applicable regulations"
+   },
+   {
+    "k": "E",
+    "t": "Maintaining the training pipelines that the provider used to build the foundation model"
+   }
+  ],
+  "answer": [
+   "B",
+   "D"
+  ],
+  "explain": "- AWS lo security of the cloud: data center, hardware, host chạy model.\n- Customer lo security in the cloud: ai được access, data nào đưa vào, phân loại data, và compliance với luật áp dụng cho use case.",
+  "wrong": {
+   "A": "Host chạy FM trên Bedrock do AWS quản lý và patch.",
+   "C": "Physical security của data center là security of the cloud, thuộc AWS.",
+   "E": "Pipeline train FM thuộc model provider; customer chỉ chọn model."
+  },
+  "refs": [
+   {
+    "label": "Shared responsibility model",
+    "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+   },
+   {
+    "label": "Bedrock security",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/security.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-12",
+  "topic": "aws",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A public-sector agency has built a GenAI service that drafts responses to citizen benefit inquiries. Before production approval, the agency's AI governance board wants a structured, repeatable review of the workload against AWS best practices for fairness, veracity, explainability, transparency, and controllability. The board wants to reuse the same review for future AI workloads.\nWhich AWS resource should the AI strategist propose?",
+  "options": [
+   {
+    "k": "A",
+    "t": "AWS Pricing Calculator, to confirm that the service fits the approved budget"
+   },
+   {
+    "k": "B",
+    "t": "The AWS Well-Architected Responsible AI Lens, applied as a workload review"
+   },
+   {
+    "k": "C",
+    "t": "The Envision phase of AWS CAF, to re-prioritize the agency's AI use cases"
+   },
+   {
+    "k": "D",
+    "t": "The Generative AI Security Scoping Matrix, to assign the workload a scope from 1 to 5"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: review có cấu trúc, lặp lại được, theo fairness, veracity, explainability, transparency, controllability.\n- Responsible AI Lens của Well-Architected review AI workload theo đúng các responsible AI dimension này.",
+  "wrong": {
+   "A": "Pricing Calculator chỉ ước tính cost, không review responsible AI.",
+   "C": "Envision chọn và ưu tiên cơ hội; use case này đã build xong.",
+   "D": "Scoping Matrix phân loại mức sở hữu cho security, không review fairness hay explainability."
+  },
+  "refs": [
+   {
+    "label": "Responsible AI Lens",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-13",
+  "topic": "aws",
+  "domain": "D4",
+  "task": "4.4",
+  "source": "original",
+  "select": 1,
+  "stem": "A retail group's executive team has completed workshops that identified and prioritized five AI use cases, each linked to a measurable business outcome and an executive sponsor. The chief transformation officer asks what the organization should do next, following the AWS Cloud Adoption Framework, before any pilot starts.\nWhat should the AI strategist recommend NEXT?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Roll out the most promising use case to all stores to show value quickly."
+   },
+   {
+    "k": "B",
+    "t": "Run more workshops with each business unit to identify additional AI opportunities and sponsors."
+   },
+   {
+    "k": "C",
+    "t": "Assess capability gaps and stakeholder concerns across the six CAF perspectives."
+   },
+   {
+    "k": "D",
+    "t": "Deliver a pilot of the highest-priority use case in production."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: đã xác định và ưu tiên use case gắn outcome và sponsor, nghĩa là Envision xong; chưa pilot.\n- Phase kế tiếp là Align: tìm capability gap qua 6 perspective, dependency, và concern của stakeholder.",
+  "wrong": {
+   "A": "Rollout toàn bộ là Scale, bỏ qua Align và Launch.",
+   "B": "Tìm thêm cơ hội là lặp lại Envision đã hoàn tất.",
+   "D": "Pilot là Launch; đề nói rõ bước tiếp theo trước khi có pilot."
+  },
+  "refs": [
+   {
+    "label": "Cloud transformation journey",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-14",
+  "topic": "aws",
+  "domain": "D4",
+  "task": "4.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A pharmaceutical company's AI readiness assessment finds a mature cloud platform and well-governed clinical data. However, most managers cannot explain what GenAI can and cannot do, many teams fear that AI will replace their roles, and there is no plan to reskill staff. The CEO asks which AWS Cloud Adoption Framework perspective the transformation plan should strengthen FIRST.\nWhich perspective should the AI strategist identify?",
+  "options": [
+   {
+    "k": "A",
+    "t": "People perspective"
+   },
+   {
+    "k": "B",
+    "t": "Platform perspective"
+   },
+   {
+    "k": "C",
+    "t": "Governance perspective"
+   },
+   {
+    "k": "D",
+    "t": "Operations perspective"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: thiếu hiểu biết về AI, sợ mất việc, không có kế hoạch reskill; platform và data đã tốt.\n- People perspective lo culture, leadership, workforce; CAF for AI nhấn mạnh talent, ngôn ngữ chung về AI và culture.",
+  "wrong": {
+   "B": "Platform đã mature theo assessment.",
+   "C": "Governance lo risk, cost, responsible use; data đã well-governed và vấn đề nằm ở con người.",
+   "D": "Operations lo giữ workload ổn định, không giải quyết nỗi sợ hay kỹ năng của nhân viên."
+  },
+  "refs": [
+   {
+    "label": "CAF for AI capabilities",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/foundational-ai-capabilities.html"
+   },
+   {
+    "label": "CAF perspectives",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-15",
+  "topic": "aws",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A retail bank runs a customer-facing GenAI assistant on Amazon Bedrock. Traffic has been steady for 9 months, the assistant is mission-critical, and the business cannot accept throttling at peak hours. The CFO, who previously bought Savings Plans for the bank's compute, asks the AI strategist to buy Savings Plans for Bedrock to secure capacity and a predictable price.\nWhich recommendation should the AI strategist make?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Buy Compute Savings Plans, because they also cover Amazon Bedrock token usage across Regions."
+   },
+   {
+    "k": "B",
+    "t": "Reserve capacity in the Amazon Bedrock Reserved tier at a fixed price per tokens-per-minute for a 1- or 3-month term."
+   },
+   {
+    "k": "C",
+    "t": "Buy SageMaker AI Savings Plans, because Amazon Bedrock inference is billed as SageMaker AI usage."
+   },
+   {
+    "k": "D",
+    "t": "Move the assistant to the Flex tier to get the lowest token price during peak hours."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: mission-critical, tải đều, không chấp nhận throttling, cần giá dự đoán được.\n- Savings Plans chỉ áp cho EC2, Fargate, Lambda và SageMaker AI, không áp cho Bedrock.\n- Reserved tier giữ tokens-per-minute riêng, giá cố định mỗi 1K TPM, kỳ 1 hoặc 3 tháng, target 99.5% uptime.",
+  "wrong": {
+   "A": "Compute Savings Plans chỉ áp cho EC2, Fargate, Lambda.",
+   "C": "SageMaker AI Savings Plans chỉ áp cho SageMaker AI usage; Bedrock tính phí riêng.",
+   "D": "Flex đổi giá thấp lấy thời gian xử lý dài hơn, ngược với yêu cầu không throttling."
+  },
+  "refs": [
+   {
+    "label": "Bedrock service tiers",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html"
+   },
+   {
+    "label": "Services eligible for Savings Plans",
+    "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-services.html"
+   }
+  ]
+ },
+ {
+  "id": "aws-16",
+  "topic": "aws",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A manufacturing company with 8,000 employees plans three AI initiatives. First, give all office staff an AI assistant to search policies, explore dashboards, and automate routine tasks, with no development team involved. Second, a customer-facing product assistant that the digital team will build on company manuals. Third, a predictive-maintenance model that the existing data science team will train on 10 years of proprietary sensor data.\nWhich TWO mappings should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "The first initiative on Amazon Quick, priced per user per month."
+   },
+   {
+    "k": "B",
+    "t": "The second initiative on Amazon SageMaker AI, with a foundation model trained from scratch on the manuals."
+   },
+   {
+    "k": "C",
+    "t": "The third initiative on Amazon SageMaker AI, where the data science team builds, trains, and deploys its own model."
+   },
+   {
+    "k": "D",
+    "t": "The first initiative on Amazon SageMaker AI, with a custom-trained assistant for every employee."
+   },
+   {
+    "k": "E",
+    "t": "The third initiative on Amazon Quick, where business users train the prediction model in natural language."
+   }
+  ],
+  "answer": [
+   "A",
+   "C"
+  ],
+  "explain": "- Initiative 1: mọi nhân viên, không có team phát triển, cần assistant, dashboard, automation: Amazon Quick, giá theo seat.\n- Initiative 3: prediction trên structured data riêng, có team data science: SageMaker AI.\n- Initiative 2 hợp với Bedrock và Knowledge Bases, không có trong các lựa chọn đúng.",
+  "wrong": {
+   "B": "Train FM từ đầu trên vài bộ manual tốn kém và không cần; RAG trên Bedrock là lựa chọn hợp lý.",
+   "D": "Không có team phát triển; build assistant riêng trên SageMaker AI trái yêu cầu.",
+   "E": "Quick là assistant và BI cho knowledge worker, không phải platform train model ML."
+  },
+  "refs": [
+   {
+    "label": "What is Amazon Quick",
+    "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+   },
+   {
+    "label": "What is SageMaker AI",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html"
+   }
+  ]
+ }
+]

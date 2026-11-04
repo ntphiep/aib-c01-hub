@@ -1,0 +1,1224 @@
+[
+ {
+  "id": "trn-01",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A regional insurance company with 2,000 employees has never run an AI project. The CEO wants generative AI in claims handling within 6 months. Business unit leaders disagree on priorities, claims data sits in several legacy systems, and the chief risk officer has not defined any AI policy. The CEO asks an AI strategist for a recommendation.\nWhat should the company do FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Purchase generative AI assistant licenses for all 2,000 employees so that every claims handler can start using AI immediately and build familiarity."
+   },
+   {
+    "k": "B",
+    "t": "Launch five generative AI pilots in parallel across claims functions and keep the ones that show early results."
+   },
+   {
+    "k": "C",
+    "t": "Assess AI readiness across leadership alignment, data, culture, infrastructure, and governance."
+   },
+   {
+    "k": "D",
+    "t": "Hire a data science team to build a custom claims model on consolidated legacy data."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: chưa từng làm AI, lãnh đạo không thống nhất, data rời rạc, chưa có policy.\n- Gap nằm ở nhiều dimension cùng lúc, nên bước FIRST là readiness assessment.\n- CAF-AI đặt initial assessment trước chu kỳ Envision.",
+  "wrong": {
+   "A": "Mua license trước khi biết gap về data, governance và culture; adoption và risk đều không kiểm soát.",
+   "B": "Năm pilot song song khi chưa có sponsor thống nhất và chưa có governance dễ thành pilot fatigue.",
+   "D": "Nhảy thẳng vào build custom model, bỏ qua leadership alignment và governance; data còn chưa sẵn sàng."
+  },
+  "refs": [
+   {
+    "label": "CAF-AI: AI transformation journey",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+   },
+   {
+    "label": "GenAI maturity level 1: Envision",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-02",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A manufacturing company has run 9 generative AI proofs of concept over 18 months. Small cross-functional teams built them, and an initial governance framework exists. None of the solutions is in production, there is no operations support team, and business leaders are frustrated by repeated demos without results. The board asks where the company stands and what to focus on next.\nWhich assessment should the AI strategist give?",
+  "options": [
+   {
+    "k": "A",
+    "t": "The company is at the Experiment level; it should build production readiness: operating model, monitoring, support, and launch governance."
+   },
+   {
+    "k": "B",
+    "t": "The company is at the Envision level and should focus on additional awareness training and conferences before running more proofs of concept."
+   },
+   {
+    "k": "C",
+    "t": "The company is at the Launch level because several solutions are validated; it should create a reusable component library and an enterprise-wide RACI matrix for scaled operations."
+   },
+   {
+    "k": "D",
+    "t": "The company is at the Scale level and should focus on a self-service internal AI platform so that every department can build its own solutions."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: nhiều PoC, team nhỏ, governance sơ bộ, chưa có gì trong production.\n- Đó là tiêu chí level 2 Experiment trong GenAI maturity model của AWS.\n- Muốn lên Launch cần infrastructure, governance, observability và support production-grade.",
+  "wrong": {
+   "B": "Envision là khi chưa có project hay resource; công ty đã chạy 9 PoC.",
+   "C": "Launch đòi hỏi đã có ứng dụng production; reusable library và RACI toàn enterprise là việc của Scale.",
+   "D": "Scale đòi hỏi nhiều phòng ban đã dùng AI trong production; nhảy cóc làm pilot fatigue nặng hơn."
+  },
+  "refs": [
+   {
+    "label": "GenAI maturity model: levels",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+   },
+   {
+    "label": "GenAI maturity level 2: Experiment",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-03",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A retail bank has a modern cloud data platform and approved access to foundation models. Its data science team has built three working AI models for credit operations. However, none has been released in 8 months because nobody knows who must approve a model, legal reviews happen only when someone requests them, and business units cannot say who is accountable if a model causes harm. The COO asks what is blocking progress.\nWhich capability gap is the PRIMARY blocker?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Technology, because the cloud platform needs more compute capacity and higher service quotas before it can support three models in production."
+   },
+   {
+    "k": "B",
+    "t": "People, because the bank needs to hire more data scientists to speed up model development."
+   },
+   {
+    "k": "C",
+    "t": "Process, because the data pipelines feeding the models need to be automated before release."
+   },
+   {
+    "k": "D",
+    "t": "Governance, because decision rights, approval workflows, and accountability for AI outcomes are undefined."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: model đã chạy được, nhưng không ai biết ai duyệt, legal review tuỳ hứng, không rõ ai accountable.\n- Đó là gap governance: decision rights, review process, accountability.\n- Level 3 Launch của AWS cần architecture endorsement, responsible AI policy và oversight committee.",
+  "wrong": {
+   "A": "Đề nói platform hiện đại và model đã chạy; thêm compute không trả lời được câu hỏi ai duyệt.",
+   "B": "Model đã build xong; thêm người build không gỡ được nút thắt ở khâu phê duyệt.",
+   "C": "Đề không nhắc vấn đề pipeline; tự động hoá data không xác định được ai chịu trách nhiệm."
+  },
+  "refs": [
+   {
+    "label": "GenAI maturity level 3: Launch",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+   },
+   {
+    "label": "CAF-AI: Governance perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-04",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.1",
+  "source": "original",
+  "select": 2,
+  "stem": "A national grocery retailer is at an early stage of AI adoption: leaders attend workshops, but there are no funded AI projects. The strategic objective is to reduce customer service cost by 15% within 12 months. The AI budget for the year is limited, and the CFO wants every investment tied to that objective.\nWhich TWO investments should the AI strategist prioritize first? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Build an enterprise self-service AI platform with a marketplace of reusable components so that every department can build solutions without central help."
+   },
+   {
+    "k": "B",
+    "t": "Prioritize customer service use cases with a matrix of business impact, feasibility, and strategic alignment."
+   },
+   {
+    "k": "C",
+    "t": "Formalize an enterprise-wide RACI matrix and operating model for scaled AI operations across all business units."
+   },
+   {
+    "k": "D",
+    "t": "Hire a research team to pretrain a proprietary foundation model on the retailer's historical customer data."
+   },
+   {
+    "k": "E",
+    "t": "Fund role-based AI literacy for customer service leaders and identify AI champions in contact centers."
+   }
+  ],
+  "answer": [
+   "B",
+   "E"
+  ],
+  "explain": "- Tín hiệu: level Envision, budget hạn chế, objective cụ thể là customer service cost.\n- AWS khuyên ở Envision: use case matrix theo impact, feasibility, alignment, rồi budget cho PoC.\n- Cùng lúc: training và chọn AI champion để có người dẫn dắt pilot.",
+  "wrong": {
+   "A": "Self-service platform là việc chuyển từ Launch sang Scale, quá sớm và không gắn trực tiếp objective.",
+   "C": "RACI toàn enterprise cho scaled operations thuộc level Scale; chưa có use case nào để vận dụng.",
+   "D": "Pretrain foundation model tốn kém, lâu, không cần cho customer service và không vừa budget."
+  },
+  "refs": [
+   {
+    "label": "GenAI maturity level 1: Envision",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+   },
+   {
+    "label": "GenAI maturity model: levels",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-05",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A hospital network has executive sponsorship, a governed cloud data platform, and a responsible AI policy for a clinical documentation assistant. A readiness survey shows that clinicians distrust AI-generated notes, and department managers have publicly criticized staff whose earlier digital experiments failed. Clinicians rarely volunteer for pilots.\nWhich readiness dimension is weakest, and what should leaders do?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Governance frameworks; the network should rewrite the responsible AI policy before any clinician uses the assistant."
+   },
+   {
+    "k": "B",
+    "t": "Cultural preparedness; leaders should model safe-to-fail experimentation and involve clinicians in the pilot."
+   },
+   {
+    "k": "C",
+    "t": "Technical infrastructure; the network should upgrade the data platform and add specialized compute so that the assistant produces more accurate clinical notes."
+   },
+   {
+    "k": "D",
+    "t": "Data quality; the network should run a data cleansing program on historical notes before the pilot begins."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: sponsor, platform, policy đều có; vấn đề là distrust và thất bại bị phê bình công khai.\n- Đó là cultural preparedness, cụ thể là fear of failure.\n- Intervention: leader làm gương chấp nhận thử nghiệm an toàn, cho clinician tham gia thiết kế và đánh giá.",
+  "wrong": {
+   "A": "Đề nói policy đã có; viết lại policy không gỡ được nỗi sợ và sự thiếu tin.",
+   "C": "Platform đã governed; đề không có tín hiệu technology yếu.",
+   "D": "Đề không nhắc data kém chất lượng; làm sạch data không thay đổi hành vi của manager."
+  },
+  "refs": [
+   {
+    "label": "OCA: Enable Capacity",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html"
+   },
+   {
+    "label": "CAF-AI: People perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-06",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A logistics company wants AI-based demand forecasting. Shipment data is stored in six business unit systems, each with a different definition of a shipment, and no catalog describes what data exists. The AI team reports that it spends most of its time locating and reconciling data. The COO wants forecasting in production within the year.\nWhich action should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Select a larger foundation model so that it can compensate for inconsistent shipment definitions across the systems."
+   },
+   {
+    "k": "B",
+    "t": "Grant the AI team administrator access to all six source systems so that it can extract whatever data it needs."
+   },
+   {
+    "k": "C",
+    "t": "Establish a data strategy with named data owners, common definitions, and a searchable data catalog."
+   },
+   {
+    "k": "D",
+    "t": "Postpone the forecasting initiative until all company data has been migrated into a single enterprise data warehouse with one shared data model."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: data silo, định nghĩa khác nhau, không có catalog, team mất thời gian tìm data.\n- CAF-AI Data curation: data phải discoverable, có owner hoặc data steward.\n- Làm cho data phục vụ use case đã chọn, không đợi toàn bộ.",
+  "wrong": {
+   "A": "Model lớn hơn không sửa được định nghĩa mâu thuẫn; output vẫn sai.",
+   "B": "Cấp quyền admin bỏ qua governance và ownership; định nghĩa vẫn không thống nhất.",
+   "D": "Chờ migrate toàn bộ là cách all-or-nothing, trễ objective trong năm."
+  },
+  "refs": [
+   {
+    "label": "CAF-AI: Governance perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+   },
+   {
+    "label": "Data strategy for generative AI",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-considerations-gen-ai/journey.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-07",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A telecommunications provider has recurring quality problems in customer data used by its churn prediction model: duplicate accounts, outdated addresses, and missing contract dates. A central data team fixes errors manually each month, but the same problems return. Business units say data quality is an IT problem. The chief data officer asks for a sustainable fix.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Assign business data owners and stewards who are accountable for domain data quality metrics."
+   },
+   {
+    "k": "B",
+    "t": "Increase the size of the central data team so that it can find and correct errors weekly instead of monthly and publish a quality report to business units."
+   },
+   {
+    "k": "C",
+    "t": "Ask the data science team to tune the churn model so that it tolerates low-quality input data."
+   },
+   {
+    "k": "D",
+    "t": "Purchase a third-party customer dataset to replace the internal customer records used by the model."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: lỗi lặp lại, không ai phía business chịu trách nhiệm.\n- Gốc là data ownership; owner trong business sửa từ nguồn và theo dõi quality metric.\n- CAF-AI: dataset cần direct owner hoặc data steward.",
+  "wrong": {
+   "B": "Sửa nhanh hơn ở hạ nguồn vẫn không chặn lỗi phát sinh; cost tăng mãi.",
+   "C": "Tune model quanh data xấu che triệu chứng, chất lượng prediction vẫn kém.",
+   "D": "Data bên ngoài không thay được hợp đồng và account nội bộ; vấn đề ownership vẫn còn."
+  },
+  "refs": [
+   {
+    "label": "CAF-AI: Governance perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-08",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A global conglomerate runs a central data lake. Its central data team has a backlog of 40 data requests, and business units wait months for new datasets for AI use cases. Business units want to publish and manage their own data. Regulators require the same privacy and access controls across all units.\nWhich approach best meets these requirements?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Let each business unit build an independent data lake with its own access rules and privacy standards so that it can move at its own speed."
+   },
+   {
+    "k": "B",
+    "t": "Double the central data team and require all business units to submit requests through a single queue."
+   },
+   {
+    "k": "C",
+    "t": "Freeze new AI data requests until the central team clears the backlog and documents every dataset."
+   },
+   {
+    "k": "D",
+    "t": "Adopt a data mesh: domain ownership, data products, a self-service platform, and federated governance."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: central team là bottleneck, BU muốn tự chủ, regulator đòi controls thống nhất.\n- Data mesh: domain ownership, data as a product, self-service platform, federated governance.\n- Federated governance giữ policy chung trong khi BU tự publish.",
+  "wrong": {
+   "A": "Tự chủ nhưng mất controls thống nhất; vi phạm yêu cầu của regulator.",
+   "B": "Mở rộng team trung tâm không giải quyết gốc bottleneck khi nhu cầu tiếp tục tăng.",
+   "C": "Đóng băng yêu cầu làm chậm mọi AI use case, BU vẫn không có tự chủ."
+  },
+  "refs": [
+   {
+    "label": "Data mesh strategy on AWS",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-mesh/introduction.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-09",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A mid-size insurer wants a generative AI assistant that summarizes policy documents for underwriters. The company has no machine learning engineers and wants results within one quarter. The compliance team is concerned about who is responsible for protecting customer data when the solution runs on AWS. The company may expand the assistant to other departments later.\nWhich TWO considerations should guide the foundation decisions? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Use a managed foundation model service such as Amazon Bedrock to limit the infrastructure skills needed."
+   },
+   {
+    "k": "B",
+    "t": "Purchase on-premises GPU servers so that customer data never leaves the insurer's data center."
+   },
+   {
+    "k": "C",
+    "t": "Start by training a custom foundation model on Amazon SageMaker AI to maximize control over model behavior."
+   },
+   {
+    "k": "D",
+    "t": "Apply the shared responsibility model: AWS secures the cloud, and the insurer protects its data and access."
+   },
+   {
+    "k": "E",
+    "t": "Assume that the AI provider becomes responsible for the compliance of all generated output and customer data once the managed service is in use."
+   }
+  ],
+  "answer": [
+   "A",
+   "D"
+  ],
+  "explain": "- Tín hiệu: không có ML engineer, cần kết quả trong 1 quý, lo về trách nhiệm data.\n- Managed service như Amazon Bedrock giảm nhu cầu tự dựng infrastructure.\n- Shared responsibility model: AWS lo security of the cloud, công ty lo data, access và cách dùng.",
+  "wrong": {
+   "B": "Mua GPU on-premises cần kỹ năng công ty không có và chậm hơn nhiều so với 1 quý.",
+   "C": "Train custom foundation model là bước quá lớn khi chưa có ML engineer và chỉ cần tóm tắt tài liệu.",
+   "E": "Sai về shared responsibility: công ty vẫn chịu trách nhiệm data và cách dùng output."
+  },
+  "refs": [
+   {
+    "label": "AWS shared responsibility model",
+    "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+   },
+   {
+    "label": "Establishing an AI/ML CoE",
+    "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+   }
+  ]
+ },
+ {
+  "id": "trn-10",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A law firm with 600 lawyers plans a generative AI assistant that answers questions from internal documents. The documents are spread across several file shares, many exist in multiple outdated versions, and access permissions differ by client matter. Partners worry that the assistant could reveal one client's documents to lawyers who are not on that matter.\nWhat should the firm evaluate FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "The price per token of the candidate foundation models, to estimate the monthly cost of the assistant for 600 lawyers and confirm the budget."
+   },
+   {
+    "k": "B",
+    "t": "Data readiness: document currency, accessibility, and per-user permissions for the source content."
+   },
+   {
+    "k": "C",
+    "t": "The user interface design, so that lawyers can adopt the assistant quickly once it is released."
+   },
+   {
+    "k": "D",
+    "t": "An internal hackathon, so that lawyers can propose additional use cases for the assistant."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: nhiều bản cũ, phân tán, quyền khác nhau, lo lộ tài liệu khách hàng.\n- Đây là data readiness: quality, accessibility, permissions.\n- AWS: model chỉ được lấy thông tin mà user có quyền xem.",
+  "wrong": {
+   "A": "Cost quan trọng nhưng không trả lời được risk lộ tài liệu.",
+   "C": "UI tốt không sửa được bản cũ hay permission sai.",
+   "D": "Hackathon tạo thêm ý tưởng, không đánh giá được data cho use case hiện tại."
+  },
+  "refs": [
+   {
+    "label": "Data strategy for generative AI",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-considerations-gen-ai/journey.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-11",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A consumer goods company completed a successful AI demand-sensing pilot. When the company tried to expand it to five regions, adoption stalled. Regional managers prioritize other targets, the CIO who sponsored the pilot has delegated the program to a junior manager, and no senior leader talks about the initiative. Regional teams have no local contact for questions.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Add more features to the demand-sensing tool so that regional managers find it more attractive."
+   },
+   {
+    "k": "B",
+    "t": "Send a mandatory usage instruction from the IT department to every regional planning team, with weekly compliance reports to regional managers."
+   },
+   {
+    "k": "C",
+    "t": "Re-engage an active, visible executive sponsor who empowers AI champions in each region."
+   },
+   {
+    "k": "D",
+    "t": "Provide additional technical training on the forecasting model to the regional planning teams."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: sponsor giao xuống cấp thấp, không lãnh đạo nào nói về initiative, region không có đầu mối.\n- AWS: sponsor active và visible là yếu tố lớn nhất cho change adoption.\n- AI champion ở từng region giữ momentum và trả lời câu hỏi tại chỗ.",
+  "wrong": {
+   "A": "Thêm feature không giải quyết thiếu ưu tiên từ lãnh đạo.",
+   "B": "Mệnh lệnh từ IT không có sức nặng của sponsor phía business và không tạo buy-in.",
+   "D": "Gap là leadership, không phải kỹ năng kỹ thuật."
+  },
+  "refs": [
+   {
+    "label": "OCA: sponsor roadmap",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/oca-framework-envision-future/sponsor.html"
+   },
+   {
+    "label": "GenAI maturity level 1: Envision",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-12",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.4",
+  "source": "original",
+  "select": 1,
+  "stem": "An airline plans to scale its AI customer service chatbot from one market to all 20 markets before the peak holiday season. Leaders are concerned about service disruption, sudden cost increases, and staff readiness. Contact center agents currently handle all complex cases. The chief customer officer wants the rollout to protect customer experience.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Switch all markets to the chatbot on the same date to capture the full cost savings before the peak season."
+   },
+   {
+    "k": "B",
+    "t": "Postpone the rollout indefinitely until the chatbot can resolve every type of customer request without agents."
+   },
+   {
+    "k": "C",
+    "t": "Reduce contact center staff in all markets as soon as the chatbot launches to fund the expansion."
+   },
+   {
+    "k": "D",
+    "t": "Roll out in phases by market with KPI and cost thresholds, a handoff to human agents, and a rollback plan."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: lo gián đoạn, cost tăng, staff chưa sẵn sàng, peak season.\n- Business continuity: phased rollout, ngưỡng KPI và cost, đường lui về con người, rollback plan.\n- CAF-AI: thiết kế để AI fail an toàn và có fallback.",
+  "wrong": {
+   "A": "Big-bang trước peak season dồn mọi risk vào một thời điểm, không có đường lui.",
+   "B": "Đòi chatbot xử lý mọi request là tiêu chí không thực tế; giá trị bị trì hoãn vô hạn.",
+   "C": "Cắt agent ngay làm mất đường lui cho case phức tạp, phá business continuity."
+  },
+  "refs": [
+   {
+    "label": "CAF-AI: Operations perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/operations-perspective-health-and-availability-of-the-aiml-landscape.html"
+   },
+   {
+    "label": "CAF-AI: AI transformation journey",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-13",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.3",
+  "source": "original",
+  "select": 2,
+  "stem": "A bank piloted an AI model that pre-screens small business loan applications. The data science team built it alone. Two weeks before launch, legal and compliance teams raised fair lending concerns, and the launch was delayed by four months. No one could say who was accountable for the final go-live decision. The bank plans three more AI initiatives this year.\nWhich TWO actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Let the data science team keep full ownership of future initiatives because it understands the models best and can explain technical tradeoffs to regulators."
+   },
+   {
+    "k": "B",
+    "t": "Add a legal review only at the final release gate of each initiative to avoid slowing development."
+   },
+   {
+    "k": "C",
+    "t": "Form cross-functional teams with business, technical, legal, compliance, and risk members from the start."
+   },
+   {
+    "k": "D",
+    "t": "Outsource compliance reviews to the model vendor so that internal teams can focus on delivery."
+   },
+   {
+    "k": "E",
+    "t": "Define a RACI matrix for each initiative with a single accountable owner for go-live."
+   }
+  ],
+  "answer": [
+   "C",
+   "E"
+  ],
+  "explain": "- Tín hiệu: legal vào muộn gây trễ 4 tháng; không ai accountable cho go-live.\n- Team cross-functional có legal và compliance từ đầu tránh bất ngờ cuối kỳ.\n- RACI với một người accountable làm rõ ai quyết.",
+  "wrong": {
+   "A": "Chính cách này gây ra vấn đề: thiếu góc nhìn legal, compliance và business.",
+   "B": "Review ở gate cuối lặp lại đúng lỗi nhận ra concern quá muộn.",
+   "D": "Vendor không chịu trách nhiệm thay bank về fair lending; accountability vẫn ở bank."
+  },
+  "refs": [
+   {
+    "label": "GenAI maturity level 1: Envision",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+   },
+   {
+    "label": "Establishing an AI/ML CoE",
+    "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+   },
+   {
+    "label": "GenAI maturity level 3: Launch",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-14",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A business process outsourcing company with 8,000 contact center employees announced a partnership to deploy generative AI. Within a week, rumors of mass layoffs spread, attrition rose, and team leaders could not answer questions. The executive team has not decided exactly which roles will change, but expects some tasks to be automated over 18 months.\nHow should the company communicate with the workforce?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Pause all communication until the full rollout plan is final, so that leaders avoid sharing incomplete or inaccurate information with employees."
+   },
+   {
+    "k": "B",
+    "t": "State publicly that no roles will change so that employees stop leaving the company."
+   },
+   {
+    "k": "C",
+    "t": "Focus communication on expected cost savings and shareholder value to show the strategic rationale."
+   },
+   {
+    "k": "D",
+    "t": "Share the timeline, expected outcomes, likely role changes, reskilling support, and question channels."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: tin đồn, attrition tăng, leader không trả lời được.\n- Communication minh bạch: timeline, kỳ vọng, tác động lên vai trò, reskilling, kênh hai chiều.\n- AWS: communication không nhất quán hay lỗi thời gây chậm timeline và mất niềm tin.",
+  "wrong": {
+   "A": "Im lặng để tin đồn lấp chỗ trống; attrition tiếp tục tăng.",
+   "B": "Hứa điều biết là sai phá niềm tin khi task bị tự động hoá.",
+   "C": "Nói về cổ đông bỏ qua mối lo của nhân viên, làm resistance tăng."
+  },
+  "refs": [
+   {
+    "label": "OCA: Engage the Organization",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/engage-organization.html"
+   },
+   {
+    "label": "OCA: Enable Capacity",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-15",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A pharmaceutical company's R&D division wants teams to propose AI experiments for drug discovery. In practice, few proposals arrive. Interviews show that scientists believe failed projects hurt their annual performance ratings, and senior leaders only celebrate projects that succeed. The head of R&D asks for a leadership intervention.\nWhich intervention should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Require every AI proposal to guarantee a positive ROI before it is approved for funding."
+   },
+   {
+    "k": "B",
+    "t": "Reward time-boxed experiments and documented learning, and have leaders share their own failed experiments."
+   },
+   {
+    "k": "C",
+    "t": "Move all AI experimentation to a central AI CoE so that R&D scientists are not exposed to failure."
+   },
+   {
+    "k": "D",
+    "t": "Provide advanced machine learning training to scientists so that their experiments are more likely to succeed on the first attempt."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: fear of failure gắn với performance rating và văn hoá chỉ khen thành công.\n- Intervention: đổi incentive, reward experimentation và learning; leader làm gương.\n- AWS khuyên reward hành vi mới như experimentation và failing fast.",
+  "wrong": {
+   "A": "Đòi bảo đảm ROI làm nỗi sợ thất bại tăng thêm.",
+   "C": "Tách scientist khỏi thử nghiệm làm mất domain expertise và không đổi văn hoá.",
+   "D": "Kỹ năng không phải nút thắt; incentive mới là nút thắt."
+  },
+  "refs": [
+   {
+    "label": "OCA: Enable Capacity",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html"
+   },
+   {
+    "label": "CAF-AI: People perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-16",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.3",
+  "source": "original",
+  "select": 1,
+  "stem": "An accounting firm with 5,000 employees wants enterprise-wide adoption of an approved generative AI assistant within one year. A survey shows low AI literacy among auditors and tax advisors, while a small internal team wants to build custom AI tools. Partners are concerned about client confidentiality and responsible use.\nWhich workforce development approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "A tiered program: role-based AI literacy, mandatory responsible AI training, builder paths, and hackathons."
+   },
+   {
+    "k": "B",
+    "t": "Advanced machine learning certification for the IT department only, because IT staff will configure, support, and troubleshoot the assistant for everyone."
+   },
+   {
+    "k": "C",
+    "t": "A single one-hour webinar for all employees on the day that the assistant is released."
+   },
+   {
+    "k": "D",
+    "t": "Self-directed learning in which employees experiment with any public AI tools that they prefer."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: 5,000 người, literacy thấp, có nhóm builder, lo confidentiality.\n- Program nhiều tầng theo role, có responsible AI training bắt buộc.\n- CoE thiết kế training, certification, hackathon theo từng mức chuyên môn.",
+  "wrong": {
+   "B": "Chỉ IT được học thì auditor và tax advisor vẫn không dùng được tool.",
+   "C": "Một webinar không đủ thay đổi kỹ năng và hành vi của 5,000 người.",
+   "D": "Tool public không được duyệt tạo shadow AI và risk lộ data khách hàng."
+  },
+  "refs": [
+   {
+    "label": "Establishing an AI/ML CoE",
+    "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+   },
+   {
+    "label": "CAF-AI: People perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-17",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.3",
+  "source": "original",
+  "select": 2,
+  "stem": "An insurance company is introducing AI that extracts data from claim forms and recommends whether to approve, investigate, or deny a claim. Adjusters fear that their jobs will disappear. Regulators expect a qualified person to be responsible for adverse decisions. Leaders want efficiency gains without losing customer trust.\nWhich TWO decisions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Redesign adjuster roles toward reviewing AI recommendations, complex claims, and empathetic conversations."
+   },
+   {
+    "k": "B",
+    "t": "Fully automate claim denials to maximize efficiency, because the AI recommendations are statistically more accurate than adjusters on historical claims."
+   },
+   {
+    "k": "C",
+    "t": "Keep a human-in-the-loop review for high-impact decisions such as claim denials and fraud referrals."
+   },
+   {
+    "k": "D",
+    "t": "Keep the current manual process unchanged to avoid resistance from adjusters."
+   },
+   {
+    "k": "E",
+    "t": "Replace all adjusters with a customer-facing chatbot that explains decisions to claimants."
+   }
+  ],
+  "answer": [
+   "A",
+   "C"
+  ],
+  "explain": "- Tín hiệu: adjuster sợ mất việc, regulator đòi người chịu trách nhiệm, cần giữ niềm tin.\n- Chuyển vai trò sang oversight, case phức tạp và empathy.\n- Human-in-the-loop cho quyết định tác động lớn.",
+  "wrong": {
+   "B": "Tự động hoá từ chối claim vi phạm yêu cầu có người chịu trách nhiệm.",
+   "D": "Giữ nguyên quy trình bỏ lỡ toàn bộ lợi ích hiệu quả.",
+   "E": "Bỏ hết adjuster mất empathy và critical thinking cho case khó."
+  },
+  "refs": [
+   {
+    "label": "OCA: Enable Capacity",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html"
+   },
+   {
+    "label": "GenAI maturity level 3: Launch",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+   },
+   {
+    "label": "CAF-AI: People perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-18",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.4",
+  "source": "original",
+  "select": 1,
+  "stem": "A national utility company wants AI across customer service, field operations, finance, and HR. The board approved a plan to deploy AI in all four departments simultaneously within one year with a single go-live date. The company has no AI solutions in production. The new chief digital officer asks the AI strategist to review the plan.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Keep the single go-live date and add external contractors to each department so that all four departments reach production readiness at the same time."
+   },
+   {
+    "k": "B",
+    "t": "Delay all AI work until every department reaches the same level of AI maturity."
+   },
+   {
+    "k": "C",
+    "t": "Start with one low-value internal use case so that a failure would not attract attention."
+   },
+   {
+    "k": "D",
+    "t": "Replace it with iterative phases (envision, experiment, launch, scale) that start with a few high-impact pilots with KPIs."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: big-bang, chưa có gì trong production.\n- AWS khuyên các phase lặp và tăng dần để chứng minh value sớm.\n- Bắt đầu bằng vài pilot có impact lớn và KPI đo được.",
+  "wrong": {
+   "A": "Thêm người không giảm risk của big-bang khi chưa có kinh nghiệm production.",
+   "B": "Chờ mọi phòng cùng maturity là không thực tế và chặn quick win.",
+   "C": "CAF yêu cầu pilot có impact lớn; use case giá trị thấp không tạo được business case."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF: cloud transformation journey",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+   },
+   {
+    "label": "CAF-AI: AI transformation journey",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-19",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.4",
+  "source": "original",
+  "select": 1,
+  "stem": "A hotel chain with 120 properties is new to AI. The board is skeptical after an earlier digital program overran its budget. The AI strategist must show value within one quarter. Guest review data is already centralized, and front-desk managers spend hours each week writing replies to reviews.\nWhich initiative should the strategist recommend FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "A dynamic pricing engine for all 120 properties that requires new integrations with six revenue management systems and a new data model."
+   },
+   {
+    "k": "B",
+    "t": "A generative AI assistant that drafts review replies for manager approval, measured against current hours."
+   },
+   {
+    "k": "C",
+    "t": "An internal chatbot that answers general employee questions, with success metrics defined after launch."
+   },
+   {
+    "k": "D",
+    "t": "A multi-year program to build a custom foundation model trained on hospitality industry data."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: board hoài nghi, cần value trong 1 quý, data review đã có sẵn.\n- Quick win: giá trị rõ, độ phức tạp thấp, data sẵn, có baseline (giờ làm hiện tại), có người duyệt.\n- CAF-AI ghép bức tranh lớn với bước nhỏ có KPI.",
+  "wrong": {
+   "A": "Giá trị lớn nhưng cần tích hợp nhiều hệ thống, khó xong trong 1 quý.",
+   "C": "Không có success metric từ đầu thì không chứng minh được value cho board.",
+   "D": "Chương trình nhiều năm, ngược với yêu cầu chứng minh nhanh."
+  },
+  "refs": [
+   {
+    "label": "CAF-AI: AI transformation journey",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+   },
+   {
+    "label": "GenAI maturity level 1: Envision",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-20",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.4",
+  "source": "original",
+  "select": 1,
+  "stem": "A multinational manufacturer has 12 business units, and each runs its own AI tools and vendors. The audit committee found duplicated spending and inconsistent risk controls. Business unit leaders resist centralization because they fear losing delivery speed. The CEO wants consistent standards and faster scaling of proven solutions.\nWhich operating model should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "A fully centralized AI CoE that builds and runs every AI solution for all 12 business units under one budget and one delivery roadmap."
+   },
+   {
+    "k": "B",
+    "t": "Dissolving central AI oversight so that each business unit keeps full autonomy over tools and controls."
+   },
+   {
+    "k": "C",
+    "t": "A federated AI CoE: a central hub sets standards and reusable patterns, and business unit teams deliver."
+   },
+   {
+    "k": "D",
+    "t": "Outsourcing all AI development and governance to a single external consulting firm."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: trùng lặp, controls không thống nhất, BU sợ mất tốc độ.\n- Federated: BU lái use case, team trung tâm giữ standard, guardrails, model risk, compliance.\n- AWS blog mô tả 3 operating model: decentralized, centralized, federated.",
+  "wrong": {
+   "A": "Centralized hoàn toàn dễ thành bottleneck, đúng điều BU lo.",
+   "B": "Giữ nguyên tình trạng gây trùng lặp và controls không thống nhất.",
+   "D": "Accountability cho AI vẫn ở công ty; outsourcing không xây năng lực nội bộ."
+  },
+  "refs": [
+   {
+    "label": "AWS blog: GenAI operating models",
+    "url": "https://aws.amazon.com/blogs/machine-learning/generative-ai-operating-models-in-enterprise-organizations-with-amazon-bedrock/"
+   },
+   {
+    "label": "Enterprise generative AI best practices",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-21",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.4",
+  "source": "original",
+  "select": 2,
+  "stem": "A software company deployed a generative AI assistant for its sales team 6 months ago. The only metric reported to leadership is the number of weekly logins, which is rising. The CFO asks whether the assistant creates value. Sales representatives sometimes mention wrong answers in chat channels, but nobody tracks or acts on these reports.\nWhich TWO improvements should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Report the number of model parameters, the model version, and the size of the context window as the main indicators of assistant success."
+   },
+   {
+    "k": "B",
+    "t": "Define business outcome KPIs against a pre-deployment baseline, such as win rate and time saved per deal."
+   },
+   {
+    "k": "C",
+    "t": "Measure only token consumption to show how intensively the assistant is used."
+   },
+   {
+    "k": "D",
+    "t": "Create a feedback loop: users flag wrong answers, the team triages and fixes them, and users see the changes."
+   },
+   {
+    "k": "E",
+    "t": "Run an annual review of the assistant and adjust it once a year based on the results."
+   }
+  ],
+  "answer": [
+   "B",
+   "D"
+  ],
+  "explain": "- Tín hiệu: chỉ đo login, CFO hỏi value, phản hồi sai không ai xử lý.\n- Outcome KPI so với baseline trả lời câu hỏi value.\n- Feedback loop chỉ có giá trị khi tổ chức hành động và báo lại thay đổi.",
+  "wrong": {
+   "A": "Thông số model không phải business value.",
+   "C": "Token consumption đo mức dùng và cost, không đo outcome.",
+   "E": "Một năm một lần quá chậm để sửa câu trả lời sai."
+  },
+  "refs": [
+   {
+    "label": "Establishing an AI/ML CoE",
+    "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+   },
+   {
+    "label": "OCA: Make It Stick",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/make-it-stick.html"
+   },
+   {
+    "label": "CAF-AI: Operations perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/operations-perspective-health-and-availability-of-the-aiml-landscape.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-22",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.4",
+  "source": "original",
+  "select": 1,
+  "stem": "A regional bank's generative AI pilot summarizes loan documents for 20 credit analysts and cut review time by 40%. The bank now plans to roll it out to 3,000 employees across lending, wealth, and operations. The pilot team plans to support the rollout informally, monitoring is manual, and no service levels are defined. The chief risk officer asks what must be in place first.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Production readiness: an owning team, automated monitoring, SLAs and escalation, cost tracking, and governance approval."
+   },
+   {
+    "k": "B",
+    "t": "Increase the service quotas for the pilot environment so that it can handle the additional users."
+   },
+   {
+    "k": "C",
+    "t": "Keep the pilot team as the support team and handle user questions through an informal chat channel until demand becomes clearer after the rollout."
+   },
+   {
+    "k": "D",
+    "t": "Skip additional governance reviews because the pilot already demonstrated a 40% time reduction."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: pilot đạt, chuẩn bị nhân rộng 150 lần, support không chính thức, monitoring thủ công, chưa có SLA.\n- Lên production cần infrastructure, governance, observability và operational excellence production-grade.\n- Giảm phụ thuộc vào team dự án tạm thời.",
+  "wrong": {
+   "B": "Tăng quota chỉ giải quyết capacity, bỏ qua ownership, monitoring và governance.",
+   "C": "Support không chính thức không có SLA và escalation cho 3,000 user.",
+   "D": "Pilot đạt KPI không thay được governance review khi scope và risk tăng mạnh."
+  },
+  "refs": [
+   {
+    "label": "GenAI maturity level 2: Experiment",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+   },
+   {
+    "label": "GenAI maturity level 3: Launch",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-23",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A European bank has three generative AI applications in production: an internal knowledge assistant, a document summarizer, and a code assistant. A support team exists, a first RACI matrix is signed off, and human-in-the-loop review is defined for customer-facing outputs. However, each new use case still starts from scratch, and other departments wait months for help. The COO asks where the bank stands and what to do next.\nWhich assessment should the AI strategist give?",
+  "options": [
+   {
+    "k": "A",
+    "t": "The bank is at the Experiment level; it should run more proofs of concept before it invests in production capabilities."
+   },
+   {
+    "k": "B",
+    "t": "The bank is at the Launch level; it should formalize the operating model and build reusable patterns with self-service access."
+   },
+   {
+    "k": "C",
+    "t": "The bank is at the Scale level; it should focus only on finding the next high-value use case."
+   },
+   {
+    "k": "D",
+    "t": "The bank is at the Envision level; it should restart with AI literacy workshops and use case discovery."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: vài ứng dụng production, có support team, RACI bản đầu, HITL: đó là **Launch**.\n- Mỗi use case làm lại từ đầu, phòng ban phải chờ: thiếu reusable pattern và self-service.\n- Muốn lên Scale: formalize operating model và RACI, dựng library component dùng lại.",
+  "wrong": {
+   "A": "Bank đã có ứng dụng production, không còn ở Experiment.",
+   "C": "Scale cần library dùng lại và self-service, bank chưa có.",
+   "D": "Bank đã qua Envision từ lâu; quay lại từ đầu làm mất đà."
+  },
+  "refs": [
+   {
+    "label": "GenAI maturity level 3: Launch",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+   },
+   {
+    "label": "GenAI maturity level 4: Scale",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-4.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-24",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A consumer electronics group wants an AI model that predicts warranty claims. The required data sits in three business units: manufacturing, sales, and customer service. Each unit is willing to share, but every request is negotiated by email, takes about two months, and ends with copied spreadsheets that nobody updates. The chief data officer wants a repeatable way to share data for this and future AI use cases without losing control.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Set up a data sharing framework: catalog datasets as data products with named owners, plus a standard request, approval, and usage-terms process."
+   },
+   {
+    "k": "B",
+    "t": "Copy all business unit data into a new database owned by the AI team, so that the team can use any data without asking the owners again."
+   },
+   {
+    "k": "C",
+    "t": "Ask each business unit to email spreadsheet extracts every month to a shared folder that the AI team can access."
+   },
+   {
+    "k": "D",
+    "t": "Pause the warranty use case until a company-wide master data management program is complete in two to three years."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: BU sẵn sàng chia sẻ nhưng mỗi lần là một cuộc đàm phán; cần cách **repeatable** mà vẫn giữ control.\n- CAF-AI: data discoverable, có owner hoặc data steward, coi data như product.\n- Data mesh: domain ownership, data as a product, federated governance.",
+  "wrong": {
+   "B": "Lấy data khỏi owner phá data ownership và governance.",
+   "C": "Giữ nguyên vấn đề: file copy lỗi thời, không ai chịu trách nhiệm.",
+   "D": "Chờ toàn bộ data sạch làm mất giá trị; AWS khuyên kiểm tra data cho use case đã chọn."
+  },
+  "refs": [
+   {
+    "label": "CAF-AI: Governance perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+   },
+   {
+    "label": "Data mesh strategy on AWS",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-mesh/introduction.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-25",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.4",
+  "source": "original",
+  "select": 1,
+  "stem": "A retail group set up an AI CoE two years ago inside its IT infrastructure department, four reporting levels below the executive team. The CoE has strong engineers, but IT ticket queues set its priorities, it rarely meets business leaders, and funding decisions take months to reach the CEO. Business units say the CoE builds tools that they did not ask for. The CEO asks the AI strategist how to fix the CoE.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Align the CoE's reporting line with the executives who own the AI strategy, and tie its goals to agreed business outcomes."
+   },
+   {
+    "k": "B",
+    "t": "Double the CoE's engineering headcount and add more infrastructure so that it can clear the IT ticket queue faster."
+   },
+   {
+    "k": "C",
+    "t": "Disband the CoE and let every business unit hire its own AI team, with no shared standards or platform."
+   },
+   {
+    "k": "D",
+    "t": "Keep the CoE inside IT, and publish a quarterly newsletter that promotes its tools and success stories to business units."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: CoE nằm sâu trong IT, xa C-suite, build thứ BU không cần.\n- CAF-AI: reporting line của CoE gắn với người sở hữu AI strategy, có đường ngắn tới C-suite.\n- Lỗi hay gặp là AI unit không giao business value; incentive phải gắn với business và khách hàng.",
+  "wrong": {
+   "B": "Thêm người không sửa thứ tự ưu tiên sai.",
+   "C": "Mất standard chung, quay về trùng lặp tool và controls.",
+   "D": "Truyền thông không sửa việc CoE build sai thứ."
+  },
+  "refs": [
+   {
+    "label": "CAF-AI: People perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+   }
+  ]
+ },
+ {
+  "id": "trn-26",
+  "topic": "transformation",
+  "domain": "D4",
+  "task": "4.4",
+  "source": "original",
+  "select": 2,
+  "stem": "A telecom operator's AI assistant for billing questions worked well for 50,000 customers in one country. The company now plans to expand it to 12 countries and 4 million customers within six months. The CFO worries about unpredictable inference cost, the head of operations worries about outages on peak billing days, and the model version in use is scheduled for retirement next year.\nWhich actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Track cost per conversation and latency per country against thresholds, and evaluate smaller models that meet the quality benchmarks."
+   },
+   {
+    "k": "B",
+    "t": "Roll out country by country with a fallback to human agents and a rollback plan for each release."
+   },
+   {
+    "k": "C",
+    "t": "Launch in all 12 countries on the same day to reduce project overhead and reach the full customer base faster."
+   },
+   {
+    "k": "D",
+    "t": "Negotiate a five-year commitment on the current model version so that the assistant never needs re-evaluation."
+   },
+   {
+    "k": "E",
+    "t": "Measure success only by the number of conversations the assistant handles each month in each country."
+   }
+  ],
+  "answer": [
+   "A",
+   "B"
+  ],
+  "explain": "- Tín hiệu: scale 80 lần, lo cost, outage, model sắp retire: phải xét **nhiều yếu tố** cùng lúc.\n- AWS: PoC dùng model mạnh, production đánh giá model nhỏ hơn theo benchmark.\n- CAF-AI: thiết kế để fail an toàn, có fallback; rollout theo giai đoạn giữ business continuity.",
+  "wrong": {
+   "C": "Big-bang tăng risk outage đúng ngày cao điểm.",
+   "D": "Model sẽ retire; khoá version không loại bỏ nhu cầu re-evaluation.",
+   "E": "Số conversation là activity metric, không nói gì về cost hay chất lượng."
+  },
+  "refs": [
+   {
+    "label": "Enterprise generative AI best practices",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html"
+   },
+   {
+    "label": "CAF-AI: Operations perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/operations-perspective-health-and-availability-of-the-aiml-landscape.html"
+   }
+  ]
+ }
+]

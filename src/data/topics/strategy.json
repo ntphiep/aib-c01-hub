@@ -1,0 +1,1838 @@
+{
+  "id": "strategy",
+  "title": "AI Strategy & Business Value",
+  "domain": [
+    "D2"
+  ],
+  "icon": "cost-explorer",
+  "summary": "Trả lời câu hỏi chọn use case, build-buy-partner, scale hay dừng, đo KPI và ROI, kiểm soát cost AI, và định vị AI để tạo lợi thế cạnh tranh.",
+  "sections": [
+    {
+      "id": "use-cases",
+      "title": "Use case AI theo từng business function",
+      "icon": "c-artificial-intelligence",
+      "task": "2.1",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Use case giá trị cao và outcome đo được",
+          "columns": [
+            "Business function",
+            "Use case điển hình",
+            "AI capability",
+            "Business outcome, KPI"
+          ],
+          "rows": [
+            [
+              "Customer operations",
+              "Agent assist, tóm tắt cuộc gọi, self-service chatbot",
+              "GenAI, NLP, RAG",
+              "Giảm average handle time, tăng first-contact resolution, tăng CSAT"
+            ],
+            [
+              "Sales & marketing",
+              "Personalized recommendation, soạn nội dung, lead scoring",
+              "Recommendation engine, GenAI, prediction",
+              "Tăng conversion rate, giảm cost mỗi bài nội dung"
+            ],
+            [
+              "R&D",
+              "Tổng hợp tài liệu nghiên cứu, tra cứu knowledge nội bộ",
+              "GenAI, RAG",
+              "Rút ngắn time to market"
+            ],
+            [
+              "Software development",
+              "Coding assistant, sinh test, giải thích legacy code",
+              "GenAI code generation",
+              "Tăng deployment frequency, giảm defect density"
+            ],
+            [
+              "Back office (finance, HR, legal)",
+              "Document extraction, phân loại hoá đơn, rà soát hợp đồng",
+              "Document extraction, NLP",
+              "Giảm thời gian xử lý mỗi hồ sơ, giảm lỗi nhập liệu"
+            ],
+            [
+              "Operations, supply chain",
+              "Dự báo nhu cầu, predictive maintenance, kiểm tra lỗi sản phẩm bằng hình ảnh",
+              "Forecasting, computer vision",
+              "Giảm downtime, giảm hàng tồn"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS CAF-AI, value chain",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/ai-cloud-transformation-value-chain.html"
+            },
+            {
+              "label": "Measuring GenAI success in SDLC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+            },
+            {
+              "label": "Architecting a GenAI PoC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "Từ capability tới business outcome",
+          "img": "figs/strategy-caf-ai-value-chain.png",
+          "alt": "AWS CAF-AI 3.0 value chain: foundational capabilities and AI enable transformation domains technology, process, organization and product, leading to business outcomes",
+          "caption": "Capability tạo transformation ở technology, process, organization, product, rồi ra 4 business outcome: reduce business risks, improve ESG, grow revenue, increase operational efficiency. Use case tốt gắn với một outcome đo được.",
+          "credit": {
+            "label": "AWS docs: Artificial Intelligence cloud transformation value chain",
+            "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/ai-cloud-transformation-value-chain.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "steps",
+          "title": "Map AI capability tới business outcome",
+          "items": [
+            {
+              "title": "Work backwards từ problem",
+              "md": "Bắt đầu từ problem của customer hoặc business, không bắt đầu từ model hay tool."
+            },
+            {
+              "title": "Tìm decision point",
+              "md": "Chỉ ra quyết định hoặc tác vụ mà AI có thể support, enrich hoặc automate."
+            },
+            {
+              "title": "Gắn business proxy",
+              "md": "Mỗi decision point có metric bằng tiền hoặc thời gian, ví dụ số tiền gian lận chặn được mỗi tháng."
+            },
+            {
+              "title": "Kiểm tra data",
+              "md": "Xác định data nào nuôi use case, chất lượng ra sao, có được phép dùng không."
+            },
+            {
+              "title": "Ưu tiên capability dùng lại được",
+              "md": "Một capability như deep retrieval phục vụ được legal, audit và sales với marginal cost thấp."
+            }
+          ],
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            },
+            {
+              "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+              "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+            },
+            {
+              "label": "re:Invent 2025 SNR305, A leader's guide to AI strategy (YouTube)",
+              "url": "https://www.youtube.com/watch?v=_tv1sP9jJzI"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì thì chọn gì",
+          "rows": [
+            {
+              "says": "MOST effective first step to identify AI opportunities",
+              "pick": "Work backwards từ business problem và KPI",
+              "why": "CAF-AI bắt đầu từ customer và business problem; đáp án chọn model hay tool trước là distractor.",
+              "src": {
+                "label": "AWS CAF-AI, Business perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+              }
+            },
+            {
+              "says": "generate a broad pipeline of use cases across departments",
+              "pick": "Workshop cross-functional với các business unit",
+              "why": "Nhân viên hiểu rõ điểm nghẽn trong mảng của họ; ideation có cấu trúc rồi mới chấm điểm.",
+              "src": {
+                "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+                "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+              }
+            },
+            {
+              "says": "quick win to build executive confidence",
+              "pick": "Use case nhỏ, data sẵn, KPI rõ",
+              "why": "Track record nhỏ giúp thuyết phục CFO; podcast AWS lấy ví dụ coding assistant: cost thấp, value chứng minh nhanh.",
+              "src": {
+                "label": "AWS Executive Insights, cost and ROI of GenAI",
+                "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+              }
+            },
+            {
+              "says": "MAXIMIZE value from one AI investment",
+              "pick": "Capability dùng lại cho nhiều function",
+              "why": "GenAI dễ nhân bản sang business unit khác với marginal cost thấp, miễn là có value thật.",
+              "src": {
+                "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+                "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Use case vì có công nghệ mới",
+          "md": "- Đáp án nêu tên model hay công nghệ trước business outcome thường sai\n- Đáp án đúng nêu problem, metric và data trước, công nghệ sau"
+        }
+      ]
+    },
+    {
+      "id": "prioritize",
+      "title": "Ưu tiên, scale, pause hay terminate",
+      "icon": "well-architected-tool",
+      "task": "2.1",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Value-feasibility matrix, cách gọi phổ biến",
+          "columns": [
+            "Ô",
+            "Business value",
+            "Feasibility",
+            "Hành động"
+          ],
+          "rows": [
+            [
+              "**Quick win**",
+              "Cao",
+              "Cao",
+              "Làm ngay, dùng để chứng minh value và lấy buy-in"
+            ],
+            [
+              "**Strategic bet**",
+              "Cao",
+              "Thấp",
+              "Đầu tư nền trước (data, skill), chia thành bước nhỏ có KPI"
+            ],
+            [
+              "**Fill-in**",
+              "Thấp",
+              "Cao",
+              "Làm khi còn capacity, hoặc mua giải pháp có sẵn"
+            ],
+            [
+              "**Deprioritize**",
+              "Thấp",
+              "Thấp",
+              "Loại khỏi portfolio"
+            ]
+          ],
+          "src": [
+            {
+              "label": "GenAI maturity model, level 2",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+            },
+            {
+              "label": "Microsoft Learn, AI business strategy",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-business-value/2-business-strategy"
+            },
+            {
+              "label": "AWS Builder Center, GenAI project prioritization",
+              "url": "https://builder.aws.com/content/2duPyVMFWNoHMuu3GZbei4GbHOi/genai_project_prioritization"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Bốn tiêu chí ưu tiên trong exam guide",
+          "columns": [
+            "Tiêu chí",
+            "Câu hỏi kiểm tra",
+            "Tín hiệu trong đề"
+          ],
+          "rows": [
+            [
+              "**Business value**",
+              "Tác động lên revenue, cost, risk, customer experience bao nhiêu?",
+              "\"measurable impact\", \"revenue growth\""
+            ],
+            [
+              "**Feasibility**",
+              "Data có sẵn và đủ chất lượng? Team có skill? Integration phức tạp không?",
+              "\"data is siloed\", \"no in-house expertise\""
+            ],
+            [
+              "**Sustainability**",
+              "Cost chạy dài hạn, maintenance, drift có chấp nhận được? Có cách đơn giản, tốn ít compute và năng lượng hơn không?",
+              "\"ongoing cost\", \"long-term\", \"energy\", \"ESG\""
+            ],
+            [
+              "**Strategic alignment**",
+              "Có phục vụ mục tiêu chiến lược và có executive sponsor không?",
+              "\"aligned with corporate goals\""
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+              "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+            },
+            {
+              "label": "ML Lens MLCOST01-BP01",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+            },
+            {
+              "label": "GenAI Lens, Sustainability",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/sustainability.html"
+            },
+            {
+              "label": "AWS CAF-AI, value chain",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/ai-cloud-transformation-value-chain.html"
+            },
+            {
+              "label": "How I passed AIB-C01 beta (dev.to, 09/2026)",
+              "url": "https://dev.to/aws-builders/how-i-passed-aws-certified-ai-business-strategist-ab1-c01-beta-369o"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Chọn scale, pause hay terminate",
+          "rows": [
+            {
+              "says": "pilot met its predefined success criteria and ROI is positive",
+              "pick": "Scale, rồi tìm use case tương tự",
+              "why": "Có evidence theo tiêu chí đặt trước; ML Lens khuyên mở rộng model có ROI dương sang bài toán giống.",
+              "src": {
+                "label": "ML Lens MLCOST06-BP02",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html"
+              }
+            },
+            {
+              "says": "value is proven but a data or skills gap blocks production",
+              "pick": "Pause, xử lý blocker rồi đánh giá lại",
+              "why": "Use case vẫn đáng làm; dừng tạm tránh đốt cost khi chưa đi tiếp được.",
+              "src": {
+                "label": "Architecting a GenAI PoC",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+              }
+            },
+            {
+              "says": "ROI remains negative after remediation",
+              "pick": "Terminate (sunset), chuyển resource",
+              "why": "ML Lens: theo dõi KPI để scale model tốt, tối ưu model kém và sunset model có ROI âm.",
+              "src": {
+                "label": "ML Lens MLCOST06-BP02",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html"
+              }
+            },
+            {
+              "says": "strategic priorities changed and the initiative no longer aligns",
+              "pick": "Pause hoặc terminate theo alignment mới",
+              "why": "ML Lens anti-pattern: không đánh giá lại cost-benefit khi business conditions đổi; value tốt nhưng lệch hướng vẫn bị cắt.",
+              "src": {
+                "label": "ML Lens MLCOST01-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+              }
+            },
+            {
+              "says": "pilot looks promising but no success criteria were defined",
+              "pick": "Đặt success criteria và baseline trước khi quyết",
+              "why": "PoC phải cho go/no-go dựa trên evidence, không dựa trên cảm hứng.",
+              "src": {
+                "label": "Architecting a GenAI PoC",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+              }
+            },
+            {
+              "says": "large budget already spent but results stay below target",
+              "pick": "Quyết định theo value và cost tương lai, bỏ qua sunk cost",
+              "why": "Tiền đã chi không lấy lại được; chỉ so value còn lại với cost còn phải chi.",
+              "src": {
+                "label": "ML Lens MLCOST01-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Tên bốn ô không phải thuật ngữ AWS",
+          "md": "- AWS GenAI maturity model chỉ nói prioritize theo business value và feasibility\n- Quick win, strategic bet là cách gọi phổ biến trong ngành, ví dụ Microsoft Learn\n- Bài AWS Builder Center xếp theo business value so với level of effort cộng risk\n- Đề thường tả ô bằng đặc điểm, không gọi tên ô",
+          "src": [
+            {
+              "label": "GenAI maturity model, level 2",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+            },
+            {
+              "label": "Microsoft Learn, AI business strategy",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-business-value/2-business-strategy"
+            },
+            {
+              "label": "AWS Builder Center, GenAI project prioritization",
+              "url": "https://builder.aws.com/content/2duPyVMFWNoHMuu3GZbei4GbHOi/genai_project_prioritization"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Portfolio nhiều tầng",
+          "md": "- CAF-AI: capability tầng dưới mở đường cho tầng trên\n- Ví dụ ngân hàng: phân loại giao dịch đi trước next-best-offer\n- Đề hỏi thứ tự đầu tư thì chọn capability nền trước",
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-buy",
+      "title": "Chọn build, buy hay partner",
+      "icon": "r-users",
+      "task": "2.1",
+      "blocks": [
+        {
+          "type": "compare",
+          "title": "Bốn lựa chọn",
+          "items": [
+            {
+              "name": "Buy",
+              "icon": "marketplace",
+              "tag": "SaaS, Marketplace",
+              "points": [
+                "Phần mềm có sẵn, ví dụ AI assistant như Amazon Quick",
+                "**Time to value** nhanh nhất, cần ít AI skill",
+                "Ít khác biệt: đối thủ mua được cùng sản phẩm",
+                "Phụ thuộc roadmap và cách vendor xử lý data"
+              ]
+            },
+            {
+              "name": "Customize FM",
+              "icon": "bedrock",
+              "tag": "Amazon Bedrock",
+              "points": [
+                "Dùng foundation model có sẵn, thêm data riêng bằng RAG hoặc fine-tuning",
+                "Cân bằng tốc độ và khác biệt",
+                "Cost chủ yếu là inference theo token",
+                "Đổi model dễ: Amazon Bedrock có hơn 100 FM của nhiều provider"
+              ]
+            },
+            {
+              "name": "Build custom",
+              "icon": "sagemaker-ai",
+              "tag": "SageMaker AI",
+              "points": [
+                "Model riêng trên data riêng, kiểm soát toàn bộ",
+                "Cần data scientist, nhiều data, nhiều tháng",
+                "Hợp khi use case là lõi khác biệt và thị trường không có giải pháp",
+                "TCO cao nhất: training, hosting, maintenance"
+              ]
+            },
+            {
+              "name": "Partner",
+              "icon": "r-users",
+              "tag": "AWS Partner",
+              "points": [
+                "Partner xây cùng và transfer knowledge",
+                "Bù thiếu skill nội bộ, rút ngắn timeline",
+                "Mua professional services được qua AWS Marketplace",
+                "Cần kế hoạch chuyển giao để không phụ thuộc lâu dài"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            },
+            {
+              "label": "AWS Executive Insights, cost and ROI of GenAI",
+              "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+            },
+            {
+              "label": "GenAI maturity model, level 2",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+            },
+            {
+              "label": "AWS Marketplace blog, AI era",
+              "url": "https://aws.amazon.com/blogs/awsmarketplace/aws-marketplace-simplifying-the-path-from-discovery-to-deployment-in-the-ai-era"
+            },
+            {
+              "label": "What is Amazon Bedrock",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "Ba bên trong giao dịch AWS Marketplace",
+          "img": "figs/strategy-marketplace-contracts.png",
+          "alt": "AWS Marketplace contract structure: buyer and seller under the seller EULA, buyer and AWS under the AWS Customer Agreement, seller and AWS under the AWS Marketplace Seller Terms",
+          "caption": "Hợp đồng dùng sản phẩm là EULA giữa buyer và seller; AWS không phải một bên của hợp đồng đó. Legal vẫn review EULA hoặc Standard Contract (SCMP) dù mua qua AWS.",
+          "credit": {
+            "label": "AWS docs: Contracts for products sold in AWS Marketplace",
+            "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/contract-structure.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "table",
+          "title": "Yếu tố quyết định",
+          "columns": [
+            "Yếu tố",
+            "Nghiêng về buy",
+            "Nghiêng về build hoặc customize",
+            "Nghiêng về partner"
+          ],
+          "rows": [
+            [
+              "**Budget**",
+              "Ngân sách nhỏ, muốn cost dự đoán được",
+              "Đủ tiền cho team và cost dài hạn",
+              "Ngân sách cho services có thời hạn"
+            ],
+            [
+              "**Timeline**",
+              "Cần kết quả trong vài tuần",
+              "Chấp nhận nhiều tháng",
+              "Cần nhanh nhưng thiếu người"
+            ],
+            [
+              "**Capabilities**",
+              "Không có AI team",
+              "Có data scientist và ML engineer",
+              "Thiếu skill, muốn học dần"
+            ],
+            [
+              "**Vendor proposals**",
+              "Sản phẩm đáp ứng phần lớn yêu cầu",
+              "Không vendor nào đáp ứng yêu cầu lõi",
+              "Partner có kinh nghiệm cùng ngành"
+            ],
+            [
+              "**Regulatory compliance**",
+              "Vendor có chứng nhận và data residency phù hợp",
+              "Data nhạy cảm cần kiểm soát hoàn toàn",
+              "Partner hiểu quy định ngành"
+            ],
+            [
+              "**Differentiation**",
+              "Use case commodity như HR FAQ",
+              "Use case là lợi thế cạnh tranh lõi",
+              "Lõi nhưng cần tăng tốc"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            },
+            {
+              "label": "Architecting a GenAI PoC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "AWS Marketplace ở mức business",
+          "columns": [
+            "Đặc điểm",
+            "Ý nghĩa cho quyết định buy"
+          ],
+          "rows": [
+            [
+              "**Một hoá đơn**",
+              "Phí Marketplace nằm trên AWS bill, AWS trả cho seller"
+            ],
+            [
+              "**Private offer**",
+              "Đàm phán giá và EULA riêng; express private offer cho offer tùy chỉnh trong vài phút"
+            ],
+            [
+              "**Free trial**",
+              "Thử sản phẩm trước khi cam kết"
+            ],
+            [
+              "**Pricing linh hoạt**",
+              "Hourly, monthly, annual, multi-year, BYOL; agent có contract hoặc usage-based"
+            ],
+            [
+              "**AI Agents and Tools**",
+              "Category cho agent, agent tool và professional services của AWS Partner"
+            ]
+          ],
+          "src": [
+            {
+              "label": "What is AWS Marketplace",
+              "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+            },
+            {
+              "label": "AWS Marketplace blog, AI era",
+              "url": "https://aws.amazon.com/blogs/awsmarketplace/aws-marketplace-simplifying-the-path-from-discovery-to-deployment-in-the-ai-era"
+            },
+            {
+              "label": "APN blog, AI Agents and Tools",
+              "url": "https://aws.amazon.com/blogs/apn/aws-partner-guide-to-ai-agents-and-tools-in-aws-marketplace"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì thì chọn gì",
+          "rows": [
+            {
+              "says": "FASTEST time to value with the LEAST operational overhead",
+              "pick": "Buy SaaS hoặc managed AI service",
+              "why": "Không cần team AI, không phải tự chạy model; đổi lại ít khác biệt.",
+              "src": {
+                "label": "AWS Executive Insights, cost and ROI of GenAI",
+                "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+              }
+            },
+            {
+              "says": "core differentiator that depends on proprietary data",
+              "pick": "Customize FM với data riêng, hoặc build",
+              "why": "CAF-AI: tận dụng FM sẵn có rồi customize; build từ đầu chỉ khi có ambition và data foundation.",
+              "src": {
+                "label": "AWS CAF-AI, Business perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+              }
+            },
+            {
+              "says": "lacks in-house AI skills but needs a tailored solution quickly",
+              "pick": "Partner, kèm knowledge transfer",
+              "why": "Partner bù skill và timeline; maturity model khuyên co-build PoC với chuyên gia ngoài.",
+              "src": {
+                "label": "GenAI maturity model, level 2",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+              }
+            },
+            {
+              "says": "simplify procurement and consolidate billing for third-party AI tools",
+              "pick": "AWS Marketplace",
+              "why": "Mọi phí nằm trên AWS bill, có private offer và free trial.",
+              "src": {
+                "label": "What is AWS Marketplace",
+                "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+              }
+            },
+            {
+              "says": "team insists on building a capability that already exists in the market",
+              "pick": "Push back on not invented here",
+              "why": "CAF-AI yêu cầu xem giải pháp có sẵn và mức trưởng thành trước khi build.",
+              "src": {
+                "label": "AWS CAF-AI, Business perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "not-ai",
+      "title": "Khi nào AI không phải đáp án",
+      "icon": "step-functions",
+      "task": "2.1",
+      "blocks": [
+        {
+          "type": "compare",
+          "title": "Rule-based hay AI",
+          "items": [
+            {
+              "name": "Rule-based automation",
+              "icon": "step-functions",
+              "tag": "deterministic",
+              "points": [
+                "Logic rõ, ổn định, ít ngoại lệ",
+                "Cùng input luôn cùng output, audit dễ",
+                "Cost build và maintain thấp",
+                "Ví dụ: tính thuế, duyệt theo ngưỡng, quản lý tồn kho đơn giản"
+              ]
+            },
+            {
+              "name": "AI, ML",
+              "icon": "c-artificial-intelligence",
+              "tag": "probabilistic",
+              "points": [
+                "Pattern phức tạp, rule không viết hết được",
+                "Môi trường đổi liên tục, ví dụ fraud",
+                "Khối lượng lớn, data unstructured",
+                "Cần monitoring, retraining và human review"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "ML Lens MLCOST02-BP01",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+            },
+            {
+              "label": "When to use machine learning",
+              "url": "https://docs.aws.amazon.com/machine-learning/latest/dg/when-to-use-machine-learning.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Tín hiệu AI không phù hợp",
+          "rows": [
+            {
+              "says": "outcome can be determined by simple rules or calculations",
+              "pick": "Rule-based automation hoặc workflow",
+              "why": "Không cần ML khi target value tính được bằng rule, phép tính hoặc bước cố định.",
+              "src": {
+                "label": "When to use machine learning",
+                "url": "https://docs.aws.amazon.com/machine-learning/latest/dg/when-to-use-machine-learning.html"
+              }
+            },
+            {
+              "says": "every decision must be identical and fully explainable for the same input",
+              "pick": "Deterministic logic",
+              "why": "AI cho kết quả xác suất; ML Lens khuyên cân nhắc rule hoặc hybrid để cân bằng cost, performance và explainability.",
+              "src": {
+                "label": "ML Lens MLCOST02-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+              }
+            },
+            {
+              "says": "little historical data or poor data quality",
+              "pick": "Sửa data hoặc process trước",
+              "why": "ML cần data đủ lượng và chất lượng; thiếu data thì model không vượt được baseline.",
+              "src": {
+                "label": "ML Lens MLCOST02-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+              }
+            },
+            {
+              "says": "low-volume task handled well by a few staff",
+              "pick": "Giữ cách làm hiện tại hoặc automation đơn giản",
+              "why": "ML mạnh khi không scale được bằng người; volume nhỏ thì value không bù cost.",
+              "src": {
+                "label": "When to use machine learning",
+                "url": "https://docs.aws.amazon.com/machine-learning/latest/dg/when-to-use-machine-learning.html"
+              }
+            },
+            {
+              "says": "total cost of ML exceeds the expected business value",
+              "pick": "Không làm AI",
+              "why": "Tính đủ data preparation, training, hosting, maintenance rồi so với value.",
+              "src": {
+                "label": "ML Lens MLCOST02-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+              }
+            },
+            {
+              "says": "a simpler approach achieves the same outcome",
+              "pick": "Không dùng GenAI",
+              "why": "GenAI Lens: luôn hỏi GenAI có đúng là giải pháp; cách đơn giản hơn tốn ít compute và bền vững hơn.",
+              "src": {
+                "label": "GenAI Lens, Sustainability",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/sustainability.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Baseline rule-based",
+          "md": "- ML Lens: dùng giải pháp rule-based hiện có làm baseline\n- Chỉ đầu tư ML khi model vượt baseline đủ bù cost\n- Đề có \"simple, well-defined rules\" thì đáp án AI thường là bẫy",
+          "src": [
+            {
+              "label": "ML Lens MLCOST02-BP01",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transition",
+      "title": "Chuyển process hoặc AI platform",
+      "icon": "r-servers",
+      "task": "2.1",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Bốn yếu tố khi chuyển đổi",
+          "columns": [
+            "Yếu tố",
+            "Cần đánh giá",
+            "Cách giảm risk"
+          ],
+          "rows": [
+            [
+              "**Business continuity**",
+              "Process nào không được gián đoạn, SLA, fallback khi AI lỗi",
+              "Parallel run, phased rollout, human fallback, rollback plan"
+            ],
+            [
+              "**Cost implications**",
+              "Cost chuyển đổi, chạy song song, đào tạo lại, cam kết còn lại với vendor cũ",
+              "Tính TCO cả giai đoạn chuyển, không chỉ đơn giá mới"
+            ],
+            [
+              "**Data readiness**",
+              "Data có sẵn, đủ chất lượng, đúng quyền dùng, mang sang platform mới được không",
+              "Data inventory và data lineage trước khi cutover"
+            ],
+            [
+              "**Performance impact**",
+              "Accuracy, latency, chất lượng output trên workload thật",
+              "Đánh giá trên evaluation dataset của mình, so với baseline hiện tại"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Architecting a GenAI PoC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "title": "Trình tự chuyển đổi ít risk",
+          "items": [
+            {
+              "title": "Đo baseline",
+              "md": "Ghi KPI của process hoặc platform hiện tại."
+            },
+            {
+              "title": "Đánh giá ứng viên",
+              "md": "Chạy model hoặc platform mới trên evaluation dataset và ground truth của mình."
+            },
+            {
+              "title": "Chạy song song",
+              "md": "Hệ cũ vẫn phục vụ; hệ mới chạy shadow để so kết quả."
+            },
+            {
+              "title": "Cutover theo giai đoạn",
+              "md": "Chuyển từng nhóm user hoặc từng loại case, giữ rollback."
+            },
+            {
+              "title": "Decommission",
+              "md": "Tắt hệ cũ khi KPI hệ mới ổn định, kết thúc cost chạy song song."
+            }
+          ],
+          "src": [
+            {
+              "label": "Architecting a GenAI PoC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì thì chọn gì",
+          "rows": [
+            {
+              "says": "MINIMIZE disruption when replacing a legacy process with AI",
+              "pick": "Parallel run rồi phased cutover có rollback",
+              "why": "Giữ business continuity; lỗi của AI không chạm toàn bộ khách cùng lúc.",
+              "src": {
+                "label": "Architecting a GenAI PoC",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+              }
+            },
+            {
+              "says": "FIRST step before moving to a new AI platform",
+              "pick": "Đánh giá data readiness và đo baseline hiện tại",
+              "why": "Không có baseline thì không biết hệ mới tốt hơn hay kém hơn.",
+              "src": {
+                "label": "Architecting a GenAI PoC",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+              }
+            },
+            {
+              "says": "reduce dependence on a single model provider",
+              "pick": "Platform có nhiều FM từ nhiều nhà cung cấp, kèm evaluation riêng",
+              "why": "Amazon Bedrock cho truy cập FM của nhiều công ty AI; đổi model ít tốn hơn đổi platform.",
+              "src": {
+                "label": "What is Amazon Bedrock",
+                "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
+              }
+            },
+            {
+              "says": "new platform has a lower unit price",
+              "pick": "Vẫn tính TCO chuyển đổi trước khi quyết",
+              "why": "Cost chạy song song, đào tạo lại và integration có thể xoá phần tiết kiệm.",
+              "src": {
+                "label": "ML Lens MLCOST01-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "new",
+          "title": "Model lifecycle trên Bedrock",
+          "md": "- Mỗi model trên Bedrock ở trạng thái Active, Legacy hoặc EOL\n- Model ra mắt từ 2026-09-07: Legacy period 6 tháng (đa số model) hoặc 45 ngày\n- Trong Legacy, khách mới không dùng được; khách cũ không gọi model trong 15 ngày có thể mất access\n- Migration không tự động: cần lịch đánh giá và chuyển model định kỳ",
+          "src": [
+            {
+              "label": "Bedrock model lifecycle",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kpi",
+      "title": "KPI, baseline và leading indicator",
+      "icon": "cloudwatch",
+      "task": "2.2",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "KPI tangible và intangible",
+          "columns": [
+            "Loại",
+            "KPI ví dụ",
+            "Cách đo"
+          ],
+          "rows": [
+            [
+              "Tangible: **cost reduction**",
+              "Cost mỗi giao dịch, giờ công tiết kiệm",
+              "Số liệu finance trước và sau"
+            ],
+            [
+              "Tangible: **revenue growth**",
+              "Conversion rate, average order value, revenue kênh mới",
+              "A/B test hoặc control group"
+            ],
+            [
+              "Tangible: **time savings**",
+              "Average handle time, cycle time",
+              "Log hệ thống"
+            ],
+            [
+              "Intangible: **customer satisfaction**",
+              "CSAT, NPS",
+              "Survey định kỳ"
+            ],
+            [
+              "Intangible: **employee productivity**",
+              "Thời gian tìm thông tin, onboarding time, satisfaction score",
+              "Survey và đo thời gian tác vụ"
+            ],
+            [
+              "Intangible: **quality, risk**",
+              "Tỷ lệ lỗi, mức nhất quán khi trả lời khách",
+              "Audit mẫu"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Measuring GenAI success in SDLC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+            },
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "title": "Baseline trước khi launch",
+          "items": [
+            {
+              "title": "Chọn KPI theo OGSM",
+              "md": "Objective, Goal, Strategy, Measure: mỗi metric kỹ thuật truy được về một business goal."
+            },
+            {
+              "title": "Đo baseline",
+              "md": "Thu số liệu hiện tại của từng KPI trước khi bật AI."
+            },
+            {
+              "title": "Giữ nhóm đối chứng",
+              "md": "Control group hoặc giai đoạn so sánh để tách tác động của AI khỏi mùa vụ."
+            },
+            {
+              "title": "Đặt target thực tế",
+              "md": "Target tính từ baseline, tham vọng nhưng khả thi."
+            },
+            {
+              "title": "Review định kỳ",
+              "md": "Đánh giá theo quý hoặc nửa năm, điều chỉnh target và giải pháp."
+            }
+          ],
+          "src": [
+            {
+              "label": "Measuring GenAI success in SDLC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+            },
+            {
+              "label": "Architecting a GenAI PoC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+            },
+            {
+              "label": "Microsoft Learn, AI business strategy",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-business-value/2-business-strategy"
+            }
+          ]
+        },
+        {
+          "type": "compare",
+          "title": "Leading và lagging indicator",
+          "items": [
+            {
+              "name": "Leading indicator",
+              "tag": "dự báo sớm",
+              "points": [
+                "Đo được trong vài tuần đầu",
+                "**User adoption rate**, active users, tần suất dùng",
+                "First draft usability rate, task completion rate",
+                "Feedback của user, chất lượng data đầu vào"
+              ]
+            },
+            {
+              "name": "Lagging indicator",
+              "tag": "kết quả",
+              "points": [
+                "Chỉ thấy sau nhiều tháng",
+                "ROI, revenue, cost savings thực",
+                "CSAT, churn, market share",
+                "Xác nhận value nhưng phản ứng chậm"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "Architecting a GenAI PoC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+            },
+            {
+              "label": "Measuring GenAI success in SDLC",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì thì chọn gì",
+          "rows": [
+            {
+              "says": "BEST way to accurately measure the impact of AI",
+              "pick": "Baseline trước launch, so với control group",
+              "why": "Không có baseline thì mọi cải thiện chỉ là ước đoán.",
+              "src": {
+                "label": "Measuring GenAI success in SDLC",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+              }
+            },
+            {
+              "says": "early signal that predicts whether the initiative will succeed",
+              "pick": "Leading indicator: adoption, usage, acceptance rate",
+              "why": "Adoption thấp báo trước ROI thấp, trước khi số finance xuất hiện.",
+              "src": {
+                "label": "Architecting a GenAI PoC",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+              }
+            },
+            {
+              "says": "measure an intangible benefit such as employee experience",
+              "pick": "Survey định kỳ có baseline, cùng bộ câu hỏi",
+              "why": "Intangible vẫn đo được bằng proxy lặp lại trước và sau.",
+              "src": {
+                "label": "Measuring GenAI success in SDLC",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+              }
+            },
+            {
+              "says": "connect model metrics to business goals",
+              "pick": "OGSM framework",
+              "why": "Mỗi measure kỹ thuật như hallucination rate truy được về goal như giảm handle time.",
+              "src": {
+                "label": "Architecting a GenAI PoC",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Đo sau rồi so với ước tính",
+          "md": "- Đáp án đo KPI sau launch rồi so với số ước tính là sai\n- Đáp án chỉ theo dõi metric kỹ thuật như accuracy, latency cũng sai: thiếu business outcome"
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Adoption chưa phải value",
+          "md": "- HBR dẫn McKinsey cuối 2025: 88% tổ chức dùng AI thường xuyên, chỉ 39% báo EBIT impact ở mức enterprise\n- Adoption là leading indicator; đề hỏi value thì cần KPI business so với baseline\n- Microsoft Learn: 2 tới 3 KPI mỗi use case, có baseline, kiểm chứng bằng A/B test",
+          "src": [
+            {
+              "label": "HBR, The Deployment Failure Holding Back Your AI Investments (10/2026)",
+              "url": "https://hbr.org/2026/10/the-deployment-failure-holding-back-your-ai-investments"
+            },
+            {
+              "label": "Microsoft Learn, AI business strategy",
+              "url": "https://learn.microsoft.com/en-us/training/modules/create-business-value/2-business-strategy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roi",
+      "title": "ROI framework và ví dụ tính",
+      "icon": "cost-explorer",
+      "task": "2.2",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Bốn nguồn benefit",
+          "columns": [
+            "Nguồn",
+            "Công thức",
+            "Lưu ý"
+          ],
+          "rows": [
+            [
+              "**Time savings**",
+              "Giờ tiết kiệm × loaded cost mỗi giờ",
+              "Chỉ thành tiền khi capacity được dùng lại hoặc tránh tuyển thêm"
+            ],
+            [
+              "**Cost reduction**",
+              "Cost cũ trừ cost mới cho cùng khối lượng",
+              "Ví dụ giảm outsourcing, giảm làm lại"
+            ],
+            [
+              "**Revenue growth**",
+              "Revenue tăng thêm × margin",
+              "Cần control group để tách tác động AI"
+            ],
+            [
+              "**Productivity gains**",
+              "Output thêm trên mỗi người",
+              "Khó quy ra tiền thì báo riêng, không cộng ép"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS Executive Insights, cost and ROI of GenAI",
+              "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+            },
+            {
+              "label": "ML Lens MLCOST01-BP01",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+            },
+            {
+              "label": "re:Invent 2025 AIM231, Delivering Measurable ROI with Generative AI (YouTube)",
+              "url": "https://www.youtube.com/watch?v=0Ss7PcSLS_8"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Ví dụ: AI agent assist cho contact center",
+          "columns": [
+            "Hạng mục",
+            "Cách tính",
+            "Giá trị"
+          ],
+          "rows": [
+            [
+              "Baseline",
+              "300,000 cuộc gọi mỗi năm, AHT 10 phút",
+              ""
+            ],
+            [
+              "Time savings",
+              "AHT giảm 2 phút: 600,000 phút = 10,000 giờ × 45 USD",
+              "450,000 USD mỗi năm"
+            ],
+            [
+              "Revenue growth",
+              "Upsell từ 2.0% lên 2.5%: 1,500 đơn × 100 USD margin",
+              "150,000 USD mỗi năm"
+            ],
+            [
+              "Annual benefit",
+              "450,000 + 150,000",
+              "600,000 USD mỗi năm"
+            ],
+            [
+              "Run cost",
+              "Inference, platform, support, training",
+              "200,000 USD mỗi năm"
+            ],
+            [
+              "One-time cost",
+              "Build, integration, change management",
+              "300,000 USD ở năm 0"
+            ],
+            [
+              "**3-year ROI**",
+              "(1,800,000 - 900,000) / 900,000",
+              "**100%**"
+            ],
+            [
+              "**Payback period**",
+              "300,000 / (600,000 - 200,000)",
+              "**0.75 năm, 9 tháng**"
+            ]
+          ]
+        },
+        {
+          "type": "chart",
+          "title": "Cumulative net cash flow của ví dụ (nghìn USD)",
+          "chart": "line",
+          "labels": [
+            "Năm 0",
+            "Năm 1",
+            "Năm 2",
+            "Năm 3"
+          ],
+          "series": [
+            {
+              "name": "Cumulative net",
+              "data": [
+                -300,
+                100,
+                500,
+                900
+              ]
+            }
+          ],
+          "xLabel": "Năm",
+          "yLabel": "Nghìn USD",
+          "note": "Số minh hoạ của ví dụ contact center, không phải benchmark. Đường cắt 0 sau 9 tháng."
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Ba công thức cần nhớ",
+          "md": "- **ROI** = (total benefit - total cost) / total cost\n- **Payback period** = one-time cost / net benefit mỗi năm\n- **Opportunity cost** = value của phương án tốt nhất bị bỏ khi dùng cùng resource",
+          "src": [
+            {
+              "label": "ML Lens MLCOST01-BP01",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "TCO thiếu",
+          "md": "- Cost gồm cả inference dài hạn, data preparation, monitoring, retraining, đào tạo staff\n- ML Lens anti-pattern: bỏ quên cost chạy model trong production\n- Productivity tính tiền chỉ khi giờ tiết kiệm được dùng lại",
+          "src": [
+            {
+              "label": "ML Lens MLCOST01-BP01",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+            },
+            {
+              "label": "AWS Executive Insights, cost and ROI of GenAI",
+              "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cost",
+      "title": "Pricing model và cost control",
+      "icon": "savings-plans",
+      "task": "2.2",
+      "blocks": [
+        {
+          "type": "compare",
+          "title": "Ba pricing model của AI trên AWS",
+          "items": [
+            {
+              "name": "Consumption-based",
+              "icon": "bedrock",
+              "tag": "per token",
+              "points": [
+                "Trả theo lượng dùng, ví dụ input và output token trên Amazon Bedrock",
+                "Không cam kết, hợp PoC và tải khó đoán",
+                "Cost tăng theo usage: theo dõi **unit economics** mỗi request"
+              ]
+            },
+            {
+              "name": "Instance-based",
+              "icon": "sagemaker-ai",
+              "tag": "per instance-hour",
+              "points": [
+                "Trả theo thời gian instance chạy, ví dụ SageMaker AI endpoint",
+                "Tải đều, dùng hết capacity thì rẻ",
+                "Instance chạy không tải vẫn tính tiền; giảm bằng SageMaker AI Savings Plans"
+              ]
+            },
+            {
+              "name": "Seat-based",
+              "icon": "quick",
+              "tag": "per user per month",
+              "points": [
+                "Trả theo số user, ví dụ Amazon Quick",
+                "Budget dễ dự báo; gói tổ chức có thêm infrastructure fee mỗi account",
+                "Seat không ai dùng vẫn tính tiền: theo dõi adoption"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "Amazon Bedrock pricing",
+              "url": "https://aws.amazon.com/bedrock/pricing/"
+            },
+            {
+              "label": "Amazon SageMaker AI pricing",
+              "url": "https://aws.amazon.com/sagemaker/ai/pricing/"
+            },
+            {
+              "label": "Amazon Quick pricing",
+              "url": "https://aws.amazon.com/quick/pricing/"
+            },
+            {
+              "label": "GenAI Lens GENCOST01-BP01",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost01-bp01.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "screenshot",
+          "title": "Kết quả ước tính trong Pricing Calculator",
+          "img": "figs/strategy-pricing-calculator-estimate.png",
+          "alt": "AWS Pricing Calculator estimate showing Total Upfront cost and Total Monthly cost for a configured service",
+          "caption": "Pricing Calculator trả về upfront cost và monthly cost trước khi có usage thật. Số này dùng cho business case; khi workload đã chạy thì đối chiếu bằng Cost Explorer.",
+          "credit": {
+            "label": "AWS docs: Create and configure an estimate (AWS Pricing Calculator)",
+            "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/create-configure-estimate.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "table",
+          "title": "Đòn bẩy cost",
+          "columns": [
+            "Lựa chọn",
+            "Khi nào dùng",
+            "Hiệu ứng cost"
+          ],
+          "rows": [
+            [
+              "Bedrock **Standard** tier",
+              "Tác vụ hằng ngày",
+              "Giá chuẩn theo token"
+            ],
+            [
+              "Bedrock **Flex** tier",
+              "Việc không gấp: evaluation, summarization, agentic workflow nhiều bước",
+              "Rẻ hơn Standard, latency có thể cao hơn"
+            ],
+            [
+              "Bedrock **Priority** tier",
+              "Ứng dụng real-time cho khách",
+              "Giá Standard cộng premium"
+            ],
+            [
+              "Bedrock **batch inference**",
+              "Khối lớn, không cần trả lời ngay",
+              "Thấp hơn on-demand 50% với model hỗ trợ"
+            ],
+            [
+              "Bedrock **Reserved** tier",
+              "Workload mission-critical cần tokens-per-minute đảm bảo, target 99.5% uptime",
+              "Giá cố định mỗi 1K tokens-per-minute, cam kết 1 hoặc 3 tháng"
+            ],
+            [
+              "Bedrock **Provisioned Throughput**",
+              "Custom model hoặc throughput cố định theo model unit",
+              "Theo giờ; no commitment, 1 tháng hoặc 6 tháng"
+            ],
+            [
+              "**Prompt caching**",
+              "Prompt lặp lại phần context dài",
+              "Cache read tính giá giảm; Amazon Nova rẻ hơn input token 75%, mức giảm tuỳ model"
+            ],
+            [
+              "**SageMaker AI Savings Plans**",
+              "Instance SageMaker AI chạy đều",
+              "Giảm tới 64%, cam kết 1 hoặc 3 năm"
+            ],
+            [
+              "**Right-size model**",
+              "Model nhỏ hơn vẫn đạt yêu cầu",
+              "Giảm cost mỗi request"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Amazon Bedrock pricing",
+              "url": "https://aws.amazon.com/bedrock/pricing/"
+            },
+            {
+              "label": "Bedrock service tiers",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html"
+            },
+            {
+              "label": "Bedrock prompt caching",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html"
+            },
+            {
+              "label": "Savings Plans types",
+              "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/plan-types.html"
+            },
+            {
+              "label": "GenAI Lens GENCOST01-BP01",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost01-bp01.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Tool nào cho việc gì",
+          "rows": [
+            {
+              "says": "estimate costs BEFORE building to support a business case",
+              "pick": "AWS Pricing Calculator",
+              "why": "Free; ước tính upfront, monthly, annual; export CSV hoặc PDF cho stakeholder.",
+              "src": {
+                "label": "What is AWS Pricing Calculator",
+                "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+              }
+            },
+            {
+              "says": "analyze actual AI spend trends and forecast future spend",
+              "pick": "AWS Cost Explorer",
+              "why": "Xem 13 tháng history, forecast 18 tháng, lọc theo service và tag.",
+              "src": {
+                "label": "What is AWS Cost Explorer",
+                "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html"
+              }
+            },
+            {
+              "says": "show the cost of AI by project or business unit",
+              "pick": "Cost allocation tag, xem trong Cost Explorer",
+              "why": "ML Lens: tag theo project và business unit để thấy ROI từng dự án.",
+              "src": {
+                "label": "ML Lens MLCOST01-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+              }
+            },
+            {
+              "says": "reduce cost of steady, long-running SageMaker AI usage",
+              "pick": "SageMaker AI Savings Plans",
+              "why": "Giảm tới 64%; Cost Explorer đưa recommendation mức cam kết.",
+              "src": {
+                "label": "Savings Plans types",
+                "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/plan-types.html"
+              }
+            },
+            {
+              "says": "steady Bedrock workload needs guaranteed throughput",
+              "pick": "Bedrock Reserved tier hoặc Provisioned Throughput",
+              "why": "Savings Plans chỉ áp cho EC2, Fargate, Lambda, SageMaker AI; Bedrock cam kết qua Reserved tier (1, 3 tháng) hoặc Provisioned Throughput (1, 6 tháng).",
+              "src": {
+                "label": "Services eligible for Savings Plans",
+                "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-services.html"
+              }
+            },
+            {
+              "says": "large non-urgent summarization job at the LOWEST cost",
+              "pick": "Batch inference hoặc Flex tier",
+              "why": "Batch thấp hơn on-demand 50%; Flex giảm giá đổi lấy latency.",
+              "src": {
+                "label": "Amazon Bedrock pricing",
+                "url": "https://aws.amazon.com/bedrock/pricing/"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Cam kết quá sớm",
+          "md": "- Savings Plans cam kết USD mỗi giờ trong 1 hoặc 3 năm\n- Chỉ trả lại được khi cam kết từ 100 USD mỗi giờ trở xuống, mua trong 7 ngày và cùng tháng\n- Bedrock không có Savings Plans: cam kết bằng Reserved tier hoặc Provisioned Throughput\n- PoC và tải chưa ổn định thì dùng on-demand, cam kết sau",
+          "src": [
+            {
+              "label": "What are Savings Plans",
+              "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html"
+            },
+            {
+              "label": "Returning a Savings Plan",
+              "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/return-sp.html"
+            },
+            {
+              "label": "Services eligible for Savings Plans",
+              "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-services.html"
+            },
+            {
+              "label": "Amazon Bedrock pricing",
+              "url": "https://aws.amazon.com/bedrock/pricing/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "competitive",
+      "title": "Competitive landscape và business model",
+      "icon": "r-office-building",
+      "task": "2.3",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Đánh giá competitive landscape",
+          "columns": [
+            "Câu hỏi",
+            "Ý nghĩa cho chiến lược"
+          ],
+          "rows": [
+            [
+              "Đối thủ đã dùng AI ở khâu nào trong value chain?",
+              "Tính năng nào đã thành **table stakes**, phải có để không mất khách"
+            ],
+            [
+              "Customer kỳ vọng gì?",
+              "CAF-AI: kỳ vọng của customer sẽ tăng và AI capability là một phần kỳ vọng đó"
+            ],
+            [
+              "Có đối thủ AI-native đổi cấu trúc cost của ngành không?",
+              "Risk bị disrupt, cần xét lại market hypothesis lâu năm"
+            ],
+            [
+              "Mình có data hay kênh phân phối mà đối thủ không có?",
+              "Nguồn lợi thế bền vững"
+            ],
+            [
+              "Năng lực nào mua được trên thị trường?",
+              "Commodity thì buy, dồn đầu tư vào phần khác biệt"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Ba kiểu tạo value theo CAF-AI",
+          "columns": [
+            "Kiểu",
+            "Ví dụ",
+            "KPI chính"
+          ],
+          "rows": [
+            [
+              "**Process improvement**, giảm cost",
+              "Tự động xử lý hồ sơ bồi thường",
+              "Cost mỗi hồ sơ, cycle time"
+            ],
+            [
+              "**Product improvement**, tăng revenue và profit",
+              "Personalization trong app",
+              "Conversion, retention"
+            ],
+            [
+              "**New income channel**, product hoặc service mới",
+              "AI feature trả phí, insight từ data, pricing theo outcome",
+              "Revenue mới, số khách trả phí"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            },
+            {
+              "label": "AWS Marketplace blog, AI era",
+              "url": "https://aws.amazon.com/blogs/awsmarketplace/aws-marketplace-simplifying-the-path-from-discovery-to-deployment-in-the-ai-era"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì thì chọn gì",
+          "rows": [
+            {
+              "says": "competitors launched AI features and customers now expect them",
+              "pick": "Đánh giá gap, ưu tiên phần table stakes",
+              "why": "Không theo kịp kỳ vọng mới thì mất khách; phần commodity nên buy để nhanh.",
+              "src": {
+                "label": "AWS CAF-AI, Business perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+              }
+            },
+            {
+              "says": "create a NEW revenue stream with AI",
+              "pick": "Product hoặc service mới dựa trên data và AI",
+              "why": "Kiểu new income channel, khác với cắt cost hay cải tiến sản phẩm cũ.",
+              "src": {
+                "label": "AWS CAF-AI, Business perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+              }
+            },
+            {
+              "says": "transform the business model, not only automate tasks",
+              "pick": "Reimagine value proposition",
+              "why": "CAF-AI domain Product: tạo value proposition mới thay vì tự động hoá process cũ.",
+              "src": {
+                "label": "AWS CAF-AI, value chain",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/ai-cloud-transformation-value-chain.html"
+              }
+            },
+            {
+              "says": "all competitors use the same foundation models",
+              "pick": "Khác biệt bằng data riêng, workflow và customer experience",
+              "why": "Model mua được nên không tạo khác biệt; data domain-specific thì có.",
+              "src": {
+                "label": "AWS CAF-AI, Business perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+              }
+            },
+            {
+              "says": "AI tools are deployed in every department but productivity has not improved",
+              "pick": "Redesign workflow xuyên function",
+              "why": "HBR: tool AI tối ưu việc trong từng function nên productivity toàn công ty không tăng; value đến từ thiết kế lại cả luồng.",
+              "src": {
+                "label": "HBR, The Deployment Failure Holding Back Your AI Investments (10/2026)",
+                "url": "https://hbr.org/2026/10/the-deployment-failure-holding-back-your-ai-investments"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "new",
+          "title": "AI đã thành mặt bằng chung",
+          "md": "- Stanford AI Index 2026: organizational adoption đạt 88%\n- Có AI không còn là lợi thế; lợi thế nằm ở data riêng, workflow và customer experience\n- Đề nói \"competitors already use AI\": ưu tiên parity bằng buy, dồn đầu tư vào phần khác biệt",
+          "src": [
+            {
+              "label": "Stanford AI Index 2026",
+              "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advantage",
+      "title": "Lợi thế bền vững và mức đầu tư",
+      "icon": "c-artificial-intelligence",
+      "task": "2.3",
+      "blocks": [
+        {
+          "type": "diagram",
+          "title": "Data flywheel",
+          "caption": "Đối thủ mua được cùng model, nhưng không mua được data riêng tích luỹ qua mỗi vòng.",
+          "dir": "RIGHT",
+          "nodes": [
+            {
+              "id": "prod",
+              "icon": "c-artificial-intelligence",
+              "label": "AI product",
+              "sub": "tốt hơn mỗi vòng",
+              "info": "- Sản phẩm hoặc process có AI\n- Chất lượng tăng khi model tốt lên"
+            },
+            {
+              "id": "cust",
+              "icon": "r-users",
+              "label": "More customers",
+              "sub": "dùng nhiều hơn",
+              "info": "- Trải nghiệm tốt thu hút thêm khách\n- Khách hiện tại dùng thường xuyên hơn"
+            },
+            {
+              "id": "data",
+              "icon": "simple-storage-service",
+              "label": "Proprietary data",
+              "sub": "usage, feedback",
+              "info": "- Data hiếm và tốn kém để sao chép\n- CAF-AI gọi là **defensive moat**"
+            },
+            {
+              "id": "model",
+              "icon": "sagemaker-ai",
+              "label": "Better model",
+              "sub": "RAG, fine-tuning",
+              "info": "- Data mới cải thiện model hoặc knowledge base\n- Vòng lặp tự củng cố"
+            }
+          ],
+          "edges": [
+            {
+              "id": "f1",
+              "from": "prod",
+              "to": "cust"
+            },
+            {
+              "id": "f2",
+              "from": "cust",
+              "to": "data"
+            },
+            {
+              "id": "f3",
+              "from": "data",
+              "to": "model"
+            },
+            {
+              "id": "f4",
+              "from": "model",
+              "to": "prod"
+            }
+          ],
+          "steps": [
+            {
+              "title": "1. Sản phẩm tốt thu hút khách",
+              "md": "Khách mới và khách cũ dùng nhiều hơn.",
+              "hl": [
+                "prod",
+                "f1",
+                "cust"
+              ]
+            },
+            {
+              "title": "2. Usage sinh data riêng",
+              "md": "Interaction, feedback và outcome là data đối thủ không có.",
+              "hl": [
+                "cust",
+                "f2",
+                "data"
+              ]
+            },
+            {
+              "title": "3. Data cải thiện model",
+              "md": "Retrain, fine-tuning hoặc bổ sung knowledge base.",
+              "hl": [
+                "data",
+                "f3",
+                "model"
+              ]
+            },
+            {
+              "title": "4. Model tốt nâng sản phẩm",
+              "md": "Vòng mới bắt đầu, khoảng cách với đối thủ rộng dần.",
+              "hl": [
+                "model",
+                "f4",
+                "prod"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Nguồn lợi thế nào bền",
+          "columns": [
+            "Nguồn lợi thế",
+            "Bền?",
+            "Lý do"
+          ],
+          "rows": [
+            [
+              "Truy cập foundation model",
+              "Không",
+              "Đối thủ dùng cùng model qua cùng platform"
+            ],
+            [
+              "Tính năng GenAI đơn lẻ",
+              "Không",
+              "Dễ sao chép trong vài tháng"
+            ],
+            [
+              "**Proprietary data**, data flywheel",
+              "Có",
+              "Hiếm, tốn kém để sao chép, tự tăng theo usage"
+            ],
+            [
+              "AI gắn sâu vào workflow",
+              "Có",
+              "Đổi process và skill cần thời gian, khó copy nhanh"
+            ],
+            [
+              "Talent, culture, AI literacy",
+              "Có",
+              "Tích luỹ qua nhiều năm"
+            ],
+            [
+              "Operational improvement liên tục",
+              "Có",
+              "Cost thấp hơn đều đặn thành lợi thế cost"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Mức đầu tư theo độ trưởng thành của ngành",
+          "columns": [
+            "Tình huống ngành",
+            "Tư thế đầu tư",
+            "Hành động"
+          ],
+          "rows": [
+            [
+              "AI còn mới trong ngành, mình có data riêng",
+              "**Lead**: đầu tư lớn",
+              "Build capability lõi, thiết kế flywheel sớm"
+            ],
+            [
+              "Đối thủ đang thử nghiệm, chưa rõ người thắng",
+              "**Fast follower**: đầu tư vừa",
+              "Portfolio pilot nhỏ, cấp vốn theo stage-gate"
+            ],
+            [
+              "AI đã thành table stakes",
+              "**Parity**: đủ để không tụt",
+              "Buy SaaS, Marketplace; dồn tiền vào phần khác biệt"
+            ],
+            [
+              "AI-native entrant đe doạ business model",
+              "**Transform**: đầu tư chuyển đổi",
+              "Xét lại value proposition, mở kênh revenue mới"
+            ],
+            [
+              "Ngành regulated cao, quy định còn đang hình thành",
+              "**Thận trọng**",
+              "Ưu tiên use case internal, risk thấp, governance chặt"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            },
+            {
+              "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+              "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+            },
+            {
+              "label": "GenAI maturity model levels",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Tín hiệu SUSTAINABLE",
+          "md": "- \"Sustainable competitive advantage\" gần như luôn chỉ về proprietary data và flywheel\n- Đáp án \"dùng model lớn nhất\" hay \"ra tính năng chatbot trước đối thủ\" là lợi thế tạm thời",
+          "src": [
+            {
+              "label": "AWS CAF-AI, Business perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

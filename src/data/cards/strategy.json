@@ -1,0 +1,245 @@
+[
+ {
+  "id": "str-c01",
+  "front": "MOST effective first step to find AI opportunities",
+  "back": "Work backwards from business and customer problems, then map AI capabilities and measurable outcomes. Bắt đầu từ problem và KPI, không bắt đầu từ model.",
+  "ref": {
+   "label": "AWS CAF-AI, Business perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+  }
+ },
+ {
+  "id": "str-c02",
+  "front": "Quick win in a value-feasibility matrix",
+  "back": "High business value and high feasibility: data ready, skills available, short timeline. \"Quick win\" là cách gọi phổ biến, AWS chỉ nói prioritize theo value và feasibility.",
+  "ref": {
+   "label": "GenAI maturity model, level 2",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+  }
+ },
+ {
+  "id": "str-c03",
+  "front": "Four prioritization criteria in AIB-C01 Task 2.1",
+  "back": "Business value, feasibility, sustainability, strategic alignment. Value cao nhưng lệch chiến lược vẫn có thể bị cắt.",
+  "ref": {
+   "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+   "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+  }
+ },
+ {
+  "id": "str-c04",
+  "front": "Pilot met predefined success criteria with positive ROI",
+  "back": "Scale in phases and look for similar use cases. ML Lens khuyên mở rộng model có ROI dương sang bài toán tương tự.",
+  "ref": {
+   "label": "ML Lens MLCOST06-BP02",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html"
+  }
+ },
+ {
+  "id": "str-c05",
+  "front": "ROI still negative after remediation",
+  "back": "Terminate (sunset) and reallocate resources; ignore sunk cost. Tiền đã chi không phải lý do để tiếp tục.",
+  "ref": {
+   "label": "ML Lens MLCOST06-BP02",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html"
+  }
+ },
+ {
+  "id": "str-c06",
+  "front": "Value proven, but a data or skills gap blocks production",
+  "back": "Pause, fix the blocker, then re-evaluate. Pause khác terminate: use case vẫn đáng làm.",
+  "ref": {
+   "label": "Architecting a GenAI PoC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+  }
+ },
+ {
+  "id": "str-c07",
+  "front": "FASTEST time to value, LEAST operational overhead",
+  "back": "Buy a SaaS product or managed AI service. Đổi lại ít khác biệt vì đối thủ mua được cùng thứ.",
+  "ref": {
+   "label": "AWS Executive Insights, cost and ROI of GenAI",
+   "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+  }
+ },
+ {
+  "id": "str-c08",
+  "front": "Core differentiator built on proprietary data",
+  "back": "Customize a foundation model with your data, or build custom; keep ownership of the data and models. Đây là chỗ không nên buy generic.",
+  "ref": {
+   "label": "AWS CAF-AI, Business perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+  }
+ },
+ {
+  "id": "str-c09",
+  "front": "No in-house AI skills but needs a tailored solution quickly",
+  "back": "Partner, with a knowledge transfer plan. Partner bù skill và rút ngắn timeline.",
+  "ref": {
+   "label": "GenAI maturity model, level 2",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+  }
+ },
+ {
+  "id": "str-c10",
+  "front": "Consolidate billing and negotiate custom terms for third-party AI tools",
+  "back": "AWS Marketplace: charges on the AWS bill, free trials, private offers with custom pricing and EULA. Express private offer cho offer tùy chỉnh trong vài phút.",
+  "ref": {
+   "label": "What is AWS Marketplace",
+   "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+  }
+ },
+ {
+  "id": "str-c11",
+  "front": "Outcome can be computed with simple, fixed rules",
+  "back": "Use rule-based automation, not AI. AI cho kết quả xác suất, rule cho kết quả lặp lại và dễ audit.",
+  "ref": {
+   "label": "When to use machine learning",
+   "url": "https://docs.aws.amazon.com/machine-learning/latest/dg/when-to-use-machine-learning.html"
+  }
+ },
+ {
+  "id": "str-c12",
+  "front": "Baseline for judging whether ML is worth it",
+  "back": "Compare the ML solution with the existing or rules-based approach before investing. ML phải vượt baseline đủ để bù total cost.",
+  "ref": {
+   "label": "ML Lens MLCOST02-BP01",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+  }
+ },
+ {
+  "id": "str-c13",
+  "front": "MINIMIZE disruption when replacing a process with AI",
+  "back": "Parallel run, phased rollout, human fallback, rollback plan. Giữ business continuity trong lúc chuyển.",
+  "ref": {
+   "label": "Architecting a GenAI PoC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+  }
+ },
+ {
+  "id": "str-c14",
+  "front": "Model on your AI platform enters Legacy status",
+  "back": "Plan migration before end of life; evaluate replacements on your own dataset. Với model Bedrock ra mắt từ 2026-09-07, Legacy period thường là 6 tháng, có model chỉ 45 ngày.",
+  "ref": {
+   "label": "Bedrock model lifecycle",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html"
+  }
+ },
+ {
+  "id": "str-c15",
+  "front": "BEST way to accurately measure AI impact",
+  "back": "Capture baseline metrics before launch and compare with a control group. Không có baseline thì cải thiện chỉ là ước đoán.",
+  "ref": {
+   "label": "Measuring GenAI success in SDLC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+  }
+ },
+ {
+  "id": "str-c16",
+  "front": "Tangible vs intangible KPI",
+  "back": "Tangible: cost reduction, revenue growth, time savings. Intangible: customer satisfaction, employee productivity and satisfaction. Intangible vẫn đo được bằng survey có baseline.",
+  "ref": {
+   "label": "Measuring GenAI success in SDLC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+  }
+ },
+ {
+  "id": "str-c17",
+  "front": "Leading indicator of AI success",
+  "back": "Adoption rate, active users, first-draft usability rate, task completion. Leading indicator đo sớm và dự báo ROI, revenue về sau.",
+  "ref": {
+   "label": "Architecting a GenAI PoC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+  }
+ },
+ {
+  "id": "str-c18",
+  "front": "Link model metrics to business goals",
+  "back": "OGSM: Objectives, Goals, Strategies, Measures. Mỗi metric kỹ thuật phải truy được về một business goal.",
+  "ref": {
+   "label": "Architecting a GenAI PoC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+  }
+ },
+ {
+  "id": "str-c19",
+  "front": "ROI and payback period formulas",
+  "back": "ROI = (total benefit - total cost) / total cost. Payback = one-time cost / annual net benefit. Total cost gồm cả run cost nhiều năm.",
+  "ref": {
+   "label": "ML Lens MLCOST01-BP01",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+  }
+ },
+ {
+  "id": "str-c20",
+  "front": "Estimate AWS cost BEFORE building, for a business case",
+  "back": "AWS Pricing Calculator: free, upfront, monthly and annual estimates, export to CSV or PDF. Cost Explorer chỉ dùng khi đã có usage thực.",
+  "ref": {
+   "label": "What is AWS Pricing Calculator",
+   "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+  }
+ },
+ {
+  "id": "str-c21",
+  "front": "Analyze actual AI spend by team and forecast it",
+  "back": "Cost allocation tags plus AWS Cost Explorer: 13 months of history, 18-month forecast. Tag theo project và business unit để chargeback.",
+  "ref": {
+   "label": "What is AWS Cost Explorer",
+   "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html"
+  }
+ },
+ {
+  "id": "str-c22",
+  "front": "Steady SageMaker AI instance usage for years",
+  "back": "SageMaker AI Savings Plans: up to 64% off On-Demand for a 1- or 3-year commitment. Chỉ trả lại được trong 7 ngày nếu cam kết từ 100 USD mỗi giờ trở xuống.",
+  "ref": {
+   "label": "Savings Plans types",
+   "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/plan-types.html"
+  }
+ },
+ {
+  "id": "str-c23",
+  "front": "Non-urgent, large-volume Bedrock job at LOWEST cost",
+  "back": "Batch inference (50% lower than on-demand for supported models) or the Flex tier. Priority tier thì ngược lại, có premium.",
+  "ref": {
+   "label": "Amazon Bedrock pricing",
+   "url": "https://aws.amazon.com/bedrock/pricing/"
+  }
+ },
+ {
+  "id": "str-c24",
+  "front": "SUSTAINABLE competitive advantage from AI",
+  "back": "A proprietary data flywheel embedded in workflows; model access alone is not defensible. CAF-AI gọi data hiếm và khó sao chép là defensive moat.",
+  "ref": {
+   "label": "AWS CAF-AI, Business perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+  }
+ },
+ {
+  "id": "str-c25",
+  "front": "Do Savings Plans cover Amazon Bedrock?",
+  "back": "No. Savings Plans cover EC2, Fargate, Lambda and SageMaker AI. For Bedrock commitments, use the Reserved tier (1 or 3 months) or Provisioned Throughput (1 or 6 months). Đề gài Compute Savings Plans cho Bedrock là sai.",
+  "ref": {
+   "label": "Services eligible for Savings Plans",
+   "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-services.html"
+  }
+ },
+ {
+  "id": "str-c26",
+  "front": "AI usage is high but the business sees no margin impact",
+  "back": "Adoption is a leading indicator, not value. Redesign workflows across functions and measure business KPIs against a baseline. Dùng nhiều chưa chắc ra tiền.",
+  "ref": {
+   "label": "HBR, The Deployment Failure Holding Back Your AI Investments (10/2026)",
+   "url": "https://hbr.org/2026/10/the-deployment-failure-holding-back-your-ai-investments"
+  }
+ },
+ {
+  "id": "str-c27",
+  "front": "A simpler, less compute-intensive approach gets the same outcome",
+  "back": "Do not use GenAI; the GenAI Lens says always ask whether GenAI is the right solution. Đơn giản hơn thì rẻ hơn và bền vững hơn.",
+  "ref": {
+   "label": "GenAI Lens, Sustainability",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/sustainability.html"
+  }
+ }
+]

@@ -1,0 +1,1713 @@
+{
+  "id": "transformation",
+  "title": "Readiness & AI Transformation",
+  "domain": [
+    "D4"
+  ],
+  "icon": "r-users",
+  "summary": "Trả lời câu hỏi D4: đánh giá AI readiness và maturity, chuẩn bị data foundation, dẫn dắt change management và workforce, đưa pilot lên production rồi scale toàn enterprise.",
+  "sections": [
+    {
+      "id": "readiness",
+      "title": "Đánh giá AI readiness qua 5 dimension",
+      "icon": "r-office-building",
+      "task": "4.1",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "5 dimension cần đánh giá trước khi chọn pilot",
+          "columns": [
+            "Dimension",
+            "Câu hỏi đánh giá",
+            "Tín hiệu gap trong đề"
+          ],
+          "rows": [
+            [
+              "Leadership alignment",
+              "Lãnh đạo có chung mục tiêu, budget và executive sponsor cho từng initiative chưa?",
+              "BU tranh nhau ưu tiên, sponsor giao việc xuống cấp thấp"
+            ],
+            [
+              "Data quality",
+              "Data cho use case có đúng, đủ, cập nhật và truy cập được không?",
+              "Data nằm rải rác nhiều hệ thống, mỗi BU định nghĩa một kiểu"
+            ],
+            [
+              "Cultural preparedness",
+              "Nhân viên có tin AI và dám thử nghiệm không?",
+              "Sợ mất việc, thất bại bị phạt, ngại thay đổi"
+            ],
+            [
+              "Technical infrastructure",
+              "Có platform, security và đường đưa model vào production chưa?",
+              "Pilot chạy trên máy cá nhân, không có MLOps"
+            ],
+            [
+              "Governance frameworks",
+              "Ai duyệt, ai accountable, đã có responsible AI policy chưa?",
+              "Không ai ký duyệt, legal vào cuộc muộn"
+            ]
+          ],
+          "src": [
+            {
+              "label": "GenAI maturity level 1: Envision",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+            },
+            {
+              "label": "CAF-AI: foundational capabilities",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/foundational-ai-capabilities.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "What should the company do FIRST before selecting AI use cases?",
+              "pick": "Assess readiness across all dimensions",
+              "why": "CAF-AI đặt initial assessment trước chu kỳ Envision; chọn use case khi chưa biết gap thì pilot dễ kẹt.",
+              "src": {
+                "label": "CAF-AI: AI transformation journey",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+              }
+            },
+            {
+              "says": "strong technology platform, but employees distrust AI",
+              "pick": "Cultural preparedness: leadership intervention",
+              "why": "Mua thêm technology không gỡ được gap về con người.",
+              "src": {
+                "label": "GenAI maturity level 1: Envision",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+              }
+            },
+            {
+              "says": "readiness differs widely between business units",
+              "pick": "Assess each aspect and unit separately",
+              "why": "Maturity model của AWS xét từng aspect độc lập, không gắn một nhãn cho cả tổ chức.",
+              "src": {
+                "label": "GenAI maturity model: levels",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+              }
+            },
+            {
+              "says": "CEO wants AI everywhere this year, no owner per initiative",
+              "pick": "Align leaders, name an executive sponsor per initiative",
+              "why": "AWS CAF gắn mỗi initiative với stakeholder cấp cao và business outcome đo được.",
+              "src": {
+                "label": "AWS CAF: cloud transformation journey",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Readiness là đánh giá đa chiều",
+          "md": "- Đáp án đúng xét đủ **people, process, technology, governance**\n- Đáp án sai thường chỉ sửa 1 chiều, hay gặp nhất là mua thêm technology hoặc tuyển thêm data scientist\n- Từ khoá \"FIRST\" trong đề readiness gần như luôn trỏ tới **assessment**"
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "title": "Kinh nghiệm từ người thi beta",
+          "md": "- Thí sinh đậu beta ngày 29/09/2026 kể đề có một số câu thuần định nghĩa, nhiều hơn đề luyện.\n- Nguồn đáng học kỹ nhất là GenAI maturity model trên AWS Prescriptive Guidance.\n- Câu tình huống thường hỏi AI có thực sự cần cho process đó không, và business cần sẵn sàng gì.",
+          "src": [
+            {
+              "label": "HackerNoon: passed the AIB-C01 beta",
+              "url": "https://hackernoon.com/i-passed-the-aws-ai-business-strategist-aib-c01-beta-with-claude-and-notion-heres-how"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maturity",
+      "title": "AI maturity model của AWS",
+      "icon": "c-artificial-intelligence",
+      "task": "4.1",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Bốn level trong GenAI maturity model",
+          "columns": [
+            "Level",
+            "Dấu hiệu nhận biết",
+            "Việc chính",
+            "Muốn lên level sau"
+          ],
+          "rows": [
+            [
+              "1. Envision",
+              "Đang học, tìm use case; chưa có project chính thức hay resource",
+              "Training, workshop, chọn AI champion, đánh giá cultural readiness",
+              "Squad cross-functional, use case matrix, budget cho PoC, success metric"
+            ],
+            [
+              "2. Experiment",
+              "Nhiều pilot và PoC, team nhỏ, governance sơ bộ",
+              "Đo ROI từng PoC, training prompt engineering và RAG, chọn model",
+              "Infrastructure production-grade, observability, SLA, incident process"
+            ],
+            [
+              "3. Launch",
+              "Vài ứng dụng chạy production, có support team, có human-in-the-loop",
+              "RACI bản đầu, architecture review board, monitoring guardrail violation",
+              "Formalize operating model, reusable pattern, self-service platform"
+            ],
+            [
+              "4. Scale",
+              "Nhiều phòng ban dùng, thư viện component dùng lại, governance tự động",
+              "CoE chạy mentorship và certification, thu feedback tự động",
+              "Lặp lại cho use case mới, tìm use case giá trị cao kế tiếp"
+            ]
+          ],
+          "src": [
+            {
+              "label": "GenAI maturity model: levels",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+            },
+            {
+              "label": "GenAI maturity level 1: Envision",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+            },
+            {
+              "label": "GenAI maturity level 2: Experiment",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+            },
+            {
+              "label": "GenAI maturity level 3: Launch",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+            },
+            {
+              "label": "GenAI maturity level 4: Scale",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-4.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "Bốn level của GenAI maturity model",
+          "img": "figs/transformation-genai-maturity-levels.png",
+          "alt": "AWS generative AI maturity model: Envision, Experiment, Launch and Scale with the key activities of each level",
+          "caption": "Experiment là pilot và PoC trong dev environment. Launch mới lên production với log, monitoring, tối ưu cost và responsible AI standard. Scale là operating model chính thức và self-service platform.",
+          "credit": {
+            "label": "AWS docs: Levels in the generative AI maturity model",
+            "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "decision",
+          "title": "Xác định level từ scenario",
+          "rows": [
+            {
+              "says": "exploring use cases, no formal budget or projects yet",
+              "pick": "Envision",
+              "why": "Tiêu chí level 1: chưa có project hay resource chính thức.",
+              "src": {
+                "label": "GenAI maturity level 1: Envision",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+              }
+            },
+            {
+              "says": "many pilots and PoCs, none in production",
+              "pick": "Experiment; next step is production readiness",
+              "why": "Level 2 kết thúc khi có infrastructure, governance và support cho production.",
+              "src": {
+                "label": "GenAI maturity level 2: Experiment",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+              }
+            },
+            {
+              "says": "a few AI applications in production, support team forming",
+              "pick": "Launch",
+              "why": "Level 3: vài ứng dụng production, có risk và responsible AI policy, có support team.",
+              "src": {
+                "label": "GenAI maturity level 3: Launch",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+              }
+            },
+            {
+              "says": "many departments use AI, reusable components, automated governance",
+              "pick": "Scale",
+              "why": "Level 4: self-service, RACI chính thức, governance tự động toàn enterprise.",
+              "src": {
+                "label": "GenAI maturity level 4: Scale",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-4.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Hai bộ tên 4 bước",
+          "md": "- **AWS CAF**: Envision, **Align**, Launch, Scale là phase của transformation journey\n- **GenAI maturity model**: Envision, **Experiment**, Launch, Scale là level\n- Exam guide dùng cụm \"envision, experiment, launch, scale\"\n- Đề hỏi \"capability gaps, stakeholder concerns\" thì là Align; đề hỏi \"pilots and PoCs\" thì là Experiment",
+          "src": [
+            {
+              "label": "AWS CAF: cloud transformation journey",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+            },
+            {
+              "label": "GenAI maturity model: levels",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "new",
+          "title": "Nguồn mới nhất về maturity",
+          "md": "- GenAI maturity model ra mắt trên AWS Prescriptive Guidance ngày 04/06/2025\n- Bài này trích bài báo CIO: 88% AI pilot không lên production, gây **pilot fatigue**\n- AWS ghi whitepaper CAF-AI (bản 02/2024) là historical reference\n- Stanford AI Index 2026: organizational adoption đạt 88%, nên đề phân biệt \"dùng AI\" với \"có giá trị ở production\"",
+          "src": [
+            {
+              "label": "GenAI maturity model: introduction",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/introduction.html"
+            },
+            {
+              "label": "CAF-AI: AI transformation journey",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+            },
+            {
+              "label": "Stanford AI Index 2026",
+              "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaps",
+      "title": "Capability gap và lộ trình đầu tư",
+      "icon": "well-architected-tool",
+      "task": "4.1",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Gap thường gặp ở people, process, technology, governance",
+          "columns": [
+            "Nhóm",
+            "Gap điển hình",
+            "CAF perspective",
+            "Hướng xử lý"
+          ],
+          "rows": [
+            [
+              "People",
+              "Thiếu AI literacy, thiếu ML product manager, văn hoá sợ thất bại",
+              "People",
+              "Training theo role, AI champion, reskill người có sẵn"
+            ],
+            [
+              "Process",
+              "Không có cách chọn use case, không đo value, không có hand-over PoC sang production",
+              "Business, Operations",
+              "Use case matrix, success metric, quy trình hand-over"
+            ],
+            [
+              "Technology",
+              "Data silo, mỗi team một stack, không có MLOps",
+              "Platform, Security",
+              "Data strategy, platform dùng chung, managed service"
+            ],
+            [
+              "Governance",
+              "Không rõ decision rights, chưa có responsible AI policy, chưa quản cost",
+              "Governance",
+              "RACI, oversight committee, Cloud Financial Management"
+            ]
+          ],
+          "src": [
+            {
+              "label": "CAF-AI: foundational capabilities",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/foundational-ai-capabilities.html"
+            },
+            {
+              "label": "GenAI maturity level 1: Envision",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+            },
+            {
+              "label": "GenAI maturity level 2: Experiment",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "Capability mới cho AI theo 6 perspective",
+          "img": "figs/transformation-caf-ai-capabilities.png",
+          "alt": "AWS CAF-AI foundational capabilities per perspective (Business, People, Governance, Platform, Security, Operations), with new AI capabilities highlighted and CAF capabilities untouched for AI greyed out",
+          "caption": "Mỗi gap trong đề map về một perspective. Ô New là capability CAF-AI thêm cho AI: Generative AI, ML Fluency, Responsible use of AI, AI/ML Lifecycle Management.",
+          "credit": {
+            "label": "AWS docs: Foundational AI capabilities",
+            "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/foundational-ai-capabilities.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "steps",
+          "title": "Lộ trình nâng maturity",
+          "items": [
+            {
+              "title": "1. Định vị",
+              "md": "Xác định level hiện tại cho từng aspect, không gán một nhãn chung."
+            },
+            {
+              "title": "2. Neo vào mục tiêu",
+              "md": "Chọn gap đang chặn strategic objective gần nhất."
+            },
+            {
+              "title": "3. Đầu tư vừa level",
+              "md": "Chỉ đầu tư thứ cần để lên level kế tiếp, không nhảy cóc."
+            },
+            {
+              "title": "4. Đo và lặp",
+              "md": "Mỗi bước nhỏ có KPI; đo xong thì lặp chu kỳ tiếp."
+            }
+          ],
+          "src": [
+            {
+              "label": "CAF-AI: AI transformation journey",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+            },
+            {
+              "label": "GenAI maturity model: levels",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Ưu tiên đầu tư",
+          "rows": [
+            {
+              "says": "limited budget, which investment should come FIRST",
+              "pick": "The gap that blocks the strategic objective at the current level",
+              "why": "CAF-AI: không làm mọi thứ trong một chu kỳ; ghép bức tranh lớn với bước nhỏ có KPI.",
+              "src": {
+                "label": "CAF-AI: AI transformation journey",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+              }
+            },
+            {
+              "says": "organization at Envision wants an enterprise self-service AI platform",
+              "pick": "Defer it; fund prioritized PoCs and AI literacy",
+              "why": "Self-service platform là việc chuyển từ Launch sang Scale.",
+              "src": {
+                "label": "GenAI maturity level 3: Launch",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+              }
+            },
+            {
+              "says": "AI experts keep leaving, projects stall",
+              "pick": "Workforce transformation: reskill existing staff, plan for attrition",
+              "why": "CAF-AI: đưa nhân sự hiện có sang vai trò AI giúp adoption toàn tổ chức.",
+              "src": {
+                "label": "CAF-AI: People perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+              }
+            },
+            {
+              "says": "models are ready but approvals take months",
+              "pick": "Governance gap: clear decision rights and review process",
+              "why": "Level 3 cần architecture endorsement và oversight committee có quy trình rõ.",
+              "src": {
+                "label": "GenAI maturity level 3: Launch",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Đáp án đúng trông như thế nào",
+          "md": "- Đầu tư khớp level hiện tại\n- Gắn với strategic objective cụ thể\n- Có KPI cho bước kế tiếp\n- Đáp án nhảy thẳng lên enterprise platform hoặc custom foundation model khi còn ở Envision là bẫy"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "title": "Data readiness, data silo và data mesh",
+      "icon": "simple-storage-service",
+      "task": "4.2",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Data readiness nhìn từ business",
+          "columns": [
+            "Yếu tố",
+            "Câu hỏi strategist",
+            "Hậu quả nếu thiếu"
+          ],
+          "rows": [
+            [
+              "Quality",
+              "Data có đúng, đủ, cập nhật, hợp lệ?",
+              "Output sai, mất niềm tin; AI flywheel không quay"
+            ],
+            [
+              "Accessibility",
+              "Team AI tìm và dùng được data trong thời gian hợp lý?",
+              "Phần lớn thời gian dự án đi tìm data"
+            ],
+            [
+              "Data silos",
+              "Data có nằm rời ở nhiều BU với định nghĩa khác nhau?",
+              "Không ghép được view khách hàng, kết quả mâu thuẫn"
+            ],
+            [
+              "Ownership",
+              "Ai chịu trách nhiệm chất lượng từng dataset?",
+              "Lỗi lặp lại, không ai sửa tận gốc"
+            ],
+            [
+              "Permissions",
+              "AI có chỉ lấy data mà user được phép xem?",
+              "Lộ data nhạy cảm qua RAG assistant"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Data strategy for generative AI",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-considerations-gen-ai/journey.html"
+            },
+            {
+              "label": "CAF-AI: Governance perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+            }
+          ]
+        },
+        {
+          "type": "compare",
+          "title": "Central data lake hay là data mesh",
+          "items": [
+            {
+              "name": "Central data team",
+              "icon": "r-users",
+              "tag": "centralized",
+              "points": [
+                "Một team trung tâm build pipeline và cấp quyền",
+                "Đơn giản lúc đầu, governance tập trung",
+                "Khi số người tạo và dùng data tăng, team này thành **bottleneck**"
+              ]
+            },
+            {
+              "name": "Data mesh",
+              "icon": "r-users",
+              "tag": "decentralized",
+              "points": [
+                "**Domain ownership**: team sinh ra data sở hữu data",
+                "**Data as a product**: publish dataset có owner, chất lượng, mô tả",
+                "**Self-service data platform** dùng chung",
+                "**Federated governance**: policy chung áp cho mọi domain"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "Data mesh strategy on AWS",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-mesh/introduction.html"
+            },
+            {
+              "label": "CAF-AI: Governance perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "AI team spends most of its time finding and reconciling data across silos",
+              "pick": "Data strategy: catalog, common definitions, named owners",
+              "why": "CAF-AI Data curation: data phải discoverable, có owner hoặc data steward.",
+              "src": {
+                "label": "CAF-AI: Governance perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+              }
+            },
+            {
+              "says": "recurring data quality issues, nobody in the business is accountable",
+              "pick": "Assign business data owners and stewards",
+              "why": "Owner trực tiếp của dataset giúp xây data ecosystem bền vững.",
+              "src": {
+                "label": "CAF-AI: Governance perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+              }
+            },
+            {
+              "says": "central data team is a bottleneck, business units want autonomy, controls must stay consistent",
+              "pick": "Data mesh with federated governance",
+              "why": "Data mesh trao quyền cho domain nhưng giữ governance chung.",
+              "src": {
+                "label": "Data mesh strategy on AWS",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-mesh/introduction.html"
+              }
+            },
+            {
+              "says": "business units are willing to share data, but every request is negotiated by email and takes months",
+              "pick": "Data sharing framework: catalog, data products with named owners, standard request and approval, usage terms",
+              "why": "CAF-AI: data phải discoverable, có owner hoặc data steward, coi data như product; governance quá nặng có thể chặn mọi tiến độ.",
+              "src": {
+                "label": "CAF-AI: Governance perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+              }
+            },
+            {
+              "says": "assistant must not expose documents a user cannot see",
+              "pick": "Permission-aware data access before launch",
+              "why": "AWS: model chỉ được lấy thông tin mà user có quyền xem.",
+              "src": {
+                "label": "Data strategy for generative AI",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-considerations-gen-ai/journey.html"
+              }
+            },
+            {
+              "says": "wait until all enterprise data is clean before any AI",
+              "pick": "No: validate data for prioritized use cases first",
+              "why": "Ở Experiment, AWS khuyên kiểm tra data cho use case đã chọn và dựng minimum viable data governance.",
+              "src": {
+                "label": "Data strategy for generative AI",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-considerations-gen-ai/journey.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "title": "AI flywheel của CAF-AI",
+          "md": "- Data chất lượng cao train hoặc tune AI system\n- Prediction cải thiện business outcome, kéo thêm khách hàng\n- Khách hàng sinh thêm data, vòng quay tiếp tục\n- **Data strategy** là thứ giữ flywheel quay",
+          "src": [
+            {
+              "label": "CAF-AI: AI transformation journey",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foundations",
+      "title": "Nền tảng technology ở mức business",
+      "icon": "r-servers",
+      "task": "4.2",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Yêu cầu nền tảng strategist cần hỏi",
+          "columns": [
+            "Yêu cầu",
+            "Câu hỏi business",
+            "Khung tham chiếu của AWS"
+          ],
+          "rows": [
+            [
+              "Platform dùng chung",
+              "Mỗi team tự dựng hay dùng chung platform có guardrail?",
+              "CAF-AI Platform perspective, pattern library"
+            ],
+            [
+              "Managed hay custom",
+              "Cần model riêng hay dùng foundation model có sẵn?",
+              "Amazon Bedrock cho foundation model managed; Amazon SageMaker AI khi tự build và train"
+            ],
+            [
+              "Lifecycle",
+              "Đưa model vào production, theo dõi, cập nhật ra sao?",
+              "CAF-AI capability AI Lifecycle Management and MLOps"
+            ],
+            [
+              "Security",
+              "Phần nào AWS lo, phần nào công ty lo?",
+              "Shared responsibility model: AWS lo security of the cloud, khách hàng lo data và access in the cloud"
+            ],
+            [
+              "Cost",
+              "Cost của experiment, training, inference đo và tối ưu thế nào?",
+              "CAF-AI Cloud Financial Management"
+            ],
+            [
+              "Scalability",
+              "Platform chịu được khi nhân rộng ra nhiều BU?",
+              "Self-service platform ở level Scale"
+            ]
+          ],
+          "src": [
+            {
+              "label": "CAF-AI: Platform perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/platform-perspective-infrastructure-for-and-applications-of-aiml.html"
+            },
+            {
+              "label": "CAF-AI: Governance perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+            },
+            {
+              "label": "AWS shared responsibility model",
+              "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+            },
+            {
+              "label": "GenAI maturity level 4: Scale",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-4.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "no ML engineers, needs generative AI quickly",
+              "pick": "Managed foundation model service (Amazon Bedrock)",
+              "why": "Bedrock fully managed, giảm nhu cầu tự dựng infrastructure và kỹ năng chuyên sâu.",
+              "src": {
+                "label": "Establishing an AI/ML CoE",
+                "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+              }
+            },
+            {
+              "says": "a proprietary model is the competitive differentiator, strong ML team",
+              "pick": "Custom model on Amazon SageMaker AI",
+              "why": "SageMaker AI phủ end-to-end từ data prep, training tới deploy và monitoring.",
+              "src": {
+                "label": "Establishing an AI/ML CoE",
+                "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+              }
+            },
+            {
+              "says": "every business unit builds its own AI stack",
+              "pick": "Shared platform with standard patterns and access framework",
+              "why": "Pattern library dùng chung giảm rào cản và tăng consistency.",
+              "src": {
+                "label": "Enterprise generative AI best practices",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html"
+              }
+            },
+            {
+              "says": "who protects the data used by an AI workload on AWS",
+              "pick": "The customer, for its data, access, and configuration",
+              "why": "AWS chịu trách nhiệm infrastructure của cloud; data và access thuộc khách hàng.",
+              "src": {
+                "label": "AWS shared responsibility model",
+                "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+              }
+            },
+            {
+              "says": "AI cost is unpredictable as pilots grow",
+              "pick": "Cloud Financial Management: plan, measure, optimize AI cost",
+              "why": "CAF-AI làm giàu capability này riêng cho AI.",
+              "src": {
+                "label": "CAF-AI: Governance perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Đề không hỏi cấu hình",
+          "md": "- Đáp án nêu instance type, GPU, VPC hay pipeline cụ thể thường sai cho exam này\n- Strategist đánh giá requirement và trade-off, không chọn kiến trúc chi tiết\n- Exam guide ghi rõ configuring và deploying AWS services nằm ngoài scope",
+          "src": [
+            {
+              "label": "AIB-C01 exam guide",
+              "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leadership",
+      "title": "Executive sponsor, AI champion và team cross-functional",
+      "icon": "r-user",
+      "task": "4.3",
+      "blocks": [
+        {
+          "type": "compare",
+          "title": "Ai giữ vai trò gì",
+          "items": [
+            {
+              "name": "Executive sponsor",
+              "icon": "r-user",
+              "tag": "active, visible",
+              "points": [
+                "Đặt vision, budget, thứ tự ưu tiên",
+                "Xuất hiện công khai, nhắc lại message",
+                "AWS: sponsor active và visible là **yếu tố lớn nhất** cho change adoption",
+                "AI là core strategy thì cần sponsor phía business, không chỉ IT"
+              ]
+            },
+            {
+              "name": "AI champion",
+              "icon": "r-users",
+              "tag": "trong từng BU",
+              "points": [
+                "Người tò mò, có uy tín trong team",
+                "Lan toả kiến thức, thu feedback",
+                "Cần thời gian, training và recognition"
+              ]
+            },
+            {
+              "name": "Steering committee, ethics board",
+              "icon": "r-office-building",
+              "tag": "oversight",
+              "points": [
+                "Steering committee theo dõi và định hướng CoE",
+                "Ethics board xử lý responsible AI"
+              ]
+            },
+            {
+              "name": "Cross-functional team",
+              "icon": "r-users",
+              "tag": "delivery",
+              "points": [
+                "Business owner, technical, legal, compliance, security, domain expert",
+                "RACI rõ, đúng một người accountable"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "OCA: sponsor roadmap",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/oca-framework-envision-future/sponsor.html"
+            },
+            {
+              "label": "Establishing an AI/ML CoE",
+              "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+            },
+            {
+              "label": "GenAI maturity level 1: Envision",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "sponsor delegated the initiative, adoption stalls",
+              "pick": "Re-engage an active, visible executive sponsor",
+              "why": "Sponsor giảm resistance bằng cách cho thấy cam kết từ trên xuống.",
+              "src": {
+                "label": "OCA: sponsor roadmap",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/oca-framework-envision-future/sponsor.html"
+              }
+            },
+            {
+              "says": "AI is central to the business strategy",
+              "pick": "Business-side executive sponsor plus line-of-business sponsors",
+              "why": "AWS: khi adoption là phần cốt lõi của business strategy thì phải có sponsor phía business.",
+              "src": {
+                "label": "OCA: sponsor roadmap",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/oca-framework-envision-future/sponsor.html"
+              }
+            },
+            {
+              "says": "legal raised concerns late and delayed the launch",
+              "pick": "Include legal, compliance, security from the start",
+              "why": "Squad của AWS gồm IT, business, security và governance stakeholder, cùng GenAI SME.",
+              "src": {
+                "label": "GenAI maturity level 1: Envision",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+              }
+            },
+            {
+              "says": "unclear who approves and who owns the outcome",
+              "pick": "RACI with a single accountable owner",
+              "why": "Launch cần RACI bản đầu; Scale formalize RACI toàn tổ chức.",
+              "src": {
+                "label": "GenAI maturity level 3: Launch",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+              }
+            },
+            {
+              "says": "central team cannot reach every site or business unit",
+              "pick": "Network of empowered AI champions",
+              "why": "Level 1 của AWS: chọn AI champion để dẫn dắt khám phá cơ hội.",
+              "src": {
+                "label": "GenAI maturity level 1: Envision",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Mẫu đáp án đúng",
+          "md": "- Sponsor **cấp cao, active, visible**, không giao lại cho cấp dưới\n- Team có **legal và compliance từ đầu**, không chỉ ở gate cuối\n- **Một người accountable** cho outcome, data science team chỉ là một phần của team"
+        }
+      ]
+    },
+    {
+      "id": "culture",
+      "title": "Communication và rào cản văn hoá",
+      "icon": "r-users",
+      "task": "4.3",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Communication plan dành cho workforce",
+          "columns": [
+            "Nội dung",
+            "Nói gì",
+            "Vì sao"
+          ],
+          "rows": [
+            [
+              "Implementation timeline",
+              "Khi nào, nhóm nào bị ảnh hưởng, theo từng giai đoạn",
+              "Giảm tin đồn và sự mơ hồ"
+            ],
+            [
+              "Outcome expectations",
+              "AI làm được gì, chưa làm được gì, KPI nào",
+              "Tránh kỳ vọng ảo rồi thất vọng"
+            ],
+            [
+              "Role impact",
+              "Task nào đổi, vai trò mới, hỗ trợ reskilling",
+              "Mơ hồ về vision và lợi ích làm tăng resistance"
+            ],
+            [
+              "Kênh hai chiều",
+              "Q&A, survey, champion thu feedback",
+              "Feedback loop cho thông tin đi cả hai chiều"
+            ],
+            [
+              "Người nói",
+              "Executive sponsor, leader, champion, đồng bộ với HR",
+              "Message nhất quán qua nhiều kênh"
+            ]
+          ],
+          "src": [
+            {
+              "label": "OCA: Engage the Organization",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/engage-organization.html"
+            },
+            {
+              "label": "OCA: Enable Capacity",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html"
+            },
+            {
+              "label": "OCA: Make It Stick",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/make-it-stick.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Rào cản và leadership intervention",
+          "rows": [
+            {
+              "says": "risk aversion: leaders avoid any AI decision",
+              "pick": "Time-boxed pilot in a low-risk scope with clear guardrails",
+              "why": "CAF-AI: văn hoá AI-first cần experimental mindset đi kèm agile practice.",
+              "src": {
+                "label": "CAF-AI: People perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+              }
+            },
+            {
+              "says": "fear of failure: failed experiments hurt performance reviews",
+              "pick": "Reward experimentation and learning, not only success",
+              "why": "AWS khuyên reward hành vi mới như experimentation và failing fast.",
+              "src": {
+                "label": "OCA: Enable Capacity",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html"
+              }
+            },
+            {
+              "says": "resistance to change from middle managers",
+              "pick": "Find root causes, involve them, sponsor manages resistance",
+              "why": "Resistance tăng khi vision mơ hồ, lợi ích không rõ, leader ít tham gia.",
+              "src": {
+                "label": "OCA: Enable Capacity",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html"
+              }
+            },
+            {
+              "says": "employees fear job loss after the AI announcement",
+              "pick": "Transparent communication on role impact and reskilling",
+              "why": "Communication không nhất quán hoặc lỗi thời gây chậm timeline và mất niềm tin.",
+              "src": {
+                "label": "OCA: Engage the Organization",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/engage-organization.html"
+              }
+            },
+            {
+              "says": "employees use unapproved AI tools",
+              "pick": "Provide approved tools with guidelines and onboarding",
+              "why": "AWS khuyên mở access framework toàn enterprise, kèm security control.",
+              "src": {
+                "label": "Enterprise generative AI best practices",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Im lặng không phải là trung lập",
+          "md": "- Trì hoãn communication tới khi rollout xong: sai\n- Hứa \"không vai trò nào thay đổi\" khi biết sẽ đổi: sai\n- Chỉ nói lợi ích cho cổ đông, bỏ qua nhân viên: sai\n- Đúng: nói thật về timeline, kỳ vọng, tác động lên vai trò, và mở kênh hỏi đáp"
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "title": "ADKAR: framework change ngoài AWS",
+          "md": "- Prosci ADKAR chia change của từng người thành 5 phần tử: **Awareness, Desire, Knowledge, Ability, Reinforcement**.\n- Awareness là hiểu vì sao cần change; Desire là chọn tham gia; Knowledge là biết cách làm.\n- Ability là làm được thật; Reinforcement là giữ cách mới, không quay lại cách cũ.\n- Exam guide không nêu tên ADKAR; dùng để đọc đúng resistance nằm ở bước nào.",
+          "src": [
+            {
+              "label": "Prosci ADKAR Model",
+              "url": "https://www.prosci.com/methodology/adkar"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "workforce",
+      "title": "AI literacy và vai trò con người",
+      "icon": "r-user",
+      "task": "4.3",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Chọn cách phát triển workforce",
+          "columns": [
+            "Cách",
+            "Hợp khi",
+            "Kết quả"
+          ],
+          "rows": [
+            [
+              "Role-based AI literacy training",
+              "Cả công ty, mức hiểu biết thấp",
+              "Ngôn ngữ chung; CAF-AI gọi là ML fluency"
+            ],
+            [
+              "Responsible AI training",
+              "Mọi user và builder",
+              "Biết giới hạn, risk và guideline nội bộ"
+            ],
+            [
+              "Hackathon",
+              "Cần ý tưởng từ dưới lên và khơi hứng thú",
+              "Nhiều use case, lộ ra champion"
+            ],
+            [
+              "POC program",
+              "Cần chứng minh value trên use case thật",
+              "Bằng chứng ROI, kỹ năng thực tế"
+            ],
+            [
+              "Certification path, mentorship",
+              "Builder, giai đoạn Scale",
+              "Nhân rộng chuyên môn qua CoE"
+            ],
+            [
+              "Partner co-build",
+              "Thiếu chuyên gia nội bộ",
+              "Chuyển giao kiến thức, ví dụ AWS Generative AI Innovation Center"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Establishing an AI/ML CoE",
+              "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+            },
+            {
+              "label": "GenAI maturity level 1: Envision",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+            },
+            {
+              "label": "GenAI maturity level 2: Experiment",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+            },
+            {
+              "label": "GenAI maturity level 4: Scale",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-4.html"
+            },
+            {
+              "label": "CAF-AI: People perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+            }
+          ]
+        },
+        {
+          "type": "compare",
+          "title": "Automate hay augment",
+          "items": [
+            {
+              "name": "AI làm tốt",
+              "icon": "c-artificial-intelligence",
+              "tag": "AI",
+              "points": [
+                "Khối lượng lớn, lặp lại",
+                "Tóm tắt, trích xuất, phân loại, gợi ý",
+                "Chạy liên tục, tốc độ cao"
+              ]
+            },
+            {
+              "name": "Con người giữ",
+              "icon": "r-user",
+              "tag": "human",
+              "points": [
+                "**Critical thinking** cho case mơ hồ, ngoại lệ",
+                "**Empathy** trong hội thoại khó",
+                "**Creativity** và phán đoán",
+                "Quyết định tác động lớn qua **human-in-the-loop**"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "CAF-AI: People perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+            },
+            {
+              "label": "GenAI maturity level 3: Launch",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "low AI literacy across thousands of employees",
+              "pick": "Tiered, role-based program plus responsible AI training",
+              "why": "CoE thiết kế training, workshop, certification, hackathon theo từng mức chuyên môn.",
+              "src": {
+                "label": "Establishing an AI/ML CoE",
+                "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+              }
+            },
+            {
+              "says": "need bottom-up ideas and enthusiasm quickly",
+              "pick": "Internal hackathon",
+              "why": "Level 1 của AWS dùng hackathon để khuyến khích thử nghiệm.",
+              "src": {
+                "label": "GenAI maturity level 1: Envision",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+              }
+            },
+            {
+              "says": "AI now handles routine work, what happens to staff",
+              "pick": "Redesign roles toward oversight, exceptions, customer care",
+              "why": "AWS: role redesign định hình lại task, workflow, competency và metric.",
+              "src": {
+                "label": "OCA: Enable Capacity",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html"
+              }
+            },
+            {
+              "says": "high-impact decisions such as claim or loan denials",
+              "pick": "Human-in-the-loop review",
+              "why": "Level 3 yêu cầu quy trình human-in-the-loop cho AI decision.",
+              "src": {
+                "label": "GenAI maturity level 3: Launch",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+              }
+            },
+            {
+              "says": "only the IT department receives AI training",
+              "pick": "Extend fluency to business roles",
+              "why": "CAF-AI: ngôn ngữ chung giữa business và technical là điều kiện để có buy-in.",
+              "src": {
+                "label": "CAF-AI: People perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "title": "Augment trước, automate sau",
+          "md": "- CAF-AI: AI thường bổ sung và tăng cường lao động con người hơn là thay thế\n- Tổ chức AI-first giao cho nhân viên việc khó và có ý nghĩa hơn\n- Đáp án \"fully automate\" quyết định nhạy cảm, bỏ con người, thường sai",
+          "src": [
+            {
+              "label": "CAF-AI: People perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "journey",
+      "title": "Envision, Align, Launch, Scale và quick win",
+      "icon": "step-functions",
+      "task": "4.4",
+      "blocks": [
+        {
+          "type": "diagram",
+          "title": "Vòng lặp transformation của AWS CAF",
+          "dir": "RIGHT",
+          "caption": "Một vòng lặp: mỗi vòng giao giá trị đo được, xong Scale thì quay lại Envision với cơ hội mới.",
+          "nodes": [
+            {
+              "id": "env",
+              "icon": "r-office-building",
+              "label": "Envision",
+              "sub": "outcomes, use cases",
+              "info": "- Xác định và ưu tiên cơ hội theo business objective\n- Gắn mỗi initiative với stakeholder cấp cao và outcome đo được\n- CAF-AI: xác định luôn data asset mà cơ hội cần"
+            },
+            {
+              "id": "aln",
+              "icon": "r-users",
+              "label": "Align",
+              "sub": "gaps, stakeholders",
+              "info": "- Tìm capability gap qua 6 perspective\n- Tìm dependency giữa các bộ phận\n- Nêu concern của stakeholder, chuẩn bị change management"
+            },
+            {
+              "id": "lch",
+              "icon": "c-artificial-intelligence",
+              "label": "Launch",
+              "sub": "pilots to production",
+              "info": "- Đưa pilot từ PoC vào production\n- Pilot phải có impact lớn\n- Thành công hay không cũng là bài học trước khi scale"
+            },
+            {
+              "id": "scl",
+              "icon": "organizations",
+              "label": "Scale",
+              "sub": "broad, sustained value",
+              "info": "- Mở rộng pilot đã chạy production\n- Scale cả năng lực technical lẫn độ phủ business và khách hàng"
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "from": "env",
+              "to": "aln",
+              "style": "solid",
+              "tone": "primary"
+            },
+            {
+              "id": "e2",
+              "from": "aln",
+              "to": "lch",
+              "style": "solid",
+              "tone": "primary"
+            },
+            {
+              "id": "e3",
+              "from": "lch",
+              "to": "scl",
+              "style": "solid",
+              "tone": "primary"
+            }
+          ],
+          "steps": [
+            {
+              "title": "1. Envision",
+              "md": "- Chọn cơ hội theo business objective\n- Gắn sponsor và KPI đo được",
+              "hl": [
+                "env"
+              ]
+            },
+            {
+              "title": "2. Align",
+              "md": "- Tìm gap và dependency\n- Thống nhất stakeholder trước khi build",
+              "hl": [
+                "e1",
+                "aln"
+              ]
+            },
+            {
+              "title": "3. Launch",
+              "md": "- Pilot có impact lớn vào production\n- Học từ kết quả, chỉnh hướng",
+              "hl": [
+                "e2",
+                "lch"
+              ]
+            },
+            {
+              "title": "4. Scale và lặp",
+              "md": "- Mở rộng giá trị\n- Quay lại Envision với cơ hội mới",
+              "hl": [
+                "e3",
+                "scl"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "AWS CAF: cloud transformation journey",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+            },
+            {
+              "label": "CAF-AI: AI transformation journey",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "Hành trình CAF-AI bắt đầu bằng Assess",
+          "img": "figs/transformation-caf-ai-journey.png",
+          "alt": "AWS CAF-AI cloud transformation journey: start with Assess, then iterate Envision, Align, Launch and Scale, with Data Strategy and AI/ML Flywheel loops",
+          "caption": "Vòng lặp bắt đầu bằng Assess trước Envision, nên câu hỏi FIRST thường trỏ tới đánh giá readiness. Data Strategy và AI/ML Flywheel là hai vòng đi kèm Envision, Align, Launch, Scale.",
+          "credit": {
+            "label": "AWS docs: Your AI transformation journey",
+            "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "steps",
+          "title": "Quick win rồi scale",
+          "items": [
+            {
+              "title": "1. Chọn use case",
+              "md": "Giá trị cao, độ phức tạp thấp, data sẵn có, sponsor rõ."
+            },
+            {
+              "title": "2. Đặt baseline",
+              "md": "Đo KPI hiện tại trước pilot để so sánh."
+            },
+            {
+              "title": "3. Pilot gọn",
+              "md": "Scope nhỏ, time-boxed, success criteria viết trước."
+            },
+            {
+              "title": "4. Kể kết quả",
+              "md": "Dùng số liệu làm business case cho vòng sau."
+            },
+            {
+              "title": "5. Nhân rộng",
+              "md": "Đóng gói pattern dùng lại, mở rộng sang BU khác."
+            }
+          ],
+          "src": [
+            {
+              "label": "CAF-AI: AI transformation journey",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+            },
+            {
+              "label": "GenAI maturity level 1: Envision",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+            },
+            {
+              "label": "GenAI maturity level 2: Experiment",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+            },
+            {
+              "label": "re:Invent 2025 SNR305: leader's guide to AI strategy",
+              "url": "https://www.youtube.com/watch?v=_tv1sP9jJzI"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "big-bang rollout across all departments at once",
+              "pick": "Iterative, incremental phases",
+              "why": "AWS CAF: transform từng bước để chứng minh value sớm, không phải dự đoán xa.",
+              "src": {
+                "label": "AWS CAF: cloud transformation journey",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+              }
+            },
+            {
+              "says": "skeptical board, credibility needed fast",
+              "pick": "High-impact, low-complexity quick win with measurable KPI",
+              "why": "CAF-AI ghép bức tranh lớn với nhiều bước nhỏ có KPI.",
+              "src": {
+                "label": "CAF-AI: AI transformation journey",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+              }
+            },
+            {
+              "says": "the pilot did not meet its target",
+              "pick": "Capture lessons and adjust before scaling",
+              "why": "Pilot thành công hay không đều định hướng bước tiếp theo.",
+              "src": {
+                "label": "CAF-AI: AI transformation journey",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+              }
+            },
+            {
+              "says": "phase that identifies capability gaps and stakeholder concerns",
+              "pick": "Align",
+              "why": "Align tìm gap qua 6 perspective và concern của stakeholder.",
+              "src": {
+                "label": "AWS CAF: cloud transformation journey",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+              }
+            },
+            {
+              "says": "phase that identifies the data assets each opportunity depends on",
+              "pick": "Envision",
+              "why": "CAF-AI: work backwards từ cơ hội về data requirement ngay ở Envision.",
+              "src": {
+                "label": "CAF-AI: AI transformation journey",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coe",
+      "title": "AI CoE, operating model, feedback loop và success metric",
+      "icon": "organizations",
+      "task": "4.4",
+      "blocks": [
+        {
+          "type": "compare",
+          "title": "So sánh 3 operating model theo AWS",
+          "items": [
+            {
+              "name": "Decentralized",
+              "icon": "r-users",
+              "tag": "LOB tự làm",
+              "points": [
+                "Mỗi LOB tự quản workflow, model, data trong account của mình",
+                "Time-to-market nhanh, thử nghiệm linh hoạt",
+                "Vẫn phải qua approval của team trung tâm trước production"
+              ]
+            },
+            {
+              "name": "Centralized",
+              "icon": "r-office-building",
+              "tag": "một team AI/ML",
+              "points": [
+                "Team AI/ML trung tâm làm end-to-end cho mọi LOB",
+                "Governance top-down mạnh nhất",
+                "Dễ thành **bottleneck** nếu không đủ người và automation"
+              ]
+            },
+            {
+              "name": "Federated",
+              "icon": "organizations",
+              "tag": "cân bằng",
+              "points": [
+                "LOB lái use case của mình",
+                "Team trung tâm giữ guardrails, model risk, data privacy, compliance",
+                "Innovation ở LOB, oversight tập trung"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "AWS blog: GenAI operating models",
+              "url": "https://aws.amazon.com/blogs/machine-learning/generative-ai-operating-models-in-enterprise-organizations-with-amazon-bedrock/"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Success metric theo tầng",
+          "columns": [
+            "Tầng",
+            "Ví dụ metric",
+            "Ai dùng metric"
+          ],
+          "rows": [
+            [
+              "Business outcome",
+              "ROI, revenue uplift, cost savings, customer satisfaction so với baseline",
+              "Executive sponsor"
+            ],
+            [
+              "Adoption",
+              "Tỉ lệ user active, use case mới mỗi quý",
+              "CoE, change team"
+            ],
+            [
+              "Delivery",
+              "Thời gian từ ý tưởng tới production",
+              "CoE"
+            ],
+            [
+              "Quality và risk",
+              "Accuracy, guardrail violation, model drift",
+              "Governance committee"
+            ],
+            [
+              "Operations",
+              "Availability, incident, cost mỗi transaction",
+              "Operations team"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Establishing an AI/ML CoE",
+              "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+            },
+            {
+              "label": "GenAI maturity level 3: Launch",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+            },
+            {
+              "label": "CAF-AI: Operations perspective",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/operations-perspective-health-and-availability-of-the-aiml-landscape.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "duplicated AI tools and inconsistent controls across business units that want to keep speed",
+              "pick": "Federated AI CoE",
+              "why": "AWS: federated để LOB lái use case, còn team trung tâm giữ guardrails, model risk management, privacy và compliance.",
+              "src": {
+                "label": "AWS blog: GenAI operating models",
+                "url": "https://aws.amazon.com/blogs/machine-learning/generative-ai-operating-models-in-enterprise-organizations-with-amazon-bedrock/"
+              }
+            },
+            {
+              "says": "the CoE builds impressive models that no business unit uses",
+              "pick": "Align CoE incentives with business value and customers",
+              "why": "CAF-AI: lỗi hay gặp là dựng đơn vị AI không giao business value.",
+              "src": {
+                "label": "CAF-AI: People perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+              }
+            },
+            {
+              "says": "the CoE sits deep inside IT and rarely reaches business leaders",
+              "pick": "Align its reporting line with the AI strategy owners, with a short path to the C-suite",
+              "why": "CAF-AI: reporting line của CoE gắn với người sở hữu AI strategy, đường ngắn tới C-suite, incentive gắn business value.",
+              "src": {
+                "label": "CAF-AI: People perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+              }
+            },
+            {
+              "says": "only usage metrics such as logins are tracked",
+              "pick": "Outcome KPIs against a baseline",
+              "why": "KPI mẫu của CoE: ROI, business impact, project delivery time.",
+              "src": {
+                "label": "Establishing an AI/ML CoE",
+                "url": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/"
+              }
+            },
+            {
+              "says": "users report wrong answers informally",
+              "pick": "Structured feedback loop: flag, triage, act, report back",
+              "why": "CAF-AI: cho user flag kết quả sai và mở kênh báo incident.",
+              "src": {
+                "label": "CAF-AI: Operations perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/operations-perspective-health-and-availability-of-the-aiml-landscape.html"
+              }
+            },
+            {
+              "says": "who reviews foundation model choices and usage requests",
+              "pick": "Model governance committee",
+              "why": "Committee đặt tiêu chí đánh giá model và duyệt yêu cầu sử dụng.",
+              "src": {
+                "label": "Enterprise generative AI best practices",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Feedback loop chỉ có giá trị khi hành động",
+          "md": "- AWS: feedback loop mạnh khi tổ chức hành động, báo đã nhận, và nêu thay đổi\n- Đáp án chỉ \"collect feedback\" mà không có bước xử lý thường yếu hơn\n- Review hằng năm là quá chậm cho AI",
+          "src": [
+            {
+              "label": "OCA: Make It Stick",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/make-it-stick.html"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Hub-and-spoke và các tên gọi khác",
+          "md": "- AWS blog dùng 3 tên: decentralized, centralized, federated.\n- **Hub-and-spoke** là tên phổ biến trong ngành cho mô hình gần federated: hub giữ platform và standard, spoke là BU deliver use case.\n- Các nguồn đặt tên chưa thống nhất; chọn đáp án theo đặc điểm trong đề, không theo tên.",
+          "src": [
+            {
+              "label": "AWS blog: GenAI operating models",
+              "url": "https://aws.amazon.com/blogs/machine-learning/generative-ai-operating-models-in-enterprise-organizations-with-amazon-bedrock/"
+            },
+            {
+              "label": "Dataiku: 5 AI operating models",
+              "url": "https://www.dataiku.com/blog/5-ai-operating-models-that-enable-scalable-success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "production",
+      "title": "Từ pilot lên production và business continuity",
+      "icon": "cloudwatch",
+      "task": "4.4",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Pilot khác production-grade ở đâu",
+          "columns": [
+            "Khía cạnh",
+            "Pilot",
+            "Production-grade"
+          ],
+          "rows": [
+            [
+              "Ownership",
+              "Team dự án tạm",
+              "Operating model, RACI, team support cố định"
+            ],
+            [
+              "Governance",
+              "Guideline sơ bộ",
+              "Responsible AI policy, architecture review, risk assessment, oversight committee"
+            ],
+            [
+              "Monitoring",
+              "Kiểm tra thủ công",
+              "Monitoring và alerting tự động, theo dõi guardrail violation và drift"
+            ],
+            [
+              "Support",
+              "Best effort",
+              "SLA, tiered support, escalation path, runbook"
+            ],
+            [
+              "Cost",
+              "Budget pilot",
+              "Theo dõi và tối ưu cost, cân nhắc model nhỏ hơn"
+            ],
+            [
+              "Human oversight",
+              "Tuỳ người",
+              "Quy trình human-in-the-loop được định nghĩa"
+            ]
+          ],
+          "src": [
+            {
+              "label": "GenAI maturity level 2: Experiment",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+            },
+            {
+              "label": "GenAI maturity level 3: Launch",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html"
+            },
+            {
+              "label": "Enterprise generative AI best practices",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html"
+            },
+            {
+              "label": "re:Invent 2025 SMB307: path to production",
+              "url": "https://www.youtube.com/watch?v=Ea96YI1KKM0"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "Vòng đời GenAI không dừng ở deployment",
+          "img": "figs/transformation-genai-lifecycle.png",
+          "alt": "Generative AI Lens lifecycle: scoping, model selection, model customization, development and integration, deployment, continuous improvement",
+          "caption": "Sau deployment là continuous improvement rồi quay lại scoping. Production-grade nghĩa là có owner, monitoring và kế hoạch cải tiến liên tục, không chỉ là pilot chạy lâu hơn.",
+          "credit": {
+            "label": "AWS docs: Generative AI lifecycle (Generative AI Lens)",
+            "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lifecycle.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "pilot succeeded with a small group, now rolling out to thousands of users",
+              "pick": "Production readiness: ownership, monitoring, SLA, governance approvals",
+              "why": "Level 2 lên 3 cần infrastructure, governance, observability và operational excellence production-grade.",
+              "src": {
+                "label": "GenAI maturity level 2: Experiment",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+              }
+            },
+            {
+              "says": "AI is entering a business-critical process during peak season",
+              "pick": "Phased rollout with a fallback path and rollback plan",
+              "why": "CAF-AI: thiết kế để fail an toàn và giữ model artifact cho fallback.",
+              "src": {
+                "label": "CAF-AI: Operations perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/operations-perspective-health-and-availability-of-the-aiml-landscape.html"
+              }
+            },
+            {
+              "says": "PoC used the largest model, production cost is too high",
+              "pick": "Evaluate smaller models against benchmarks",
+              "why": "AWS: PoC dùng model mạnh để chứng minh value, rồi đánh giá model nhỏ hơn cho production.",
+              "src": {
+                "label": "Enterprise generative AI best practices",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html"
+              }
+            },
+            {
+              "says": "output quality degrades months after launch",
+              "pick": "Continuous monitoring for drift and training-serving skew",
+              "why": "AI system chỉ được validate, không bao giờ verified xong; cần theo dõi liên tục.",
+              "src": {
+                "label": "CAF-AI: Operations perspective",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/operations-perspective-health-and-availability-of-the-aiml-landscape.html"
+              }
+            },
+            {
+              "says": "pilot team disbands after go-live",
+              "pick": "Dedicated operations and platform team",
+              "why": "Production-grade giảm phụ thuộc vào team dự án tạm thời.",
+              "src": {
+                "label": "GenAI maturity level 2: Experiment",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+              }
+            },
+            {
+              "says": "usage grows tenfold after rollout and cost per transaction keeps rising",
+              "pick": "Track unit cost per use case and evaluate smaller models against benchmarks",
+              "why": "CoE theo dõi value KPI cùng chi tiêu cho inference; AWS khuyên đánh giá model nhỏ hơn cho production.",
+              "src": {
+                "label": "Enterprise generative AI best practices",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html"
+              }
+            },
+            {
+              "says": "the model version used in production will be retired next year",
+              "pick": "Plan the migration and re-run evaluation on the replacement before switching",
+              "why": "RAIER01-BP03: mỗi lần update hệ thống thì chạy lại evaluation và cập nhật system registry.",
+              "src": {
+                "label": "RAI Lens evaluation",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Pilot đạt không có nghĩa là sẵn sàng production",
+          "md": "- Bỏ qua governance vì \"pilot đã pass\": sai\n- Chỉ tăng quota hay capacity: thiếu ownership, support, monitoring\n- Chuyển toàn bộ kênh cùng lúc, bỏ đường lui về con người: sai về business continuity"
+        }
+      ]
+    }
+  ]
+}

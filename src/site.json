@@ -1,0 +1,65 @@
+{
+  "code": "AIB-C01",
+  "title": "AIB-C01 Study Hub",
+  "brand": "AIB-C01 Hub",
+  "brandSub": "AI Business Strategist",
+  "desc": "AWS Certified AI Business Strategist (AIB-C01) study hub: chapters by exam domain, glossary, quiz, mock exam, flashcards.",
+  "icon": "c-artificial-intelligence",
+  "navIcons": {"glossary": "service-catalog", "resources": "r-office-building", "quiz": "step-functions", "cards": "cost-and-usage-report"},
+  "hint": "RAG, ROI, shadow AI, EU AI Act, CoE",
+  "suggest": ["RAG", "fine-tuning", "shadow AI", "ROI", "build-buy-partner", "EU AI Act", "human-in-the-loop", "Center of Excellence"],
+  "storeKey": "aibHub",
+  "syncKey": "aibSync",
+  "guide": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html",
+  "accent": null,
+  "home": {
+    "h1": "AIB-C01 Study Hub",
+    "p": "AWS Certified AI Business Strategist (beta). Đề hỏi business judgement về AI, không hỏi cấu hình AWS.",
+    "links": [
+      {"label": "Trang certification", "url": "https://aws.amazon.com/certification/certified-ai-business-strategist/"},
+      {"label": "Exam guide", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html"},
+      {"label": "Skill Builder exam prep", "url": "https://skillbuilder.aws/category/exam-prep/ai-business-strategist-business-AIB-C01"}
+    ],
+    "tiles": [
+      {"k": "Bản beta", "v": "85 câu", "s": "170 phút, 50 USD"},
+      {"k": "Điểm đậu", "v": "700", "s": "thang 100 tới 1.000, compensatory"},
+      {"k": "Dạng câu", "v": "2", "s": "1 trong 4, hoặc 2+ trong 5+"},
+      {"k": "Early Adopter badge", "v": "15/02/2027", "s": "đậu trước ngày này", "warn": true}
+    ],
+    "domainSrc": [
+      {"label": "AIB-C01 exam guide", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html"},
+      {"label": "AWS Certified AI Business Strategist", "url": "https://aws.amazon.com/certification/certified-ai-business-strategist/"}
+    ],
+    "taskWord": "task"
+  },
+  "topics": [
+    {"id": "fundamentals", "title": "AI Fundamentals & GenAI", "icon": "c-artificial-intelligence", "d": "D1"},
+    {"id": "strategy", "title": "AI Strategy & Business Value", "icon": "cost-explorer", "d": "D2"},
+    {"id": "governance", "title": "Governance & Responsible AI", "icon": "audit-manager", "d": "D3"},
+    {"id": "transformation", "title": "Readiness & AI Transformation", "icon": "r-users", "d": "D4"},
+    {"id": "aws", "title": "AWS cho AI ở mức chiến lược", "icon": "bedrock", "d": "AWS", "scope": "D1 tới D4"}
+  ],
+  "domains": {
+    "D1": {"n": "AI Fundamentals and Literacy", "w": 24},
+    "D2": {"n": "AI Strategy and Business Value Creation", "w": 28},
+    "D3": {"n": "AI Governance and Responsible AI Leadership", "w": 24},
+    "D4": {"n": "Business Readiness, Leadership, and AI Transformation", "w": 24}
+  },
+  "tasks": {
+    "1.1": "Describe core AI concepts and define terminology",
+    "1.2": "Identify and select appropriate AI solution types",
+    "1.3": "Apply GenAI concepts and techniques",
+    "2.1": "Develop AI strategies that align with business objectives",
+    "2.2": "Measure and demonstrate AI business value",
+    "2.3": "Position AI for competitive advantage",
+    "3.1": "Apply responsible AI principles to business decisions",
+    "3.2": "Establish AI governance structures and ensure regulatory compliance",
+    "3.3": "Identify enterprise AI risks and direct mitigation strategies",
+    "4.1": "Assess AI business readiness and maturity",
+    "4.2": "Establish data and infrastructure foundations for AI",
+    "4.3": "Lead enterprise-wide change and build AI-ready workforce capabilities",
+    "4.4": "Scale AI from pilots to enterprise-wide deployments"
+  },
+  "mocks": [{"n": 20, "min": 40}, {"n": 85, "min": 170, "note": "như bản beta"}],
+  "glCats": ["AI Fundamentals", "GenAI", "Strategy & Value", "Governance & Risk", "Regulation & Standards", "Transformation", "AWS"]
+}

@@ -1,0 +1,372 @@
+[
+ {
+  "id": "roi",
+  "term": "ROI",
+  "full": "Return on Investment",
+  "aliases": [
+   "return on investment"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Tỷ lệ giữa lợi ích ròng và total cost của một khoản đầu tư AI trong một khoảng thời gian.",
+  "means": [
+   "Công thức: (total benefit - total cost) / total cost.",
+   "Total cost phải gồm run cost nhiều năm, không chỉ cost build.",
+   "Exam hay hỏi tính ROI 3 năm từ số liệu trong stem."
+  ],
+  "related": [
+   "tco",
+   "payback-period",
+   "opportunity-cost"
+  ],
+  "src": {
+   "label": "ML Lens MLCOST01-BP01",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+  }
+ },
+ {
+  "id": "tco",
+  "term": "TCO",
+  "full": "Total Cost of Ownership",
+  "aliases": [
+   "total cost of ownership"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Tổng cost sở hữu một giải pháp suốt vòng đời: build, chạy, maintenance, đào tạo và cost gián tiếp.",
+  "means": [
+   "Gồm inference, data preparation, monitoring, retraining, staff time.",
+   "Đáp án chỉ so đơn giá thường thiếu TCO."
+  ],
+  "related": [
+   "roi",
+   "build-buy-partner"
+  ],
+  "src": {
+   "label": "ML Lens MLCOST01-BP02",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp02.html"
+  }
+ },
+ {
+  "id": "kpi",
+  "term": "KPI",
+  "full": "Key Performance Indicator",
+  "aliases": [
+   "key performance indicator",
+   "KPIs"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Metric đo mức đạt mục tiêu business của một initiative AI, gồm loại tangible và intangible.",
+  "means": [
+   "Tangible: cost reduction, revenue growth, time savings.",
+   "Intangible: customer satisfaction, employee productivity.",
+   "KPI tốt luôn có baseline và target."
+  ],
+  "related": [
+   "baseline",
+   "leading-indicator"
+  ],
+  "src": {
+   "label": "Measuring GenAI success in SDLC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+  }
+ },
+ {
+  "id": "baseline",
+  "term": "Baseline",
+  "aliases": [
+   "baseline metrics",
+   "baselines"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Giá trị KPI đo trước khi bật AI, làm mốc để chứng minh mức cải thiện.",
+  "means": [
+   "Đo trước launch, kèm control group nếu có thể.",
+   "Đề hỏi BEST way to measure impact thì chọn baseline."
+  ],
+  "related": [
+   "kpi",
+   "roi"
+  ],
+  "src": {
+   "label": "Measuring GenAI success in SDLC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+  }
+ },
+ {
+  "id": "leading-indicator",
+  "term": "Leading indicator",
+  "aliases": [
+   "leading indicators",
+   "lagging indicator"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Metric đo sớm, dự báo kết quả về sau, đối lập với lagging indicator chỉ thấy khi đã có kết quả.",
+  "means": [
+   "Ví dụ: adoption rate, active users, first draft usability rate.",
+   "Lagging: ROI, revenue, market share."
+  ],
+  "related": [
+   "kpi",
+   "baseline"
+  ],
+  "src": {
+   "label": "Architecting a GenAI PoC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+  }
+ },
+ {
+  "id": "build-buy-partner",
+  "term": "Build-buy-partner",
+  "aliases": [
+   "build, buy hay partner",
+   "build vs buy",
+   "buy versus build"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Quyết định tự xây, mua sản phẩm có sẵn hay hợp tác với partner cho một giải pháp AI.",
+  "means": [
+   "Xét budget, timeline, capabilities, vendor proposals, regulatory compliance.",
+   "Use case lõi khác biệt thì customize hoặc build; commodity thì buy."
+  ],
+  "related": [
+   "tco",
+   "business-case"
+  ],
+  "src": {
+   "label": "AWS CAF-AI, Business perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+  }
+ },
+ {
+  "id": "business-case",
+  "term": "Business case",
+  "aliases": [
+   "business cases"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Tài liệu lập luận vì sao nên đầu tư vào một initiative, gồm cost, benefit, risk và KPI.",
+  "means": [
+   "CFO cần cost và value tách rõ, productivity không đếm ép thành tiền.",
+   "Pricing Calculator cung cấp ước tính cost cho business case."
+  ],
+  "related": [
+   "roi",
+   "payback-period"
+  ],
+  "src": {
+   "label": "AWS Executive Insights, cost and ROI of GenAI",
+   "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+  }
+ },
+ {
+  "id": "value-feasibility-matrix",
+  "term": "Value-feasibility matrix",
+  "aliases": [
+   "value-feasibility",
+   "quick win"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Lưới 2x2 xếp use case theo business value và feasibility để chọn thứ tự đầu tư.",
+  "means": [
+   "Value cao, feasibility cao là quick win, làm trước.",
+   "Value cao, feasibility thấp là strategic bet, cần đầu tư nền.",
+   "Tên ô là cách gọi phổ biến; AWS chỉ nói prioritize theo value và feasibility."
+  ],
+  "related": [
+   "opportunity-cost"
+  ],
+  "src": {
+   "label": "GenAI maturity model, level 2",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+  }
+ },
+ {
+  "id": "data-flywheel",
+  "term": "Data flywheel",
+  "aliases": [
+   "flywheel",
+   "AI flywheel"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Vòng tự củng cố: sản phẩm AI thu hút usage, usage sinh data riêng, data cải thiện model và sản phẩm.",
+  "means": [
+   "Nguồn lợi thế cạnh tranh bền vững vì đối thủ không mua được data riêng.",
+   "CAF-AI gọi data hiếm, khó sao chép là defensive moat."
+  ],
+  "related": [
+   "proprietary-data"
+  ],
+  "src": {
+   "label": "AWS CAF-AI, Business perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+  }
+ },
+ {
+  "id": "proprietary-data",
+  "term": "Proprietary data",
+  "aliases": [
+   "data riêng"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Data chỉ doanh nghiệp sở hữu, như lịch sử giao dịch hay sensor data, đối thủ không truy cập được.",
+  "means": [
+   "Là thứ tạo khác biệt khi mọi đối thủ dùng cùng foundation model.",
+   "Bảo vệ quyền sở hữu model huấn luyện trên data này khi làm với vendor."
+  ],
+  "related": [
+   "data-flywheel"
+  ],
+  "src": {
+   "label": "AWS CAF-AI, Business perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+  }
+ },
+ {
+  "id": "consumption-based-pricing",
+  "term": "Consumption-based pricing",
+  "aliases": [
+   "consumption-based",
+   "pay-as-you-go"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Pricing tính theo lượng dùng thực tế, ví dụ theo input và output token trên Amazon Bedrock.",
+  "means": [
+   "Hợp PoC và tải khó đoán vì không trả cho capacity idle.",
+   "Khác instance-based (theo giờ) và seat-based (theo user mỗi tháng)."
+  ],
+  "related": [
+   "savings-plans",
+   "unit-economics"
+  ],
+  "src": {
+   "label": "Amazon Bedrock pricing",
+   "url": "https://aws.amazon.com/bedrock/pricing/"
+  }
+ },
+ {
+  "id": "savings-plans",
+  "term": "Savings Plans",
+  "aliases": [
+   "SageMaker AI Savings Plans"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Mô hình giảm giá AWS đổi lấy cam kết số tiền dùng mỗi giờ trong 1 hoặc 3 năm.",
+  "means": [
+   "SageMaker AI Savings Plans giảm tới 64% so với On-Demand.",
+   "Không áp cho Bedrock; Bedrock cam kết qua Reserved tier hoặc Provisioned Throughput.",
+   "Chỉ trả lại trong 7 ngày nếu cam kết từ 100 USD mỗi giờ trở xuống."
+  ],
+  "related": [
+   "consumption-based-pricing"
+  ],
+  "src": {
+   "label": "Services eligible for Savings Plans",
+   "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-services.html"
+  }
+ },
+ {
+  "id": "unit-economics",
+  "term": "Unit economics",
+  "aliases": [
+   "cost per request"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Cost cho mỗi đơn vị công việc, ví dụ mỗi request gồm token, compute và storage.",
+  "means": [
+   "Quyết định khả năng sinh lời khi scale.",
+   "Nên theo dõi ngay từ PoC."
+  ],
+  "related": [
+   "consumption-based-pricing",
+   "tco"
+  ],
+  "src": {
+   "label": "Architecting a GenAI PoC",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+  }
+ },
+ {
+  "id": "opportunity-cost",
+  "term": "Opportunity cost",
+  "aliases": [
+   "opportunity costs"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Value của phương án tốt nhất bị bỏ qua khi dùng cùng resource cho một initiative khác.",
+  "means": [
+   "Lý do terminate dự án ROI âm để chuyển resource.",
+   "ML Lens yêu cầu xét cùng ROI khi ưu tiên dự án."
+  ],
+  "related": [
+   "roi",
+   "value-feasibility-matrix"
+  ],
+  "src": {
+   "label": "ML Lens MLCOST01-BP01",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+  }
+ },
+ {
+  "id": "payback-period",
+  "term": "Payback period",
+  "aliases": [
+   "payback"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Thời gian để lợi ích ròng tích luỹ bù hết khoản đầu tư ban đầu.",
+  "means": [
+   "Công thức đơn giản: one-time cost / net benefit mỗi năm.",
+   "Net benefit đã trừ run cost hằng năm."
+  ],
+  "related": [
+   "roi",
+   "business-case"
+  ],
+  "src": {
+   "label": "GenAI workload assessment, use cases",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/use-cases.html"
+  }
+ },
+ {
+  "id": "sunk-cost",
+  "term": "Sunk cost",
+  "aliases": [
+   "sunk cost"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Khoản tiền đã chi và không lấy lại được, nên không được dùng làm lý do tiếp tục một initiative.",
+  "means": [
+   "Quyết định scale, pause, terminate dựa trên value và cost tương lai.",
+   "Đáp án \"đã đầu tư nhiều nên tiếp tục\" là bẫy."
+  ],
+  "related": [
+   "opportunity-cost",
+   "roi"
+  ],
+  "src": {
+   "label": "ML Lens MLCOST01-BP01",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+  }
+ },
+ {
+  "id": "table-stakes",
+  "term": "Table stakes",
+  "aliases": [
+   "table stakes",
+   "parity"
+  ],
+  "cat": "Strategy & Value",
+  "what": "Năng lực mà mọi đối thủ đã có và customer coi là mặc định, không còn tạo khác biệt.",
+  "means": [
+   "AI feature phổ biến nên mua để đạt parity nhanh.",
+   "Đầu tư khác biệt dồn vào proprietary data và workflow."
+  ],
+  "related": [
+   "build-buy-partner",
+   "proprietary-data"
+  ],
+  "src": {
+   "label": "Stanford AI Index 2026",
+   "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report"
+  }
+ }
+]

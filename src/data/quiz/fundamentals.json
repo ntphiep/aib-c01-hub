@@ -1,0 +1,1162 @@
+[
+ {
+  "id": "fun-01",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A regional bank with 2,000 employees wants to \"use AI\" for two initiatives. The first flags loan applications that are likely to default, using 10 years of loan records labeled with actual outcomes. The second produces first drafts of personalized letters to customers. The CFO asks whether both initiatives need the same type of solution, because the board wants a single budget line.\nWhich statement should the AI strategist give the CFO?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Both initiatives are generative AI use cases, because both rely on models that learn from the bank's own historical records."
+   },
+   {
+    "k": "B",
+    "t": "Both initiatives are traditional machine learning use cases, because both produce outputs that are derived from historical bank data."
+   },
+   {
+    "k": "C",
+    "t": "Default flagging is supervised ML prediction; letter drafting is GenAI content generation."
+   },
+   {
+    "k": "D",
+    "t": "Default flagging needs generative AI for reasoning, while letter drafting is best served by fixed rule-based document templates."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: \"labeled with actual outcomes\" là supervised ML, output là score hoặc label.\n- \"first drafts of letters\" là tạo nội dung mới, đúng việc của GenAI với foundation model.\n- Hai loại khác nhau về data cần, cost và risk nên không gộp chung một cách tiếp cận.",
+  "wrong": {
+   "A": "Default flagging không tạo nội dung mới; đây là prediction từ data có label.",
+   "B": "Soạn thư là tạo nội dung mới, việc ML truyền thống không làm.",
+   "D": "Đảo ngược: dự báo default là ML prediction, còn template cứng không cá nhân hoá được thư."
+  },
+  "refs": [
+   {
+    "label": "What is ML",
+    "url": "https://aws.amazon.com/what-is/machine-learning/"
+   },
+   {
+    "label": "What is GenAI",
+    "url": "https://aws.amazon.com/what-is/generative-ai/"
+   }
+  ]
+ },
+ {
+  "id": "fun-02",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A retail chain with 300 stores deployed a demand forecasting model after a successful pilot. Store managers now request forecasts many times a day. The finance director is surprised that the monthly AI bill grows with the number of forecasts requested, even though nobody changed the model since launch. She asks the AI strategist which activity drives this recurring cost.\nWhich answer is correct?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Inference, because every forecast runs the trained model on new input data."
+   },
+   {
+    "k": "B",
+    "t": "Training, because the model relearns its parameters each time a store manager requests a new forecast."
+   },
+   {
+    "k": "C",
+    "t": "Data labeling, because each forecast must be labeled by an analyst before the model can return it to stores."
+   },
+   {
+    "k": "D",
+    "t": "Model drift, because the cost of running a model increases as its accuracy decays over time."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: cost tăng theo số lần gọi, model không đổi.\n- Inference là model đã train sinh output từ input mới; mỗi request tốn compute.\n- Business case phải tách cost training (theo lần train) và cost inference (theo volume).",
+  "wrong": {
+   "B": "Model không train lại mỗi lần gọi; parameter đã cố định sau training.",
+   "C": "Labeling là việc chuẩn bị data training, không xảy ra khi model trả forecast.",
+   "D": "Drift làm giảm accuracy, không làm tăng cost của mỗi lần chạy."
+  },
+  "refs": [
+   {
+    "label": "What is inference",
+    "url": "https://aws.amazon.com/what-is/inferencing/"
+   }
+  ]
+ },
+ {
+  "id": "fun-03",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.1",
+  "source": "original",
+  "select": 1,
+  "stem": "An insurance company with 5,000 employees wants AI to extract insights from its claims process. The available data includes policy tables in a data warehouse, free-text adjuster notes, photos of property damage, and recorded customer calls. The business sponsor asks which parts of this data will need different processing before an AI solution can use them, so she can plan the budget.\nWhich assessment is MOST accurate?",
+  "options": [
+   {
+    "k": "A",
+    "t": "All of the data is structured, because every item is stored in a company system that enforces access controls and retention rules."
+   },
+   {
+    "k": "B",
+    "t": "Only the photos are unstructured; the adjuster notes and call recordings are structured because each item carries a timestamp and a claim ID."
+   },
+   {
+    "k": "C",
+    "t": "The policy tables are unstructured because they contain many columns that change often, while notes and photos follow a fixed format."
+   },
+   {
+    "k": "D",
+    "t": "Policy tables are structured; notes, photos and recordings are unstructured and need preprocessing."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Structured data vừa vào bảng và theo predefined schema: policy tables.\n- Text tự do, ảnh, audio không có attribute định sẵn nên là unstructured.\n- Unstructured data cần preprocessing như NLP, computer vision, transcription trước khi phân tích.",
+  "wrong": {
+   "A": "Nơi lưu và access control không quyết định data có cấu trúc hay không.",
+   "B": "Có timestamp và ID không biến text tự do hay audio thành structured data.",
+   "C": "Bảng có schema là structured dù nhiều cột; notes và ảnh mới là unstructured."
+  },
+  "refs": [
+   {
+    "label": "Structured vs unstructured data",
+    "url": "https://aws.amazon.com/compare/the-difference-between-structured-data-and-unstructured-data/"
+   }
+  ]
+ },
+ {
+  "id": "fun-04",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.1",
+  "source": "original",
+  "select": 2,
+  "stem": "A healthcare provider with 12 hospitals built a model to predict patient readmissions, but its predictions are unreliable. An investigation finds that three hospitals use different codes for the same diagnosis, 30% of records are missing the discharge date, and the training data covers only 2016 to 2018. The chief medical officer asks which actions will MOST improve the model's outcomes.\nWhich actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Replace the model with a larger foundation model that can tolerate inconsistent and incomplete inputs."
+   },
+   {
+    "k": "B",
+    "t": "Standardize diagnosis codes across hospitals and fill or correct missing discharge dates before retraining."
+   },
+   {
+    "k": "C",
+    "t": "Increase the number of training passes so that the model extracts more value from the existing records."
+   },
+   {
+    "k": "D",
+    "t": "Engineer additional features from the 2016 to 2018 records to compensate for the gaps in the data."
+   },
+   {
+    "k": "E",
+    "t": "Add recent records so the training data reflects current patient populations and clinical practices."
+   }
+  ],
+  "answer": [
+   "B",
+   "E"
+  ],
+  "explain": "- Ba tín hiệu là ba chiều data quality: consistency (mã khác nhau), completeness (thiếu ngày), timeliness (data cũ).\n- B sửa consistency và completeness; E sửa timeliness.\n- Model chỉ tốt bằng data nó học; sửa data trước khi đổi model.",
+  "wrong": {
+   "A": "Model lớn hơn không sửa được data mâu thuẫn và thiếu; output vẫn sai.",
+   "C": "Train nhiều vòng hơn trên data lỗi chỉ học lỗi kỹ hơn; đây cũng là việc kỹ thuật ngoài vai trò strategist.",
+   "D": "Thêm feature từ data cũ không giải quyết việc data đã lỗi thời."
+  },
+  "refs": [
+   {
+    "label": "GenAI workload assessment: data strategy",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/data-strategy.html"
+   },
+   {
+    "label": "What is ML",
+    "url": "https://aws.amazon.com/what-is/machine-learning/"
+   }
+  ]
+ },
+ {
+  "id": "fun-05",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A consumer lender trained a credit approval model on 15 years of past approval decisions. During a review, the compliance team finds that historical approvals were lower for applicants from certain postal codes because of past manual practices that the company has since abandoned. The new model reproduces the same pattern. The chief risk officer asks for the root cause before the model reaches more customers.\nWhat is the MOST likely cause?",
+  "options": [
+   {
+    "k": "A",
+    "t": "The model has too few parameters to capture the true patterns in the applications."
+   },
+   {
+    "k": "B",
+    "t": "The model learned the bias that exists in its historical training data."
+   },
+   {
+    "k": "C",
+    "t": "Concept drift occurred after deployment because applicant behavior changed."
+   },
+   {
+    "k": "D",
+    "t": "The prediction service introduced errors when it processed new applications at inference time."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: data lịch sử chứa quyết định thiên lệch, model lặp lại đúng pattern đó.\n- Model học từ historical data nên học cả bias trong đó.\n- Cách xử lý: audit và cân bằng lại training data trước khi train lại.",
+  "wrong": {
+   "A": "Model nhỏ không giải thích việc model tái tạo chính xác pattern bias của quá khứ.",
+   "C": "Drift là thay đổi sau deploy; ở đây pattern có sẵn trong data từ đầu.",
+   "D": "Lỗi lúc inference không tạo ra pattern có hệ thống khớp với lịch sử."
+  },
+  "refs": [
+   {
+    "label": "GenAI workload assessment: data strategy",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/data-strategy.html"
+   },
+   {
+    "label": "What is ML",
+    "url": "https://aws.amazon.com/what-is/machine-learning/"
+   }
+  ]
+ },
+ {
+  "id": "fun-06",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A multinational manufacturer buys AI solutions from several vendors. Its legal, procurement, and engineering teams use the terms \"model\", \"AI system\", and \"training data\" differently in contracts, and the misunderstandings delay approvals by weeks. The CIO wants an internationally recognized reference that defines common AI terminology and a framework that describes the components of an ML-based AI system.\nWhich standards should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "ISO/IEC 42001, so that the company can certify its AI management system with an accredited third-party auditor."
+   },
+   {
+    "k": "B",
+    "t": "ISO/IEC 27001, so that vendor contracts are aligned with the company's existing information security management system."
+   },
+   {
+    "k": "C",
+    "t": "ISO/IEC 22989 for terminology and ISO/IEC 23053 for the ML system framework."
+   },
+   {
+    "k": "D",
+    "t": "The EU AI Act risk categories, so that every contract classifies each AI system before procurement starts."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: \"common AI terminology\" và \"components of an ML-based AI system\".\n- ISO/IEC 22989 định nghĩa thuật ngữ và khái niệm AI.\n- ISO/IEC 23053 là framework mô tả AI system dùng ML, các component và chức năng.",
+  "wrong": {
+   "A": "42001 đặt requirements cho AI management system, không phải chuẩn thuật ngữ.",
+   "B": "27001 là chuẩn information security, không định nghĩa thuật ngữ AI.",
+   "D": "EU AI Act là luật phân loại risk, không phải bộ vocabulary chung cho hợp đồng."
+  },
+  "refs": [
+   {
+    "label": "ISO/IEC 22989 (IEC webstore)",
+    "url": "https://webstore.iec.ch/en/publication/77839"
+   },
+   {
+    "label": "ISO/IEC 23053 (AFNOR)",
+    "url": "https://www.boutique.afnor.org/en-gb/standard/iso-iec-230532022/framework-for-artificial-intelligence-ai-systems-using-machine-learning-ml/xs139450/326655"
+   }
+  ]
+ },
+ {
+  "id": "fun-07",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A SaaS company sells HR software with AI features to large enterprises. Procurement teams at several customers now ask for evidence that the company governs AI systematically. The company runs its workloads on AWS, which holds ISO/IEC 42001 certification. The head of sales proposes telling customers that the company is covered by the AWS certification, to avoid a long audit.\nWhat should the AI strategist advise?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Pursue the company's own ISO/IEC 42001 certification; AWS certification helps but does not transfer."
+   },
+   {
+    "k": "B",
+    "t": "Share the AWS ISO/IEC 42001 certificate with customers as proof that the company's own AI management system is certified."
+   },
+   {
+    "k": "C",
+    "t": "Adopt ISO/IEC 23053 and present the adoption to customers as a certification of the company's AI governance."
+   },
+   {
+    "k": "D",
+    "t": "Delay the response until the AI models are retrained, because ISO/IEC 42001 certification measures model accuracy."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- AWS FAQ: tổ chức không được certify theo AWS; certification của AWS chỉ giúp quá trình tự certify dễ hơn.\n- ISO/IEC 42001 là chuẩn AI management system, certify được bởi certification body bên thứ ba.\n- Khách hàng hỏi về governance của chính công ty nên cần certification của chính công ty.",
+  "wrong": {
+   "B": "Certification của AWS chỉ phủ phạm vi của AWS, không phủ AI management system của khách hàng.",
+   "C": "23053 là framework mô tả ML system, không phải certification về governance.",
+   "D": "42001 đánh giá management system của tổ chức, không chấm accuracy của model."
+  },
+  "refs": [
+   {
+    "label": "AWS ISO/IEC 42001 FAQ",
+    "url": "https://aws.amazon.com/compliance/iso-42001-faqs/"
+   }
+  ]
+ },
+ {
+  "id": "fun-08",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.1",
+  "source": "original",
+  "select": 2,
+  "stem": "A logistics company with 1,500 employees is building an ML model that predicts delivery delays from five years of shipment records. The executive sponsor is new to AI and asks the AI strategist what training on historical data means for the business, because she must explain the project to the board next week.\nWhich statements are accurate? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "The model learns patterns that link past shipment conditions to the delay outcomes that are already known."
+   },
+   {
+    "k": "B",
+    "t": "After training, the model updates itself with every new shipment, so the company never needs to retrain it."
+   },
+   {
+    "k": "C",
+    "t": "Only the volume of training data matters, because data quality problems average out across five years of records."
+   },
+   {
+    "k": "D",
+    "t": "If routes, carriers, or customer behavior change, patterns learned from history can become outdated."
+   },
+   {
+    "k": "E",
+    "t": "Historical data guarantees an unbiased model, because it records events that really happened in the past."
+   }
+  ],
+  "answer": [
+   "A",
+   "D"
+  ],
+  "explain": "- Training chỉnh parameter để prediction khớp outcome đã biết trong data lịch sử.\n- Model chỉ biết thế giới trong data; thực tế đổi thì pattern cũ hết đúng, đó là drift.\n- Vì vậy cần monitoring và retrain khi performance giảm.",
+  "wrong": {
+   "B": "Model đã deploy không tự học lại; cần retrain khi performance dưới KPI.",
+   "C": "Data sai hoặc thiếu làm model học sai; số lượng không bù được chất lượng.",
+   "E": "Data lịch sử chứa cả quyết định thiên lệch của quá khứ, model học lại bias đó."
+  },
+  "refs": [
+   {
+    "label": "What is ML",
+    "url": "https://aws.amazon.com/what-is/machine-learning/"
+   },
+   {
+    "label": "Detecting drift in production",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-09",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A water utility wants to automate late-fee calculation. The fee is a fixed percentage of the unpaid balance after 30 days. The regulator publishes the exact formula, and internal auditors must be able to trace every fee to that formula. A vendor proposes an ML model that learns fee amounts from five years of billing history. The billing director asks for a recommendation.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Train an ML model on past late fees so that it learns how to calculate new fees from historical patterns."
+   },
+   {
+    "k": "B",
+    "t": "Use rule-based automation that implements the published formula."
+   },
+   {
+    "k": "C",
+    "t": "Use a generative AI model to calculate each fee and explain the result to the customer in natural language."
+   },
+   {
+    "k": "D",
+    "t": "Use an AI agent that decides fee amounts autonomously based on each customer's payment history."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: công thức cố định, regulator công bố, auditor phải truy được từng khoản.\n- Rule-based cho kết quả deterministic và truy được về rule.\n- AWS ML Lens: xét giải pháp rule-based đơn giản trước khi chọn ML.",
+  "wrong": {
+   "A": "ML xấp xỉ công thức đã biết, có thể sai và khó giải thích với auditor.",
+   "C": "Output GenAI không deterministic, không hợp với phép tính phải chính xác.",
+   "D": "Agent tự quyết số tiền mâu thuẫn với công thức cố định do regulator đặt."
+  },
+  "refs": [
+   {
+    "label": "ML Lens MLCOST02-BP01",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-10",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 1,
+  "stem": "An online marketplace's fraud team maintains 400 static rules. Fraudsters change tactics every few weeks, so the rules miss new schemes, and false positives frustrate legitimate customers. The data team has three years of transactions labeled as fraud or not fraud. The CFO will approve a large AI investment only with evidence that it beats the current approach.\nWhat should the AI strategist recommend FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Replace every rule immediately with a generative AI model that reads the free-text description of each transaction."
+   },
+   {
+    "k": "B",
+    "t": "Write 200 additional rules that target the newest fraud schemes reported by the operations team."
+   },
+   {
+    "k": "C",
+    "t": "Deploy an autonomous AI agent that blocks suspicious accounts without human review to stop losses faster."
+   },
+   {
+    "k": "D",
+    "t": "Build an ML model and compare it with the current rules as a baseline on accuracy and total cost."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: pattern đổi liên tục, có data label, CFO cần bằng chứng.\n- AWS lấy fraud detection làm ví dụ hợp với ML vì hành vi đổi liên tục.\n- Rule hiện có là baseline; ML phải thắng baseline về accuracy, inference time, total cost.",
+  "wrong": {
+   "A": "Bỏ toàn bộ rule mà không so sánh thì không có bằng chứng CFO cần; GenAI cũng không phải lựa chọn tự nhiên cho data giao dịch.",
+   "B": "Thêm rule vẫn chạy sau kẻ gian và tăng false positive.",
+   "C": "Khoá account không có người duyệt là action risk cao, và không trả lời câu hỏi đầu tư."
+  },
+  "refs": [
+   {
+    "label": "ML Lens MLCOST02-BP01",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-11",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A telecom provider's customer service chatbot answers frequently asked questions from a document library. The customer experience director now wants a solution that can, on its own, check order status in the billing system, issue service credits up to 20 USD, and open field-service tickets. Credits above 20 USD must go to a supervisor. The director asks what type of solution this is.\nWhich description is correct?",
+  "options": [
+   {
+    "k": "A",
+    "t": "A retrieval augmented generation (RAG) assistant, because it retrieves documents to answer customer questions."
+   },
+   {
+    "k": "B",
+    "t": "A foundation model fine-tuned on past support tickets so that it imitates how agents resolved them."
+   },
+   {
+    "k": "C",
+    "t": "An AI agent that plans steps and uses tools, with human approval above the credit limit."
+   },
+   {
+    "k": "D",
+    "t": "A rule-based interactive voice response menu that routes each caller to the right department."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: \"on its own\", gọi billing system, tạo credit, mở ticket: autonomy và tool use.\n- Đó là AI agent, không chỉ trả lời câu hỏi.\n- Ngưỡng 20 USD là human-in-the-loop cho action có hệ quả tài chính.",
+  "wrong": {
+   "A": "RAG giúp trả lời từ tài liệu nhưng không tự hành động trên hệ thống.",
+   "B": "Fine-tuning đổi cách model viết, không cho model khả năng gọi tool.",
+   "D": "Menu IVR chỉ route cuộc gọi, không xử lý yêu cầu end-to-end."
+  },
+  "refs": [
+   {
+    "label": "What are AI agents",
+    "url": "https://aws.amazon.com/what-is/ai-agents/"
+   },
+   {
+    "label": "Govern AI adoption (AWS blog)",
+    "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+   }
+  ]
+ },
+ {
+  "id": "fun-12",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A global consulting firm wants to automate proposal preparation. One AI agent researches the client, a second drafts pricing, and a third checks compliance with contract terms. The agents come from different vendor platforms. The CTO worries about how the agents will divide the work and whether they can exchange results at all.\nWhich capabilities should the AI strategist highlight? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Fine-tuning every agent on the same dataset so that all three agents behave identically."
+   },
+   {
+    "k": "B",
+    "t": "A larger context window so that one model can complete all three tasks in a single request."
+   },
+   {
+    "k": "C",
+    "t": "An orchestration approach in which a coordinating agent assigns subtasks and combines the results."
+   },
+   {
+    "k": "D",
+    "t": "A single rule-based workflow that replaces the three agents to remove AI risk from proposals."
+   },
+   {
+    "k": "E",
+    "t": "A standard agent-to-agent protocol so that agents on different platforms can exchange tasks and results."
+   }
+  ],
+  "answer": [
+   "C",
+   "E"
+  ],
+  "explain": "- Lo ngại 1 là chia việc: orchestrator lập plan, giao subtask, tổng hợp kết quả.\n- Lo ngại 2 là khác platform: cần protocol agent-to-agent như A2A hoặc MCP inter-agent.",
+  "wrong": {
+   "A": "Ba agent cần vai trò khác nhau; train giống nhau làm mất chuyên môn.",
+   "B": "Context window lớn không giải quyết việc phối hợp agent trên nhiều platform.",
+   "D": "Research và soạn pricing cần xử lý ngôn ngữ, rule cứng không làm được."
+  },
+  "refs": [
+   {
+    "label": "Workflow for orchestration",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/workflow-for-orchestration.html"
+   },
+   {
+    "label": "Agent-to-agent protocols",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/agent-to-agent-protocols.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-13",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A retail bank deployed a credit card fraud model 18 months ago, and it was highly accurate at launch. Over the last two quarters, fraud losses have risen and the model flags fewer fraudulent transactions. The engineering team confirms that no code or configuration has changed. The head of fraud asks the AI strategist for the most likely explanation and response.\nWhat should the strategist say?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Model drift; monitor performance against KPI thresholds and retrain on recent data."
+   },
+   {
+    "k": "B",
+    "t": "A software defect in the latest release; roll back the model code to the version that was deployed at launch."
+   },
+   {
+    "k": "C",
+    "t": "Hallucination by the model; add output guardrails so that the model stops inventing fraud labels."
+   },
+   {
+    "k": "D",
+    "t": "Insufficient compute capacity; move the model to larger instances so that it can score every transaction."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: \"accurate at launch\", giảm dần, \"no code changes\".\n- Kẻ gian đổi hành vi nên phân phối data và quan hệ input-output đổi: model drift.\n- Đáp án đúng gồm monitoring liên tục, ngưỡng KPI và retrain trên data mới.",
+  "wrong": {
+   "B": "Code không đổi nên rollback không có gì để sửa.",
+   "C": "Hallucination là khái niệm của GenAI tạo nội dung sai, không phải performance giảm dần của model phân loại.",
+   "D": "Thiếu compute gây chậm hoặc lỗi, không làm accuracy giảm dần."
+  },
+  "refs": [
+   {
+    "label": "Detecting drift in production",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+   },
+   {
+    "label": "SageMaker Model Monitor",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-14",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A data science team proposes retraining all 30 production models every Sunday \"to be safe\". The CFO questions the compute and staff cost of this plan. Monitoring shows that 22 of the models have kept stable accuracy for a year, while 8 operate in fast-changing markets. The CFO asks the AI strategist for a policy that balances cost and reliability.\nWhat should the strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Retrain every model daily instead of weekly so that drift never has time to affect any prediction."
+   },
+   {
+    "k": "B",
+    "t": "Monitor each model against agreed KPI thresholds and retrain only when performance falls below them."
+   },
+   {
+    "k": "C",
+    "t": "Stop monitoring the 22 stable models to save cost, and retrain the other 8 models every Sunday."
+   },
+   {
+    "k": "D",
+    "t": "Replace all 30 models with generative AI models, because foundation models are not affected by drift."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- AWS ML Lens: không retrain tuỳ tiện; monitor production và chỉ retrain khi performance dưới KPI.\n- Cách này giữ reliability cho 8 model biến động và cắt cost cho 22 model ổn định.",
+  "wrong": {
+   "A": "Retrain dày hơn tăng cost mà không dựa trên bằng chứng performance.",
+   "C": "Model ổn định hôm nay vẫn có thể drift; bỏ monitoring là mất tín hiệu sớm.",
+   "D": "GenAI cũng drift khi input hoặc kỳ vọng của user thay đổi."
+  },
+  "refs": [
+   {
+    "label": "ML Lens MLSUS06-BP02",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp02.html"
+   },
+   {
+    "label": "Detecting drift in production",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-15",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A pharmaceutical company with 8,000 employees learns from a survey that 40% of staff use free public GenAI chatbots, and some paste draft clinical documents into them. The CISO proposes blocking all GenAI websites immediately. The CHRO worries that a ban will hurt productivity and push usage out of sight. The CEO asks the AI strategist to resolve the disagreement.\nWhich actions should the strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Block every GenAI website immediately and discipline employees who are found using the tools."
+   },
+   {
+    "k": "B",
+    "t": "Provide an approved enterprise GenAI tool with single sign-on before restricting high-risk tools."
+   },
+   {
+    "k": "C",
+    "t": "Allow unrestricted use of any GenAI tool until the governance policy is fully drafted and approved."
+   },
+   {
+    "k": "D",
+    "t": "Publish a clear list of AI tools classified as approved, under evaluation, or blocked, with data rules for each."
+   },
+   {
+    "k": "E",
+    "t": "Let each department choose and approve its own AI tools so that teams keep their current productivity."
+   }
+  ],
+  "answer": [
+   "B",
+   "D"
+  ],
+  "explain": "- Whitepaper AWS: cấm thẳng làm nhân viên chuyển sang consumer app; cung cấp tool được duyệt giảm shadow AI và tăng visibility.\n- Blog AWS: chỉ block sau khi lựa chọn approved đã chạy.\n- Phân loại công khai cho nhân viên biết dùng gì, với data nào.",
+  "wrong": {
+   "A": "Ban toàn bộ đẩy usage sang thiết bị cá nhân, mất visibility.",
+   "C": "Data clinical tiếp tục rời công ty trong lúc chờ policy.",
+   "E": "Mỗi phòng tự duyệt tạo ra nhiều tiêu chuẩn và mất góc nhìn toàn công ty."
+  },
+  "refs": [
+   {
+    "label": "Shadow generative AI",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/navigating-security-landscape-genai/shadow-generative-ai.html"
+   },
+   {
+    "label": "Govern AI adoption (AWS blog)",
+    "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+   }
+  ]
+ },
+ {
+  "id": "fun-16",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A law firm with 400 lawyers approved a video-conferencing SaaS product two years ago. Last month, the vendor enabled an AI meeting summary feature in a routine update. The feature sends meeting transcripts to a third-party model. Partners worry about client confidentiality, but the product is still listed as approved.\nWhat should the firm do?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Take no action, because the vendor already passed the firm's procurement and security review two years ago."
+   },
+   {
+    "k": "B",
+    "t": "Block the conferencing product entirely and move all client meetings back to telephone calls."
+   },
+   {
+    "k": "C",
+    "t": "Re-review the product with the new AI feature and update its classification and data rules."
+   },
+   {
+    "k": "D",
+    "t": "Ask each partner to decide individually whether the summary feature is acceptable for their clients."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: AI feature mới xuất hiện qua update trong tool đã approve.\n- Blog AWS gọi đây là shadow AI trong SaaS đã duyệt: procurement duyệt vendor, chưa duyệt feature mới.\n- Phân loại tool phải được xem lại khi tool thay đổi.",
+  "wrong": {
+   "A": "Review cũ không bao gồm feature chưa tồn tại lúc ký hợp đồng.",
+   "B": "Chặn cả sản phẩm là phản ứng quá mức khi chỉ một feature cần review.",
+   "D": "Quyết định riêng lẻ phá vỡ phân loại minh bạch và nhất quán toàn firm."
+  },
+  "refs": [
+   {
+    "label": "Govern AI adoption (AWS blog)",
+    "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+   }
+  ]
+ },
+ {
+  "id": "fun-17",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.3",
+  "source": "original",
+  "select": 1,
+  "stem": "The marketing team at a consumer electronics company uses a GenAI tool to write product descriptions. The outputs are generic, vary in length and structure, and sometimes address engineers instead of shoppers. The team has no ML engineers, and the marketing director wants better results this week at minimal cost.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Fine-tune a foundation model on five years of approved product descriptions before the next campaign."
+   },
+   {
+    "k": "B",
+    "t": "Build a retrieval augmented generation pipeline over every marketing document in the company."
+   },
+   {
+    "k": "C",
+    "t": "Switch to a larger model that has a bigger context window and a higher price per token."
+   },
+   {
+    "k": "D",
+    "t": "Improve the prompts with a role, audience, few-shot examples and an output format."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: output chung chung, sai đối tượng, không đều; cần nhanh, rẻ, không có ML engineer.\n- Prompt engineering là bước đầu rẻ nhất: role, audience, ví dụ mẫu, format.",
+  "wrong": {
+   "A": "Fine-tuning tốn thời gian, data và có thể cần data scientist; quá nặng cho vấn đề prompt.",
+   "B": "RAG bổ sung kiến thức, không sửa giọng văn và format.",
+   "C": "Model lớn hơn tăng cost mà không sửa instruction mơ hồ."
+  },
+  "refs": [
+   {
+    "label": "What is prompt engineering",
+    "url": "https://aws.amazon.com/what-is/prompt-engineering/"
+   },
+   {
+    "label": "Bedrock prompt engineering",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-18",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.3",
+  "source": "original",
+  "select": 1,
+  "stem": "The legal operations team of a large enterprise uses a GenAI assistant to support contract negotiations in long chat sessions. After about an hour, the assistant starts ignoring terms that were agreed at the start of the session, and the cost per session keeps rising. The general counsel asks the AI strategist for the most likely cause.\nWhich answer is correct?",
+  "options": [
+   {
+    "k": "A",
+    "t": "The model drifted because the contract language used in negotiations changed during the session."
+   },
+   {
+    "k": "B",
+    "t": "The growing history crowds the context window; summarize or trim earlier turns."
+   },
+   {
+    "k": "C",
+    "t": "The model was fine-tuned on outdated contracts, so it prefers older terms over the agreed terms."
+   },
+   {
+    "k": "D",
+    "t": "The assistant lacks tool use, so it cannot look up the terms that were agreed earlier in the session."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: phiên dài, quên chi tiết đầu phiên, cost mỗi phiên tăng.\n- Mỗi lượt gửi lại toàn bộ lịch sử: tốn token, tăng latency và chiếm context window.\n- AWS Agentic AI Lens: giới hạn lịch sử bằng summarization hoặc sliding window.",
+  "wrong": {
+   "A": "Drift là thay đổi qua tháng hoặc quý trong production, không phải trong một phiên.",
+   "C": "Không có dấu hiệu fine-tuning; vấn đề xuất hiện theo độ dài phiên.",
+   "D": "Tool use không giải quyết việc lịch sử phiên chiếm hết context."
+  },
+  "refs": [
+   {
+    "label": "Agentic AI Lens AGENTPERF03-BP02",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentperf03-bp02.html"
+   },
+   {
+    "label": "Agentic AI Lens AGENTCOST03-BP02",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentcost03-bp02.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-19",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.3",
+  "source": "original",
+  "select": 1,
+  "stem": "An insurance company wants a GenAI assistant that answers employee questions about HR policies. The policies are updated every month, and each answer must cite the policy section it relies on. The HR director's main concern is that employees will receive outdated answers after an update. The IT budget for the project is limited.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Retrieval augmented generation over the current HR policy documents."
+   },
+   {
+    "k": "B",
+    "t": "Fine-tune a foundation model on the policy documents again after every monthly update."
+   },
+   {
+    "k": "C",
+    "t": "Paste a one-time summary of all policies into the prompt template that the assistant uses."
+   },
+   {
+    "k": "D",
+    "t": "Train a new language model from scratch on the company's complete set of HR records."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: tài liệu đổi hàng tháng, cần trích dẫn, ngân sách hạn chế.\n- RAG nạp tài liệu mới trong vài phút và trả về reference tới nguồn.\n- Không cần train lại model.",
+  "wrong": {
+   "B": "Mỗi lần fine-tuning mất vài giờ tới vài ngày, và fine-tuned model không trích dẫn nguồn.",
+   "C": "Tóm tắt một lần sẽ lỗi thời sau lần cập nhật kế tiếp.",
+   "D": "Train từ đầu là đắt nhất và vẫn không cập nhật theo tháng."
+  },
+  "refs": [
+   {
+    "label": "RAG vs fine-tuning",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+   },
+   {
+    "label": "What is RAG",
+    "url": "https://aws.amazon.com/what-is/retrieval-augmented-generation/"
+   }
+  ]
+ },
+ {
+  "id": "fun-20",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.3",
+  "source": "original",
+  "select": 2,
+  "stem": "A bank is launching a GenAI assistant for customer service. Compliance requires that every answer uses the bank's formal tone and its specific product terminology consistently. Customers also ask about interest rates, which change daily. The product owner asks which techniques address both requirements without daily model retraining.\nWhich techniques should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Fine-tuning, so that the model writes in the bank's formal tone and uses its product terminology."
+   },
+   {
+    "k": "B",
+    "t": "Fine-tuning every day on the latest rate tables, so that the model always knows the current rates."
+   },
+   {
+    "k": "C",
+    "t": "Retrieval augmented generation, so that current rates are retrieved when each question is asked."
+   },
+   {
+    "k": "D",
+    "t": "Chain-of-thought prompting, so that the model reasons step by step to work out today's interest rates."
+   },
+   {
+    "k": "E",
+    "t": "Rule-based templates for every answer, so that the bank avoids using generative AI for customers."
+   }
+  ],
+  "answer": [
+   "A",
+   "C"
+  ],
+  "explain": "- Giọng văn và thuật ngữ nhất quán là việc của fine-tuning.\n- Fact đổi hằng ngày là việc của RAG, lấy dữ liệu lúc hỏi.\n- Kết hợp được: RAG chạy trên model đã fine-tune.",
+  "wrong": {
+   "B": "Fine-tuning mất vài giờ tới vài ngày mỗi lần; không hợp với data đổi hằng ngày.",
+   "D": "Suy luận từng bước không tạo ra fact model không có.",
+   "E": "Template cứng không trả lời được câu hỏi tự do của khách hàng."
+  },
+  "refs": [
+   {
+    "label": "RAG vs fine-tuning",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-21",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A product team at a fintech company wants a GenAI model to analyze a 2,000-page regulatory filing in a single request. The model they selected has a 200,000-token context window, and the request fails. The team lead, who is not technical, asks the AI strategist why it failed and what the team should do instead.\nWhich explanation and response are correct?",
+  "options": [
+   {
+    "k": "A",
+    "t": "The model is hallucinating on the long filing, so the team should add guardrails to the model's outputs."
+   },
+   {
+    "k": "B",
+    "t": "The filing is unstructured data, so a generative AI model cannot process it until it is converted into tables."
+   },
+   {
+    "k": "C",
+    "t": "The filing exceeds the model's token limit; split it or retrieve only relevant sections."
+   },
+   {
+    "k": "D",
+    "t": "The model must be fine-tuned on regulatory filings before it can read documents of this type and length."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Mỗi model có context window giới hạn số token trong một request.\n- 2,000 trang vượt xa 200K token (ước lượng thô: vài trăm token mỗi trang).\n- Cách xử lý: chia theo phần, hoặc chỉ truy xuất phần liên quan.",
+  "wrong": {
+   "A": "Request thất bại vì giới hạn đầu vào, không phải do output bịa.",
+   "B": "GenAI xử lý tốt text unstructured; vấn đề là độ dài.",
+   "D": "Fine-tuning không tăng context window của model."
+  },
+  "refs": [
+   {
+    "label": "Claude Haiku 4.5 model card",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-haiku-4-5.html"
+   },
+   {
+    "label": "Agentic AI Lens AGENTPERF03-BP02",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentperf03-bp02.html"
+   }
+  ]
+ },
+ {
+  "id": "fun-22",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A SaaS company's finance team notices that the monthly bill for its GenAI support assistant doubled while the number of users stayed flat. An investigation shows that the assistant inserts the full 80,000-token product manual into every prompt, regardless of the question. The CFO wants lower cost without worse answers.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Switch to a model with a larger context window so that the full manual fits more comfortably in each prompt."
+   },
+   {
+    "k": "B",
+    "t": "Retrieve only the manual sections relevant to each question."
+   },
+   {
+    "k": "C",
+    "t": "Ask customers to write shorter questions so that each request contains fewer input tokens."
+   },
+   {
+    "k": "D",
+    "t": "Increase the maximum number of output tokens so that each answer is complete on the first attempt."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: cost theo token, 80K token chèn vào mọi prompt bất kể câu hỏi.\n- Chỉ đưa context liên quan vào prompt giảm input token mà vẫn giữ chất lượng.\n- AWS Agentic AI Lens xếp việc chèn context không liên quan vào anti-pattern.",
+  "wrong": {
+   "A": "Context window lớn hơn vẫn tính tiền cho cùng 80K token mỗi lần.",
+   "C": "Câu hỏi chỉ vài chục token; phần đắt là manual.",
+   "D": "Tăng output token có thể tăng cost, không giảm."
+  },
+  "refs": [
+   {
+    "label": "Agentic AI Lens AGENTPERF03-BP02",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentperf03-bp02.html"
+   },
+   {
+    "label": "Bedrock pricing",
+    "url": "https://aws.amazon.com/bedrock/pricing/"
+   }
+  ]
+ },
+ {
+  "id": "fun-23",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A travel agency with 600 employees wants to automate rebooking when flights are canceled. A vendor demo shows an AI agent that reads the cancellation, searches alternatives, charges the customer's card for fare differences, and emails the new itinerary with no human involvement. The COO is impressed. The head of customer care worries about wrong charges, and recent public benchmarks show that agents still fail about one in three real computer tasks.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Deploy the agent with full autonomy, because autonomous action is the main business benefit of an agent."
+   },
+   {
+    "k": "B",
+    "t": "Let the agent plan and prepare each rebooking, with human approval before any card charge, limited tool permissions, and an audit trail."
+   },
+   {
+    "k": "C",
+    "t": "Replace the agent with a chatbot that only answers rebooking questions, because agents are not ready for business use."
+   },
+   {
+    "k": "D",
+    "t": "Delay all automation until public benchmarks show that agents succeed on every task."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: agent có action không đảo ngược (charge thẻ), stakeholder lo charge sai, agent vẫn hỏng khoảng 1 trong 3 task.\n- AWS khuyên đặt approval threshold trước action không đảo ngược và giới hạn quyền tool.\n- Giữ được value của agent (plan, tìm phương án) mà kiểm soát risk.",
+  "wrong": {
+   "A": "Bỏ qua risk charge sai; tỉ lệ lỗi hiện tại không hợp với action tài chính không có người duyệt.",
+   "C": "Chatbot chỉ trả lời, mất phần value chính là thực hiện rebooking.",
+   "D": "Không cần agent hoàn hảo; human approval cho phần risk cao là đủ để bắt đầu."
+  },
+  "refs": [
+   {
+    "label": "Govern AI adoption (AWS blog)",
+    "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+   },
+   {
+    "label": "Stanford AI Index 2026",
+    "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report"
+   },
+   {
+    "label": "What are AI agents",
+    "url": "https://aws.amazon.com/what-is/ai-agents/"
+   }
+  ]
+ },
+ {
+  "id": "fun-24",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.1",
+  "source": "original",
+  "select": 2,
+  "stem": "A board member at a 3,000-employee logistics firm reads that the company uses AI in three places: a rules engine that blocks shipments above a weight limit, a model trained on five years of delivery records that predicts late deliveries, and an assistant that drafts customer apology emails. She asks the AI strategist to classify the three systems correctly before the annual report is published.\nWhich TWO statements are accurate? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "The late-delivery predictor is machine learning, because it learned patterns from labeled historical data."
+   },
+   {
+    "k": "B",
+    "t": "The email assistant is generative AI, because it creates new text with a foundation model."
+   },
+   {
+    "k": "C",
+    "t": "The rules engine is machine learning, because it makes automated decisions about shipments."
+   },
+   {
+    "k": "D",
+    "t": "The late-delivery predictor is generative AI, because it produces a new prediction for every shipment."
+   },
+   {
+    "k": "E",
+    "t": "All three systems are generative AI, because generative AI is the umbrella term for AI."
+   }
+  ],
+  "answer": [
+   "A",
+   "B"
+  ],
+  "explain": "- ML học pattern từ historical data có label và trả về prediction.\n- GenAI tạo nội dung mới bằng foundation model.\n- Rules engine không học từ data; AI mới là umbrella term, GenAI là subset.",
+  "wrong": {
+   "C": "Tự động ra quyết định chưa phải ML; rule viết tay không học từ data.",
+   "D": "Prediction là output của ML truyền thống, không phải nội dung mới do GenAI tạo.",
+   "E": "Đảo ngược quan hệ: AI là umbrella term, GenAI là subset của AI."
+  },
+  "refs": [
+   {
+    "label": "AI vs ML",
+    "url": "https://aws.amazon.com/compare/the-difference-between-artificial-intelligence-and-machine-learning/"
+   },
+   {
+    "label": "What is ML",
+    "url": "https://aws.amazon.com/what-is/machine-learning/"
+   },
+   {
+    "label": "What is GenAI",
+    "url": "https://aws.amazon.com/what-is/generative-ai/"
+   }
+  ]
+ },
+ {
+  "id": "fun-25",
+  "topic": "fundamentals",
+  "domain": "D1",
+  "task": "1.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A pharmaceutical company uses a GenAI assistant to answer medical-information questions from doctors. Compliance reviewers notice two problems. First, the same approved question receives noticeably different wording and emphasis each time it is asked, which makes review hard. Second, answers are complete and the assistant handles short conversations well, so there is no sign of truncation. The head of compliance asks for the simplest fix that does not require retraining.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Increase the context window by switching to a model with a larger token limit."
+   },
+   {
+    "k": "B",
+    "t": "Lower the temperature and define a fixed output format in the prompt template."
+   },
+   {
+    "k": "C",
+    "t": "Fine-tune the model on approved answers so that every response matches them exactly."
+   },
+   {
+    "k": "D",
+    "t": "Raise the maximum output tokens so that each answer covers more detail."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: cùng câu hỏi, output khác nhau mỗi lần; không có dấu hiệu bị cắt; không muốn retrain.\n- Temperature thấp làm response deterministic hơn; output format cố định giữ cấu trúc ổn định.\n- Đây là thay đổi rẻ nhất, không cần data hay training.",
+  "wrong": {
+   "A": "Không có dấu hiệu thiếu context; context window lớn hơn không giảm độ ngẫu nhiên.",
+   "C": "Fine-tuning tốn cost và thời gian, trái yêu cầu không retrain, vẫn không đảm bảo giống hệt.",
+   "D": "Max tokens chỉ giới hạn độ dài; answers đã đầy đủ và không bị cắt."
+  },
+  "refs": [
+   {
+    "label": "Bedrock inference parameters",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html"
+   },
+   {
+    "label": "Bedrock prompt engineering",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html"
+   }
+  ]
+ }
+]

@@ -1,0 +1,1316 @@
+[
+ {
+  "id": "str-01",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A regional insurance company with 2,000 employees wants an AI strategy after a board meeting. Department heads have already submitted 40 ideas, most of them chatbots. The CFO is concerned that the company will spend money on AI without measurable returns. The CEO asks an AI strategist to recommend how to start.\nWhat should the AI strategist do FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Select a foundation model provider and build a shared enterprise AI platform so that every department can start developing its own ideas on common tooling."
+   },
+   {
+    "k": "B",
+    "t": "Launch a company-wide chatbot pilot for all employees to collect feedback about which ideas are most popular."
+   },
+   {
+    "k": "C",
+    "t": "Identify the business problems with the largest cost or revenue impact, and map AI capabilities and measurable outcomes to them."
+   },
+   {
+    "k": "D",
+    "t": "Hire a data science team to evaluate the technical feasibility of all 40 ideas before involving business stakeholders."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: CFO lo \"không có returns đo được\", 40 ý tưởng đa số là chatbot.\n- CAF-AI yêu cầu work backwards từ problem của business và customer, gắn mỗi cơ hội với outcome đo được.\n- Có problem và KPI rồi mới chọn capability và công nghệ.",
+  "wrong": {
+   "A": "Chọn platform trước khi biết problem nào đáng giải; đây là bắt đầu từ công nghệ.",
+   "B": "Độ phổ biến của ý tưởng không phải business value; pilot toàn công ty tốn cost mà không có KPI.",
+   "D": "Feasibility chỉ là một tiêu chí; bỏ qua business value và stakeholder ngay từ đầu."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF-AI, Business perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+   },
+   {
+    "label": "AWS CAF-AI, transformation journey",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+   }
+  ]
+ },
+ {
+  "id": "str-02",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "An online retailer must show measurable AI value to its executive committee within two quarters to secure next year's budget. The strategist has scored four proposals. Proposal 1: AI-assisted product description writing, moderate value, product data already clean, a vendor solution is available. Proposal 2: dynamic pricing, high value, but pricing data is split across three legacy systems that need 9 months of integration. Proposal 3: an AI-generated office newsletter, low value, easy to build. Proposal 4: AI credit decisions for buy-now-pay-later, high value, but it requires new regulatory approval.\nWhich proposal should the company prioritize FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Proposal 1, because it combines meaningful value with high feasibility and can show results within the deadline."
+   },
+   {
+    "k": "B",
+    "t": "Proposal 2, because it has the highest business value and the data integration work will also benefit several future AI projects across the company."
+   },
+   {
+    "k": "C",
+    "t": "Proposal 3, because it is the easiest to deliver and carries the lowest risk."
+   },
+   {
+    "k": "D",
+    "t": "Proposal 4, because high-value regulated use cases create the strongest competitive advantage."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: phải có kết quả trong 2 quý.\n- Proposal 1 là quick win: value khá, data sẵn, có giải pháp mua được.\n- Proposal 2 và 4 là strategic bet: nên chuẩn bị song song, không làm đầu tiên.",
+  "wrong": {
+   "B": "Value cao nhưng 9 tháng integration vượt deadline 2 quý; đây là strategic bet, cần đầu tư nền trước.",
+   "C": "Dễ nhưng value thấp; không thuyết phục được executive committee.",
+   "D": "Cần regulatory approval mới, timeline không chắc chắn trong 2 quý."
+  },
+  "refs": [
+   {
+    "label": "GenAI maturity model, level 2",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+   },
+   {
+    "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+    "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+   }
+  ]
+ },
+ {
+  "id": "str-03",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A logistics company ran a 4-month pilot of an AI route-planning assistant in one region. Before the pilot, the team defined success criteria: 10% fewer fuel costs and 70% dispatcher adoption. The pilot achieved a 12% fuel reduction and 85% adoption, and the measured ROI is positive. Operations leaders in two other regions are asking for the tool. The executive sponsor asks for a recommendation.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Extend the pilot in the same region for another 12 months to collect more data and confirm that the results remain stable before any expansion is approved."
+   },
+   {
+    "k": "B",
+    "t": "Rebuild the solution with a custom model before expansion to maximize differentiation."
+   },
+   {
+    "k": "C",
+    "t": "Pause the initiative until the company finishes a full enterprise AI governance program."
+   },
+   {
+    "k": "D",
+    "t": "Scale the solution to the two requesting regions in phases, tracking the same KPIs against each region's baseline."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: vượt success criteria đặt trước, adoption cao, ROI dương, có nhu cầu từ region khác.\n- ML Lens: ROI dương thì tìm cách scale sang bài toán tương tự.\n- Scale theo giai đoạn và đo lại so với baseline từng region giữ được evidence.",
+  "wrong": {
+   "A": "Đã đạt tiêu chí; kéo dài pilot làm chậm value mà không thêm thông tin quyết định.",
+   "B": "Không có tín hiệu cần custom model; build lại tốn cost và thời gian.",
+   "C": "Không có blocker governance trong đề; pause chỉ hợp khi có blocker cụ thể."
+  },
+  "refs": [
+   {
+    "label": "ML Lens MLCOST06-BP02",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html"
+   },
+   {
+    "label": "AWS CAF-AI, transformation journey",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+   }
+  ]
+ },
+ {
+  "id": "str-04",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A bank spent USD 1.2 million on a GenAI pilot that summarizes loan files for underwriters. After two remediation cycles, underwriters still must re-read every full file because the summaries miss critical details, so time savings are negligible. Monthly run costs are USD 40,000. The executive sponsor wants to keep funding the project because of the money already invested. A second AI initiative for collections has a strong business case but no budget.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Scale the summarization tool to more underwriting teams to spread the fixed investment over more users."
+   },
+   {
+    "k": "B",
+    "t": "Terminate the summarization pilot, document the lessons learned, and reallocate the budget to the collections initiative."
+   },
+   {
+    "k": "C",
+    "t": "Continue funding the pilot for another year, because stopping now would waste the USD 1.2 million that the bank has already invested in the solution."
+   },
+   {
+    "k": "D",
+    "t": "Replace the model with the largest available model and continue without revisiting the business case."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: ROI vẫn âm sau 2 lần remediation, sponsor muốn tiếp tục vì tiền đã chi (sunk cost).\n- ML Lens: theo dõi KPI để sunset model có ROI âm và chuyển resource sang initiative có value.\n- Opportunity cost: initiative collections có business case tốt đang chờ resource.",
+  "wrong": {
+   "A": "Scale một giải pháp chưa tạo value chỉ nhân thêm run cost.",
+   "C": "Lập luận sunk cost; tiền đã chi không đổi được, chỉ value và cost tương lai mới quan trọng.",
+   "D": "Đổi model mà không xét lại business case tiếp tục đốt cost; model lớn hơn cũng đắt hơn mỗi request."
+  },
+  "refs": [
+   {
+    "label": "ML Lens MLCOST06-BP02",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html"
+   },
+   {
+    "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+    "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+   },
+   {
+    "label": "ML Lens MLCOST01-BP01",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+   }
+  ]
+ },
+ {
+  "id": "str-05",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A hospital network with 12 clinics wants an AI assistant that drafts clinical visit notes from doctor-patient conversations. The network has no machine learning staff. It needs a solution within 6 months, and patient data must meet strict healthcare regulations. Several vendors offer mature products for this use case, and some of them provide compliance attestations for healthcare data.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Build a custom speech and summarization model on Amazon SageMaker AI by using the network's own recorded doctor-patient conversations as training data."
+   },
+   {
+    "k": "B",
+    "t": "Buy a proven vendor solution after due diligence on its compliance attestations, data handling, and exit terms."
+   },
+   {
+    "k": "C",
+    "t": "Partner with a consulting firm to co-develop a new custom model over the next 18 months."
+   },
+   {
+    "k": "D",
+    "t": "Wait until the network has hired an internal AI team that can evaluate and build its own solution."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: không có ML staff, deadline 6 tháng, use case có sản phẩm trưởng thành, yêu cầu compliance chặt.\n- Buy cho time to value nhanh nhất; due diligence về compliance, data handling và exit terms xử lý yêu cầu regulatory.\n- CAF-AI: xem giải pháp có sẵn trên thị trường trước khi build.",
+  "wrong": {
+   "A": "Không có skill nội bộ và không kịp 6 tháng; use case không phải lõi khác biệt.",
+   "C": "18 tháng vượt deadline; co-develop mới khi thị trường đã có sản phẩm là lãng phí.",
+   "D": "Trì hoãn value không cần thiết; tuyển team không phải điều kiện để buy."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF-AI, Business perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+   },
+   {
+    "label": "AWS Executive Insights, cost and ROI of GenAI",
+    "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+   }
+  ]
+ },
+ {
+  "id": "str-06",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 2,
+  "stem": "An industrial manufacturer wants AI that predicts product defects from proprietary sensor data collected over 10 years. Leadership sees defect prediction as a core differentiator. The company has a small data science team with limited experience in production AI and wants to build lasting internal capability. Generic quality-analytics SaaS tools are available but are also used by competitors.\nWhich TWO actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Engage an experienced AI partner to co-build the first solution with a formal knowledge transfer plan to the internal team."
+   },
+   {
+    "k": "B",
+    "t": "Buy the most popular generic quality-analytics SaaS tool to deliver results quickly."
+   },
+   {
+    "k": "C",
+    "t": "Outsource the full solution to a vendor that keeps the trained model and reuses it across its other clients."
+   },
+   {
+    "k": "D",
+    "t": "Keep ownership of the solution and the models trained on the proprietary sensor data within the company."
+   },
+   {
+    "k": "E",
+    "t": "Delay the initiative until the company has hired a full team of 15 machine learning engineers."
+   }
+  ],
+  "answer": [
+   "A",
+   "D"
+  ],
+  "explain": "- Tín hiệu: use case là lõi khác biệt, data riêng 10 năm, team nhỏ thiếu kinh nghiệm, muốn tự chủ lâu dài.\n- Partner bù skill và timeline; knowledge transfer xây capability nội bộ.\n- Giữ quyền sở hữu model và data riêng bảo vệ lợi thế; CAF-AI xem data hiếm là defensive moat.",
+  "wrong": {
+   "B": "Đối thủ dùng cùng tool nên không tạo khác biệt cho use case lõi.",
+   "C": "Vendor giữ model và dùng lại cho client khác làm mất lợi thế từ data riêng.",
+   "E": "Trì hoãn không cần thiết; partner bù được thiếu hụt skill ngay."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF-AI, Business perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+   },
+   {
+    "label": "GenAI maturity model, level 2",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+   }
+  ]
+ },
+ {
+  "id": "str-07",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A global media company wants to evaluate three third-party AI agent tools for its marketing team over the next quarter. Its standard procurement process for a new vendor takes up to 6 months. The finance team wants all AI software charges consolidated on one bill, and the legal team wants to negotiate custom terms with the vendor that is finally selected.\nWhich approach BEST meets these requirements?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Sign separate direct contracts with each of the three vendors and ask the finance team to consolidate the vendor invoices manually every month."
+   },
+   {
+    "k": "B",
+    "t": "Build all three agent capabilities internally to avoid vendor procurement entirely."
+   },
+   {
+    "k": "C",
+    "t": "Use AWS Pricing Calculator to procure the three tools and estimate their monthly cost."
+   },
+   {
+    "k": "D",
+    "t": "Use AWS Marketplace free trials to evaluate the tools, then purchase the selected tool through a private offer."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: procurement chậm, cần một bill, legal muốn đàm phán terms riêng.\n- AWS Marketplace: phí nằm trên AWS bill, có free trial, private offer cho giá và EULA riêng.\n- Marketplace có category AI Agents and Tools cho đúng loại sản phẩm này.",
+  "wrong": {
+   "A": "Giữ nguyên quy trình procurement 6 tháng và không gộp bill.",
+   "B": "Build ba capability chỉ để né procurement tốn thời gian và cost hơn nhiều.",
+   "C": "Pricing Calculator chỉ ước tính cost AWS service, không mua phần mềm third-party."
+  },
+  "refs": [
+   {
+    "label": "What is AWS Marketplace",
+    "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+   },
+   {
+    "label": "AWS Marketplace blog, AI era",
+    "url": "https://aws.amazon.com/blogs/awsmarketplace/aws-marketplace-simplifying-the-path-from-discovery-to-deployment-in-the-ai-era"
+   }
+  ]
+ },
+ {
+  "id": "str-08",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A utility company must calculate late-payment fees on customer invoices. A regulator defines the fee tariff as a fixed table based on the number of days late and the customer category. Every fee must be reproducible and explainable during audits. An innovation manager proposes a GenAI agent to calculate the fees because it is the company's new strategic technology.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Implement the tariff as rule-based automation in the billing workflow instead of using AI."
+   },
+   {
+    "k": "B",
+    "t": "Use the GenAI agent with a guardrail that blocks fees above the regulatory maximum."
+   },
+   {
+    "k": "C",
+    "t": "Fine-tune a foundation model on historical invoices so that it learns the tariff table."
+   },
+   {
+    "k": "D",
+    "t": "Train a machine learning model on past fees and route low-confidence predictions to human review."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: rule cố định do regulator đặt, cần reproducible và explainable khi audit.\n- Không cần ML khi kết quả tính được bằng rule hoặc phép tính đơn giản.\n- AI cho kết quả xác suất; rule-based rẻ hơn, lặp lại tuyệt đối và dễ audit.",
+  "wrong": {
+   "B": "Guardrail không biến output xác suất thành kết quả lặp lại tuyệt đối; dùng AI cho bài toán có rule sẵn là lãng phí.",
+   "C": "Fine-tuning tốn cost và vẫn có thể tính sai; tariff đã có dạng bảng.",
+   "D": "Human review chỉ vá hậu quả của lựa chọn sai công nghệ."
+  },
+  "refs": [
+   {
+    "label": "When to use machine learning",
+    "url": "https://docs.aws.amazon.com/machine-learning/latest/dg/when-to-use-machine-learning.html"
+   },
+   {
+    "label": "ML Lens MLCOST02-BP01",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+   }
+  ]
+ },
+ {
+  "id": "str-09",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 2,
+  "stem": "A telecommunications company with 8,000 employees reviews five automation proposals for its back office. The AI budget for the year is limited, and the CFO wants it spent only where AI adds clear value over simpler options. The AI strategist must identify the proposals that do NOT need AI.\nWhich TWO proposals should be handled WITHOUT AI? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Identify fraudulent SIM-swap requests whose patterns change every few weeks as criminals adapt to existing controls."
+   },
+   {
+    "k": "B",
+    "t": "Route support tickets by the product code that customers pick from a fixed drop-down list."
+   },
+   {
+    "k": "C",
+    "t": "Summarize long, free-text customer complaints so that the quality team can review recurring issues each week."
+   },
+   {
+    "k": "D",
+    "t": "Extract fields from supplier invoices that arrive in hundreds of different layouts."
+   },
+   {
+    "k": "E",
+    "t": "Auto-approve expense claims below USD 50, as the expense policy defines."
+   }
+  ],
+  "answer": [
+   "B",
+   "E"
+  ],
+  "explain": "- B và E có rule rõ: field chọn từ danh sách cố định, ngưỡng tiền cố định. Rule-based automation đủ và rẻ hơn.\n- A, C, D có pattern thay đổi, text tự do hoặc layout đa dạng: đúng chỗ AI mạnh.\n- ML Lens: so với giải pháp rule-based trước khi đầu tư ML.",
+  "wrong": {
+   "A": "Fraud đổi pattern liên tục là ví dụ điển hình cần ML.",
+   "C": "Text tự do dài cần NLP hoặc GenAI để tóm tắt.",
+   "D": "Hàng trăm layout làm rule không viết hết được; document extraction hợp lý."
+  },
+  "refs": [
+   {
+    "label": "ML Lens MLCOST02-BP01",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+   },
+   {
+    "label": "When to use machine learning",
+    "url": "https://docs.aws.amazon.com/machine-learning/latest/dg/when-to-use-machine-learning.html"
+   }
+  ]
+ },
+ {
+  "id": "str-10",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "An airline plans to replace its rule-based phone menu with a GenAI virtual agent for customer service. The contact center runs 24/7, and the peak holiday season starts in 3 months. Leadership expects 30% lower contact center costs, but the operations director is worried about service disruption. The virtual agent has passed internal testing.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Switch all customer traffic to the virtual agent before the holiday season begins so that the company captures the expected 30% cost savings as early as possible."
+   },
+   {
+    "k": "B",
+    "t": "Delay the launch until the virtual agent answers 100% of test questions correctly."
+   },
+   {
+    "k": "C",
+    "t": "Run the virtual agent in parallel on a small share of traffic, expand in phases with human fallback, and keep a rollback plan."
+   },
+   {
+    "k": "D",
+    "t": "Decommission the old phone menu at launch to avoid paying for two systems at the same time."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: 24/7, mùa cao điểm sắp tới, lo business continuity.\n- Parallel run, phased rollout, human fallback và rollback giữ continuity khi AI lỗi.\n- Đo KPI trên phần traffic nhỏ trước khi mở rộng.",
+  "wrong": {
+   "A": "Big-bang cutover ngay trước peak đặt toàn bộ khách vào risk.",
+   "B": "AI không đạt 100%; tiêu chí này làm dự án không bao giờ launch.",
+   "D": "Tiết kiệm cost chạy song song nhưng mất đường lui khi có incident."
+  },
+  "refs": [
+   {
+    "label": "Architecting a GenAI PoC",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+   }
+  ]
+ },
+ {
+  "id": "str-11",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 2,
+  "stem": "A software company's customer support assistant runs on a foundation model that the platform provider has moved to Legacy status, with end of life in 6 months. The company must move to another model. The support director worries that answer quality will drop, and finance worries about cost changes. The knowledge base content and integrations were built specifically for the current model.\nWhich TWO considerations should the AI strategist address FIRST? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Select the model with the highest score on public leaderboards, because a higher benchmark score minimizes the risk of lower answer quality."
+   },
+   {
+    "k": "B",
+    "t": "Negotiate a multi-year commitment with the new model provider before any testing, to lock in the largest available discount."
+   },
+   {
+    "k": "C",
+    "t": "Test candidate models on the company's own evaluation set against the current baseline for quality and cost."
+   },
+   {
+    "k": "D",
+    "t": "Retrain all support agents on prompt engineering before the team selects a new model, so they are ready on day one."
+   },
+   {
+    "k": "E",
+    "t": "Check whether the knowledge base content, prompts, and integrations can move to the new model."
+   }
+  ],
+  "answer": [
+   "C",
+   "E"
+  ],
+  "explain": "- Tín hiệu: model vào Legacy, lo chất lượng và cost, knowledge base gắn với model cũ.\n- Performance impact: đánh giá trên evaluation dataset riêng so với baseline, kể cả cost mỗi request.\n- Data readiness: kiểm tra content, prompt và integration có chuyển được không.",
+  "wrong": {
+   "A": "Leaderboard công khai không phản ánh workload và cost của công ty.",
+   "B": "Cam kết trước khi test khoá cost vào model có thể không đạt chất lượng.",
+   "D": "Đào tạo staff không phải bước đầu; chưa biết model nào sẽ dùng."
+  },
+  "refs": [
+   {
+    "label": "Architecting a GenAI PoC",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+   },
+   {
+    "label": "Bedrock model lifecycle",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html"
+   }
+  ]
+ },
+ {
+  "id": "str-12",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "An HR department launched an internal knowledge assistant that answers policy questions for 5,000 employees. The CHRO must present the value of the assistant to the executive committee and wants a KPI set that covers both tangible and intangible benefits. The IT team currently reports only technical metrics.\nWhich KPI set should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Average model response latency, the number of input and output tokens processed each month, and overall system uptime reported by the IT team."
+   },
+   {
+    "k": "B",
+    "t": "Number of prompts submitted per day and number of documents indexed."
+   },
+   {
+    "k": "C",
+    "t": "Model accuracy on a test set and the number of model versions released."
+   },
+   {
+    "k": "D",
+    "t": "Hours saved searching for policy answers valued at loaded labor cost, plus employee satisfaction scores against a baseline."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: cần cả tangible và intangible cho executive committee.\n- Giờ tiết kiệm nhân loaded cost là tangible; satisfaction survey có baseline là intangible.\n- Metric kỹ thuật chỉ là measure tầng dưới, phải truy được về business goal.",
+  "wrong": {
+   "A": "Toàn metric kỹ thuật, không nói gì về business outcome.",
+   "B": "Activity metric; dùng nhiều không chứng minh tạo value.",
+   "C": "Accuracy trên test set không phải benefit cho business."
+  },
+  "refs": [
+   {
+    "label": "Measuring GenAI success in SDLC",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+   },
+   {
+    "label": "Architecting a GenAI PoC",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+   }
+  ]
+ },
+ {
+  "id": "str-13",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "An insurance company will launch an AI tool next month that helps adjusters process property claims. The COO must report the tool's impact to the board in 6 months. Claim volumes vary by season, and two other process changes are planned this year.\nWhat should the AI strategist do FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Launch the tool on schedule, then survey all adjusters after 6 months to estimate how much faster they complete claims with the new AI assistance."
+   },
+   {
+    "k": "B",
+    "t": "Measure current claim cycle time, cost per claim, and error rate before launch, and keep a comparison group of adjusters without the tool."
+   },
+   {
+    "k": "C",
+    "t": "Use the vendor's published case study results as the expected impact in the board report."
+   },
+   {
+    "k": "D",
+    "t": "Measure the model's accuracy on a historical test set and report it as the business impact."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: phải chứng minh impact, volume theo mùa, có thay đổi process khác cùng lúc.\n- Baseline trước launch là điều kiện để đo cải thiện.\n- Control group tách tác động của AI khỏi mùa vụ và các thay đổi khác.",
+  "wrong": {
+   "A": "Không có baseline; survey sau launch chỉ là cảm nhận.",
+   "C": "Số của vendor không phải số của công ty; board cần kết quả thật.",
+   "D": "Accuracy là metric kỹ thuật, không phải cycle time hay cost."
+  },
+  "refs": [
+   {
+    "label": "Measuring GenAI success in SDLC",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+   },
+   {
+    "label": "ML Lens MLCOST02-BP01",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+   }
+  ]
+ },
+ {
+  "id": "str-14",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A retailer is building a business case for an AI demand-forecasting solution. The estimated one-time implementation cost is USD 400,000. Annual run costs, including inference, licenses, and support, are USD 150,000. Annual benefits from lower inventory and fewer stockouts are estimated at USD 450,000. The CFO evaluates investments over 3 years.\nWhat are the 3-year ROI and the payback period?",
+  "options": [
+   {
+    "k": "A",
+    "t": "About 238% ROI with a payback period of about 11 months."
+   },
+   {
+    "k": "B",
+    "t": "About 37% ROI with a payback period of about 16 months."
+   },
+   {
+    "k": "C",
+    "t": "About 59% ROI with a payback period of about 16 months."
+   },
+   {
+    "k": "D",
+    "t": "About 59% ROI with a payback period of about 11 months."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Total benefit 3 năm: 3 × 450,000 = 1,350,000 USD.\n- Total cost: 400,000 + 3 × 150,000 = 850,000 USD.\n- ROI = (1,350,000 - 850,000) / 850,000 = 59%.\n- Payback = 400,000 / (450,000 - 150,000) = 1.33 năm, khoảng 16 tháng.",
+  "wrong": {
+   "A": "Bỏ quên run cost: (1,350,000 - 400,000) / 400,000 và 400,000 / 450,000.",
+   "B": "Chia net benefit cho total benefit thay vì total cost.",
+   "D": "ROI đúng nhưng payback bỏ quên run cost mỗi năm."
+  },
+  "refs": [
+   {
+    "label": "ML Lens MLCOST01-BP01",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+   },
+   {
+    "label": "AWS Executive Insights, cost and ROI of GenAI",
+    "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+   }
+  ]
+ },
+ {
+  "id": "str-15",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A software company deployed a coding assistant to 200 developers. Usage data shows that each developer saves about 4 hours per week. The business case counts all saved hours multiplied by salary as cost savings. The CFO challenges the business case because headcount and payroll have not changed.\nHow should the AI strategist revise the value calculation?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Count only savings that freed capacity turns into measurable results, such as avoided contractor spend, and report the rest as productivity gains."
+   },
+   {
+    "k": "B",
+    "t": "Keep counting all saved hours multiplied by salary as hard cost savings, because the usage data from the coding assistant already proves the time savings."
+   },
+   {
+    "k": "C",
+    "t": "Remove productivity from the business case entirely because it cannot be measured."
+   },
+   {
+    "k": "D",
+    "t": "Recommend a headcount reduction equal to the saved hours so that the savings appear on the payroll."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: CFO nói payroll không đổi, tức giờ tiết kiệm chưa thành tiền.\n- Time savings chỉ thành cost savings khi capacity được dùng lại hoặc tránh được chi tiêu.\n- Phần còn lại báo là productivity gain, tách khỏi hard savings.",
+  "wrong": {
+   "B": "Đếm cả giờ chưa thành tiền làm business case mất uy tín với CFO.",
+   "C": "Productivity vẫn đo được bằng proxy như release velocity; bỏ hẳn làm thiếu value.",
+   "D": "Quyết định workforce lớn dựa trên số ước tính, bỏ qua change management và morale."
+  },
+  "refs": [
+   {
+    "label": "AWS Executive Insights, cost and ROI of GenAI",
+    "url": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/"
+   },
+   {
+    "label": "Measuring GenAI success in SDLC",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+   }
+  ]
+ },
+ {
+  "id": "str-16",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A B2B company launched an AI assistant that drafts sales emails for 300 sellers. The revenue target for the initiative will be measured at the end of the fiscal year, 12 months from launch. Two months after launch, the sales VP asks for indicators that show whether the initiative is on track to reach the revenue target.\nWhich TWO indicators should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Annual revenue growth that finance attributes to the assistant at fiscal year end."
+   },
+   {
+    "k": "B",
+    "t": "Weekly active sellers as a percentage of all sellers."
+   },
+   {
+    "k": "C",
+    "t": "Three-year ROI of the initiative as calculated in the original business case."
+   },
+   {
+    "k": "D",
+    "t": "Percentage of AI-drafted emails that sellers send with only minor edits."
+   },
+   {
+    "k": "E",
+    "t": "Year-end market share of the company in its main target customer segment."
+   }
+  ],
+  "answer": [
+   "B",
+   "D"
+  ],
+  "explain": "- Tín hiệu: mới 2 tháng, cần dự báo kết quả 12 tháng.\n- Leading indicator: adoption rate và first draft usability rate đo được ngay và dự báo kết quả.\n- Revenue, ROI, market share là lagging indicator, chỉ thấy sau nhiều tháng.",
+  "wrong": {
+   "A": "Lagging indicator; chưa có ý nghĩa sau 2 tháng.",
+   "C": "Lagging indicator tính sau cả chu kỳ đầu tư.",
+   "E": "Lagging indicator đo cuối năm, quá muộn để điều chỉnh."
+  },
+  "refs": [
+   {
+    "label": "Architecting a GenAI PoC",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+   },
+   {
+    "label": "Measuring GenAI success in SDLC",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html"
+   }
+  ]
+ },
+ {
+  "id": "str-17",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A marketing department wants to pilot GenAI content generation for 3 months. Monthly volume is expected to vary widely between campaigns, and nobody knows how many of the 500 marketers will actually use the tool. The CFO wants to avoid paying for capacity or licenses that sit idle.\nWhich pricing model is MOST appropriate for the pilot?",
+  "options": [
+   {
+    "k": "A",
+    "t": "A dedicated model endpoint billed per instance-hour and running 24/7."
+   },
+   {
+    "k": "B",
+    "t": "Seat-based licenses for all 500 marketers, billed per user per month for the duration of the pilot."
+   },
+   {
+    "k": "C",
+    "t": "Consumption-based on-demand pricing billed per input and output token."
+   },
+   {
+    "k": "D",
+    "t": "A 3-year Savings Plans commitment sized to the expected peak monthly volume of the campaigns."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: volume biến động, adoption chưa rõ, không muốn trả cho phần idle.\n- Consumption-based (ví dụ on-demand token trên Amazon Bedrock) chỉ tính khi dùng, không cam kết.\n- Khi usage ổn định mới xét instance, seat hoặc commitment.",
+  "wrong": {
+   "A": "Instance chạy 24/7 vẫn tính tiền khi không có request.",
+   "B": "Trả cho 500 seat trong khi chưa biết bao nhiêu user thật.",
+   "D": "Cam kết 3 năm cho pilot 3 tháng có usage chưa ổn định là sai thời điểm."
+  },
+  "refs": [
+   {
+    "label": "Amazon Bedrock pricing",
+    "url": "https://aws.amazon.com/bedrock/pricing/"
+   },
+   {
+    "label": "GenAI Lens GENCOST01-BP01",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost01-bp01.html"
+   }
+  ]
+ },
+ {
+  "id": "str-18",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A business analyst is preparing a business case for an AI document-processing solution that has not been built yet. The finance committee requires an estimate of upfront, monthly, and annual AWS costs, and wants a file that committee members can review offline before approving the budget.\nWhich AWS tool should the analyst use?",
+  "options": [
+   {
+    "k": "A",
+    "t": "AWS Cost Explorer, to forecast the cost of the solution from the company's historical usage."
+   },
+   {
+    "k": "B",
+    "t": "AWS Pricing Calculator, to model the planned usage and export the estimate as CSV or PDF."
+   },
+   {
+    "k": "C",
+    "t": "AWS Marketplace, to compare the list prices of document-processing products."
+   },
+   {
+    "k": "D",
+    "t": "Savings Plans recommendations, to calculate the discounted cost of the solution."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: solution chưa build, cần ước tính upfront, monthly, annual và file để chia sẻ.\n- AWS Pricing Calculator free, ước tính trước khi build, export CSV hoặc PDF.",
+  "wrong": {
+   "A": "Cost Explorer phân tích và forecast từ usage thực đã có; workload này chưa tồn tại.",
+   "C": "Marketplace là nơi mua phần mềm third-party, không ước tính cost của AWS service.",
+   "D": "Recommendation dựa trên usage lịch sử và chỉ cho phần commitment, không phải estimate tổng."
+  },
+  "refs": [
+   {
+    "label": "What is AWS Pricing Calculator",
+    "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+   },
+   {
+    "label": "What is AWS Cost Explorer",
+    "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html"
+   }
+  ]
+ },
+ {
+  "id": "str-19",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A financial services company's AI spending grew 40% quarter over quarter across six business units. Each unit runs its own AI projects in shared AWS accounts, and invoices show only service-level totals. The CFO wants to know which business units and AI initiatives drive the increase, and wants to charge AI costs back to each unit starting next quarter.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Use AWS Pricing Calculator to recalculate the expected cost of each AI initiative."
+   },
+   {
+    "k": "B",
+    "t": "Purchase Savings Plans immediately to reduce the overall AI bill, then analyze which business units drive the spending in the next fiscal year."
+   },
+   {
+    "k": "C",
+    "t": "Move all AI workloads to batch processing to reduce cost."
+   },
+   {
+    "k": "D",
+    "t": "Apply cost allocation tags by business unit and initiative, then analyze spending trends and forecasts in AWS Cost Explorer."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: cần biết ai và initiative nào tiêu tiền, cần chargeback.\n- ML Lens: tag theo project và business unit, theo dõi trong Cost Explorer để thấy ROI từng dự án.\n- Cost Explorer có history 13 tháng và forecast 18 tháng.",
+  "wrong": {
+   "A": "Pricing Calculator ước tính trước khi build, không cho biết spend thực theo unit.",
+   "B": "Cam kết trước khi hiểu driver có thể khoá cost vào workload sai.",
+   "C": "Batch chỉ hợp với việc không gấp; không trả lời câu hỏi ai tiêu tiền."
+  },
+  "refs": [
+   {
+    "label": "ML Lens MLCOST01-BP01",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+   },
+   {
+    "label": "What is AWS Cost Explorer",
+    "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html"
+   }
+  ]
+ },
+ {
+  "id": "str-20",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.2",
+  "source": "original",
+  "select": 2,
+  "stem": "An e-commerce company runs fraud-detection models on Amazon SageMaker AI endpoints 24/7. Usage has been stable for 18 months and will continue for years. The company also uses Amazon Bedrock every night to summarize thousands of seller documents; results are needed by the next morning. Leadership asks for cost reductions with the LEAST impact on the business.\nWhich TWO actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Purchase SageMaker AI Savings Plans sized to the steady baseline usage of the fraud-detection endpoints."
+   },
+   {
+    "k": "B",
+    "t": "Shut down the fraud-detection endpoints every night to save instance hours."
+   },
+   {
+    "k": "C",
+    "t": "Move the nightly document summarization to Amazon Bedrock batch inference."
+   },
+   {
+    "k": "D",
+    "t": "Purchase Compute Savings Plans to cover the Amazon Bedrock token usage."
+   },
+   {
+    "k": "E",
+    "t": "Move the nightly summarization to the Priority tier so that it finishes sooner."
+   }
+  ],
+  "answer": [
+   "A",
+   "C"
+  ],
+  "explain": "- Fraud endpoint chạy đều 18 tháng: SageMaker AI Savings Plans giảm tới 64% với cam kết 1 hoặc 3 năm.\n- Summarization không gấp: batch inference thấp hơn on-demand 50% với model hỗ trợ.\n- Cả hai không đổi kết quả cho business.",
+  "wrong": {
+   "B": "Tắt endpoint ban đêm làm mất fraud detection 24/7, impact lớn.",
+   "D": "Bedrock không nằm trong danh sách service áp Savings Plans.",
+   "E": "Priority tier tính premium trên giá Standard, làm cost tăng."
+  },
+  "refs": [
+   {
+    "label": "Savings Plans types",
+    "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/plan-types.html"
+   },
+   {
+    "label": "Services eligible for Savings Plans",
+    "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-services.html"
+   },
+   {
+    "label": "Amazon Bedrock pricing",
+    "url": "https://aws.amazon.com/bedrock/pricing/"
+   }
+  ]
+ },
+ {
+  "id": "str-21",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A mid-size travel agency is losing customers after two large competitors launched AI trip planners. The CEO wants to respond within the year but has a limited budget. The agency has 15 years of booking data and exclusive partnerships with boutique hotels that competitors do not have.\nWhat should the AI strategist do FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Assess which AI features customers now expect, which can be bought, and where the agency's own data and partnerships can differentiate."
+   },
+   {
+    "k": "B",
+    "t": "Copy the competitors' trip planner feature by feature by using the largest available foundation model so that the agency reaches parity within the year."
+   },
+   {
+    "k": "C",
+    "t": "Acquire an AI startup to obtain a trip planner and a data science team."
+   },
+   {
+    "k": "D",
+    "t": "Focus on traditional marketing because AI features will soon become commodities."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: đối thủ đã có AI, khách đổi kỳ vọng, agency có data và partnership riêng, budget hạn chế.\n- Đánh giá competitive landscape: phần table stakes thì buy, phần khác biệt dựa trên tài sản riêng.\n- CAF-AI: customer sẽ nâng kỳ vọng, và data hiếm là defensive moat.",
+  "wrong": {
+   "B": "Copy tính năng chỉ đạt ngang bằng tạm thời, bỏ qua tài sản riêng.",
+   "C": "Quyết định đắt và risk cao trước khi biết cần gì; vượt budget hạn chế.",
+   "D": "Bỏ qua kỳ vọng mới của khách; khách đang rời đi."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF-AI, Business perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+   }
+  ]
+ },
+ {
+  "id": "str-22",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.3",
+  "source": "original",
+  "select": 1,
+  "stem": "An industrial equipment manufacturer sells machines and earns most of its revenue from one-time sales. Sensors on 40,000 installed machines stream operating data to the company. The CEO wants to use AI to transform the business model rather than only to reduce internal costs.\nWhich initiative BEST meets the CEO's goal?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Use GenAI to write product manuals, marketing brochures, and sales proposals faster so that the marketing team can support more product launches."
+   },
+   {
+    "k": "B",
+    "t": "Deploy a chatbot that answers frequently asked questions on the company website."
+   },
+   {
+    "k": "C",
+    "t": "Use AI to reduce the cost of the company's internal contact center."
+   },
+   {
+    "k": "D",
+    "t": "Offer an AI-powered predictive maintenance subscription that guarantees machine uptime for customers."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: muốn transform business model, không chỉ cắt cost; có data từ 40,000 máy.\n- Subscription predictive maintenance là new income channel: chuyển từ bán một lần sang revenue định kỳ.\n- CAF-AI phân biệt process improvement, product improvement và new income channel.",
+  "wrong": {
+   "A": "Process improvement nội bộ, không đổi business model.",
+   "B": "Cải thiện trải nghiệm nhỏ, không tạo nguồn revenue mới.",
+   "C": "Cắt cost, đúng thứ CEO nói không chỉ muốn."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF-AI, Business perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+   },
+   {
+    "label": "AWS CAF-AI, value chain",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/ai-cloud-transformation-value-chain.html"
+   }
+  ]
+ },
+ {
+  "id": "str-23",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A property insurance company and its three main competitors all use the same foundation models through managed AI platforms. The company holds 25 years of detailed claims history and handles 2 million customer interactions each year. The board asks the AI strategist which AI investment will create the MOST sustainable competitive advantage over the next 5 years.\nWhich investment should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Adopting each new and larger foundation model as soon as it becomes available so that the company always runs the most capable technology on the market."
+   },
+   {
+    "k": "B",
+    "t": "Building a data flywheel in which claims outcomes and customer interactions keep improving its underwriting AI."
+   },
+   {
+    "k": "C",
+    "t": "Launching a public AI chatbot before competitors to gain market attention."
+   },
+   {
+    "k": "D",
+    "t": "Negotiating an exclusive one-year discount with the foundation model provider."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: mọi đối thủ dùng cùng model; hỏi lợi thế bền vững 5 năm.\n- Data flywheel tạo data riêng ngày càng nhiều, đối thủ không mua được.\n- CAF-AI: data hiếm và tốn kém để sao chép là defensive moat.",
+  "wrong": {
+   "A": "Đối thủ dùng được cùng model mới; lợi thế tạm thời.",
+   "C": "Tính năng đơn lẻ dễ sao chép trong vài tháng.",
+   "D": "Discount một năm là lợi thế cost ngắn hạn, không bền."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF-AI, Business perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+   }
+  ]
+ },
+ {
+  "id": "str-24",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A regional grocery chain with 80 stores competes against national chains that already use AI for demand forecasting and personalized offers, which customers now expect. The chain has a limited budget and no data science team. It does have unique relationships with local farms and detailed local sales data.\nWhich AI investment approach is MOST appropriate?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Invest heavily in building a proprietary foundation model to leapfrog the national chains."
+   },
+   {
+    "k": "B",
+    "t": "Wait until AI technology in the grocery industry matures further before investing."
+   },
+   {
+    "k": "C",
+    "t": "Buy proven solutions to reach parity, and invest internally in differentiators built on local farm and sales data."
+   },
+   {
+    "k": "D",
+    "t": "Fund 20 experimental AI pilots across all departments and stores so that the chain can discover new opportunities before choosing where to invest."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: AI đã thành table stakes trong ngành, budget hạn chế, không có data science team, có tài sản local riêng.\n- Đầu tư parity bằng buy cho phần commodity, dồn vốn vào phần khác biệt.",
+  "wrong": {
+   "A": "Vượt xa budget và skill; FM riêng không phải nơi tạo khác biệt.",
+   "B": "Ngành đã trưởng thành về AI; chờ thêm là mất khách.",
+   "D": "Dàn trải resource hạn chế, không gắn với table stakes hay lợi thế riêng."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF-AI, Business perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+   },
+   {
+    "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+    "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+   }
+  ]
+ },
+ {
+  "id": "str-25",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A specialty insurer covers marine cargo and holds 30 years of detailed claims data that competitors do not have. AI adoption in this niche is still early, and no competitor has a production AI underwriting solution. The board has a moderate risk appetite and asks how much to invest in AI underwriting.\nWhich investment approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Make a significant investment to lead the niche, released in stages with clear KPIs and go/no-go gates."
+   },
+   {
+    "k": "B",
+    "t": "Make a minimal investment by buying a generic underwriting tool now and planning to match competitors later when the market for AI underwriting matures."
+   },
+   {
+    "k": "C",
+    "t": "Wait for competitors to prove the value of AI underwriting before making any investment."
+   },
+   {
+    "k": "D",
+    "t": "Sell the historical claims data to an AI vendor and license the resulting model back."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: ngành còn sớm, có data riêng 30 năm, đối thủ chưa có giải pháp, risk appetite vừa phải.\n- Tư thế lead với data riêng tạo flywheel và lợi thế bền.\n- Cấp vốn theo stage-gate khớp risk appetite vừa phải.",
+  "wrong": {
+   "B": "Tư thế parity bỏ phí lợi thế data độc quyền khi thị trường còn trống.",
+   "C": "Chờ đợi trao lợi thế first mover cho đối thủ.",
+   "D": "Bán data làm mất chính nguồn lợi thế bền vững."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF-AI, Business perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+   },
+   {
+    "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+    "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+   }
+  ]
+ },
+ {
+  "id": "str-26",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.3",
+  "source": "original",
+  "select": 1,
+  "stem": "The board of a conservative asset management firm questions why it should invest in AI now instead of waiting until the technology matures and prices fall. The firm has strong client relationships, but younger clients increasingly expect digital, personalized advice. The CEO asks the AI strategist for the strongest argument for starting now.\nWhich argument should the AI strategist present?",
+  "options": [
+   {
+    "k": "A",
+    "t": "AI service prices are expected to rise sharply over the next years, so the firm must lock in long-term contracts with providers immediately."
+   },
+   {
+    "k": "B",
+    "t": "Competitors will not be able to access the same AI models if the firm adopts them first."
+   },
+   {
+    "k": "C",
+    "t": "Regulators will soon restrict AI adoption to firms that already use it in production."
+   },
+   {
+    "k": "D",
+    "t": "Early, staged adoption builds learning, data assets, and AI talent that compound and are hard for late adopters to match."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: board muốn chờ; khách trẻ đổi kỳ vọng.\n- Áp dụng sớm tích luỹ kinh nghiệm, culture và talent; đây là lợi thế khó đuổi kịp.\n- Làm theo giai đoạn giữ đầu tư vừa với risk appetite thận trọng.",
+  "wrong": {
+   "A": "Không có căn cứ; Bedrock còn có tier giảm giá như Flex và batch.",
+   "B": "Model trên managed platform ai cũng dùng được; không phải lợi thế.",
+   "C": "Khẳng định không có căn cứ về regulation."
+  },
+  "refs": [
+   {
+    "label": "AWS blog, GenAI blueprint for CEOs and CIOs",
+    "url": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios"
+   },
+   {
+    "label": "AWS CAF-AI, Business perspective",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html"
+   }
+  ]
+ },
+ {
+  "id": "str-27",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A national retailer with 400 stores piloted an AI demand-forecasting model in 20 stores. The pilot cut stockouts by 18%, beating the 10% target that was set before launch. Scaling to all stores requires daily point-of-sale data, but 300 stores still send data in weekly batches from legacy systems. IT estimates 6 months to modernize those data feeds. The CFO asks whether the company should scale now, stop, or wait.\nWhich recommendation should the AI strategist make?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Scale to all 400 stores now with weekly data, and accept lower forecast accuracy in most stores until the feeds improve."
+   },
+   {
+    "k": "B",
+    "t": "Pause the expansion, keep the pilot stores running, fix the data feeds, then re-evaluate scaling against the same KPIs."
+   },
+   {
+    "k": "C",
+    "t": "Terminate the initiative, because the data gap shows that AI is not the right approach for demand forecasting."
+   },
+   {
+    "k": "D",
+    "t": "Replace the model with a larger foundation model so that weekly data produces the same accuracy as daily data."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: value đã chứng minh (vượt target đặt trước), nhưng feasibility bị chặn bởi data feed.\n- Value có, blocker sửa được: pause expansion, xử lý blocker, rồi đánh giá lại theo cùng KPI.\n- Giữ pilot stores chạy để không mất value đang có.",
+  "wrong": {
+   "A": "Scale với data không đạt yêu cầu làm giảm value; kết quả pilot không còn là evidence cho cấu hình mới.",
+   "C": "Terminate hợp khi ROI âm sau remediation; ở đây value đã vượt target và blocker có lộ trình sửa.",
+   "D": "Đổi model không bù được data thiếu; đây là bắt đầu từ công nghệ thay vì từ blocker."
+  },
+  "refs": [
+   {
+    "label": "Architecting a GenAI PoC",
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html"
+   },
+   {
+    "label": "ML Lens MLCOST06-BP02",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html"
+   }
+  ]
+ },
+ {
+  "id": "str-28",
+  "topic": "strategy",
+  "domain": "D2",
+  "task": "2.3",
+  "source": "original",
+  "select": 2,
+  "stem": "A mid-size insurance company rolled out GenAI assistants in claims, underwriting, and customer service 12 months ago. Each department reports faster individual tasks, and usage is high. However, the end-to-end time from first notice of loss to claim payment has not changed, and the CFO sees no change in operating margin. The CEO wants AI to change how the company competes, not only to speed up tasks.\nWhich TWO actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Redesign the end-to-end claims journey across departments, and remove the hand-offs and steps that AI makes unnecessary."
+   },
+   {
+    "k": "B",
+    "t": "Buy additional licenses so that every employee in each department uses the assistants every day."
+   },
+   {
+    "k": "C",
+    "t": "Launch a new customer offer, such as guaranteed same-day payout for simple claims, built on the redesigned process."
+   },
+   {
+    "k": "D",
+    "t": "Ask each department to set its own productivity target for its assistant and report progress every quarter."
+   },
+   {
+    "k": "E",
+    "t": "Switch every department to a more capable foundation model so that individual tasks finish even faster."
+   }
+  ],
+  "answer": [
+   "A",
+   "C"
+  ],
+  "explain": "- Tín hiệu: task nhanh hơn trong từng department, nhưng cycle time end-to-end và margin không đổi; CEO muốn đổi cách cạnh tranh.\n- HBR: tool AI tối ưu trong từng function nên không ra productivity toàn công ty; cần thiết kế lại luồng xuyên function.\n- CAF-AI domain Product: tạo value proposition mới, ví dụ offer chi trả trong ngày.",
+  "wrong": {
+   "B": "Usage đã cao; thêm license tăng adoption nhưng không đổi luồng end-to-end.",
+   "D": "Target riêng từng department giữ nguyên cách tối ưu cục bộ đã thất bại.",
+   "E": "Model mạnh hơn chỉ làm task đơn lẻ nhanh hơn, không xử lý hand-off giữa department."
+  },
+  "refs": [
+   {
+    "label": "HBR, The Deployment Failure Holding Back Your AI Investments (10/2026)",
+    "url": "https://hbr.org/2026/10/the-deployment-failure-holding-back-your-ai-investments"
+   },
+   {
+    "label": "AWS CAF-AI, value chain",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/ai-cloud-transformation-value-chain.html"
+   }
+  ]
+ }
+]

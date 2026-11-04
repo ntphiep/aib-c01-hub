@@ -1,0 +1,1596 @@
+{
+  "id": "governance",
+  "title": "Governance & Responsible AI",
+  "domain": [
+    "D3"
+  ],
+  "icon": "audit-manager",
+  "summary": "Câu hỏi về responsible AI dimension, tradeoff, human oversight, governance structure, EU AI Act và GDPR, risk framework, bias, IP và reliability trong production.",
+  "sections": [
+    {
+      "id": "dimensions",
+      "title": "8 dimension của responsible AI",
+      "icon": "c-artificial-intelligence",
+      "task": "3.1",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "AWS định nghĩa 8 dimension",
+          "columns": [
+            "Dimension",
+            "Định nghĩa AWS",
+            "Tín hiệu trong đề"
+          ],
+          "rows": [
+            [
+              "**Fairness**",
+              "Considering impacts on different groups of stakeholders",
+              "approval rate khác nhau giữa nhóm tuổi, giới tính, địa phương"
+            ],
+            [
+              "**Explainability**",
+              "Understanding and evaluating system outputs",
+              "khách hoặc regulator hỏi \"vì sao bị từ chối\""
+            ],
+            [
+              "**Privacy and security**",
+              "Appropriately obtaining, using, and protecting data and models",
+              "PII, consent, dữ liệu rò ra prompt hay output"
+            ],
+            [
+              "**Safety**",
+              "Preventing harmful system output and misuse",
+              "nội dung độc hại, trẻ em dùng app, jailbreak"
+            ],
+            [
+              "**Controllability**",
+              "Having mechanisms to monitor and steer AI system behavior",
+              "cần dừng, override, đổi hành vi của AI agent"
+            ],
+            [
+              "**Veracity and robustness**",
+              "Achieving correct system outputs, even with unexpected or adversarial inputs",
+              "hallucination, input lạ, prompt injection"
+            ],
+            [
+              "**Governance**",
+              "Incorporating best practices into the AI supply chain, including providers and deployers",
+              "ai duyệt, ai chịu trách nhiệm, vendor AI"
+            ],
+            [
+              "**Transparency**",
+              "Enabling stakeholders to make informed choices about their engagement with an AI system",
+              "khách không biết đang chat với AI"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS Responsible AI",
+              "url": "https://aws.amazon.com/ai/responsible-ai/"
+            },
+            {
+              "label": "Responsible AI Lens",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề tả vấn đề, chọn dimension",
+          "rows": [
+            {
+              "says": "customers must understand why the model denied their application",
+              "pick": "Explainability",
+              "why": "Người bị ảnh hưởng cần lý do cụ thể của từng quyết định, không cần thêm accuracy.",
+              "src": {
+                "label": "AWS Responsible AI",
+                "url": "https://aws.amazon.com/ai/responsible-ai/"
+              }
+            },
+            {
+              "says": "users did not know they were interacting with an AI system",
+              "pick": "Transparency",
+              "why": "Disclose AI ngay từ lần tương tác đầu; EU AI Act Article 50 cũng yêu cầu điều này.",
+              "src": {
+                "label": "EU AI Act Article 50",
+                "url": "https://artificialintelligenceact.eu/article/50/"
+              }
+            },
+            {
+              "says": "approval rates differ significantly across demographic groups",
+              "pick": "Fairness",
+              "why": "Tác động khác nhau lên các nhóm stakeholder là định nghĩa của fairness.",
+              "src": {
+                "label": "AWS Responsible AI",
+                "url": "https://aws.amazon.com/ai/responsible-ai/"
+              }
+            },
+            {
+              "says": "the assistant invents facts or citations",
+              "pick": "Veracity and robustness",
+              "why": "Output sai sự thật là veracity; input bất thường làm hỏng output là robustness.",
+              "src": {
+                "label": "AWS Responsible AI",
+                "url": "https://aws.amazon.com/ai/responsible-ai/"
+              }
+            },
+            {
+              "says": "operators need a way to stop or override the agent",
+              "pick": "Controllability",
+              "why": "Cơ chế monitor và steer hành vi, gồm nút dừng và override.",
+              "src": {
+                "label": "AWS Responsible AI",
+                "url": "https://aws.amazon.com/ai/responsible-ai/"
+              }
+            },
+            {
+              "says": "no one knows which third-party models are used or who approved them",
+              "pick": "Governance",
+              "why": "Governance phủ cả AI supply chain: provider, deployer, model inventory, approval.",
+              "src": {
+                "label": "AWS Responsible AI",
+                "url": "https://aws.amazon.com/ai/responsible-ai/"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Cách đọc đáp án",
+          "md": "- Đáp án đúng thường gọi đúng tên **dimension** mà stakeholder đang lo, rồi chọn control cho dimension đó.\n- Distractor hay tăng accuracy hoặc đổi model lớn hơn trong khi vấn đề là fairness, transparency hay explainability.\n- AWS xếp privacy và security vào chung 1 dimension; Responsible AI Lens tách thành 2 khi đánh giá risk.\n- OECD AI Principles (cập nhật 05/2024) dùng nhóm gần giống: transparency and explainability; robustness, security and safety; accountability.",
+          "src": [
+            {
+              "label": "OECD AI Principles",
+              "url": "https://oecd.ai/en/ai-principles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tradeoffs",
+      "title": "Tradeoff và governance by design",
+      "icon": "well-architected-tool",
+      "task": "3.1",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Tradeoff hay gặp và hướng xử lý",
+          "columns": [
+            "Xung đột",
+            "Hướng đề chấm đúng"
+          ],
+          "rows": [
+            [
+              "**Accuracy vs explainability**",
+              "Chọn model dễ giải thích nếu nó đạt ngưỡng accuracy của business, nhất là khi quyết định ảnh hưởng tới người"
+            ],
+            [
+              "**Personalization vs privacy**",
+              "Data minimization, consent, opt-out; chỉ dùng dữ liệu cần cho use case"
+            ],
+            [
+              "**Speed to market vs testing**",
+              "Giảm scope (pilot hẹp, user nội bộ) thay vì bỏ evaluation"
+            ],
+            [
+              "**Automation vs oversight**",
+              "Tự động hoá case risk thấp, human review case tác động lớn"
+            ],
+            [
+              "**Helpfulness vs safety**",
+              "Chỉnh guardrail theo ngữ cảnh; chặn quá tay cũng làm hỏng trải nghiệm"
+            ],
+            [
+              "**Fairness vs accuracy tổng**",
+              "Chấp nhận giảm nhẹ accuracy tổng để đạt fairness đã cam kết, ghi lại quyết định"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Responsible AI Lens",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+            },
+            {
+              "label": "RAI Lens release criteria",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc01.html"
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "title": "Responsible AI Lens: 8 focus area theo vòng đời",
+          "items": [
+            {
+              "title": "1. Use case",
+              "md": "- Định nghĩa vấn đề hẹp, kiểm tra **AI có thực sự cần** không\n- Liệt kê stakeholder upstream và downstream"
+            },
+            {
+              "title": "2. Benefits and risks",
+              "md": "- Liệt kê harmful event theo từng dimension\n- Gán likelihood, severity, risk level; theo dõi bằng risk registry"
+            },
+            {
+              "title": "3. Release criteria",
+              "md": "Biến benefit và harm thành tiêu chí test được, có metric và threshold, trước khi build."
+            },
+            {
+              "title": "4. Dataset planning",
+              "md": "Chọn dataset, kiểm tra quality, issue, access và versioning."
+            },
+            {
+              "title": "5. System planning",
+              "md": "Chọn kiến trúc, filtering (guardrails) và cấu hình hệ thống."
+            },
+            {
+              "title": "6. Evaluate and release",
+              "md": "- Đánh giá theo release criteria, corroborate độc lập các đánh giá quan trọng\n- Chưa đạt thì xử lý trước khi release"
+            },
+            {
+              "title": "7. User guidance",
+              "md": "System card nêu intended use và limitations, hướng dẫn user hiểu output."
+            },
+            {
+              "title": "8. Monitoring",
+              "md": "Baseline, drift detection, phản hồi feedback, decommission."
+            }
+          ],
+          "src": [
+            {
+              "label": "Responsible AI Lens",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+            },
+            {
+              "label": "RAI Lens stakeholders",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc02.html"
+            },
+            {
+              "label": "RAI Lens assess risks",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Khi nào đưa responsible AI vào dự án",
+          "rows": [
+            {
+              "says": "when should responsible AI requirements be integrated into the project",
+              "pick": "At use case definition, before data collection and build",
+              "why": "AWS đặt nguyên tắc responsible by design: tìm và xử lý issue ngay ở design.",
+              "src": {
+                "label": "RAI Lens design principles",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/design-principles.html"
+              }
+            },
+            {
+              "says": "team disagrees whether the model is good enough to launch",
+              "pick": "Define release criteria with metrics and thresholds first",
+              "why": "Release criteria biến harm và benefit thành ngưỡng test được, được thống nhất trước evaluation.",
+              "src": {
+                "label": "RAI Lens release criteria",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc01.html"
+              }
+            },
+            {
+              "says": "business wants to skip fairness testing to meet a launch date",
+              "pick": "Narrow the launch scope, keep the release criteria",
+              "why": "Pilot hẹp giảm exposure; bỏ test chuyển risk sang khách hàng và brand.",
+              "src": {
+                "label": "RAI Lens release criteria",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc01.html"
+              }
+            },
+            {
+              "says": "high-accuracy black-box model for decisions about individuals",
+              "pick": "Interpretable model that meets the business threshold, documented",
+              "why": "Quyết định về người thường cần giải thích; tradeoff phải ghi lại và được governance duyệt.",
+              "src": {
+                "label": "Responsible AI Lens",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Bẫy về thời điểm",
+          "md": "- \"Review responsible AI just before go-live\": muộn, sửa lúc đó đắt và dễ bị bỏ qua.\n- \"After the pilot proves value\": pilot đã chạm khách hoặc dữ liệu thật.\n- \"Rely on the vendor's model card\": card của vendor không thay đánh giá cho use case của bạn."
+        }
+      ]
+    },
+    {
+      "id": "oversight",
+      "title": "Human oversight và escalation",
+      "icon": "r-users",
+      "task": "3.1",
+      "blocks": [
+        {
+          "type": "diagram",
+          "title": "Đường escalation của một AI assistant",
+          "dir": "RIGHT",
+          "caption": "Guardrails lọc mọi bản nháp; escalation rule quyết định case nào cần người duyệt.",
+          "nodes": [
+            {
+              "id": "grd",
+              "icon": "bedrock",
+              "label": "Guardrails",
+              "sub": "checks the AI draft",
+              "info": "- AI assistant sinh bản nháp, chưa gửi khách\n- **Amazon Bedrock Guardrails** kiểm tra input và output\n- Content filters, denied topics, PII, contextual grounding check"
+            },
+            {
+              "id": "rule",
+              "icon": "step-functions",
+              "label": "Escalation rules",
+              "sub": "impact, confidence",
+              "info": "- Escalate khi tác động lớn: từ chối, số tiền cao, ngoại lệ policy\n- Escalate khi confidence thấp"
+            },
+            {
+              "id": "out",
+              "icon": "r-user",
+              "label": "Reply to customer",
+              "sub": "auto or safe message",
+              "info": "Khách nhận câu trả lời tự động, hoặc thông điệp an toàn khi guardrail chặn."
+            },
+            {
+              "id": "rev",
+              "icon": "r-users",
+              "label": "Human reviewer",
+              "sub": "HITL: approve, edit",
+              "info": "- Người có đủ năng lực, training và thẩm quyền\n- Được override hoặc từ chối output của AI rồi mới gửi khách"
+            },
+            {
+              "id": "mon",
+              "icon": "r-office-building",
+              "label": "Oversight board",
+              "sub": "HOTL: KRI, samples",
+              "info": "- Human-on-the-loop: xem decision log, KRI và mẫu case đã tự động\n- Siết rule hoặc tạm dừng khi vượt threshold"
+            }
+          ],
+          "edges": [
+            {
+              "id": "e2",
+              "from": "grd",
+              "to": "rule",
+              "label": "passed",
+              "style": "solid",
+              "tone": "primary"
+            },
+            {
+              "id": "e3",
+              "from": "grd",
+              "to": "out",
+              "label": "blocked",
+              "style": "solid",
+              "tone": "deny"
+            },
+            {
+              "id": "e4",
+              "from": "rule",
+              "to": "out",
+              "label": "low risk",
+              "style": "solid",
+              "tone": "primary"
+            },
+            {
+              "id": "e5",
+              "from": "rule",
+              "to": "rev",
+              "label": "high impact",
+              "style": "dashed",
+              "tone": "backup"
+            },
+            {
+              "id": "e6",
+              "from": "rule",
+              "to": "mon",
+              "label": "decision log",
+              "style": "solid",
+              "tone": "data"
+            }
+          ],
+          "legend": [
+            {
+              "style": "solid",
+              "tone": "primary",
+              "label": "Đường tự động"
+            },
+            {
+              "style": "dashed",
+              "tone": "backup",
+              "label": "Escalate cho người duyệt"
+            },
+            {
+              "style": "solid",
+              "tone": "deny",
+              "label": "Guardrail chặn"
+            },
+            {
+              "style": "solid",
+              "tone": "data",
+              "label": "Log cho oversight"
+            }
+          ],
+          "steps": [
+            {
+              "title": "1. Guardrails trước",
+              "md": "- Mọi bản nháp đi qua guardrails\n- Nội dung bị chặn thay bằng thông điệp an toàn",
+              "hl": [
+                "grd",
+                "e3",
+                "out"
+              ]
+            },
+            {
+              "title": "2. Case risk thấp",
+              "md": "- Tự động gửi khi confidence cao và tác động nhỏ\n- Người theo dõi qua KRI, không duyệt từng case",
+              "hl": [
+                "grd",
+                "e2",
+                "rule",
+                "e4",
+                "out"
+              ]
+            },
+            {
+              "title": "3. Case tác động lớn",
+              "md": "- Từ chối, số tiền lớn, ngoại lệ, confidence thấp\n- Human reviewer duyệt hoặc sửa trước khi gửi",
+              "hl": [
+                "rule",
+                "e5",
+                "rev"
+              ]
+            },
+            {
+              "title": "4. Log và oversight",
+              "md": "- Mọi quyết định được ghi lại\n- Board xem mẫu case và siết rule khi KRI xấu đi",
+              "hl": [
+                "rule",
+                "e6",
+                "mon"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "AWS blog: HITL claims processing",
+              "url": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/"
+            },
+            {
+              "label": "Bedrock Guardrails policies",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-components.html"
+            },
+            {
+              "label": "EU AI Act Article 14",
+              "url": "https://artificialintelligenceact.eu/article/14/"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "Chuyển prediction confidence thấp cho người review",
+          "img": "figs/governance-a2i-human-review.png",
+          "alt": "Amazon Augmented AI flow: high-confidence predictions return to the client application, low-confidence predictions go to human reviewers, reviewed data can improve training data",
+          "caption": "Mẫu tiered oversight: prediction confidence cao đi thẳng, confidence thấp sang human review, kết quả review thành training data. Đáp án này tốt hơn việc review mọi quyết định.",
+          "credit": {
+            "label": "AWS docs: Using Amazon Augmented AI for Human Review",
+            "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "table",
+          "title": "Ba mức tham gia của con người",
+          "columns": [
+            "Mức",
+            "Con người làm gì",
+            "Dùng khi"
+          ],
+          "rows": [
+            [
+              "**Human-in-the-loop (HITL)**",
+              "Duyệt từng output trước khi có hiệu lực",
+              "Tác động lớn tới người, giai đoạn đầu, high-risk"
+            ],
+            [
+              "**Human-on-the-loop (HOTL)**",
+              "Theo dõi KRI, lấy mẫu, can thiệp hoặc dừng khi cần",
+              "Case lặp lại, đã có accuracy ổn định"
+            ],
+            [
+              "**Human-out-of-the-loop**",
+              "Không ai xem trước hay theo dõi sát",
+              "Tác động thấp, dễ đảo ngược, ví dụ gợi ý sản phẩm"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS blog: HITL claims processing",
+              "url": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Escalation criteria trong đề",
+          "rows": [
+            {
+              "says": "automate routine cases while keeping control of high-impact decisions",
+              "pick": "Tiered autonomy: auto for low risk, human review for denials, high value, low confidence",
+              "why": "AWS mô tả lộ trình Assist, Supervised, Autonomous; edge case và confidence thấp vẫn về người.",
+              "src": {
+                "label": "AWS blog: HITL claims processing",
+                "url": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/"
+              }
+            },
+            {
+              "says": "high-risk AI system under the EU AI Act",
+              "pick": "Human oversight by competent people who can override or stop",
+              "why": "Article 14 yêu cầu người có thể disregard, override, reverse output và có nút stop.",
+              "src": {
+                "label": "EU AI Act Article 14",
+                "url": "https://artificialintelligenceact.eu/article/14/"
+              }
+            },
+            {
+              "says": "reviewers approve AI suggestions without reading them",
+              "pick": "Train on automation bias, sample audits, measure override rate",
+              "why": "Article 14 nêu rõ risk over-reliance vào output của AI.",
+              "src": {
+                "label": "EU AI Act Article 14",
+                "url": "https://artificialintelligenceact.eu/article/14/"
+              }
+            },
+            {
+              "says": "agent can take irreversible actions such as payments or denials",
+              "pick": "Require human sign-off before the action executes",
+              "why": "AWS: cùng policy cho agent tự quyết case thường nhưng bắt người ký duyệt ngoại lệ trước khi thực thi.",
+              "src": {
+                "label": "AWS blog: HITL claims processing",
+                "url": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/"
+              }
+            }
+          ],
+          "src": [
+            {
+              "label": "re:Invent 2025 AIM422: Agentic AI meets responsible AI",
+              "url": "https://www.youtube.com/watch?v=OGvXA1dAh1U"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "HITL không phải lúc nào cũng đúng",
+          "md": "- \"Human approval for every decision, permanently\": không scale, và reviewer mệt dễ duyệt cho qua.\n- Đáp án tốt hơn thường là **tiered**: HITL cho case tác động lớn, HOTL cho phần còn lại, nới dần khi có bằng chứng accuracy."
+        }
+      ]
+    },
+    {
+      "id": "structures",
+      "title": "Governance structure và accountability",
+      "icon": "organizations",
+      "task": "3.2",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Các cơ cấu governance",
+          "columns": [
+            "Cơ cấu",
+            "Vai trò",
+            "Ai ngồi trong đó"
+          ],
+          "rows": [
+            [
+              "**AI governance board / council**",
+              "Đặt policy, risk appetite, duyệt use case high-risk, xử lý escalation",
+              "Executive sponsor, legal, compliance, risk, security, privacy, data, business"
+            ],
+            [
+              "**AI CoE**",
+              "Chuẩn hoá cách làm, template, công cụ, đào tạo; không thay board",
+              "Kỹ thuật và business cùng làm"
+            ],
+            [
+              "**Use case owner**",
+              "Accountable cho kết quả business và impact của hệ thống",
+              "Lãnh đạo business unit"
+            ],
+            [
+              "**Three lines of defense**",
+              "Line 1 business tự quản risk; line 2 risk và compliance review độc lập; line 3 internal audit",
+              "Tích hợp với enterprise risk management có sẵn"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS CAF for AI: Governance",
+              "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+            },
+            {
+              "label": "AWS blog: AI enterprise risk management",
+              "url": "https://aws.amazon.com/blogs/security/enabling-ai-adoption-at-scale-through-enterprise-risk-management-framework-part-2/"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Ví dụ RACI cho một use case high-risk",
+          "columns": [
+            "Hoạt động",
+            "R",
+            "A",
+            "C",
+            "I"
+          ],
+          "rows": [
+            [
+              "Định nghĩa use case, KPI",
+              "Product team",
+              "Business owner",
+              "Risk, legal",
+              "Board"
+            ],
+            [
+              "Đánh giá risk, phân tier",
+              "Risk office",
+              "Business owner",
+              "Legal, privacy, data science",
+              "Board"
+            ],
+            [
+              "Build và evaluation",
+              "Data science",
+              "Tech lead",
+              "Security, privacy",
+              "Business owner"
+            ],
+            [
+              "Duyệt go-live",
+              "Risk office",
+              "AI governance board",
+              "Legal, security",
+              "Toàn công ty"
+            ],
+            [
+              "Monitoring trong production",
+              "Ops team",
+              "Business owner",
+              "Data science",
+              "Risk office"
+            ]
+          ],
+          "src": [
+            {
+              "label": "AWS blog: AI enterprise risk management",
+              "url": "https://aws.amazon.com/blogs/security/enabling-ai-adoption-at-scale-through-enterprise-risk-management-framework-part-2/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Câu hỏi về cơ cấu",
+          "rows": [
+            {
+              "says": "AI initiatives across business units with inconsistent approvals, FIRST step",
+              "pick": "Form a cross-functional AI governance team with executive sponsorship",
+              "why": "AWS CAF for AI: bước đầu là xác định stakeholder và lập team đại diện nhiều business unit.",
+              "src": {
+                "label": "AWS CAF for AI: Governance",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+              }
+            },
+            {
+              "says": "unclear who is accountable when an AI decision harms a customer",
+              "pick": "Define decision rights with a RACI, one Accountable per activity",
+              "why": "Mỗi hoạt động chỉ một A; trách nhiệm chung là không ai chịu trách nhiệm.",
+              "src": {
+                "label": "AWS blog: AI enterprise risk management",
+                "url": "https://aws.amazon.com/blogs/security/enabling-ai-adoption-at-scale-through-enterprise-risk-management-framework-part-2/"
+              }
+            },
+            {
+              "says": "data science team approves its own models for production",
+              "pick": "Independent review by risk or compliance (second line)",
+              "why": "Người build không tự duyệt; review độc lập tách khỏi team build.",
+              "src": {
+                "label": "AWS blog: AI enterprise risk management",
+                "url": "https://aws.amazon.com/blogs/security/enabling-ai-adoption-at-scale-through-enterprise-risk-management-framework-part-2/"
+              }
+            },
+            {
+              "says": "AI policies exist but teams ignore them",
+              "pick": "Embed checks into the delivery process with defined thresholds",
+              "why": "CAF for AI: định nghĩa cơ chế monitor và hành động theo threshold định trước.",
+              "src": {
+                "label": "AWS CAF for AI: Governance",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Đáp án sai hay gặp",
+          "md": "- Giao governance cho **IT hoặc CIO một mình**: thiếu legal, compliance, business.\n- Chuyển accountability cho **vendor AI**: dùng model bên thứ ba vẫn là trách nhiệm của bạn.\n- Mua công cụ governance trước khi có policy và decision rights."
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "title": "Thực tế ở doanh nghiệp",
+          "md": "- IAPP 2025: 77% tổ chức được khảo sát đang làm AI governance, gần 90% với tổ chức đã dùng AI.\n- Chức năng chủ trì AI governance: privacy 22%, legal and compliance 22%, IT 17%.\n- IAPP ghi không có một cấu trúc chuẩn; đề chấm đúng khi có **cross-functional** và **một người accountable**.",
+          "src": [
+            {
+              "label": "IAPP AI Governance Profession Report 2025",
+              "url": "https://iapp.org/resources/article/ai-governance-profession-report/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regulation",
+      "title": "EU AI Act, GDPR và luật ngành",
+      "icon": "audit-manager",
+      "task": "3.2",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "4 tier risk của EU AI Act",
+          "columns": [
+            "Tier",
+            "Ví dụ",
+            "Nghĩa vụ chính",
+            "Nguồn"
+          ],
+          "rows": [
+            [
+              "**Unacceptable** (prohibited)",
+              "Social scoring, thao túng gây hại, emotion recognition ở nơi làm việc và trường học, tạo CSAM",
+              "Cấm",
+              "Article 5"
+            ],
+            [
+              "**High-risk**",
+              "Tuyển dụng, chấm điểm tín dụng, giáo dục, essential services, critical infrastructure; safety component của sản phẩm Annex I",
+              "Risk management, data governance, logging, human oversight, conformity assessment, đăng ký EU database",
+              "Article 6, Annex III"
+            ],
+            [
+              "**Limited** (transparency)",
+              "Chatbot, deepfake, nội dung AI tạo",
+              "Báo cho user biết là AI, đánh dấu nội dung tổng hợp",
+              "Article 50"
+            ],
+            [
+              "**Minimal**",
+              "Spam filter, AI trong video game",
+              "Không có nghĩa vụ riêng",
+              "European Commission"
+            ]
+          ],
+          "src": [
+            {
+              "label": "EU AI Act summary",
+              "url": "https://artificialintelligenceact.eu/high-level-summary/"
+            },
+            {
+              "label": "EU AI Act Annex III",
+              "url": "https://artificialintelligenceact.eu/annex/3/"
+            },
+            {
+              "label": "EU AI Act Article 50",
+              "url": "https://artificialintelligenceact.eu/article/50/"
+            },
+            {
+              "label": "European Commission: AI Act",
+              "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "new",
+          "title": "Mốc thời gian sau Digital Omnibus on AI",
+          "md": "- 2024-08-01: AI Act có hiệu lực.\n- 2025-02-02: prohibited practices và AI literacy.\n- 2025-08-02: governance rules và nghĩa vụ GPAI model.\n- 2026-08-02: phần lớn điều khoản còn lại, gồm Article 50 transparency.\n- 2026-12-02: cấm AI tạo CSAM và intimate imagery không đồng thuận; Article 50(2) cho hệ thống đưa ra thị trường trước 2026-08-02.\n- **2027-12-02**: high-risk Annex III, bản gốc là 2026-08-02.\n- **2028-08-02**: high-risk Annex I, bản gốc là 2027-08-02.\n- Omnibus là Regulation (EU) 2026/1744, đạt political agreement 2026-05-07, hiệu lực 2026-07-27.\n- Article 4 mới: provider và deployer \"take measures to support the development of AI literacy\", không còn chữ \"ensure\".",
+          "src": [
+            {
+              "label": "European Commission: AI Act",
+              "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+            },
+            {
+              "label": "Digital Omnibus on AI",
+              "url": "https://artificialintelligenceact.eu/ai-act-explorer/digital-omnibus/"
+            },
+            {
+              "label": "EU AI Act Article 4",
+              "url": "https://artificialintelligenceact.eu/article/4/"
+            },
+            {
+              "label": "FPF: AI Omnibus timeline",
+              "url": "https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus/"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Luật khác ở mức business",
+          "columns": [
+            "Luật hoặc ngành",
+            "Điểm đề hay hỏi",
+            "Nguồn"
+          ],
+          "rows": [
+            [
+              "**GDPR Article 22**",
+              "Quyền không bị quyết định **solely automated** có hệ quả pháp lý; safeguard tối thiểu là human intervention, nêu quan điểm, contest",
+              "GDPR Art. 22"
+            ],
+            [
+              "**GDPR Article 35**",
+              "DPIA bắt buộc khi đánh giá có hệ thống về người dựa trên automated processing",
+              "GDPR Art. 35"
+            ],
+            [
+              "**EU AI Act penalties**",
+              "Vi phạm Article 5: tới EUR 35M hoặc 7% doanh thu toàn cầu; phần lớn nghĩa vụ khác: EUR 15M hoặc 3%",
+              "Article 99"
+            ],
+            [
+              "**Tài chính, y tế, tuyển dụng**",
+              "Luật ngành vẫn áp song song: giải thích quyết định tín dụng, bảo vệ dữ liệu bệnh nhân, chống phân biệt đối xử",
+              "Suy luận, theo Annex III"
+            ]
+          ],
+          "src": [
+            {
+              "label": "GDPR Article 22",
+              "url": "https://gdpr-info.eu/art-22-gdpr/"
+            },
+            {
+              "label": "GDPR Article 35",
+              "url": "https://gdpr-info.eu/art-35-gdpr/"
+            },
+            {
+              "label": "EU AI Act Article 99",
+              "url": "https://artificialintelligenceact.eu/article/99/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "AI screens and ranks job applicants for EU employers",
+              "pick": "High-risk under Annex III; plan provider and deployer obligations",
+              "why": "Employment là use case Annex III; deadline mới là 2027-12-02 nhưng chuẩn bị phải bắt đầu ngay.",
+              "src": {
+                "label": "EU AI Act Annex III",
+                "url": "https://artificialintelligenceact.eu/annex/3/"
+              }
+            },
+            {
+              "says": "fully automated loan rejection for EU applicants",
+              "pick": "Human intervention, right to contest, explanation of logic",
+              "why": "GDPR Article 22 bảo vệ người trước quyết định solely automated có hệ quả đáng kể.",
+              "src": {
+                "label": "GDPR Article 22",
+                "url": "https://gdpr-info.eu/art-22-gdpr/"
+              }
+            },
+            {
+              "says": "company only uses a vendor's high-risk AI system",
+              "pick": "Deployer duties: use per instructions, assign competent oversight, monitor, keep logs",
+              "why": "Deployer có ít nghĩa vụ hơn provider nhưng không được miễn.",
+              "src": {
+                "label": "EU AI Act Article 26",
+                "url": "https://artificialintelligenceact.eu/article/26/"
+              }
+            },
+            {
+              "says": "compliance risk is unclear for a new AI process, FIRST step",
+              "pick": "Involve legal and compliance to classify the use case",
+              "why": "Phân loại theo luật quyết định mức control; không đoán thay legal.",
+              "src": {
+                "label": "EU AI Act summary",
+                "url": "https://artificialintelligenceact.eu/high-level-summary/"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Dời hạn không phải miễn trừ",
+          "md": "- Tài liệu viết trước 07/2026 vẫn ghi high-risk áp từ 2026-08-02; đề beta ra sau Omnibus.\n- Chatbot vẫn phải disclose AI từ 2026-08-02 theo Article 50.\n- Omnibus không xoá use case nào khỏi Annex III; employment, education, credit vẫn là high-risk.",
+          "src": [
+            {
+              "label": "European Commission: AI Act",
+              "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+            },
+            {
+              "label": "EU AI Act Article 50",
+              "url": "https://artificialintelligenceact.eu/article/50/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "title": "Access control, data security và shared responsibility",
+      "icon": "r-servers",
+      "task": "3.2",
+      "blocks": [
+        {
+          "type": "compare",
+          "title": "Chia trách nhiệm cho AI workload",
+          "items": [
+            {
+              "name": "AWS",
+              "icon": "bedrock",
+              "tag": "security of the cloud",
+              "points": [
+                "Data center vật lý, phần cứng chạy model",
+                "Amazon Bedrock: model provider không truy cập được Model Deployment Account",
+                "Bedrock không lưu, không dùng prompt và completion để train model, không chia sẻ cho bên thứ ba",
+                "Chứng nhận ISO/IEC 42001 cho Bedrock và một số service AI"
+              ]
+            },
+            {
+              "name": "Khách hàng",
+              "icon": "r-office-building",
+              "tag": "security in the cloud",
+              "points": [
+                "Ai được dùng ứng dụng và dữ liệu nào (least privilege)",
+                "Phân loại dữ liệu, chọn Region, encryption",
+                "Cấu hình guardrails, đánh giá output cho use case",
+                "Compliance của ứng dụng, AUP cho nhân viên"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "AWS shared responsibility model",
+              "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+            },
+            {
+              "label": "Bedrock data protection",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html"
+            },
+            {
+              "label": "AWS blog: sensitive data in RAG",
+              "url": "https://aws.amazon.com/blogs/machine-learning/protect-sensitive-data-in-rag-applications-with-amazon-bedrock/"
+            },
+            {
+              "label": "AWS ISO/IEC 42001 certification",
+              "url": "https://aws.amazon.com/blogs/machine-learning/aws-achieves-iso-iec-420012023-artificial-intelligence-management-system-accredited-certification/"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "GenAI Security Scoping Matrix: ai kiểm soát gì",
+          "columns": [
+            "Scope",
+            "Ví dụ",
+            "Bạn kiểm soát"
+          ],
+          "rows": [
+            [
+              "1. Consumer app",
+              "Chatbot công cộng miễn phí",
+              "Chỉ dữ liệu bạn nhập; đọc kỹ terms vì provider có thể dùng dữ liệu"
+            ],
+            [
+              "2. Enterprise app",
+              "SaaS có GenAI, có hợp đồng với vendor",
+              "Hợp đồng, cấu hình, dữ liệu đưa vào"
+            ],
+            [
+              "3. Pre-trained models",
+              "App tự build trên FM qua API",
+              "Ứng dụng, prompt, RAG, guardrails"
+            ],
+            [
+              "4. Fine-tuned models",
+              "FM fine-tuning bằng dữ liệu riêng",
+              "Thêm dữ liệu train và model đã fine-tune"
+            ],
+            [
+              "5. Self-trained models",
+              "Train model từ đầu",
+              "Toàn bộ dữ liệu, model, vòng đời"
+            ]
+          ],
+          "src": [
+            {
+              "label": "GenAI Security Scoping Matrix",
+              "url": "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Câu hỏi access và data",
+          "rows": [
+            {
+              "says": "employees paste confidential data into public AI chatbots (shadow AI)",
+              "pick": "Approved enterprise AI tool, acceptable use policy, training, block unapproved tools",
+              "why": "Scope 1 app có thể dùng dữ liệu nhập vào; cấm suông không hiệu quả nếu không có lựa chọn thay thế.",
+              "src": {
+                "label": "GenAI Security Scoping Matrix",
+                "url": "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/"
+              }
+            },
+            {
+              "says": "data residency: customer data must stay within the EU",
+              "pick": "EU Region, or a geographic cross-Region inference profile for the EU",
+              "why": "Geographic profile chỉ chọn Region trong geography đó; global profile thì không giới hạn.",
+              "src": {
+                "label": "Bedrock cross-Region inference",
+                "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html"
+              }
+            },
+            {
+              "says": "ensure the model provider cannot train on company prompts",
+              "pick": "Use Amazon Bedrock under its data protection terms",
+              "why": "Bedrock không dùng prompt để train và model provider không truy cập được deployment account.",
+              "src": {
+                "label": "AWS blog: sensitive data in RAG",
+                "url": "https://aws.amazon.com/blogs/machine-learning/protect-sensitive-data-in-rag-applications-with-amazon-bedrock/"
+              }
+            },
+            {
+              "says": "RAG assistant could expose documents to the wrong employees",
+              "pick": "Enforce source permissions on retrieval, least privilege, PII filters",
+              "why": "Assistant không được rộng quyền hơn người hỏi; sensitive information filter che PII.",
+              "src": {
+                "label": "AWS blog: sensitive data in RAG",
+                "url": "https://aws.amazon.com/blogs/machine-learning/protect-sensitive-data-in-rag-applications-with-amazon-bedrock/"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Chứng nhận của AWS không phải của bạn",
+          "md": "- AWS đạt ISO/IEC 42001 cho Bedrock không làm ứng dụng của bạn tự động compliant.\n- Bạn vẫn chịu trách nhiệm dữ liệu, cấu hình, use case và nghĩa vụ deployer."
+        }
+      ]
+    },
+    {
+      "id": "frameworks",
+      "title": "Phân loại risk: NIST AI RMF, ISO/IEC 42001",
+      "icon": "audit-manager",
+      "task": "3.2",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Chọn framework theo nhu cầu",
+          "columns": [
+            "Framework",
+            "Bản chất",
+            "Bắt buộc?",
+            "Dùng khi đề nói"
+          ],
+          "rows": [
+            [
+              "**EU AI Act**",
+              "Luật EU, phân 4 tier risk",
+              "Có, nếu đưa AI vào thị trường EU hoặc output dùng ở EU",
+              "legal obligation, EU market"
+            ],
+            [
+              "**NIST AI RMF 1.0**",
+              "Framework tự nguyện của NIST, 4 function Govern, Map, Measure, Manage",
+              "Không",
+              "voluntary, flexible, US"
+            ],
+            [
+              "**NIST AI 600-1**",
+              "Generative AI Profile của AI RMF (07/2024)",
+              "Không",
+              "GenAI-specific risks"
+            ],
+            [
+              "**ISO/IEC 42001**",
+              "Tiêu chuẩn AI management system (AIMS), Plan-Do-Check-Act",
+              "Không, nhưng **certifiable** qua certification body",
+              "certify, demonstrate to customers"
+            ],
+            [
+              "**ISO/IEC 23053**",
+              "Framework và thuật ngữ cho hệ thống AI dùng ML",
+              "Không",
+              "common vocabulary, components"
+            ]
+          ],
+          "src": [
+            {
+              "label": "NIST AI RMF",
+              "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+            },
+            {
+              "label": "ISO/IEC 42001",
+              "url": "https://www.iso.org/standard/42001"
+            },
+            {
+              "label": "AWS ISO/IEC 42001 FAQ",
+              "url": "https://aws.amazon.com/compliance/iso-42001-faqs/"
+            },
+            {
+              "label": "ISO/IEC 23053",
+              "url": "https://www.iso.org/standard/74438.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "4 function của NIST AI RMF",
+          "img": "https://airc.nist.gov/img/pblanding_image_vsusanne_cropped.png",
+          "alt": "NIST AI RMF Core: Govern at the center, surrounded by Map, Measure and Manage",
+          "caption": "Govern nằm giữa và xuyên suốt; Map xác định context và risk, Measure đánh giá, Manage ưu tiên và xử lý theo impact. Đề nêu bốn từ này là NIST AI RMF, không phải ISO/IEC 42001.",
+          "credit": {
+            "label": "NIST AIRC: AI RMF Core",
+            "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          }
+        },
+        {
+          "type": "steps",
+          "title": "4 function của NIST AI RMF",
+          "items": [
+            {
+              "title": "Govern",
+              "md": "- Cross-cutting, thấm vào 3 function còn lại\n- Policy, văn hoá risk, accountability, risk tolerance do lãnh đạo đặt"
+            },
+            {
+              "title": "Map",
+              "md": "- Xác lập context của use case\n- Nhận diện risk và tác động lên người, tổ chức, xã hội"
+            },
+            {
+              "title": "Measure",
+              "md": "- Chọn method và metric, đánh giá các đặc tính trustworthy\n- Theo dõi risk theo thời gian"
+            },
+            {
+              "title": "Manage",
+              "md": "- Ưu tiên risk từ Map và Measure, phân bổ nguồn lực, xử lý\n- Kế hoạch response, recovery, quản lý risk từ bên thứ ba"
+            }
+          ],
+          "src": [
+            {
+              "label": "NIST AI RMF Core",
+              "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Phân tier để ưu tiên",
+          "rows": [
+            {
+              "says": "governance board is overwhelmed reviewing every AI use case equally",
+              "pick": "Risk-tiered intake with proportional review",
+              "why": "Tier thấp đi fast track; tier cao cần review đầy đủ. Board tập trung vào nơi risk lớn.",
+              "src": {
+                "label": "RAI Lens assess risks",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03.html"
+              }
+            },
+            {
+              "says": "how to assign a risk level to each potential harm",
+              "pick": "Likelihood times severity, tracked in a risk registry",
+              "why": "Responsible AI Lens: xác định likelihood, severity, gán risk level, calibrate bằng registry.",
+              "src": {
+                "label": "RAI Lens assess risks",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03.html"
+              }
+            },
+            {
+              "says": "certifiable, auditable AI management system for customers",
+              "pick": "ISO/IEC 42001 certification",
+              "why": "Certification do bên thứ ba độc lập cấp; AWS đã đạt cho Bedrock từ 11/2024.",
+              "src": {
+                "label": "AWS ISO/IEC 42001 certification",
+                "url": "https://aws.amazon.com/blogs/machine-learning/aws-achieves-iso-iec-420012023-artificial-intelligence-management-system-accredited-certification/"
+              }
+            },
+            {
+              "says": "voluntary framework to structure AI risk activities",
+              "pick": "NIST AI RMF",
+              "why": "Không bắt buộc, không certify, linh hoạt cho mọi ngành.",
+              "src": {
+                "label": "NIST AI RMF",
+                "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Từ khoá phân biệt",
+          "md": "- **certify, accredited, management system**: ISO/IEC 42001.\n- **Govern, Map, Measure, Manage**: NIST AI RMF.\n- **prohibited, high-risk, conformity assessment**: EU AI Act.\n- **framework, vocabulary for ML systems**: ISO/IEC 23053."
+        }
+      ]
+    },
+    {
+      "id": "bias",
+      "title": "Bias trong vòng đời và bias drift",
+      "icon": "sagemaker-ai",
+      "task": "3.3",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Bias vào ở đâu",
+          "columns": [
+            "Giai đoạn",
+            "Nguồn bias",
+            "Control"
+          ],
+          "rows": [
+            [
+              "Định nghĩa use case",
+              "Mục tiêu hoặc label proxy không công bằng, ví dụ dùng cost làm proxy cho nhu cầu",
+              "Review stakeholder bị ảnh hưởng, chọn metric fairness"
+            ],
+            [
+              "Thu thập dữ liệu",
+              "Thiếu đại diện, historical bias trong quyết định cũ",
+              "Đo pre-training bias, bổ sung dữ liệu"
+            ],
+            [
+              "Build model",
+              "Proxy feature như mã bưu chính thay cho chủng tộc",
+              "Post-training bias metric, explainability"
+            ],
+            [
+              "Production",
+              "Dữ liệu live lệch khỏi dữ liệu train: **bias drift**",
+              "Theo dõi fairness metric liên tục, alert threshold"
+            ],
+            [
+              "Feedback loop",
+              "Output của model thành dữ liệu train sau",
+              "Kiểm tra dữ liệu trước khi retrain"
+            ]
+          ],
+          "src": [
+            {
+              "label": "SageMaker Clarify pre-training bias",
+              "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-data-bias.html"
+            },
+            {
+              "label": "SageMaker Clarify bias drift",
+              "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-monitor-bias-drift.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "docs",
+          "title": "Câu hỏi fairness ở từng giai đoạn",
+          "img": "figs/governance-clarify-bias-lifecycle.png",
+          "alt": "SageMaker Clarify best practices: fairness questions at problem formation, dataset construction, algorithm selection, training, testing, deployment and monitoring or feedback",
+          "caption": "Bias vào được ở mọi giai đoạn, từ problem formation tới feedback loop sau deploy. Control phải đặt ở từng giai đoạn; một lần audit trước launch là chưa đủ.",
+          "credit": {
+            "label": "AWS docs: Fairness, model explainability and bias detection with SageMaker Clarify",
+            "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-configure-processing-jobs.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "decision",
+          "title": "Câu hỏi bias",
+          "rows": [
+            {
+              "says": "model passed fairness tests at launch, now outcomes differ for one group",
+              "pick": "Monitor fairness metrics on live predictions, investigate data shift, retrain with review",
+              "why": "Bias có thể tăng khi dữ liệu live khác dữ liệu train, tạm thời hoặc lâu dài.",
+              "src": {
+                "label": "SageMaker Clarify bias drift",
+                "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-monitor-bias-drift.html"
+              }
+            },
+            {
+              "says": "model trained on ten years of historical hiring decisions",
+              "pick": "Assess training data for historical and representation bias before training",
+              "why": "Label lấy từ quyết định cũ của người mang theo bias của họ.",
+              "src": {
+                "label": "SageMaker Clarify pre-training bias",
+                "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-data-bias.html"
+              }
+            },
+            {
+              "says": "remove the protected attribute to make the model fair",
+              "pick": "Not sufficient: proxies remain; measure outcomes by group",
+              "why": "Feature khác vẫn chứa thông tin của thuộc tính bị bỏ; phải đo kết quả theo nhóm.",
+              "src": {
+                "label": "SageMaker Clarify pre-training bias",
+                "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-data-bias.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Fairness là việc liên tục",
+          "md": "- \"One-time bias audit before launch\" chưa đủ; đề đòi hỏi **ongoing monitoring**.\n- Bias xuất hiện ở mọi giai đoạn, nên control phải nằm ở từng giai đoạn chứ không chỉ ở model."
+        }
+      ]
+    },
+    {
+      "id": "content-ip",
+      "title": "Harmful content, IP và indemnity",
+      "icon": "bedrock",
+      "task": "3.3",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Amazon Bedrock Guardrails ở mức business",
+          "columns": [
+            "Policy",
+            "Giải quyết risk gì"
+          ],
+          "rows": [
+            [
+              "**Content filters**",
+              "Hate, insults, sexual, violence, misconduct trong text và image; chỉnh strength theo use case"
+            ],
+            [
+              "**Prompt attack**",
+              "Jailbreak, prompt injection, cố vượt qua moderation"
+            ],
+            [
+              "**Denied topics**",
+              "Chủ đề cấm, ví dụ tư vấn đầu tư cho chatbot ngân hàng"
+            ],
+            [
+              "**Word filters**",
+              "Từ ngữ thô tục, tên đối thủ"
+            ],
+            [
+              "**Sensitive information filters**",
+              "Block hoặc mask PII trong input và output"
+            ],
+            [
+              "**Contextual grounding checks**",
+              "Hallucination: câu trả lời không bám nguồn RAG hoặc lạc đề"
+            ],
+            [
+              "**Automated Reasoning checks**",
+              "Kiểm tra output theo rule logic do doanh nghiệp định nghĩa"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Bedrock Guardrails policies",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-components.html"
+            },
+            {
+              "label": "Bedrock Guardrails",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Harmful content và IP",
+          "rows": [
+            {
+              "says": "consistent safety controls across multiple models, including self-hosted",
+              "pick": "Amazon Bedrock Guardrails as a central safeguard",
+              "why": "Guardrails dùng được với mọi FM trong Bedrock hoặc self-hosted qua ApplyGuardrail API.",
+              "src": {
+                "label": "AWS Responsible AI",
+                "url": "https://aws.amazon.com/ai/responsible-ai/"
+              }
+            },
+            {
+              "says": "find harmful behaviors before launch",
+              "pick": "Red teaming with diverse testers and adversarial prompts",
+              "why": "AWS dùng automated và manual red teaming khi đánh giá model của mình.",
+              "src": {
+                "label": "Nova AI Service Card",
+                "url": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html"
+              }
+            },
+            {
+              "says": "concern about third-party copyright claims on generated content",
+              "pick": "Provider with output IP indemnity, review terms, human creative review",
+              "why": "Service Terms 50.10: AWS defend và trả claim IP cho output của service GA trong danh sách, như Amazon Nova, Amazon Q, Amazon Quick.",
+              "src": {
+                "label": "AWS Service Terms 50.10",
+                "url": "https://aws.amazon.com/service-terms/"
+              }
+            },
+            {
+              "says": "AI-generated images or deepfakes shown to the public",
+              "pick": "Label and mark synthetic content",
+              "why": "EU AI Act Article 50 yêu cầu đánh dấu nội dung tổng hợp và disclose deepfake.",
+              "src": {
+                "label": "EU AI Act Article 50",
+                "url": "https://artificialintelligenceact.eu/article/50/"
+              }
+            },
+            {
+              "says": "need to know a model's intended use and limitations before adopting it",
+              "pick": "Read the AI Service Card or model card",
+              "why": "AI Service Cards nêu intended use, limitations, design choice về responsible AI.",
+              "src": {
+                "label": "AWS AI Service Cards",
+                "url": "https://aws.amazon.com/ai/responsible-ai/resources/"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Indemnity không thay governance",
+          "md": "- Indemnity chỉ chuyển một phần risk pháp lý; khách vẫn phải đánh giá output cho use case.\n- Service Terms 50.10 loại trừ claim do input của bạn vi phạm, do tắt filter, hoặc do fine-tuning gây ra.\n- Model bên thứ ba trên Amazon Bedrock là Third-Party Content, không nằm trong danh sách indemnity của AWS.\n- Kiểm tra quyền với dữ liệu dùng cho fine-tuning hay RAG: license, hợp đồng, consent.",
+          "src": [
+            {
+              "label": "AWS Service Terms 50.10",
+              "url": "https://aws.amazon.com/service-terms/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reliability",
+      "title": "Reliability và risk control trong production",
+      "icon": "cloudwatch",
+      "task": "3.3",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Risk reliability và cách giảm",
+          "columns": [
+            "Risk",
+            "Dấu hiệu business",
+            "Giảm bằng"
+          ],
+          "rows": [
+            [
+              "**Hallucination**",
+              "Trích dẫn không tồn tại, số liệu bịa",
+              "RAG trên nguồn đã duyệt, bắt buộc citation, contextual grounding check, human review cho output quan trọng"
+            ],
+            [
+              "**Data quality degradation**",
+              "Feed upstream đổi format, null tăng, dữ liệu cũ",
+              "Data owner và SLA ở nguồn, data quality check trước inference và retrain"
+            ],
+            [
+              "**Model drift**",
+              "Accuracy giảm dần khi thị trường hoặc hành vi khách đổi",
+              "Baseline lúc release, drift detection, trigger retrain có review"
+            ],
+            [
+              "**Prompt injection**",
+              "Khách khiến assistant bỏ qua instruction",
+              "Prompt attack filter, giới hạn tool và quyền của agent"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Bedrock Guardrails policies",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-components.html"
+            },
+            {
+              "label": "RAI Lens monitoring",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01.html"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Bộ risk control cho hệ thống đang chạy",
+          "columns": [
+            "Control",
+            "Nội dung"
+          ],
+          "rows": [
+            [
+              "**Model inventory**",
+              "Danh sách mọi model và use case, owner, risk tier, ngày review"
+            ],
+            [
+              "**KRI dashboard**",
+              "Guardrail intervention rate, grounding failure, escalation rate, complaint, fairness theo nhóm"
+            ],
+            [
+              "**Threshold và human trigger**",
+              "Vượt ngưỡng thì có người được giao xử lý, không chỉ gửi alert"
+            ],
+            [
+              "**Re-evaluation**",
+              "Mỗi lần đổi model, prompt hay dữ liệu thì chạy lại evaluation theo release criteria"
+            ],
+            [
+              "**Incident response và kill switch**",
+              "Quy trình tạm dừng, rollback, thông báo stakeholder"
+            ],
+            [
+              "**Decommission**",
+              "Kế hoạch dừng hệ thống khi không còn đạt tiêu chí"
+            ]
+          ],
+          "src": [
+            {
+              "label": "RAI Lens monitoring",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01.html"
+            },
+            {
+              "label": "RAI Lens evaluation",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01.html"
+            },
+            {
+              "label": "AWS blog: AI enterprise risk management",
+              "url": "https://aws.amazon.com/blogs/security/enabling-ai-adoption-at-scale-through-enterprise-risk-management-framework-part-2/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Câu hỏi production",
+          "rows": [
+            {
+              "says": "GenAI assistant in production is monitored only for uptime",
+              "pick": "Define KRIs, thresholds, owners and an incident response plan",
+              "why": "Uptime không nói gì về hallucination, bias hay harmful output.",
+              "src": {
+                "label": "RAI Lens monitoring",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01.html"
+              }
+            },
+            {
+              "says": "legal research assistant cites cases that do not exist",
+              "pick": "Ground on approved sources with citations, grounding check, expert review",
+              "why": "Contextual grounding check chặn câu trả lời không bám nguồn; lawyer vẫn duyệt trước khi dùng.",
+              "src": {
+                "label": "Bedrock Guardrails policies",
+                "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-components.html"
+              }
+            },
+            {
+              "says": "forecast accuracy dropped after an upstream data feed changed",
+              "pick": "Data quality checks with source ownership, then retrain against baseline",
+              "why": "Sửa ở nguồn dữ liệu trước; retrain trên dữ liệu hỏng chỉ học sai thêm.",
+              "src": {
+                "label": "RAI Lens monitoring",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01.html"
+              }
+            },
+            {
+              "says": "vendor updated the foundation model version",
+              "pick": "Re-run evaluation against release criteria before switching",
+              "why": "RAI Lens: mỗi lần update hệ thống phải chạy lại evaluation và cập nhật registry.",
+              "src": {
+                "label": "RAI Lens evaluation",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Tín hiệu chọn đáp án",
+          "md": "- **ongoing, continuous, threshold, owner**: đáp án monitoring đúng.\n- **annual review only, UAT only, infrastructure metrics only**: distractor.\n- Đáp án đúng gắn alert với **người có thẩm quyền hành động**, đúng như best practice RAIMON01-BP05."
+        }
+      ]
+    }
+  ]
+}

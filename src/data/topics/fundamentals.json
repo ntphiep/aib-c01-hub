@@ -1,0 +1,1681 @@
+{
+  "id": "fundamentals",
+  "title": "AI Fundamentals & GenAI",
+  "domain": [
+    "D1"
+  ],
+  "icon": "c-artificial-intelligence",
+  "summary": "Trả lời câu hỏi D1: phân biệt AI, ML, GenAI và loại data, chọn rule-based, ML hay agent, xử lý drift và shadow AI, chọn prompt engineering, RAG hay fine-tuning.",
+  "sections": [
+    {
+      "id": "ai-ml-genai",
+      "title": "AI, ML và GenAI",
+      "icon": "c-artificial-intelligence",
+      "task": "1.1",
+      "blocks": [
+        {
+          "type": "compare",
+          "title": "Ba lớp khái niệm",
+          "items": [
+            {
+              "name": "Artificial intelligence",
+              "icon": "c-artificial-intelligence",
+              "tag": "umbrella term",
+              "points": [
+                "**Umbrella term** cho mọi kỹ thuật giúp máy làm việc giống người",
+                "Gồm cả rule-based system, search algorithm, neural network và ML",
+                "Ví dụ: Alexa, robot hút bụi, xe tự lái"
+              ]
+            },
+            {
+              "name": "Machine learning",
+              "icon": "sagemaker-ai",
+              "tag": "learns from data",
+              "points": [
+                "Một nhánh của AI, học pattern từ **historical data** thay vì rule viết tay",
+                "Làm task hẹp: classify, predict, forecast",
+                "Output là label, score hoặc số dự báo"
+              ]
+            },
+            {
+              "name": "Generative AI",
+              "icon": "bedrock",
+              "tag": "creates content",
+              "points": [
+                "Subset của AI, chạy trên ML model rất lớn đã pre-train",
+                "Tạo **nội dung mới**: text, image, code, audio",
+                "Nền là **foundation model**, một model làm được nhiều task"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "AI vs ML",
+              "url": "https://aws.amazon.com/compare/the-difference-between-artificial-intelligence-and-machine-learning/"
+            },
+            {
+              "label": "What is ML",
+              "url": "https://aws.amazon.com/what-is/machine-learning/"
+            },
+            {
+              "label": "What is GenAI",
+              "url": "https://aws.amazon.com/what-is/generative-ai/"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "AI, ML, deep learning và GenAI lồng nhau",
+          "img": "figs/fundamentals-ai-taxonomy.png",
+          "alt": "AWS CAF for AI taxonomy: artificial intelligence contains machine learning, which contains deep learning, which contains generative AI",
+          "caption": "Mỗi lớp là subset của lớp ngoài: AI gồm cả logic if-then, ML học pattern từ data, GenAI chạy trên foundation model pre-train trên data rất lớn. Đề hay hỏi lớp nào là umbrella term.",
+          "credit": {
+            "label": "AWS docs: AWS Cloud Adoption Framework for Artificial Intelligence, Machine Learning, and Generative AI",
+            "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/aws-caf-for-ai.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "table",
+          "title": "Thuật ngữ cốt lõi theo góc business",
+          "columns": [
+            "Thuật ngữ",
+            "Nghĩa",
+            "Hệ quả cho business"
+          ],
+          "rows": [
+            [
+              "**Algorithm**",
+              "Thủ tục học pattern từ data",
+              "Team kỹ thuật chọn; exam không hỏi chọn algorithm"
+            ],
+            [
+              "**Model**",
+              "Kết quả của training: các parameter đã học",
+              "Tài sản cần version, monitoring và cập nhật"
+            ],
+            [
+              "**Training**",
+              "Chỉnh parameter tới khi prediction khớp outcome đã biết trong data",
+              "Cần data đủ và sạch; cost lớn theo từng lần train"
+            ],
+            [
+              "**Inference**",
+              "Model đã train sinh output từ input mới",
+              "Cost lặp lại theo từng request, tăng theo volume"
+            ],
+            [
+              "**Prediction**",
+              "Output của inference: label, score, forecast, text",
+              "Mang tính xác suất, có thể sai; cần ngưỡng và human review khi risk cao"
+            ],
+            [
+              "**Foundation model**",
+              "Model lớn train trên data rộng, làm nhiều task",
+              "Dùng qua API, trả tiền theo token thay vì tự train"
+            ]
+          ],
+          "src": [
+            {
+              "label": "What is ML",
+              "url": "https://aws.amazon.com/what-is/machine-learning/"
+            },
+            {
+              "label": "What is inference",
+              "url": "https://aws.amazon.com/what-is/inferencing/"
+            },
+            {
+              "label": "Bedrock key terminology",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html"
+            },
+            {
+              "label": "What are foundation models",
+              "url": "https://aws.amazon.com/what-is/foundation-models/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "predict churn from 5 years of labeled CRM records",
+              "pick": "Traditional ML (supervised)",
+              "why": "Có label lịch sử và output là score; không cần tạo nội dung mới.",
+              "src": {
+                "label": "What is ML",
+                "url": "https://aws.amazon.com/what-is/machine-learning/"
+              }
+            },
+            {
+              "says": "draft personalized emails, summarize long documents",
+              "pick": "GenAI with a foundation model",
+              "why": "Output là nội dung mới; foundation model làm được mà không phải train từ đầu.",
+              "src": {
+                "label": "What is GenAI",
+                "url": "https://aws.amazon.com/what-is/generative-ai/"
+              }
+            },
+            {
+              "says": "costs grow with every customer request",
+              "pick": "Inference cost",
+              "why": "Training trả theo lần train; inference trả theo volume, phải có trong business case.",
+              "src": {
+                "label": "What is inference",
+                "url": "https://aws.amazon.com/what-is/inferencing/"
+              }
+            },
+            {
+              "says": "the business case just says \"use AI\"",
+              "pick": "Clarify: ML, GenAI, or rules",
+              "why": "AI là umbrella term; mỗi loại cần data, cost và risk khác nhau.",
+              "src": {
+                "label": "AI vs ML",
+                "url": "https://aws.amazon.com/compare/the-difference-between-artificial-intelligence-and-machine-learning/"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Bẫy thuật ngữ",
+          "md": "- GenAI là subset của AI; không phải mọi AI đều là GenAI\n- Rule-based system thuộc AI theo nghĩa rộng nhưng không học từ data\n- Đề hỏi cost theo usage là hỏi **inference**, không phải training"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "title": "Data cho AI: loại, chất lượng, lịch sử",
+      "icon": "simple-storage-service",
+      "task": "1.1",
+      "blocks": [
+        {
+          "type": "compare",
+          "title": "Structured và unstructured data",
+          "items": [
+            {
+              "name": "Structured",
+              "icon": "c-databases",
+              "tag": "schema",
+              "points": [
+                "Vừa bảng: số, short text, ngày",
+                "Tuân theo **predefined schema**, dễ search và phân tích",
+                "Hợp với ML truyền thống: churn, forecast, fraud"
+              ]
+            },
+            {
+              "name": "Unstructured",
+              "icon": "textract",
+              "tag": "no schema",
+              "points": [
+                "Audio, video, email, PDF, tài liệu dài",
+                "Không có attribute định sẵn, cần preprocessing",
+                "Đất của GenAI, NLP, computer vision, document extraction"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "Structured vs unstructured data",
+              "url": "https://aws.amazon.com/compare/the-difference-between-structured-data-and-unstructured-data/"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Data quality quyết định output",
+          "columns": [
+            "Chiều chất lượng",
+            "Lỗi điển hình",
+            "Hệ quả cho model"
+          ],
+          "rows": [
+            [
+              "**Completeness**",
+              "Thiếu field, thiếu giai đoạn",
+              "Model bỏ sót case, học lệch"
+            ],
+            [
+              "**Accuracy**",
+              "Label sai, nhập liệu sai",
+              "Model học sai pattern và vẫn trả lời tự tin"
+            ],
+            [
+              "**Consistency**",
+              "Một khách hàng mang 3 mã ở 3 hệ thống",
+              "Data mâu thuẫn, kết quả khó tin"
+            ],
+            [
+              "**Timeliness**",
+              "Data cũ hơn thực tế",
+              "Prediction đúng với quá khứ, sai với hiện tại"
+            ],
+            [
+              "**Representativeness**",
+              "Thiếu một phân khúc khách hàng",
+              "Model kém hoặc bias với nhóm thiếu data"
+            ]
+          ],
+          "src": [
+            {
+              "label": "GenAI workload assessment: data strategy",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/data-strategy.html"
+            },
+            {
+              "label": "Responsible AI Lens",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "md": "- **Supervised learning** học từ historical data có label: input kèm outcome đúng\n- Model chỉnh parameter tới khi prediction khớp outcome cũ, rồi kiểm tra trên **validation set**\n- Model chỉ biết thế giới trong data: quyết định bias trong quá khứ thành prediction bias\n- Thị trường đổi thì pattern lịch sử hết đúng, đó là gốc của model drift",
+          "src": [
+            {
+              "label": "What is ML",
+              "url": "https://aws.amazon.com/what-is/machine-learning/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "accuracy is low and source records have missing, inconsistent values",
+              "pick": "Fix data quality first",
+              "why": "Đổi model không sửa được data sai; data quality là điều kiện trước tiên.",
+              "src": {
+                "label": "GenAI workload assessment: data strategy",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/data-strategy.html"
+              }
+            },
+            {
+              "says": "historical approvals reflect past human bias",
+              "pick": "Audit and rebalance training data before training",
+              "why": "Model học lại bias có sẵn trong data lịch sử.",
+              "src": {
+                "label": "GenAI workload assessment: data strategy",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/data-strategy.html"
+              }
+            },
+            {
+              "says": "insights are locked in contracts, call recordings, emails",
+              "pick": "Unstructured data: NLP, document extraction or GenAI",
+              "why": "Unstructured data cần preprocessing và ML; SQL và BI truyền thống không đọc trực tiếp được.",
+              "src": {
+                "label": "Structured vs unstructured data",
+                "url": "https://aws.amazon.com/compare/the-difference-between-structured-data-and-unstructured-data/"
+              }
+            },
+            {
+              "says": "not sure the data can support ML",
+              "pick": "Assess data quality and quantity before committing",
+              "why": "AWS ML Lens: đánh giá chất lượng và số lượng data trước khi chọn ML.",
+              "src": {
+                "label": "ML Lens MLCOST02-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Tín hiệu trong đề",
+          "md": "- \"MOST important factor for AI outcomes\" thường là **data quality**, không phải model lớn hơn\n- Từ khoá: inconsistent, missing, siloed, outdated, biased"
+        }
+      ]
+    },
+    {
+      "id": "standards",
+      "title": "Chuẩn ISO/IEC và vocabulary chung",
+      "icon": "audit-manager",
+      "task": "1.1",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Ba chuẩn ISO/IEC cần phân biệt",
+          "columns": [
+            "Chuẩn",
+            "Nội dung",
+            "Dùng khi"
+          ],
+          "rows": [
+            [
+              "**ISO/IEC 22989:2022**",
+              "Thuật ngữ AI và các khái niệm AI",
+              "Thống nhất vocabulary giữa business, legal và tech"
+            ],
+            [
+              "**ISO/IEC 23053:2022**",
+              "Framework mô tả AI system dùng ML: các component và chức năng của chúng",
+              "Mô tả một ML system bằng ngôn ngữ chung, không phụ thuộc vendor"
+            ],
+            [
+              "**ISO/IEC 42001:2023**",
+              "Requirements để thiết lập, thực hiện, duy trì và cải tiến liên tục **AI management system (AIMS)**",
+              "Chứng minh governance AI có hệ thống; được certify bởi bên thứ ba"
+            ]
+          ],
+          "src": [
+            {
+              "label": "ISO/IEC 22989 (IEC webstore)",
+              "url": "https://webstore.iec.ch/en/publication/77839"
+            },
+            {
+              "label": "ISO/IEC 23053 (AFNOR)",
+              "url": "https://www.boutique.afnor.org/en-gb/standard/iso-iec-230532022/framework-for-artificial-intelligence-ai-systems-using-machine-learning-ml/xs139450/326655"
+            },
+            {
+              "label": "AWS ISO/IEC 42001 FAQ",
+              "url": "https://aws.amazon.com/compliance/iso-42001-faqs/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "establish a common AI vocabulary across business and technical teams",
+              "pick": "ISO/IEC 22989, plus ISO/IEC 23053 for ML system components",
+              "why": "22989 định nghĩa thuật ngữ; 23053 mô tả các component của AI system dùng ML.",
+              "src": {
+                "label": "ISO/IEC 23053 (AFNOR)",
+                "url": "https://www.boutique.afnor.org/en-gb/standard/iso-iec-230532022/framework-for-artificial-intelligence-ai-systems-using-machine-learning-ml/xs139450/326655"
+              }
+            },
+            {
+              "says": "show customers a certifiable, auditable AI management system",
+              "pick": "ISO/IEC 42001",
+              "why": "Chuẩn management system cho tổ chức cung cấp hoặc dùng AI; certification do certification body cấp.",
+              "src": {
+                "label": "AWS ISO/IEC 42001 FAQ",
+                "url": "https://aws.amazon.com/compliance/iso-42001-faqs/"
+              }
+            },
+            {
+              "says": "our cloud provider is ISO/IEC 42001 certified, so we are covered",
+              "pick": "No: certification is not inherited",
+              "why": "AWS FAQ: tổ chức không được certify theo AWS; certification của AWS chỉ giúp quá trình certify dễ hơn.",
+              "src": {
+                "label": "AWS ISO/IEC 42001 FAQ",
+                "url": "https://aws.amazon.com/compliance/iso-42001-faqs/"
+              }
+            },
+            {
+              "says": "applies to which organizations",
+              "pick": "All types and sizes",
+              "why": "22989 và 23053 áp cho doanh nghiệp, cơ quan nhà nước và tổ chức phi lợi nhuận.",
+              "src": {
+                "label": "ISO/IEC 23053 (AFNOR)",
+                "url": "https://www.boutique.afnor.org/en-gb/standard/iso-iec-230532022/framework-for-artificial-intelligence-ai-systems-using-machine-learning-ml/xs139450/326655"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Đừng nhầm ba chuẩn",
+          "md": "- **42001** đặt requirements cho cách tổ chức quản lý AI, không chấm độ chính xác của một model\n- **22989** và **23053** mô tả thuật ngữ và framework, không phải bộ requirements để certify tổ chức\n- Đề ghi \"unified AI vocabulary\" thì nghĩ tới 22989 và 23053; ghi \"management system\" thì nghĩ tới 42001"
+        }
+      ]
+    },
+    {
+      "id": "rules-vs-ai",
+      "title": "Rule-based hay AI",
+      "icon": "step-functions",
+      "task": "1.2",
+      "blocks": [
+        {
+          "type": "compare",
+          "title": "Ba cách tự động hoá",
+          "items": [
+            {
+              "name": "Rule-based automation",
+              "icon": "step-functions",
+              "tag": "deterministic",
+              "points": [
+                "Logic rõ, ổn định, viết được thành if-then",
+                "Cùng input cho cùng output, dễ audit và giải thích",
+                "Rẻ để xây và duy trì; AWS khuyên dùng làm **baseline**"
+              ]
+            },
+            {
+              "name": "Machine learning",
+              "icon": "sagemaker-ai",
+              "tag": "patterns",
+              "points": [
+                "Pattern phức tạp mà rule không bắt được",
+                "Môi trường đổi liên tục, ví dụ fraud",
+                "Cần data lịch sử đủ và sạch, cần monitoring"
+              ]
+            },
+            {
+              "name": "Generative AI",
+              "icon": "bedrock",
+              "tag": "language",
+              "points": [
+                "Input là ngôn ngữ tự nhiên hoặc unstructured data",
+                "Output là nội dung mới: tóm tắt, soạn thảo, trả lời",
+                "Output không deterministic, cần guardrails và human review"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "ML Lens MLCOST02-BP01",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+            },
+            {
+              "label": "Bedrock prompt engineering",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "logic is stable, well defined and must be explained exactly to auditors",
+              "pick": "Rule-based automation",
+              "why": "Kết quả deterministic, mỗi quyết định truy được về một rule cụ thể.",
+              "src": {
+                "label": "ML Lens MLCOST02-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+              }
+            },
+            {
+              "says": "fraud patterns change every few weeks and static rules miss new schemes",
+              "pick": "Machine learning",
+              "why": "AWS lấy fraud detection làm ví dụ cần ML vì hành vi gian lận thay đổi liên tục.",
+              "src": {
+                "label": "ML Lens MLCOST02-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+              }
+            },
+            {
+              "says": "simple inventory reorder at a fixed threshold",
+              "pick": "Rule-based automation",
+              "why": "AWS lấy inventory management đơn giản làm ví dụ rule-based đủ tốt.",
+              "src": {
+                "label": "ML Lens MLCOST02-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+              }
+            },
+            {
+              "says": "MOST cost-effective way to justify an ML project",
+              "pick": "Build a rules-based baseline and compare",
+              "why": "ML phải thắng baseline về accuracy, inference time và total cost of operation.",
+              "src": {
+                "label": "ML Lens MLCOST02-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+              }
+            },
+            {
+              "says": "free-text requests need routing, but some limits are fixed by regulation",
+              "pick": "Hybrid: AI for language, rules for hard limits",
+              "why": "AWS ML Lens khuyên xét hybrid rules với ML hoặc GenAI để cân bằng cost, performance, explainability.",
+              "src": {
+                "label": "ML Lens MLCOST02-BP01",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Đề hay gài AI cho bài toán rule-based",
+          "md": "- Tín hiệu chọn rule: deterministic, fixed threshold, regulator requires exact logic\n- Anti-pattern AWS nêu: nhảy thẳng vào ML mà không so với giải pháp đơn giản hơn\n- Cost của ML gồm data preparation, labeling, hosting, retraining vì drift"
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "title": "AI agent và orchestration",
+      "icon": "bedrock",
+      "task": "1.2",
+      "blocks": [
+        {
+          "type": "diagram",
+          "title": "Vòng lặp của một AI agent",
+          "dir": "RIGHT",
+          "caption": "Agent nhận goal, tự lập plan, gọi tool, hỏi người trước action không đảo ngược.",
+          "nodes": [
+            {
+              "id": "user",
+              "icon": "r-user",
+              "label": "Business user",
+              "sub": "đặt goal",
+              "info": "- Người đặt **goal**, không viết từng bước\n- Nhận kết quả cuối và giải thích các action đã chạy"
+            },
+            {
+              "id": "agent",
+              "icon": "c-artificial-intelligence",
+              "label": "AI agent",
+              "sub": "plan, act, observe",
+              "info": "- Chia goal thành subtask\n- Chọn tool, chạy, xem kết quả, lặp lại tới khi xong\n- Autonomy nằm ở bước tự chọn action tiếp theo"
+            },
+            {
+              "id": "fm",
+              "icon": "bedrock",
+              "label": "Foundation model",
+              "sub": "reasoning engine",
+              "info": "- FM hiểu yêu cầu, lập plan và quyết định gọi tool nào\n- Là \"bộ não\" của agent"
+            },
+            {
+              "id": "mem",
+              "icon": "c-databases",
+              "label": "Memory",
+              "sub": "session, long-term",
+              "info": "- Short-term: lịch sử hội thoại\n- Long-term: data khách hàng, action trước đó"
+            },
+            {
+              "id": "tools",
+              "icon": "r-servers",
+              "label": "Business tools",
+              "sub": "CRM, ERP, email",
+              "info": "- **Tool use**: gọi API, database, email, code\n- Đây là chỗ agent tạo tác động thật lên hệ thống"
+            },
+            {
+              "id": "peer",
+              "icon": "c-artificial-intelligence",
+              "label": "Specialist agent",
+              "sub": "A2A or MCP",
+              "info": "- Agent khác làm một subtask chuyên biệt\n- Trao đổi qua protocol như A2A hoặc MCP inter-agent"
+            },
+            {
+              "id": "human",
+              "icon": "r-users",
+              "label": "Human approver",
+              "sub": "irreversible actions",
+              "info": "- Duyệt trước action không đảo ngược: thanh toán, xoá record\n- Ngưỡng approval do governance đặt"
+            }
+          ],
+          "edges": [
+            {
+              "id": "e1",
+              "from": "user",
+              "to": "agent",
+              "label": "goal",
+              "style": "solid",
+              "tone": "primary"
+            },
+            {
+              "id": "e2",
+              "from": "agent",
+              "to": "fm",
+              "label": "reason, plan",
+              "style": "solid",
+              "tone": "primary"
+            },
+            {
+              "id": "e3",
+              "from": "agent",
+              "to": "mem",
+              "label": "context",
+              "style": "solid",
+              "tone": "data"
+            },
+            {
+              "id": "e4",
+              "from": "agent",
+              "to": "tools",
+              "label": "tool call",
+              "style": "solid",
+              "tone": "data"
+            },
+            {
+              "id": "e5",
+              "from": "agent",
+              "to": "peer",
+              "label": "delegate subtask",
+              "style": "dashed",
+              "tone": "backup"
+            },
+            {
+              "id": "e6",
+              "from": "agent",
+              "to": "human",
+              "label": "approval",
+              "style": "dashed",
+              "tone": "deny"
+            }
+          ],
+          "legend": [
+            {
+              "style": "solid",
+              "tone": "primary",
+              "label": "Goal và reasoning"
+            },
+            {
+              "style": "solid",
+              "tone": "data",
+              "label": "Đọc context, gọi tool"
+            },
+            {
+              "style": "dashed",
+              "tone": "backup",
+              "label": "Agent-to-agent"
+            },
+            {
+              "style": "dashed",
+              "tone": "deny",
+              "label": "Dừng chờ người duyệt"
+            }
+          ],
+          "steps": [
+            {
+              "title": "1. Goal",
+              "md": "- User đặt goal, ví dụ xử lý một yêu cầu hoàn tiền\n- Không ai viết sẵn từng bước",
+              "hl": [
+                "user",
+                "e1",
+                "agent"
+              ]
+            },
+            {
+              "title": "2. Plan",
+              "md": "- FM chia goal thành subtask và chọn bước tiếp theo\n- Memory cho biết khách hàng là ai, đã có gì",
+              "hl": [
+                "agent",
+                "e2",
+                "fm",
+                "e3",
+                "mem"
+              ]
+            },
+            {
+              "title": "3. Tool use",
+              "md": "- Agent gọi CRM, ERP, email để hành động\n- Xem kết quả rồi quyết định bước tiếp",
+              "hl": [
+                "agent",
+                "e4",
+                "tools"
+              ]
+            },
+            {
+              "title": "4. Delegate",
+              "md": "- Subtask chuyên biệt giao cho agent khác\n- Orchestrator tổng hợp kết quả",
+              "hl": [
+                "agent",
+                "e5",
+                "peer"
+              ]
+            },
+            {
+              "title": "5. Human-in-the-loop",
+              "md": "- Action không đảo ngược phải chờ người duyệt\n- Đây là control exam hay hỏi",
+              "hl": [
+                "agent",
+                "e6",
+                "human"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "What are AI agents",
+              "url": "https://aws.amazon.com/what-is/ai-agents/"
+            },
+            {
+              "label": "Workflow for orchestration",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/workflow-for-orchestration.html"
+            },
+            {
+              "label": "Govern AI adoption (AWS blog)",
+              "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+            },
+            {
+              "label": "re:Invent 2025 AIM422, Agentic AI meets responsible AI (YouTube)",
+              "url": "https://www.youtube.com/watch?v=OGvXA1dAh1U"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "Mức độ agentic theo độ phức tạp task",
+          "img": "figs/fundamentals-agentic-levels.png",
+          "alt": "Generative AI Lens chart: chat and prompt templates (prompt engineering, RAG) are not agentic; LLM augmented workflows (tool use), autonomous agents and multi agents are agentic",
+          "caption": "Chat và prompt template, kể cả RAG, chưa phải agentic. Từ tool use trở lên mới là agent. Đề chỉ cần hỏi đáp trên tài liệu thì chọn RAG, không chọn agent.",
+          "credit": {
+            "label": "AWS docs: Agentic AI (Generative AI Lens)",
+            "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/agentic-ai.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "table",
+          "title": "Năng lực làm agent khác chatbot",
+          "columns": [
+            "Năng lực",
+            "Agent làm gì",
+            "Tín hiệu trong đề"
+          ],
+          "rows": [
+            [
+              "**Autonomy**",
+              "Tự chọn action tiếp theo để đạt goal do người đặt",
+              "acts without step-by-step instructions"
+            ],
+            [
+              "**Planning**",
+              "Chia goal thành subtask và sắp thứ tự",
+              "multi-step task, break down a goal"
+            ],
+            [
+              "**Tool use**",
+              "Gọi API, database, email, code",
+              "update the CRM, issue a refund"
+            ],
+            [
+              "**Memory**",
+              "Giữ context trong phiên và giữa các phiên",
+              "remembers previous interactions"
+            ],
+            [
+              "**Agent-to-agent**",
+              "Trao đổi task và data với agent khác qua protocol",
+              "agents on different platforms collaborate"
+            ],
+            [
+              "**Orchestration**",
+              "Orchestrator giao subtask cho specialist agent rồi tổng hợp",
+              "coordinate specialist agents"
+            ]
+          ],
+          "src": [
+            {
+              "label": "What are AI agents",
+              "url": "https://aws.amazon.com/what-is/ai-agents/"
+            },
+            {
+              "label": "Agent-to-agent protocols",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/agent-to-agent-protocols.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Chọn kiểu giải pháp và orchestration",
+          "rows": [
+            {
+              "says": "answer questions from documents, take no actions",
+              "pick": "GenAI assistant with RAG, not an agent",
+              "why": "Không cần tool use hay autonomy thì agent chỉ thêm cost và risk.",
+              "src": {
+                "label": "What is RAG",
+                "url": "https://aws.amazon.com/what-is/retrieval-augmented-generation/"
+              }
+            },
+            {
+              "says": "task splits into research, drafting and review by specialists",
+              "pick": "Orchestrator with specialist worker agents",
+              "why": "Orchestrator lập plan, giao subtask, theo dõi tiến độ và tổng hợp kết quả.",
+              "src": {
+                "label": "Workflow for orchestration",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/workflow-for-orchestration.html"
+              }
+            },
+            {
+              "says": "open-ended problem, agents negotiate and share findings as peers",
+              "pick": "Multi-agent collaboration",
+              "why": "Phối hợp peer-to-peer, không có coordinator trung tâm.",
+              "src": {
+                "label": "Multi-agent collaboration",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/multi-agent-collaboration.html"
+              }
+            },
+            {
+              "says": "agents built on different platforms must exchange tasks",
+              "pick": "Standard agent-to-agent protocol such as A2A",
+              "why": "A2A nhắm tới cross-platform agent ecosystem; AgentCore Runtime host được A2A server.",
+              "src": {
+                "label": "A2A in AgentCore Runtime",
+                "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html"
+              }
+            },
+            {
+              "says": "agent can send payments or delete customer records",
+              "pick": "Human approval before irreversible actions",
+              "why": "AWS khuyên đặt approval threshold trước khi agent chạy action không đảo ngược.",
+              "src": {
+                "label": "Govern AI adoption (AWS blog)",
+                "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Agent không phải lúc nào cũng là đáp án",
+          "md": "- Autonomy càng cao thì càng cần giới hạn quyền tool, audit trail và human-in-the-loop\n- Stanford AI Index 2026: agent tăng từ 12% lên khoảng 66% task thành công trên OSWorld, vẫn hỏng khoảng 1 trong 3 lần\n- Workflow cố định, các bước đã biết trước thì dùng orchestration deterministic, không cần agent\n- Agent khác chatbot ở **action**: chatbot trả lời, agent làm việc trên hệ thống thật",
+          "src": [
+            {
+              "label": "Multi-agent collaboration",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/multi-agent-collaboration.html"
+            },
+            {
+              "label": "Stanford AI Index 2026",
+              "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drift",
+      "title": "Model drift và monitoring",
+      "icon": "cloudwatch",
+      "task": "1.2",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Các loại drift",
+          "columns": [
+            "Loại",
+            "Điều gì đổi",
+            "Ví dụ business"
+          ],
+          "rows": [
+            [
+              "**Data drift**",
+              "Phân phối input khác lúc train hoặc lúc evaluate",
+              "Bot hỗ trợ của hãng điện thoại gặp toàn câu hỏi về máy mới ra mắt"
+            ],
+            [
+              "**Concept drift**",
+              "Quan hệ giữa input và output đúng thay đổi",
+              "Tiêu chí \"good investment\" đổi theo thị trường dù câu hỏi trông như cũ"
+            ],
+            [
+              "**Model quality drift**",
+              "Metric như accuracy giảm dần",
+              "Tỉ lệ dự báo demand đúng giảm qua từng quý"
+            ],
+            [
+              "**Bias drift**",
+              "Prediction lệch dần giữa các nhóm",
+              "Chênh lệch tỉ lệ duyệt giữa hai nhóm khách hàng tăng lên"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Detecting drift in production",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+            },
+            {
+              "label": "SageMaker Model Monitor",
+              "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "docs",
+          "title": "Vòng đời ML có bước monitor",
+          "img": "figs/fundamentals-ml-lifecycle.png",
+          "alt": "ML lifecycle in the SageMaker AI docs: fetch, clean, prepare, train model, evaluate model, deploy to production, monitor, collect data and evaluate, then back to fetch",
+          "caption": "Monitor sau deploy không phải bước cuối: data mới thu được quay về Fetch để train lại. Drift được detect ở bước monitor và xử lý bằng vòng lặp này, không bằng model lớn hơn.",
+          "credit": {
+            "label": "AWS docs: Overview of machine learning with Amazon SageMaker AI",
+            "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-mlconcepts.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "steps",
+          "title": "Vòng monitoring",
+          "items": [
+            {
+              "title": "1. Baseline",
+              "md": "Ghi metric và phân phối data lúc deploy làm mốc so sánh."
+            },
+            {
+              "title": "2. Monitor",
+              "md": "So input và output production với baseline, liên tục hoặc theo lịch."
+            },
+            {
+              "title": "3. Alert theo KPI",
+              "md": "Báo khi metric vượt ngưỡng đã thống nhất với business owner."
+            },
+            {
+              "title": "4. Remediate",
+              "md": "- Retrain trên data mới khi performance dưới KPI\n- Hoặc sửa data nguồn, cập nhật prompt, cập nhật knowledge base"
+            },
+            {
+              "title": "5. Re-evaluate",
+              "md": "Đánh giá bản mới với baseline trước khi đưa vào production."
+            }
+          ],
+          "src": [
+            {
+              "label": "SageMaker Model Monitor",
+              "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html"
+            },
+            {
+              "label": "ML Lens MLSUS06-BP02",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp02.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "accurate at launch, performance declined over 6 months, no code changes",
+              "pick": "Model drift: monitor and retrain on recent data",
+              "why": "Model học từ quá khứ; thực tế đổi thì performance giảm dù code không đổi.",
+              "src": {
+                "label": "Detecting drift in production",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+              }
+            },
+            {
+              "says": "retrain every week regardless of performance",
+              "pick": "Retrain only when KPIs fall below thresholds",
+              "why": "AWS ML Lens: monitor production, chỉ retrain khi performance dưới KPI đã định.",
+              "src": {
+                "label": "ML Lens MLSUS06-BP02",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp02.html"
+              }
+            },
+            {
+              "says": "inputs look statistically the same but correct answers changed",
+              "pick": "Concept drift",
+              "why": "Khó detect hơn data drift vì phân phối input không đổi.",
+              "src": {
+                "label": "Detecting drift in production",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+              }
+            },
+            {
+              "says": "GenAI assistant gives outdated answers after a policy change",
+              "pick": "Update the knowledge base, not the model",
+              "why": "RAG nạp tài liệu mới trong vài phút; train lại model mất vài giờ tới vài ngày.",
+              "src": {
+                "label": "RAG vs fine-tuning",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+              }
+            },
+            {
+              "says": "a source system changed its data format and model accuracy dropped",
+              "pick": "Fix the upstream data pipeline before retraining",
+              "why": "Retrain trên data lỗi không sửa được gốc; người thi beta kể đề hỏi khi nào sửa ETL thay vì retrain.",
+              "src": {
+                "label": "Carla Jenkins, passed AIB-C01 beta on day 1 (Medium, 09/2026)",
+                "url": "https://carlarjenkins.medium.com/i-passed-the-new-aws-certified-ai-business-strategist-beta-exam-on-day-1-0444721b88a9"
+              }
+            }
+          ],
+          "src": [
+            {
+              "label": "Detecting drift in production",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+            },
+            {
+              "label": "ML Lens MLSUS06-BP02",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp02.html"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "new",
+          "title": "SageMaker Model Monitor đóng với khách hàng mới",
+          "md": "- Amazon SageMaker Model Monitor không còn nhận khách hàng mới; khách hàng cũ dùng tiếp\n- Khái niệm drift và monitoring vẫn là nội dung thi, không phụ thuộc tool",
+          "src": [
+            {
+              "label": "Model Monitor availability change",
+              "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-availability-change.html"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Tín hiệu trong đề",
+          "md": "- \"was accurate at launch but performance declined\" gần như luôn là drift\n- Đáp án đúng có monitoring liên tục, ngưỡng KPI và kế hoạch retrain\n- Đáp án sai hay gặp: đổi sang model lớn hơn, hoặc retrain theo lịch cố định"
+        }
+      ]
+    },
+    {
+      "id": "shadow-ai",
+      "title": "Shadow AI và phân loại AI tool",
+      "icon": "organizations",
+      "task": "1.2",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Ba trạng thái của một AI tool",
+          "columns": [
+            "Trạng thái",
+            "Nghĩa",
+            "Employee được làm gì",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "**Approved**",
+              "Đã qua review security, legal, data",
+              "Dùng ngay qua SSO, theo data rule đã công bố",
+              "Assistant chạy trong identity perimeter như Amazon Quick"
+            ],
+            [
+              "**Under evaluation**",
+              "Đang review, chưa quyết",
+              "Pilot có kiểm soát với data không nhạy cảm, hoặc chờ",
+              "Coding assistant mới đang pilot với một team"
+            ],
+            [
+              "**Blocked**",
+              "Risk không chấp nhận được",
+              "Không dùng; được chỉ sang tool approved thay thế",
+              "Consumer app có thể dùng data gửi lên để cải thiện model"
+            ]
+          ],
+          "src": [
+            {
+              "label": "Govern AI adoption (AWS blog)",
+              "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+            },
+            {
+              "label": "GenAI Security Scoping Matrix",
+              "url": "https://aws.amazon.com/ai/security/generative-ai-scoping-matrix/"
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "title": "30 ngày đầu theo AWS",
+          "items": [
+            {
+              "title": "Tuần 1 tới 2: discovery",
+              "md": "- Kiểm kê AI tool đang dùng, kể cả AI feature mới trong SaaS đã approve\n- Amnesty survey, đối chiếu expense report với identity log"
+            },
+            {
+              "title": "Tuần 2 tới 3: approve một use case",
+              "md": "- Chọn use case risk thấp, ví dụ tóm tắt nội bộ không có data khách hàng\n- Gắn SSO, công bố là lựa chọn approved đầu tiên"
+            },
+            {
+              "title": "Tuần 3 tới 4: block",
+              "md": "- Block tool risk cao nhất tìm thấy khi discovery\n- Chỉ block **sau khi** tool thay thế đã chạy"
+            },
+            {
+              "title": "Liên tục: governance",
+              "md": "AI Governance Council quyết tool nào vào allowlist và data nào được đưa vào model nào."
+            }
+          ],
+          "src": [
+            {
+              "label": "Govern AI adoption (AWS blog)",
+              "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "employees paste customer data into public chatbots",
+              "pick": "Provide an approved alternative, then restrict risky tools",
+              "why": "Tool được duyệt làm giảm shadow AI và tăng visibility về cách GenAI được dùng.",
+              "src": {
+                "label": "Shadow generative AI",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/navigating-security-landscape-genai/shadow-generative-ai.html"
+              }
+            },
+            {
+              "says": "employees do not know which AI tools they may use",
+              "pick": "Publish a transparent approved, under evaluation, blocked list",
+              "why": "Danh sách công khai biến quyết định thành hướng dẫn dễ theo.",
+              "src": {
+                "label": "Govern AI adoption (AWS blog)",
+                "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+              }
+            },
+            {
+              "says": "leadership proposes banning all GenAI tools",
+              "pick": "Avoid a blanket ban",
+              "why": "Ban toàn bộ đẩy usage sang thiết bị cá nhân và consumer app, mất visibility.",
+              "src": {
+                "label": "Shadow generative AI",
+                "url": "https://docs.aws.amazon.com/whitepapers/latest/navigating-security-landscape-genai/shadow-generative-ai.html"
+              }
+            },
+            {
+              "says": "an approved SaaS tool added an AI feature in a routine update",
+              "pick": "Re-review the tool",
+              "why": "Procurement đã duyệt vendor, chưa duyệt feature mới: shadow AI nằm trong tool đã approve.",
+              "src": {
+                "label": "Govern AI adoption (AWS blog)",
+                "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+              }
+            },
+            {
+              "says": "staff use a free consumer GenAI app (Scope 1)",
+              "pick": "Allow only public, non-proprietary data",
+              "why": "Provider có thể dùng data gửi lên để cải thiện model hoặc service.",
+              "src": {
+                "label": "GenAI Security Scoping Matrix",
+                "url": "https://aws.amazon.com/ai/security/generative-ai-scoping-matrix/"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Chỉ block là không đủ",
+          "md": "- Mỗi control chặn phải đi kèm một lựa chọn approved nhanh hơn\n- Đáp án mạnh thường gồm 3 phần: tool approved, phân loại công khai, monitoring usage\n- Shadow agent là bước tiếp theo: agent chưa duyệt được nối vào mailbox hay hệ thống nội bộ"
+        }
+      ]
+    },
+    {
+      "id": "prompting",
+      "title": "Prompt engineering, token và context window",
+      "icon": "bedrock",
+      "task": "1.3",
+      "blocks": [
+        {
+          "type": "code",
+          "title": "Một prompt có cấu trúc",
+          "lang": "text",
+          "code": "You are a claims assistant for a home insurance company.\nTask: Summarize the claim below for a claims adjuster.\nContext: Use only the claim text. The reader approves payouts.\nExample:\n  Claim: \"Pipe burst in kitchen on 3 May, repair quote 2,400 USD.\"\n  Summary: Cause: burst pipe | Amount: 2,400 USD | Missing: photos\nOutput format: 3 bullets named Cause, Amount, Missing documents.\nIf information is missing, write \"Not stated\". Do not guess.\nClaim: {{claim_text}}",
+          "notes": [
+            {
+              "line": 1,
+              "md": "**Role**: đặt vai trò và phạm vi"
+            },
+            {
+              "line": 2,
+              "md": "**Task**: một việc, nói rõ ai đọc output"
+            },
+            {
+              "line": 3,
+              "md": "**Context**: giới hạn nguồn, giảm bịa"
+            },
+            {
+              "line": 4,
+              "md": "**Few-shot example**: cho model thấy output kỳ vọng"
+            },
+            {
+              "line": 7,
+              "md": "**Output format**: output dùng được ngay"
+            },
+            {
+              "line": 8,
+              "md": "**Constraint**: cách xử lý khi thiếu thông tin"
+            }
+          ],
+          "src": [
+            {
+              "label": "What is prompt engineering",
+              "url": "https://aws.amazon.com/what-is/prompt-engineering/"
+            },
+            {
+              "label": "Bedrock prompt engineering",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Kỹ thuật prompt",
+          "columns": [
+            "Kỹ thuật",
+            "Làm gì",
+            "Dùng khi"
+          ],
+          "rows": [
+            [
+              "**Zero-shot**",
+              "Chỉ có instruction, không có ví dụ",
+              "Task phổ biến, model đã làm tốt"
+            ],
+            [
+              "**Few-shot**",
+              "Thêm vài cặp input và output mẫu",
+              "Cần format hoặc giọng văn nhất quán"
+            ],
+            [
+              "**Chain-of-thought**",
+              "Yêu cầu giải qua các bước trung gian",
+              "Bài toán suy luận nhiều bước"
+            ],
+            [
+              "**Role và context**",
+              "Đặt vai trò, người đọc, phạm vi",
+              "Output chung chung, sai đối tượng"
+            ],
+            [
+              "**Prompt template**",
+              "Prompt chuẩn hoá, có version, được evaluate",
+              "Nhiều team dùng chung một use case"
+            ]
+          ],
+          "src": [
+            {
+              "label": "What is prompt engineering",
+              "url": "https://aws.amazon.com/what-is/prompt-engineering/"
+            },
+            {
+              "label": "Bedrock prompt engineering",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html"
+            },
+            {
+              "label": "Agentic AI Lens AGENTPERF03-BP02",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentperf03-bp02.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "outputs are generic and ignore the audience",
+              "pick": "Add role, context and output format",
+              "why": "Prompt có intent và context rõ giúp output đúng đối tượng và đúng format.",
+              "src": {
+                "label": "What is prompt engineering",
+                "url": "https://aws.amazon.com/what-is/prompt-engineering/"
+              }
+            },
+            {
+              "says": "output structure varies between runs",
+              "pick": "Few-shot examples plus an explicit format",
+              "why": "Cặp input và output mẫu cho model thấy output kỳ vọng.",
+              "src": {
+                "label": "Bedrock prompt engineering",
+                "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html"
+              }
+            },
+            {
+              "says": "assistant forgets details from early in a long conversation",
+              "pick": "Context window limit: summarize or trim history",
+              "why": "Lịch sử không giới hạn chiếm context, tăng latency và cost mỗi lượt.",
+              "src": {
+                "label": "Agentic AI Lens AGENTPERF03-BP02",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentperf03-bp02.html"
+              }
+            },
+            {
+              "says": "a very long contract must be analyzed in one request",
+              "pick": "Check the context window; split or retrieve relevant sections",
+              "why": "Mỗi model có giới hạn token, ví dụ Claude Haiku 4.5 là 200K token.",
+              "src": {
+                "label": "Claude Haiku 4.5 model card",
+                "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-haiku-4-5.html"
+              }
+            },
+            {
+              "says": "GenAI cost rises as sessions get longer",
+              "pick": "Token usage: history is resent every turn",
+              "why": "Agentic AI Lens: mỗi lượt trả tiền lại cho toàn bộ lịch sử; cần nén và cắt bớt context.",
+              "src": {
+                "label": "Agentic AI Lens AGENTCOST03-BP02",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentcost03-bp02.html"
+              }
+            },
+            {
+              "says": "answers to the same compliance question vary too much between runs",
+              "pick": "Lower temperature, plus a fixed output format",
+              "why": "Temperature thấp làm response deterministic hơn; temperature cao làm response ngẫu nhiên hơn.",
+              "src": {
+                "label": "Bedrock inference parameters",
+                "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "tip",
+          "title": "Token là đơn vị của cost và giới hạn",
+          "md": "- **Token** là đơn vị model đọc: một từ, một phần của từ hoặc dấu câu\n- Bedrock tính giá theo 1M input token và 1M output token\n- **Context window** là số token tối đa model xử lý trong một request; nhiều model tính chung input và output\n- Prompt dài hơn thì cost và latency cao hơn, và context không liên quan làm loãng câu trả lời",
+          "src": [
+            {
+              "label": "Bedrock key terminology",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html"
+            },
+            {
+              "label": "Bedrock pricing",
+              "url": "https://aws.amazon.com/bedrock/pricing/"
+            },
+            {
+              "label": "GPT-5.5 model card",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-55.html"
+            },
+            {
+              "label": "Agentic AI Lens AGENTPERF03-BP02",
+              "url": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentperf03-bp02.html"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "exam",
+          "title": "Phân biệt context window với inference parameter",
+          "md": "- Quên lượt đầu, kém trên tài liệu dài, câu trả lời bị cắt giữa chừng: kiểm tra context window và max tokens\n- Output quá ngẫu nhiên hoặc quá rập khuôn: chỉnh **temperature** và **top P**\n- Người thi beta kể đề có hỏi phân biệt context window truncation với temperature, top P, max tokens",
+          "src": [
+            {
+              "label": "Bedrock inference parameters",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html"
+            },
+            {
+              "label": "Carla Jenkins, passed AIB-C01 beta on day 1 (Medium, 09/2026)",
+              "url": "https://carlarjenkins.medium.com/i-passed-the-new-aws-certified-ai-business-strategist-beta-exam-on-day-1-0444721b88a9"
+            },
+            {
+              "label": "How I passed AIB-C01 beta (dev.to, 09/2026)",
+              "url": "https://dev.to/aws-builders/how-i-passed-aws-certified-ai-business-strategist-ab1-c01-beta-369o"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adaptation",
+      "title": "Chọn RAG, fine-tuning hay prompt engineering",
+      "icon": "bedrock",
+      "task": "1.3",
+      "blocks": [
+        {
+          "type": "diagram",
+          "title": "RAG trả lời bằng tài liệu của công ty",
+          "dir": "RIGHT",
+          "caption": "Model không đổi; tài liệu liên quan được chèn vào prompt ở mỗi câu hỏi.",
+          "nodes": [
+            {
+              "id": "docs",
+              "icon": "simple-storage-service",
+              "label": "Company docs",
+              "sub": "policies, contracts",
+              "info": "- Nguồn sự thật của tổ chức\n- Tài liệu đổi thì chỉ cần sync lại, không train lại model"
+            },
+            {
+              "id": "user",
+              "icon": "r-user",
+              "label": "Employee",
+              "sub": "asks a question",
+              "info": "Câu hỏi bằng ngôn ngữ tự nhiên, ví dụ refund policy hiện hành là gì."
+            },
+            {
+              "id": "app",
+              "icon": "c-artificial-intelligence",
+              "label": "GenAI assistant",
+              "sub": "retrieve then generate",
+              "info": "- Lấy đoạn liên quan từ knowledge base\n- Ghép câu hỏi và đoạn đó thành augmented prompt"
+            },
+            {
+              "id": "kb",
+              "icon": "bedrock",
+              "label": "Knowledge base",
+              "sub": "vector index",
+              "info": "- Tài liệu được chia đoạn và chuyển thành embedding\n- Tìm đoạn gần nghĩa nhất với câu hỏi"
+            },
+            {
+              "id": "fm",
+              "icon": "bedrock",
+              "label": "Foundation model",
+              "sub": "weights unchanged",
+              "info": "- Sinh câu trả lời dựa trên context được chèn\n- Trả về kèm trích dẫn nguồn để user kiểm tra"
+            }
+          ],
+          "edges": [
+            {
+              "id": "r1",
+              "from": "docs",
+              "to": "kb",
+              "label": "sync in minutes",
+              "style": "solid",
+              "tone": "data"
+            },
+            {
+              "id": "r2",
+              "from": "user",
+              "to": "app",
+              "label": "question",
+              "style": "solid",
+              "tone": "primary"
+            },
+            {
+              "id": "r3",
+              "from": "app",
+              "to": "kb",
+              "label": "retrieve",
+              "style": "solid",
+              "tone": "data"
+            },
+            {
+              "id": "r4",
+              "from": "app",
+              "to": "fm",
+              "label": "prompt + passages",
+              "style": "solid",
+              "tone": "primary"
+            }
+          ],
+          "legend": [
+            {
+              "style": "solid",
+              "tone": "primary",
+              "label": "Câu hỏi và augmented prompt"
+            },
+            {
+              "style": "solid",
+              "tone": "data",
+              "label": "Đồng bộ và truy xuất tài liệu"
+            }
+          ],
+          "steps": [
+            {
+              "title": "1. Ingest",
+              "md": "- Tài liệu công ty được index vào knowledge base\n- Tài liệu mới vào được trong vài phút",
+              "hl": [
+                "docs",
+                "r1",
+                "kb"
+              ]
+            },
+            {
+              "title": "2. Retrieve",
+              "md": "- Câu hỏi đi vào assistant\n- Assistant lấy các đoạn liên quan nhất",
+              "hl": [
+                "user",
+                "r2",
+                "app",
+                "r3",
+                "kb"
+              ]
+            },
+            {
+              "title": "3. Generate",
+              "md": "- FM nhận câu hỏi kèm đoạn tài liệu\n- Câu trả lời có trích dẫn nguồn, giảm risk hallucination",
+              "hl": [
+                "app",
+                "r4",
+                "fm"
+              ]
+            }
+          ],
+          "src": [
+            {
+              "label": "What is RAG",
+              "url": "https://aws.amazon.com/what-is/retrieval-augmented-generation/"
+            },
+            {
+              "label": "Bedrock key terminology",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html"
+            },
+            {
+              "label": "RAG vs fine-tuning",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+            }
+          ]
+        },
+        {
+          "type": "figure",
+          "kind": "diagram",
+          "title": "RAG lúc runtime trong Bedrock Knowledge Bases",
+          "img": "figs/fundamentals-rag-runtime.png",
+          "alt": "Amazon Bedrock knowledge base at runtime: user query, embedding model, retrieve similar documents from a vector DB, augment the query, text model, respond to user",
+          "caption": "Câu hỏi được chuyển thành embedding, tìm tài liệu gần nghĩa trong vector DB, rồi chèn vào prompt cho text model. Model không bị train lại, nên tài liệu đổi chỉ cần sync lại.",
+          "credit": {
+            "label": "AWS docs: How Amazon Bedrock knowledge bases work",
+            "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-how-it-works.html",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        },
+        {
+          "type": "table",
+          "title": "So sánh ba cách cải thiện output",
+          "columns": [
+            "Tiêu chí",
+            "Prompt engineering",
+            "RAG",
+            "Fine-tuning"
+          ],
+          "rows": [
+            [
+              "Đổi cái gì",
+              "Input gửi model",
+              "Thêm tài liệu liên quan vào prompt lúc chạy",
+              "Parameter của model"
+            ],
+            [
+              "Data cần",
+              "Không",
+              "Tài liệu của công ty",
+              "Data training, thường có label"
+            ],
+            [
+              "Cập nhật kiến thức",
+              "Ngay",
+              "Vài phút khi tài liệu đổi",
+              "Vài giờ tới vài ngày mỗi lần train"
+            ],
+            [
+              "Trích dẫn nguồn",
+              "Không",
+              "Có",
+              "Không"
+            ],
+            [
+              "Kỹ năng cần",
+              "Business user học được",
+              "Managed service, không cần data scientist",
+              "Có thể cần data scientist"
+            ],
+            [
+              "Hợp nhất cho",
+              "Format, giọng văn, task rõ",
+              "Kiến thức riêng, hay đổi, cần trích dẫn",
+              "Style, thuật ngữ ngành, task chuyên biệt"
+            ]
+          ],
+          "src": [
+            {
+              "label": "RAG vs fine-tuning",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+            },
+            {
+              "label": "Bedrock key terminology",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html"
+            }
+          ]
+        },
+        {
+          "type": "decision",
+          "title": "Đề nói gì, chọn gì",
+          "rows": [
+            {
+              "says": "answers must reflect internal policies that change weekly and cite the source",
+              "pick": "RAG",
+              "why": "RAG nạp tài liệu mới trong vài phút và trả về reference tới nguồn.",
+              "src": {
+                "label": "RAG vs fine-tuning",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+              }
+            },
+            {
+              "says": "model must consistently write in the company's brand voice and domain terminology",
+              "pick": "Fine-tuning",
+              "why": "Fine-tuned model sinh nội dung sát style của tổ chức hơn.",
+              "src": {
+                "label": "RAG vs fine-tuning",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+              }
+            },
+            {
+              "says": "LEAST effort, output format is wrong",
+              "pick": "Prompt engineering first",
+              "why": "Rẻ và nhanh nhất, không cần data hay training.",
+              "src": {
+                "label": "What is prompt engineering",
+                "url": "https://aws.amazon.com/what-is/prompt-engineering/"
+              }
+            },
+            {
+              "says": "reduce hallucinations about company products",
+              "pick": "RAG grounded in approved documents",
+              "why": "Câu trả lời dựa trên context truy xuất nên giảm risk hallucination.",
+              "src": {
+                "label": "RAG vs fine-tuning",
+                "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+              }
+            },
+            {
+              "says": "smaller, cheaper model with accuracy close to a large one",
+              "pick": "Distillation",
+              "why": "Model lớn (teacher) sinh response để fine-tune model nhỏ (student).",
+              "src": {
+                "label": "Bedrock model customization",
+                "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html"
+              }
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "trap",
+          "title": "Bẫy RAG và fine-tuning",
+          "md": "- Fine-tuning để nạp fact hay đổi là sai: mỗi lần train mất vài giờ tới vài ngày\n- Fine-tuned model không trích dẫn nguồn, risk hallucination khi trả lời câu hỏi có thể tăng\n- RAG kém khi phải tóm tắt toàn bộ tài liệu dài\n- Có thể kết hợp: RAG chạy trên model đã fine-tune",
+          "src": [
+            {
+              "label": "RAG vs fine-tuning",
+              "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "new",
+          "title": "Các cách customize trên Amazon Bedrock",
+          "md": "- Supervised fine-tuning: học từ cặp input và output có label\n- Reinforcement fine-tuning: học từ reward function chấm chất lượng response\n- Distillation: chuyển năng lực từ model lớn sang model nhỏ, rẻ hơn\n- Cost training tính theo token trong data nhân số epoch, cộng phí lưu model theo tháng",
+          "src": [
+            {
+              "label": "Bedrock model customization",
+              "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

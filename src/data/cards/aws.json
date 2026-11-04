@@ -1,0 +1,173 @@
+[
+ {
+  "id": "aws-c01",
+  "front": "Build a GenAI application on foundation models with the LEAST operational overhead",
+  "back": "Amazon Bedrock: fully managed, one API to 100+ foundation models, pay per token.\nKhông host model, không quản lý server, đổi model trong cùng API.",
+  "ref": {
+   "label": "What is Amazon Bedrock",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
+  }
+ },
+ {
+  "id": "aws-c02",
+  "front": "Answers must come from company documents that change often, with citations",
+  "back": "Amazon Bedrock Knowledge Bases (managed RAG).\nTài liệu mới chỉ cần sync, không train lại model, và câu trả lời kèm nguồn.",
+  "ref": {
+   "label": "Bedrock Knowledge Bases",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+  }
+ },
+ {
+  "id": "aws-c03",
+  "front": "Block a topic, mask PII, and detect ungrounded answers with the same safeguards across models",
+  "back": "Amazon Bedrock Guardrails: content filters, denied topics, word filters, sensitive information filters, contextual grounding checks, Automated Reasoning checks.\nGuardrails lọc input và output, không làm model biết thêm.",
+  "ref": {
+   "label": "Bedrock Guardrails",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"
+  }
+ },
+ {
+  "id": "aws-c04",
+  "front": "Are prompts and outputs on Amazon Bedrock used to train models or shared with model providers?",
+  "back": "No. AWS and model providers do not use Bedrock inputs or outputs to train models, and inputs and outputs are not shared with model providers.\nĐây là đáp án cho stakeholder lo data công ty train model của vendor.",
+  "ref": {
+   "label": "Bedrock FAQs",
+   "url": "https://aws.amazon.com/bedrock/faqs/"
+  }
+ },
+ {
+  "id": "aws-c05",
+  "front": "Full control over model training, algorithms, and deployment on proprietary data",
+  "back": "Amazon SageMaker AI (renamed from Amazon SageMaker on 2024-12-03).\nChọn khi có team data science và cần custom ML, không chọn mặc định cho GenAI.",
+  "ref": {
+   "label": "What is SageMaker AI",
+   "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html"
+  }
+ },
+ {
+  "id": "aws-c06",
+  "front": "Data scientists want to start from a pre-trained open-source model and fine-tune it",
+  "back": "Amazon SageMaker JumpStart: pretrained open-source models, solution templates, example notebooks.\nRút ngắn thời gian build nhưng vẫn nằm trong SageMaker AI, team vẫn cần ML skill.",
+  "ref": {
+   "label": "SageMaker JumpStart",
+   "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html"
+  }
+ },
+ {
+  "id": "aws-c07",
+  "front": "Give every employee an approved AI assistant for search, research, dashboards, and automation without development",
+  "back": "Amazon Quick: Quick Sight, Quick Index, Quick Research, Quick Flows, Quick Automate, Apps in Quick; seat-based pricing. Quick evolved from QuickSight, and AWS positions it as the next evolution of Amazon Q Business.\nĐáp án điển hình để thay shadow AI bằng công cụ được duyệt.",
+  "ref": {
+   "label": "What is Amazon Quick",
+   "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+  }
+ },
+ {
+  "id": "aws-c08",
+  "front": "AWS CAF: six perspectives and four transformation phases",
+  "back": "Perspectives: Business, People, Governance, Platform, Security, Operations. Phases: Envision, Align, Launch, Scale.\nCAF for AI thêm capability responsible use of AI vào Governance perspective.",
+  "ref": {
+   "label": "CAF perspectives",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+  }
+ },
+ {
+  "id": "aws-c09",
+  "front": "Large GenAI job, results needed the next day, lowest cost",
+  "back": "Amazon Bedrock batch inference: 50% lower price than on-demand for supported models.\nKhông cần real-time thì batch hoặc Flex tier là đòn bẩy cost lớn nhất.",
+  "ref": {
+   "label": "Bedrock pricing",
+   "url": "https://aws.amazon.com/bedrock/pricing/"
+  }
+ },
+ {
+  "id": "aws-c10",
+  "front": "Amazon Bedrock service tiers",
+  "back": "Reserved (reserved tokens-per-minute, 1 or 3 months, 99.5% uptime target), Priority (premium, fastest), Standard (default), Flex (discount, slower).\nChọn tier theo mức quan trọng và độ chờ được của workload.",
+  "ref": {
+   "label": "Bedrock service tiers",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html"
+  }
+ },
+ {
+  "id": "aws-c11",
+  "front": "Steady SageMaker AI usage for years: lower the hourly cost",
+  "back": "SageMaker AI Savings Plans: commit to $/hour for 1 or 3 years, up to 64% savings.\nCompute Savings Plans không áp cho SageMaker AI.",
+  "ref": {
+   "label": "Machine Learning Savings Plans",
+   "url": "https://aws.amazon.com/savingsplans/ml-pricing/"
+  }
+ },
+ {
+  "id": "aws-c12",
+  "front": "Estimate AI costs for a business case before building",
+  "back": "AWS Pricing Calculator: free planning tool with upfront, monthly, and annual estimates.\nCost Explorer và Budgets chỉ dùng sau khi đã có usage.",
+  "ref": {
+   "label": "AWS Pricing Calculator",
+   "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+  }
+ },
+ {
+  "id": "aws-c13",
+  "front": "Analyze what drives AI spend, split it by team, and forecast it",
+  "back": "AWS Cost Explorer (13 months history, 18 months forecast, Savings Plans recommendations) plus activated cost allocation tags to filter by team.\nAWS Budgets nằm ngoài scope AIB-C01.",
+  "ref": {
+   "label": "AWS Cost Explorer",
+   "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html"
+  }
+ },
+ {
+  "id": "aws-c14",
+  "front": "Buy a partner's AI solution or agent with custom pricing and charges on the AWS bill",
+  "back": "AWS Marketplace, with a private offer for custom pricing and EULA.\nĐây là con đường buy hoặc partner trong quyết định build-buy-partner.",
+  "ref": {
+   "label": "What is AWS Marketplace",
+   "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+  }
+ },
+ {
+  "id": "aws-c15",
+  "front": "Shared responsibility for a Bedrock application: who owns what?",
+  "back": "AWS: security of the cloud (data centers, hardware, hosting the models). Customer: data, access control, classification, responsible use, and regulatory compliance.\nDùng managed service không chuyển trách nhiệm về data và compliance sang AWS.",
+  "ref": {
+   "label": "Shared responsibility model",
+   "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+  }
+ },
+ {
+  "id": "aws-c16",
+  "front": "Structured review of an AI workload against responsible AI best practices",
+  "back": "AWS Well-Architected Responsible AI Lens: controllability, privacy, security, safety, veracity, robustness, fairness, explainability, transparency, governance.\nGenerative AI Lens thì tập trung vào kiến trúc GenAI theo 6 pillar.",
+  "ref": {
+   "label": "Responsible AI Lens",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+  }
+ },
+ {
+  "id": "aws-c17",
+  "front": "AWS offerings in scope for AIB-C01",
+  "back": "Amazon Bedrock, Amazon SageMaker AI, Amazon Quick, AWS CAF, shared responsibility model, AI pricing structures, Cost Explorer, Marketplace, Pricing Calculator.\nService khác không được hỏi.",
+  "ref": {
+   "label": "AIB-C01 in-scope services",
+   "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-in-scope-services.html"
+  }
+ },
+ {
+  "id": "aws-c18",
+  "front": "Amazon Quick plans for organizations",
+  "back": "Essentials 3 USD, Professional 20 USD, Enterprise 40 USD per user per month, plus a 250 USD infrastructure fee per account.\nSeat-based: cost dự đoán được, theo dõi adoption để không trả seat thừa.",
+  "ref": {
+   "label": "Amazon Quick pricing",
+   "url": "https://aws.amazon.com/quick/pricing/"
+  }
+ },
+ {
+  "id": "aws-c19",
+  "front": "Mission-critical, steady Bedrock workload needs reserved capacity",
+  "back": "Bedrock Reserved tier: fixed price per 1K tokens-per-minute, 1- or 3-month term, 99.5% uptime target. Savings Plans do not cover Bedrock.\nĐừng chọn Compute Savings Plans cho Bedrock.",
+  "ref": {
+   "label": "Bedrock service tiers",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html"
+  }
+ }
+]

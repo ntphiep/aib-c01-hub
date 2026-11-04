@@ -1,0 +1,998 @@
+{
+ "id": "aws",
+ "title": "AWS cho AI ở mức chiến lược",
+ "domain": [
+  "D1",
+  "D2",
+  "D3",
+  "D4"
+ ],
+ "icon": "bedrock",
+ "summary": "Chọn đúng AWS offering ở mức business: Bedrock, SageMaker AI hay Amazon Quick, kiểu giá và công cụ cost, shared responsibility, Responsible AI Lens và AWS CAF.",
+ "sections": [
+  {
+   "id": "bedrock",
+   "title": "Amazon Bedrock và các khối xây dựng",
+   "icon": "bedrock",
+   "task": "1.3",
+   "blocks": [
+    {
+     "type": "text",
+     "md": "**Amazon Bedrock** là fully managed service cho GenAI: một API truy cập hơn 100 foundation model (FM) của Amazon, Anthropic, OpenAI, DeepSeek, xAI và các provider khác.\n- Doanh nghiệp không host model, không quản lý server, trả theo token.\n- Đổi model trong cùng API, nên dễ so sánh và tránh phụ thuộc một provider.\n- Đề thi chọn Bedrock khi cần GenAI app với LEAST operational overhead.",
+     "src": [
+      {
+       "label": "What is Amazon Bedrock",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Khối nào giải quyết nhu cầu business nào",
+     "columns": [
+      "Khối",
+      "Nhu cầu business",
+      "Tín hiệu trong đề"
+     ],
+     "rows": [
+      [
+       "**Model choice**, Bedrock Marketplace",
+       "Chọn model theo chất lượng, cost, latency; Marketplace thêm hơn 100 model chuyên biệt",
+       "\"choose the most suitable model\", \"avoid lock-in\""
+      ],
+      [
+       "**Knowledge Bases**",
+       "RAG managed: nối tài liệu công ty (S3, SharePoint, Confluence) để trả lời có nguồn",
+       "\"answers from company documents\", \"information changes often\""
+      ],
+      [
+       "**Guardrails**",
+       "Lọc nội dung độc hại, chặn topic, mask PII, detect hallucination",
+       "\"block\", \"redact PII\", \"same safeguards across models\""
+      ],
+      [
+       "**Model customization**",
+       "Supervised fine-tuning, reinforcement fine-tuning, distillation sang model nhỏ và rẻ hơn",
+       "\"domain terminology\", \"smaller, faster, cheaper model\""
+      ],
+      [
+       "**AgentCore**",
+       "Platform để deploy và operate agent ở quy mô enterprise: runtime, memory, gateway tới tool, identity, observability, evaluations",
+       "\"agents that take actions across systems\""
+      ]
+     ],
+     "src": [
+      {
+       "label": "Knowledge Bases",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+      },
+      {
+       "label": "Guardrails",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"
+      },
+      {
+       "label": "Model customization",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html"
+      },
+      {
+       "label": "What is AgentCore",
+       "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html"
+      },
+      {
+       "label": "Bedrock Marketplace",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/amazon-bedrock-marketplace.html"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "exam",
+     "title": "Lời hứa về data privacy",
+     "md": "- AWS và model provider **không dùng** input hay output trên Bedrock để train Amazon Nova, Amazon Titan hay model bên thứ ba.\n- Input và output **không chia sẻ** với model provider.\n- Fine-tuning chạy trên **private copy** của model; data không dùng để cải thiện base model.\n- Stakeholder lo \"our data will train the vendor's model\": đáp án là Bedrock kèm lời hứa này.",
+     "src": [
+      {
+       "label": "Bedrock FAQs",
+       "url": "https://aws.amazon.com/bedrock/faqs/"
+      },
+      {
+       "label": "Bedrock security and privacy",
+       "url": "https://aws.amazon.com/bedrock/security-compliance/"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "tip",
+     "title": "AWS là bối cảnh, không phải đề bài",
+     "md": "- Người thi beta kể Bedrock và SageMaker AI chỉ xuất hiện ở mức high level\n- Bedrock: chọn foundation model, không train model\n- Amazon Quick: assistant làm sẵn trên data công ty; SageMaker AI: tự build và train model",
+     "src": [
+      {
+       "label": "How I passed AIB-C01 beta (dev.to, 09/2026)",
+       "url": "https://dev.to/aws-builders/how-i-passed-aws-certified-ai-business-strategist-ab1-c01-beta-369o"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bedrock-rag",
+   "title": "Knowledge Bases và Guardrails trong một app",
+   "icon": "bedrock",
+   "task": "3.1",
+   "blocks": [
+    {
+     "type": "diagram",
+     "title": "Assistant nội bộ có RAG và Guardrails",
+     "caption": "Guardrails kiểm cả prompt lẫn câu trả lời; câu trả lời không bám nguồn được chuyển cho người review.",
+     "dir": "RIGHT",
+     "groups": [
+      {
+       "id": "corp",
+       "label": "Data của công ty",
+       "kind": "onprem"
+      }
+     ],
+     "nodes": [
+      {
+       "id": "user",
+       "icon": "r-users",
+       "label": "Nhân viên",
+       "sub": "đặt câu hỏi",
+       "info": "- Hỏi bằng ngôn ngữ tự nhiên qua app nội bộ\n- Chỉ thấy tài liệu mình có quyền xem"
+      },
+      {
+       "id": "gr",
+       "icon": "bedrock",
+       "label": "Guardrails",
+       "sub": "lọc input và output",
+       "info": "- **Denied topics** chặn chủ đề cấm, ví dụ investment advice\n- **Sensitive information filters** block hoặc mask PII\n- **Contextual grounding check** detect câu trả lời không bám nguồn\n- Cùng một guardrail áp cho mọi FM"
+      },
+      {
+       "id": "docs",
+       "icon": "simple-storage-service",
+       "label": "Tài liệu nội bộ",
+       "sub": "S3, SharePoint, wiki",
+       "group": "corp",
+       "info": "- Data source của Knowledge Base\n- Business sở hữu nội dung, phân loại và cập nhật"
+      },
+      {
+       "id": "kb",
+       "icon": "bedrock",
+       "label": "Knowledge Base",
+       "sub": "tìm đoạn liên quan",
+       "info": "- RAG managed: tìm đoạn tài liệu liên quan lúc hỏi\n- Tài liệu đổi thì sync lại, không cần train lại model\n- Trả về nguồn để trích dẫn"
+      },
+      {
+       "id": "fm",
+       "icon": "bedrock",
+       "label": "Foundation model",
+       "sub": "chọn trong 100+ FM",
+       "info": "- Sinh câu trả lời từ prompt cộng context lấy từ Knowledge Base\n- Đổi model mà không đổi data source"
+      },
+      {
+       "id": "human",
+       "icon": "r-user",
+       "label": "Người review",
+       "sub": "human oversight",
+       "info": "- Nhận case bị chặn hoặc điểm grounding thấp\n- Escalation criteria do business đặt"
+      }
+     ],
+     "edges": [
+      {
+       "id": "e1",
+       "from": "user",
+       "to": "gr",
+       "label": "prompt",
+       "style": "solid",
+       "tone": "primary"
+      },
+      {
+       "id": "e2",
+       "from": "gr",
+       "to": "fm",
+       "label": "prompt đã lọc",
+       "style": "solid",
+       "tone": "primary"
+      },
+      {
+       "id": "e3",
+       "from": "docs",
+       "to": "kb",
+       "label": "sync",
+       "style": "dashed",
+       "tone": "data"
+      },
+      {
+       "id": "e4",
+       "from": "kb",
+       "to": "fm",
+       "label": "context",
+       "style": "solid",
+       "tone": "primary"
+      },
+      {
+       "id": "e6",
+       "from": "gr",
+       "to": "human",
+       "label": "escalate",
+       "style": "dashed",
+       "tone": "backup"
+      }
+     ],
+     "legend": [
+      {
+       "style": "solid",
+       "tone": "primary",
+       "label": "Luồng request"
+      },
+      {
+       "style": "dashed",
+       "tone": "data",
+       "label": "Đồng bộ tài liệu vào Knowledge Base"
+      },
+      {
+       "style": "dashed",
+       "tone": "backup",
+       "label": "Escalate cho người review"
+      }
+     ],
+     "steps": [
+      {
+       "title": "1. Lọc prompt",
+       "md": "- Guardrails chặn topic cấm và mask PII trước khi prompt tới model\n- Cùng một guardrail áp cho mọi FM",
+       "hl": [
+        "user",
+        "e1",
+        "gr"
+       ]
+      },
+      {
+       "title": "2. Lấy context",
+       "md": "- Knowledge Base tìm đoạn tài liệu liên quan và đưa vào prompt làm context\n- Tài liệu mới chỉ cần sync, không train lại",
+       "hl": [
+        "kb",
+        "e3",
+        "docs",
+        "e4"
+       ]
+      },
+      {
+       "title": "3. Sinh và kiểm câu trả lời",
+       "md": "- FM trả lời dựa trên context\n- Grounding check detect câu trả lời không bám nguồn",
+       "hl": [
+        "e2",
+        "fm",
+        "gr"
+       ]
+      },
+      {
+       "title": "4. Human oversight",
+       "md": "- Case bị chặn hoặc nghi ngờ chuyển cho người review\n- Đây là safeguard đề thi gọi là escalation criteria",
+       "hl": [
+        "e6",
+        "human"
+       ]
+      }
+     ],
+     "src": [
+      {
+       "label": "Knowledge Bases",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+      },
+      {
+       "label": "Guardrails",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "kind": "diagram",
+     "title": "Knowledge Base nạp tài liệu thế nào",
+     "img": "figs/aws-kb-preprocess.png",
+     "alt": "Amazon Bedrock knowledge base pre-processing: data source split into chunks, embeddings generated by an embedding model, stored in a vector DB",
+     "caption": "Tài liệu được chia chunk, chuyển thành embedding và lưu vào vector DB. Tài liệu đổi thì sync lại data source, không train lại model; đây là điểm khác fine-tuning.",
+     "credit": {
+      "label": "AWS docs: How Amazon Bedrock knowledge bases work",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-how-it-works.html",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+     }
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "Chọn RAG, fine-tuning hay Guardrails",
+     "md": "- Data đổi thường xuyên, cần trích nguồn: **Knowledge Bases** (RAG).\n- Cần style, format, thuật ngữ ổn định: **fine-tuning**.\n- Guardrails không làm model biết thêm; nó chỉ lọc input và output.\n- Grounding check chỉ detect; ai review và khi nào escalate là quyết định của business.",
+     "src": [
+      {
+       "label": "Model customization",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quick",
+   "title": "Amazon Quick: AI assistant cho nhân viên",
+   "icon": "quick",
+   "task": "1.2",
+   "blocks": [
+    {
+     "type": "text",
+     "md": "**Amazon Quick** là AI-powered service cho knowledge worker: user chat bằng ngôn ngữ tự nhiên, AI agent xử lý trên data và app đã kết nối.\n- Fully managed: không host model, không cần ML expertise.\n- Dùng trên web, desktop app, Chrome, Slack, Microsoft Teams, Microsoft 365.\n- Kết nối app qua connector, MCP và OpenAPI; đi qua identity và access control của AWS.",
+     "src": [
+      {
+       "label": "What is Amazon Quick",
+       "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Các thành phần của Amazon Quick",
+     "columns": [
+      "Thành phần",
+      "Làm gì",
+      "Tín hiệu trong đề"
+     ],
+     "rows": [
+      [
+       "**Quick Sight**",
+       "BI: dashboard, visualization, embedded analytics",
+       "\"dashboards\", \"business users explore data\""
+      ],
+      [
+       "**Quick Index**",
+       "Nối tài liệu và data source để câu trả lời grounded vào data công ty",
+       "\"answers grounded in company documents, no development\""
+      ],
+      [
+       "**Quick Research**",
+       "Research sâu trên web và data nội bộ, ra report có trích dẫn",
+       "\"cited research report\""
+      ],
+      [
+       "**Quick Flows**",
+       "Workflow có AI cho task lặp lại",
+       "\"automate repetitive tasks without code\""
+      ],
+      [
+       "**Quick Automate**",
+       "Automation quy trình business với agent ra quyết định theo ngữ cảnh",
+       "\"multi-step process across applications\""
+      ],
+      [
+       "**Apps in Quick**",
+       "Tạo web app nội bộ bằng mô tả ngôn ngữ tự nhiên",
+       "\"internal tool without an IT ticket\""
+      ]
+     ],
+     "src": [
+      {
+       "label": "What is Amazon Quick",
+       "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "new",
+     "title": "Quick thay cho QuickSight và Q Business",
+     "md": "- Quick phát triển từ **Amazon QuickSight**; QuickSight nay là Quick Sight, một feature trong Quick.\n- Amazon Q Business **không còn nhận customer mới**; AWS gọi Quick là bước tiếp theo của Q Business.\n- Exam guide AIB-C01 chỉ ghi Amazon Quick là in-scope.",
+     "src": [
+      {
+       "label": "What is Amazon Quick",
+       "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+      },
+      {
+       "label": "Amazon Q Business",
+       "url": "https://aws.amazon.com/q/business/"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "exam",
+     "title": "Seat-based pricing",
+     "md": "- Plan cho tổ chức: Essentials 3 USD, Professional 20 USD, Enterprise 40 USD mỗi user mỗi tháng, cộng 250 USD infrastructure fee mỗi account.\n- Plan cho cá nhân và team: Free 0 USD, Plus 20 USD mỗi user mỗi tháng trả theo năm, tối đa 300 user.\n- Mỗi plan kèm agent hour và storage theo user; có trial 30 ngày.\n- Tín hiệu \"every employee\", \"predictable per-user cost\", \"no development team\": Amazon Quick.",
+     "src": [
+      {
+       "label": "Amazon Quick pricing",
+       "url": "https://aws.amazon.com/quick/pricing/"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "build-buy",
+   "title": "Buy, adapt hay build: chọn AWS AI offering",
+   "icon": "c-artificial-intelligence",
+   "task": "2.1",
+   "blocks": [
+    {
+     "type": "text",
+     "md": "Đề thi xếp lựa chọn theo effort và mức kiểm soát tăng dần:\n- **Buy**: SaaS có sẵn, hoặc Amazon Quick cho knowledge worker.\n- **Adapt**: Amazon Bedrock, dùng FM có sẵn rồi thêm prompt, RAG, fine-tuning, agent.\n- **Build**: Amazon SageMaker AI, team data science tự build, train, deploy model trên data riêng.\n- **Partner**: AWS Marketplace hoặc AWS Partner khi thiếu skill hay cần time-to-value ngắn.",
+     "src": [
+      {
+       "label": "AWS AI services",
+       "url": "https://aws.amazon.com/ai/services/"
+      },
+      {
+       "label": "AIB-C01 in-scope services",
+       "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-in-scope-services.html"
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "kind": "diagram",
+     "title": "Scoping Matrix chia buy và build",
+     "img": "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/product-categories/ai-ml/artificial-intelligence/approved/images/Gen-AI-Security-Scoping-final.a379ac7f1ed883db46e1dd9310213f67e6353281.png",
+     "alt": "Generative AI Security Scoping Matrix: scopes 1 and 2 are buy (consumer app, enterprise app), scopes 3 to 5 are build (pre-trained, fine-tuned and self-trained models)",
+     "caption": "Scope 1 và 2 là buy, scope 3 tới 5 là build trên model. Scope càng cao, customer sở hữu càng nhiều: data, model, legal terms. Ví dụ trong ảnh còn dùng tên cũ Amazon SageMaker.",
+     "credit": {
+      "label": "AWS: Securing Generative AI: The Generative AI Security Scoping Matrix",
+      "url": "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/"
+     }
+    },
+    {
+     "type": "decision",
+     "title": "Đề nói gì, chọn gì",
+     "rows": [
+      {
+       "says": "compare several foundation models on quality and cost before committing",
+       "pick": "Amazon Bedrock, model choice kèm evaluation tools",
+       "why": "Bedrock cho truy cập hàng trăm FM cùng evaluation tools để chọn model theo performance và cost.",
+       "src": {
+        "label": "Amazon Bedrock",
+        "url": "https://aws.amazon.com/bedrock/"
+       }
+      },
+      {
+       "says": "build a generative AI assistant without managing infrastructure",
+       "pick": "Amazon Bedrock",
+       "why": "Fully managed, một API cho nhiều FM, trả theo token, không host model.",
+       "src": {
+        "label": "What is Amazon Bedrock",
+        "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
+       }
+      },
+      {
+       "says": "full control over model training, algorithms, and deployment",
+       "pick": "Amazon SageMaker AI",
+       "why": "Build, train, deploy với algorithm và framework riêng; team data science giữ quyền kiểm soát từng bước.",
+       "src": {
+        "label": "What is SageMaker AI",
+        "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html"
+       }
+      },
+      {
+       "says": "data scientists want to start from a pre-trained open-source model",
+       "pick": "SageMaker JumpStart",
+       "why": "Pretrained open-source model và solution template; fine-tune, evaluate rồi deploy trong SageMaker AI.",
+       "src": {
+        "label": "SageMaker JumpStart",
+        "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html"
+       }
+      },
+      {
+       "says": "employees ask questions across company documents and dashboards, no development team",
+       "pick": "Amazon Quick",
+       "why": "Agent, Quick Index, Quick Sight có sẵn; trả theo seat, không build app.",
+       "src": {
+        "label": "What is Amazon Quick",
+        "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+       }
+      },
+      {
+       "says": "predict churn or demand from proprietary historical tabular data",
+       "pick": "Amazon SageMaker AI",
+       "why": "Prediction trên structured data riêng là bài toán ML truyền thống, không cần GenAI.",
+       "src": {
+        "label": "What is SageMaker AI",
+        "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html"
+       }
+      },
+      {
+       "says": "use a partner's ready-made AI solution, billed through AWS",
+       "pick": "AWS Marketplace",
+       "why": "Catalog software, data và AI agent của bên thứ ba; charge nằm trên AWS bill; private offer cho giá riêng.",
+       "src": {
+        "label": "What is AWS Marketplace",
+        "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+       }
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "SageMaker AI không phải mặc định",
+     "md": "- Chỉ chọn SageMaker AI khi đề nêu custom training, full control, hoặc có team data science.\n- Không có ML team mà cần GenAI: Bedrock. Task phổ biến có model sẵn: managed AI service.",
+     "src": [
+      {
+       "label": "What is SageMaker AI",
+       "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "exam",
+     "title": "Scope AWS của AIB-C01",
+     "md": "- In-scope: Bedrock, SageMaker AI, Amazon Quick, AWS CAF, shared responsibility model, pricing structures, Cost Explorer, Marketplace, Pricing Calculator\n- Service khác, ví dụ Textract, Comprehend hay AWS Budgets, nằm ngoài scope\n- Đề hỏi chọn offering ở mức chiến lược, không hỏi cấu hình",
+     "src": [
+      {
+       "label": "AIB-C01 in-scope services",
+       "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-in-scope-services.html"
+      },
+      {
+       "label": "AIB-C01 out-of-scope services",
+       "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-out-of-scope-services.html"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pricing",
+   "title": "Cấu trúc giá của AI trên AWS",
+   "icon": "savings-plans",
+   "task": "2.2",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Kiểu giá và khi nào hợp",
+     "columns": [
+      "Kiểu giá",
+      "Offering",
+      "Trả theo",
+      "Hợp với"
+     ],
+     "rows": [
+      [
+       "Consumption, **Standard tier** (on-demand)",
+       "Bedrock",
+       "Input và output token",
+       "Mặc định, workload thay đổi"
+      ],
+      [
+       "**Priority tier**",
+       "Bedrock",
+       "Giá token cao hơn Standard",
+       "App customer-facing cần response nhanh nhất, không reserve trước"
+      ],
+      [
+       "**Flex tier**",
+       "Bedrock",
+       "Giá token có discount, xử lý chậm hơn",
+       "Model evaluation, summarization, agentic workflow chờ được"
+      ],
+      [
+       "**Batch inference**",
+       "Bedrock",
+       "Thấp hơn 50% so với on-demand, với model hỗ trợ",
+       "Job lớn chạy async, không cần real-time"
+      ],
+      [
+       "**Reserved tier**",
+       "Bedrock",
+       "Giá cố định theo 1K tokens-per-minute, kỳ 1 hoặc 3 tháng",
+       "Mission-critical, target 99.5% uptime"
+      ],
+      [
+       "**Provisioned Throughput**",
+       "Bedrock",
+       "Theo giờ cho mỗi Model Unit",
+       "Throughput cố định; custom model thường cần"
+      ],
+      [
+       "**Prompt caching**",
+       "Bedrock",
+       "Cache read tính giá giảm, mức giảm tuỳ model",
+       "Prompt lặp lại phần context dài, ví dụ RAG, agent"
+      ],
+      [
+       "Instance-based",
+       "SageMaker AI",
+       "Instance-hour cho training và endpoint",
+       "Custom model; usage ổn định thì thêm Savings Plans"
+      ],
+      [
+       "Seat-based",
+       "Amazon Quick",
+       "USD mỗi user mỗi tháng, cộng infrastructure fee",
+       "Rollout cho nhiều nhân viên, budget dự đoán được"
+      ]
+     ],
+     "src": [
+      {
+       "label": "Bedrock service tiers",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html"
+      },
+      {
+       "label": "Bedrock pricing",
+       "url": "https://aws.amazon.com/bedrock/pricing/"
+      },
+      {
+       "label": "Provisioned Throughput",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html"
+      },
+      {
+       "label": "SageMaker AI pricing",
+       "url": "https://aws.amazon.com/sagemaker/ai/pricing/"
+      },
+      {
+       "label": "Amazon Quick pricing",
+       "url": "https://aws.amazon.com/quick/pricing/"
+      },
+      {
+       "label": "Bedrock prompt caching",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "exam",
+     "title": "Savings Plans áp cho đâu",
+     "md": "- **SageMaker AI Savings Plans**: cam kết USD mỗi giờ trong 1 hoặc 3 năm, giảm tới 64% cho SageMaker AI usage.\n- Compute Savings Plans áp cho EC2, Fargate, Lambda, không áp cho SageMaker AI.\n- Savings Plans không áp cho Bedrock; cam kết với Bedrock bằng Reserved tier (1, 3 tháng) hoặc Provisioned Throughput (1, 6 tháng).",
+     "src": [
+      {
+       "label": "Machine Learning Savings Plans",
+       "url": "https://aws.amazon.com/savingsplans/ml-pricing/"
+      },
+      {
+       "label": "Services eligible for Savings Plans",
+       "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-services.html"
+      },
+      {
+       "label": "Bedrock service tiers",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "Token là cost driver",
+     "md": "- Prompt dài, RAG context lớn, agent gọi model nhiều bước đều nhân số token.\n- Cross-Region inference tăng throughput; **Geographic** profile giữ request trong một geography như US hay EU, **Global** route ra mọi Region thương mại.\n- Đề có data residency: chọn Geographic, không chọn Global.",
+     "src": [
+      {
+       "label": "Cross-Region inference",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cost-tools",
+   "title": "Dự toán, theo dõi và mua qua AWS",
+   "icon": "cost-explorer",
+   "task": "2.2",
+   "blocks": [
+    {
+     "type": "decision",
+     "title": "Công cụ cost theo thời điểm",
+     "rows": [
+      {
+       "says": "estimate costs before building, for the business case",
+       "pick": "AWS Pricing Calculator",
+       "why": "Free planning tool, model solution trước khi build, ra cost upfront, monthly và annual.",
+       "src": {
+        "label": "AWS Pricing Calculator",
+        "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+       }
+      },
+      {
+       "says": "analyze which services drive spend and forecast future costs",
+       "pick": "AWS Cost Explorer",
+       "why": "Xem cost và usage tới 13 tháng trước, forecast 18 tháng tới.",
+       "src": {
+        "label": "AWS Cost Explorer",
+        "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html"
+       }
+      },
+      {
+       "says": "show AI spend by business unit or initiative",
+       "pick": "Cost allocation tags, lọc trong Cost Explorer",
+       "why": "Tag đã activate xuất hiện trong Cost Explorer để lọc cost theo team và initiative, nền cho showback ROI.",
+       "src": {
+        "label": "Cost allocation tags",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html"
+       }
+      },
+      {
+       "says": "decide how much Savings Plans commitment to buy",
+       "pick": "Cost Explorer recommendations",
+       "why": "Cost Explorer đưa recommendation mức commitment, mua và theo dõi Savings Plans.",
+       "src": {
+        "label": "What are Savings Plans",
+        "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html"
+       }
+      },
+      {
+       "says": "procure third-party AI software or agents with charges on the AWS bill",
+       "pick": "AWS Marketplace",
+       "why": "Mua theo EULA chuẩn hoặc private offer có giá riêng; AWS thu tiền rồi trả seller.",
+       "src": {
+        "label": "What is AWS Marketplace",
+        "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+       }
+      },
+      {
+       "says": "evaluate partner AI agents before deciding to build",
+       "pick": "AWS Marketplace, AI Agents and Tools",
+       "why": "Hàng nghìn agent, tool và service của AWS Partner, kể cả agent chạy trên AgentCore.",
+       "src": {
+        "label": "AI Agents and Tools",
+        "url": "https://aws.amazon.com/marketplace/solutions/ai-agents-and-tools"
+       }
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "kind": "screenshot",
+     "title": "Trang Manage subscriptions của AWS Marketplace",
+     "img": "figs/aws-marketplace-subscriptions.png",
+     "alt": "AWS Marketplace console, Manage subscriptions page: active subscriptions with product, agreement ID, vendor, delivery method, access level, service start and service end",
+     "caption": "Mọi subscription mua qua Marketplace nằm ở một trang, kèm vendor, delivery method, ngày bắt đầu và kết thúc. Trang này giúp theo dõi gia hạn phần mềm AI mua ngoài.",
+     "credit": {
+      "label": "AWS docs: Managing subscriptions in AWS Marketplace",
+      "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-managing-subscriptions.html",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+     }
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "Trước hay sau khi build",
+     "md": "- **Pricing Calculator** dùng **trước** khi build, chưa có usage.\n- **Cost Explorer** dùng **sau** khi đã có usage: phân tích, forecast 18 tháng, recommendation Savings Plans.\n- Đề hỏi \"business case\", \"estimate\": không chọn Cost Explorer.",
+     "src": [
+      {
+       "label": "AWS Pricing Calculator",
+       "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shared-responsibility",
+   "title": "Shared responsibility và Well-Architected lens cho AI",
+   "icon": "well-architected-tool",
+   "task": "3.2",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Ai sở hữu lớp nào",
+     "columns": [
+      "Lớp",
+      "Managed AI service, Amazon Quick",
+      "Amazon Bedrock",
+      "Amazon SageMaker AI"
+     ],
+     "rows": [
+      [
+       "Data center, hardware, physical network",
+       "AWS",
+       "AWS",
+       "AWS"
+      ],
+      [
+       "Host, patch, scale model",
+       "AWS",
+       "AWS",
+       "AWS quản lý platform; customer chọn instance và scaling"
+      ],
+      [
+       "Model",
+       "AWS",
+       "Provider build FM; customer chọn model, sở hữu custom model",
+       "Customer build, train, sở hữu model"
+      ],
+      [
+       "Data đưa vào: prompt, tài liệu, training data",
+       "Customer",
+       "Customer",
+       "Customer"
+      ],
+      [
+       "Identity, access, encryption setting",
+       "Customer",
+       "Customer",
+       "Customer"
+      ],
+      [
+       "Responsible use: guardrail, human review, bias test, luật áp dụng",
+       "Customer",
+       "Customer",
+       "Customer"
+      ]
+     ],
+     "src": [
+      {
+       "label": "Shared responsibility model",
+       "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+      },
+      {
+       "label": "Bedrock security",
+       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/security.html"
+      },
+      {
+       "label": "GenAI Security Scoping Matrix",
+       "url": "https://aws.amazon.com/ai/security/generative-ai-scoping-matrix/"
+      },
+      {
+       "label": "How I passed AIB-C01 beta (dev.to, 09/2026)",
+       "url": "https://dev.to/aws-builders/how-i-passed-aws-certified-ai-business-strategist-ab1-c01-beta-369o"
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "kind": "diagram",
+     "title": "Shared responsibility model của AWS",
+     "img": "figs/aws-shared-responsibility.png",
+     "alt": "AWS shared responsibility model: the customer is responsible for security in the cloud (customer data, platform, applications, IAM, OS, network and encryption settings); AWS is responsible for security of the cloud (software, compute, storage, database, networking, global infrastructure)",
+     "caption": "Customer data luôn thuộc phần customer, kể cả khi dùng managed AI service như Bedrock. AWS lo security of the cloud; data, identity và encryption setting là security in the cloud.",
+     "credit": {
+      "label": "AWS docs: Shared responsibility model (Amazon Web Services: Risk and Compliance)",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/shared-responsibility-model.html",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+     }
+    },
+    {
+     "type": "callout",
+     "tone": "tip",
+     "title": "Scoping Matrix: 5 mức sở hữu",
+     "md": "- Scope 1 consumer app, 2 enterprise app, 3 pre-trained model qua API như Bedrock, 4 fine-tuned model, 5 self-trained model.\n- Scope càng cao, customer sở hữu càng nhiều: training data, model, legal terms.\n- Scope 1 chỉ nên nhận data public, vì provider có thể dùng data gửi lên để cải thiện model.",
+     "src": [
+      {
+       "label": "GenAI Security Scoping Matrix",
+       "url": "https://aws.amazon.com/ai/security/generative-ai-scoping-matrix/"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "exam",
+     "title": "Chọn Responsible AI Lens hay Generative AI Lens",
+     "md": "- **Responsible AI Lens**: review AI workload theo 10 dimension: controllability, privacy, security, safety, veracity, robustness, fairness, explainability, transparency, governance.\n- **Generative AI Lens**: best practice kiến trúc GenAI theo 6 pillar của Well-Architected, từ scoping, model selection tới continuous improvement.\n- Đề hỏi \"governance best practices\", \"responsible AI review before production\": Responsible AI Lens.",
+     "src": [
+      {
+       "label": "Responsible AI Lens",
+       "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+      },
+      {
+       "label": "Generative AI Lens",
+       "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "caf",
+   "title": "AWS CAF và CAF for AI",
+   "icon": "r-office-building",
+   "task": "4.4",
+   "blocks": [
+    {
+     "type": "text",
+     "md": "**AWS CAF** giúp tổ chức chọn và ưu tiên cơ hội transformation, đánh giá cloud readiness, rồi cập nhật roadmap theo vòng lặp.\n- 4 phase lặp: **Envision**, **Align**, **Launch**, **Scale**.\n- 4 transformation domain theo chuỗi value: Technology, Process, Organization, Product.\n- **CAF for AI** (2024) thêm capability riêng cho AI vào 6 perspective.",
+     "src": [
+      {
+       "label": "AWS CAF overview",
+       "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/welcome.html"
+      },
+      {
+       "label": "Transformation domains",
+       "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/accelerating-business-outcomes.html"
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "kind": "diagram",
+     "title": "Khung AWS CAF trong một hình",
+     "img": "figs/aws-caf-overview.png",
+     "alt": "AWS CAF overview: Envision, Align, Launch and Scale around transformation domains (technology, process, organization, product) and six foundational capability perspectives leading to business outcomes",
+     "caption": "Một hình gom đủ khung CAF: 4 phase lặp ở vòng ngoài, 4 transformation domain, 6 perspective ở hàng dưới, 4 business outcome bên phải. Đề hỏi capability gap thì nhìn 6 perspective.",
+     "credit": {
+      "label": "AWS docs: Your cloud transformation journey (An Overview of the AWS Cloud Adoption Framework)",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+     }
+    },
+    {
+     "type": "table",
+     "title": "6 perspective và điểm nhấn cho AI",
+     "columns": [
+      "Perspective",
+      "Stakeholder chính",
+      "Điểm nhấn cho AI"
+     ],
+     "rows": [
+      [
+       "**Business**",
+       "CEO, CFO, COO, CIO, CTO",
+       "AI strategy, đặt AI vào trung tâm product và outcome"
+      ],
+      [
+       "**People**",
+       "CHRO, CIO, COO, CTO",
+       "Talent, ngôn ngữ chung về AI, culture học liên tục"
+      ],
+      [
+       "**Governance**",
+       "CDO, CRO, CFO, chief transformation officer",
+       "Risk và cost khi scale; capability mới **responsible use of AI**"
+      ],
+      [
+       "**Platform**",
+       "CTO, ML engineer, data scientist",
+       "Platform để chạy AI service và build custom AI"
+      ],
+      [
+       "**Security**",
+       "CISO, CCO, internal audit",
+       "Attack vector riêng của AI system"
+      ],
+      [
+       "**Operations**",
+       "Infrastructure and operations leader, SRE",
+       "Giữ AI workload ổn định, value tạo ra tin cậy được"
+      ]
+     ],
+     "src": [
+      {
+       "label": "CAF for AI capabilities",
+       "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/foundational-ai-capabilities.html"
+      },
+      {
+       "label": "CAF perspectives",
+       "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+      },
+      {
+       "label": "Bakul Kapoor, AWS CAF for AI, AIB-C01 Ep 10 (YouTube)",
+       "url": "https://www.youtube.com/watch?v=IoUHJohL0D0"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "exam",
+     "title": "Đề đang ở phase nào",
+     "md": "- **Envision**: xác định, ưu tiên cơ hội gắn với business outcome và stakeholder.\n- **Align**: tìm capability gap qua 6 perspective, dependency, concern của stakeholder.\n- **Launch**: pilot trong production, chứng minh value tăng dần.\n- **Scale**: mở rộng pilot tới quy mô mong muốn và giữ benefit lâu dài.",
+     "src": [
+      {
+       "label": "Cloud transformation journey",
+       "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+      }
+     ]
+    },
+    {
+     "type": "callout",
+     "tone": "trap",
+     "title": "Hai cách gọi phase",
+     "md": "- Exam guide skill 4.4.1 ghi ví dụ \"envision, experiment, launch, scale\"; CAF gốc dùng **Align** ở phase 2.\n- AWS đánh dấu whitepaper CAF for AI là historical reference, nhưng 6 perspective và 4 phase vẫn là khung đề dùng.",
+     "src": [
+      {
+       "label": "AWS CAF for AI",
+       "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/aws-caf-for-ai.html"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

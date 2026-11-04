@@ -1,0 +1,1192 @@
+[
+ {
+  "id": "gov-01",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A regional bank uses an ML model to approve or decline small-business loan applications. An internal audit found no significant difference in approval rates across demographic groups, and the model's accuracy exceeds the business target. However, declined applicants and the banking regulator are complaining that the bank cannot state specific reasons for individual declines. The chief risk officer asks the AI strategist which responsible AI dimension the bank must address first.\nWhich dimension should the AI strategist identify?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Fairness"
+   },
+   {
+    "k": "B",
+    "t": "Explainability"
+   },
+   {
+    "k": "C",
+    "t": "Veracity and robustness"
+   },
+   {
+    "k": "D",
+    "t": "Controllability"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: người bị ảnh hưởng và regulator cần **lý do cho từng quyết định**.\n- AWS định nghĩa explainability là hiểu và đánh giá output của hệ thống.\n- Audit đã loại fairness, accuracy đã đạt.",
+  "wrong": {
+   "A": "Audit cho thấy approval rate không lệch giữa các nhóm, nên fairness không phải vấn đề chính.",
+   "C": "Model đúng và ổn định; vấn đề là không giải thích được, không phải output sai.",
+   "D": "Không ai cần dừng hay override model; họ cần lý do của quyết định."
+  },
+  "refs": [
+   {
+    "label": "AWS Responsible AI",
+    "url": "https://aws.amazon.com/ai/responsible-ai/"
+   }
+  ]
+ },
+ {
+  "id": "gov-02",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 1,
+  "stem": "An online furniture retailer launched a GenAI chat assistant on its website three months ago. Answer quality is high, but social media posts show that many customers felt misled after learning they had been negotiating delivery terms with a bot rather than an employee. The retailer sells to customers in the EU. The head of customer experience wants to restore trust without removing the assistant.\nWhich action should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Fine-tune the model on transcripts of past employee conversations so that the tone and phrasing of the assistant match those of the human sales team."
+   },
+   {
+    "k": "B",
+    "t": "Add content filters that block negative or emotional customer messages."
+   },
+   {
+    "k": "C",
+    "t": "Retrain the assistant on a larger and more recent dataset of delivery policies to further improve answer quality and reduce negotiation errors."
+   },
+   {
+    "k": "D",
+    "t": "Disclose at the start of each conversation that the customer is interacting with AI, and offer a clear option to reach an employee."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: khách **không biết** đang nói chuyện với AI, tức transparency.\n- EU AI Act Article 50 yêu cầu báo cho người được phục vụ khi họ tương tác trực tiếp với AI.\n- Đường chuyển sang nhân viên giữ lại lựa chọn cho khách.",
+  "wrong": {
+   "A": "Làm bot giống người hơn càng làm vấn đề transparency nặng thêm.",
+   "B": "Chặn tin nhắn của khách không giải quyết việc khách bị đánh lừa.",
+   "C": "Chất lượng câu trả lời đã cao; vấn đề không nằm ở accuracy."
+  },
+  "refs": [
+   {
+    "label": "EU AI Act Article 50",
+    "url": "https://artificialintelligenceact.eu/article/50/"
+   },
+   {
+    "label": "AWS Responsible AI",
+    "url": "https://aws.amazon.com/ai/responsible-ai/"
+   }
+  ]
+ },
+ {
+  "id": "gov-03",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A property insurer plans to use ML to decide which claims receive an expedited payout and which go to manual investigation. The data science team proposes a complex ensemble model that is 3% more accurate than an interpretable scorecard model. The interpretable model already meets the accuracy threshold that the claims business set. Regulators in the insurer's market require insurers to explain adverse claim decisions to policyholders.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Select the interpretable model that meets the business threshold, and record the tradeoff decision with the governance board."
+   },
+   {
+    "k": "B",
+    "t": "Deploy the ensemble model, and generate a post-hoc explanation for an individual decision only when a policyholder files a formal complaint."
+   },
+   {
+    "k": "C",
+    "t": "Deploy the ensemble model because higher accuracy always reduces harm to policyholders."
+   },
+   {
+    "k": "D",
+    "t": "Let the data science team make the final choice because model selection is a technical decision."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: model đơn giản **đã đạt ngưỡng business** và luật yêu cầu giải thích quyết định bất lợi.\n- Tradeoff accuracy vs explainability được quyết theo yêu cầu business và luật, rồi ghi lại để governance duyệt.",
+  "wrong": {
+   "B": "Giải thích chỉ khi có khiếu nại không đáp ứng yêu cầu giải thích mọi quyết định bất lợi.",
+   "C": "Accuracy cao hơn không bù được việc không giải thích được cho người bị ảnh hưởng.",
+   "D": "Tradeoff có hệ quả pháp lý và khách hàng là quyết định business, không chỉ của team kỹ thuật."
+  },
+  "refs": [
+   {
+    "label": "Responsible AI Lens",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+   },
+   {
+    "label": "AWS Responsible AI",
+    "url": "https://aws.amazon.com/ai/responsible-ai/"
+   }
+  ]
+ },
+ {
+  "id": "gov-04",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 2,
+  "stem": "A telecom company's marketing team wants to personalize mobile offers by combining customers' browsing history, location data, and call patterns. Marketing wants to launch in four weeks to meet a quarterly revenue target. The privacy officer is concerned that the data use goes beyond what customers expect, and the company operates under GDPR. The executive sponsor asks the AI strategist how to keep the launch on track without creating privacy risk.\nWhich actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Conduct a data protection impact assessment and limit the data to what the personalization use case needs."
+   },
+   {
+    "k": "B",
+    "t": "Launch with all three data sources now to hit the quarterly target, and schedule a privacy review after the revenue uplift has been measured."
+   },
+   {
+    "k": "C",
+    "t": "Use every available data source to maximize model accuracy, and anonymize only the generated offers."
+   },
+   {
+    "k": "D",
+    "t": "Give customers clear notice about the personalization and an easy way to opt out."
+   },
+   {
+    "k": "E",
+    "t": "Transfer the data use decision to the IT security team, because encryption and access control already protect the customer data."
+   }
+  ],
+  "answer": [
+   "A",
+   "D"
+  ],
+  "explain": "- Tín hiệu: tradeoff **personalization vs privacy** dưới GDPR, có deadline.\n- DPIA (GDPR Article 35) và data minimization giữ scope dữ liệu đúng mức cần.\n- Notice và opt-out tôn trọng kỳ vọng của khách mà vẫn launch được.",
+  "wrong": {
+   "B": "Launch trước, xử lý privacy sau là đảo thứ tự; risk đã xảy ra với khách thật.",
+   "C": "Ẩn danh output không giảm việc thu thập và dùng dữ liệu quá mức.",
+   "E": "Privacy cần legal, privacy officer và business; security team một mình không đủ thẩm quyền."
+  },
+  "refs": [
+   {
+    "label": "GDPR Article 35",
+    "url": "https://gdpr-info.eu/art-35-gdpr/"
+   },
+   {
+    "label": "Responsible AI Lens",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-05",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A hospital network is starting a GenAI project that will triage patient portal messages and draft replies for nurses. The project manager's plan schedules a responsible AI review two weeks before go-live, after the model is selected and integrated. The chief medical officer is worried that late findings could delay the launch or put patients at risk.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Keep the review before go-live, but extend it from two weeks to six weeks and add external clinical reviewers to the review panel."
+   },
+   {
+    "k": "B",
+    "t": "Hold the review after the pilot shows measurable time savings for nurses."
+   },
+   {
+    "k": "C",
+    "t": "Integrate responsible AI at use case definition: identify stakeholders and harms, and set release criteria before build."
+   },
+   {
+    "k": "D",
+    "t": "Rely on the foundation model provider's model card instead of a separate review."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: review dồn về cuối dự án, risk cho bệnh nhân.\n- AWS Responsible AI Lens theo nguyên tắc **responsible by design**: xử lý issue từ design.\n- Stakeholder, harm và release criteria được định nghĩa trước khi build.",
+  "wrong": {
+   "A": "Kéo dài review muộn vẫn là review muộn; sửa thiết kế lúc đó đắt nhất.",
+   "B": "Pilot đã chạm tin nhắn của bệnh nhân thật trước khi có review.",
+   "D": "Model card của provider không đánh giá use case triage cụ thể của hospital."
+  },
+  "refs": [
+   {
+    "label": "RAI Lens design principles",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/design-principles.html"
+   },
+   {
+    "label": "RAI Lens release criteria",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc01.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-06",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 1,
+  "stem": "An e-commerce company is building a GenAI tool that writes product descriptions from supplier data. During testing, the product team says the output is good enough, the brand team says the tone is inconsistent, and legal is worried about unsupported product claims. Meetings end without a decision, and the launch date is approaching.\nWhat should the AI strategist do FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Run an immediate red-teaming exercise against the current model, and ask each team to submit the failures that it considers most serious."
+   },
+   {
+    "k": "B",
+    "t": "Facilitate agreement on release criteria that define measurable metrics and thresholds for quality, tone, and claim accuracy."
+   },
+   {
+    "k": "C",
+    "t": "Switch to the largest available foundation model to improve all outputs at once."
+   },
+   {
+    "k": "D",
+    "t": "Launch on the planned date to a small share of traffic, and use customer ratings and complaints to settle the disagreement between the teams."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: các team **không thống nhất \"good enough\"** nghĩa là gì.\n- Release criteria biến benefit và harm thành metric và threshold test được.\n- Có criteria rồi mới đánh giá model và quyết định launch.",
+  "wrong": {
+   "A": "Red teaming hữu ích nhưng không trả lời câu hỏi ngưỡng chấp nhận là bao nhiêu.",
+   "C": "Đổi model không giải quyết việc thiếu tiêu chí đánh giá chung.",
+   "D": "Đẩy risk claim sai sang khách hàng trước khi có tiêu chí."
+  },
+  "refs": [
+   {
+    "label": "RAI Lens release criteria",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc01.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-07",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 1,
+  "stem": "An auto insurer wants a GenAI agent to process claims to reduce settlement time. Most claims are small and routine, but some involve denials, large payouts, or policy exceptions. The claims director wants to automate as much as possible, while the compliance lead insists that customers must not be harmed by unreviewed AI decisions.\nWhich oversight design should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Require a licensed claims adjuster to review and approve every AI decision permanently, so that no claim is ever settled without a human signature."
+   },
+   {
+    "k": "B",
+    "t": "Fully automate all claims and review decisions only when customers complain."
+   },
+   {
+    "k": "C",
+    "t": "Automate every claim type, send a random 5% sample of all claims to adjusters for weekly quality review, and retrain the agent each quarter on their corrections."
+   },
+   {
+    "k": "D",
+    "t": "Automate high-confidence routine claims, route denials, large payouts, exceptions, and low-confidence cases to adjusters, and monitor samples."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: cần cả **tốc độ** và bảo vệ khách khỏi quyết định tác động lớn.\n- Escalation theo impact và confidence: HITL cho case lớn, HOTL cho case thường.\n- AWS mô tả lộ trình Assist, Supervised, Autonomous theo bằng chứng accuracy.",
+  "wrong": {
+   "A": "Không scale và không giảm settlement time như mục tiêu.",
+   "B": "Khiếu nại đến sau khi khách đã bị hại; không có control trước.",
+   "C": "Lấy mẫu ngẫu nhiên có thể bỏ sót đúng các denial và payout lớn cần người duyệt."
+  },
+  "refs": [
+   {
+    "label": "AWS blog: HITL claims processing",
+    "url": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/"
+   },
+   {
+    "label": "EU AI Act Article 14",
+    "url": "https://artificialintelligenceact.eu/article/14/"
+   }
+  ]
+ },
+ {
+  "id": "gov-08",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A global consumer goods company has AI initiatives in six business units. Each unit approves its own projects, policies differ, and after a biased marketing model caused public criticism, nobody could say who was accountable. The CEO asks the AI strategist to fix how AI decisions are made across the company.\nWhat should the AI strategist recommend FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Establish a cross-functional AI governance council with an executive sponsor, members from legal, risk, data, and business units, and decision rights."
+   },
+   {
+    "k": "B",
+    "t": "Assign the CIO sole ownership of all AI decisions across the company, supported by a central IT architecture review that every AI project must pass."
+   },
+   {
+    "k": "C",
+    "t": "Hire additional data scientists into each business unit to improve model quality."
+   },
+   {
+    "k": "D",
+    "t": "Purchase an AI governance software platform with a model inventory and approval workflows, and require every business unit to register its projects within 30 days."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: approval không nhất quán và **không ai accountable**.\n- AWS CAF for AI: bước đầu là xác định stakeholder và lập team đại diện nhiều business unit.\n- Decision rights rõ ràng giải quyết câu hỏi ai chịu trách nhiệm.",
+  "wrong": {
+   "B": "Một người phía IT thiếu góc nhìn legal, compliance và business.",
+   "C": "Vấn đề là cơ cấu ra quyết định, không phải năng lực kỹ thuật.",
+   "D": "Công cụ không thay được policy và decision rights chưa có."
+  },
+  "refs": [
+   {
+    "label": "AWS CAF for AI: Governance",
+    "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-09",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A financial services firm is defining accountability for AI models that influence credit limits. Today, the data science team builds models and also approves them for production. Business leaders say they are not responsible for model outcomes because they did not build the models. The board's audit committee wants a structure that will satisfy regulators.\nWhich practices should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Keep the data science team as the approver because it understands the models best, and ask it to document each approval decision for auditors."
+   },
+   {
+    "k": "B",
+    "t": "Make the business owner of each use case accountable for the outcomes of the AI system."
+   },
+   {
+    "k": "C",
+    "t": "Make every member of the AI governance council jointly accountable for every model decision."
+   },
+   {
+    "k": "D",
+    "t": "Transfer accountability for model outcomes to the AI platform vendor through contractual service level and liability clauses."
+   },
+   {
+    "k": "E",
+    "t": "Require an independent risk or compliance function to review high-risk models before deployment."
+   }
+  ],
+  "answer": [
+   "B",
+   "E"
+  ],
+  "explain": "- Tín hiệu: team build **tự duyệt**, business **né trách nhiệm**.\n- Business owner accountable cho kết quả; risk và compliance là line 2 review độc lập.\n- Khớp three lines of defense mà AWS khuyên tích hợp với enterprise risk management.",
+  "wrong": {
+   "A": "Người build tự duyệt mất tính độc lập.",
+   "C": "Trách nhiệm chung cho mọi người nghĩa là không ai chịu trách nhiệm.",
+   "D": "Dùng nền tảng của vendor không chuyển được trách nhiệm về quyết định tín dụng."
+  },
+  "refs": [
+   {
+    "label": "AWS blog: AI enterprise risk management",
+    "url": "https://aws.amazon.com/blogs/security/enabling-ai-adoption-at-scale-through-enterprise-risk-management-framework-part-2/"
+   }
+  ]
+ },
+ {
+  "id": "gov-10",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A European HR software company sells a feature that uses AI to screen CVs and rank job applicants for employers across the EU. The product team classifies the feature as limited risk because a recruiter makes the final hiring decision. The general counsel asks the AI strategist to confirm the classification under the EU AI Act before the company plans its compliance roadmap.\nWhich assessment should the AI strategist give?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Limited risk; because a recruiter makes the final hiring decision, the company only needs to tell candidates that AI is used during screening."
+   },
+   {
+    "k": "B",
+    "t": "Prohibited; AI may not be used in recruitment in the EU."
+   },
+   {
+    "k": "C",
+    "t": "High-risk; candidate screening is an Annex III use case that requires risk management, logging, human oversight, and conformity assessment."
+   },
+   {
+    "k": "D",
+    "t": "Minimal risk; no specific EU AI Act obligations apply because a human recruiter reviews the ranking and makes every final hiring decision."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: **lọc và xếp hạng ứng viên**, đúng use case employment trong Annex III.\n- Recruiter quyết định cuối không tự động hạ tier; hệ thống profile người vẫn là high-risk.\n- Sau Digital Omnibus, nghĩa vụ Annex III áp từ 2027-12-02.",
+  "wrong": {
+   "A": "Limited risk là chatbot, deepfake; tuyển dụng là high-risk.",
+   "B": "AI trong tuyển dụng không bị cấm, chỉ bị quản lý chặt.",
+   "D": "Human quyết định cuối không làm hệ thống thành minimal risk."
+  },
+  "refs": [
+   {
+    "label": "EU AI Act Annex III",
+    "url": "https://artificialintelligenceact.eu/annex/3/"
+   },
+   {
+    "label": "EU AI Act summary",
+    "url": "https://artificialintelligenceact.eu/high-level-summary/"
+   },
+   {
+    "label": "FPF: AI Omnibus timeline",
+    "url": "https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus/"
+   }
+  ]
+ },
+ {
+  "id": "gov-11",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A fintech lender in the EU wants to fully automate loan rejections to cut processing time from three days to minutes. Applicants who are rejected would receive an automated email with no further contact. The data protection officer warns that this design creates regulatory exposure. The COO still wants the speed benefit.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Anonymize applicant data before it reaches the model."
+   },
+   {
+    "k": "B",
+    "t": "Add a clear statement to the loan terms and conditions that all decisions are automated, and require applicants to accept it before they apply."
+   },
+   {
+    "k": "C",
+    "t": "Process the applications in an AWS Region outside the EU so that EU data protection rules no longer apply to the automated decisions."
+   },
+   {
+    "k": "D",
+    "t": "Keep automated approvals, and give rejected applicants human review, a way to contest, and meaningful information about the decision logic."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: quyết định **solely automated** có hệ quả đáng kể với người vay.\n- GDPR Article 22 yêu cầu safeguard tối thiểu: human intervention, nêu quan điểm, contest.\n- Vẫn giữ tốc độ cho phần lớn hồ sơ.",
+  "wrong": {
+   "A": "Ẩn danh làm không quyết định được cho từng người; không giải quyết Article 22.",
+   "B": "Ghi trong terms không thay safeguard bắt buộc.",
+   "C": "GDPR áp theo người được xử lý dữ liệu, không theo nơi đặt server."
+  },
+  "refs": [
+   {
+    "label": "GDPR Article 22",
+    "url": "https://gdpr-info.eu/art-22-gdpr/"
+   }
+  ]
+ },
+ {
+  "id": "gov-12",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A law firm discovers that associates paste client contracts into free public AI chatbots to summarize them. The managing partner wants to stop the data exposure but also knows that associates value the productivity gain. The firm has an AWS account and an IT team that can support approved tools.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Block all AI tools on firm devices permanently, and add a disciplinary clause for associates who use AI tools on personal devices for client work."
+   },
+   {
+    "k": "B",
+    "t": "Provide an approved enterprise AI tool with data protections, publish an acceptable use policy, train staff, and restrict unapproved tools."
+   },
+   {
+    "k": "C",
+    "t": "Rely on each associate's professional judgment about which documents to paste."
+   },
+   {
+    "k": "D",
+    "t": "Ask each associate to sign an additional confidentiality agreement."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: **shadow AI** với dữ liệu khách, nhưng nhu cầu năng suất có thật.\n- Consumer app (Scope 1) có thể dùng dữ liệu nhập vào; enterprise tool có hợp đồng và control.\n- Cấm suông mà không có lựa chọn thay thế thường đẩy việc dùng AI vào chỗ khuất.",
+  "wrong": {
+   "A": "Bỏ mất giá trị năng suất và nhân viên sẽ tìm cách khác.",
+   "C": "Không có control, policy hay training.",
+   "D": "Agreement không ngăn dữ liệu rời khỏi firm."
+  },
+  "refs": [
+   {
+    "label": "GenAI Security Scoping Matrix",
+    "url": "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/"
+   }
+  ]
+ },
+ {
+  "id": "gov-13",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A retail bank is building a customer-facing GenAI assistant on Amazon Bedrock that answers questions from internal policy documents. The CISO asks the AI strategist to clarify, under the AWS shared responsibility model, which responsibilities remain with the bank so that they can be assigned in the governance plan.\nWhich responsibilities belong to the bank? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Physical security of the data centers that run the foundation models."
+   },
+   {
+    "k": "B",
+    "t": "Patching and hardening the underlying compute that hosts the foundation models in the AWS Regions that the bank uses."
+   },
+   {
+    "k": "C",
+    "t": "Controlling which users and applications can access the assistant and the underlying documents."
+   },
+   {
+    "k": "D",
+    "t": "Pre-training the third-party foundation models offered in Amazon Bedrock on the bank's policy documents and customer conversations."
+   },
+   {
+    "k": "E",
+    "t": "Defining guardrail policies and evaluating the assistant's outputs for the bank's use case."
+   }
+  ],
+  "answer": [
+   "C",
+   "E"
+  ],
+  "explain": "- Tín hiệu: phân biệt **security of the cloud** và **security in the cloud**.\n- Khách chịu trách nhiệm access, dữ liệu, cấu hình guardrail và đánh giá output.\n- AWS lo data center, phần cứng và managed service.",
+  "wrong": {
+   "A": "Data center vật lý là trách nhiệm của AWS.",
+   "B": "Phần nền của managed service do AWS vá.",
+   "D": "Model provider train FM, không phải bank."
+  },
+  "refs": [
+   {
+    "label": "AWS shared responsibility model",
+    "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+   },
+   {
+    "label": "Bedrock data protection",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-14",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A manufacturing group has received 40 AI use case proposals, from meeting summarization to an AI system that adjusts safety settings on factory equipment. The AI governance board reviews every proposal with the same full process, and the backlog is now four months long. Business units are starting to bypass the board.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Introduce risk-based tiering with proportional review: a fast track for low-impact use cases and full board review for high-risk ones."
+   },
+   {
+    "k": "B",
+    "t": "Approve proposals in the order they were submitted to clear the backlog fairly."
+   },
+   {
+    "k": "C",
+    "t": "Review only the proposals with the highest projected ROI, and let business units self-approve the remaining proposals under existing IT policies."
+   },
+   {
+    "k": "D",
+    "t": "Pause all new AI proposals until the backlog is cleared."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: review **như nhau cho mọi use case** gây backlog và shadow AI.\n- Phân tier theo likelihood và severity của harm, review tương xứng.\n- Use case đụng an toàn thiết bị vào tier cao nhất.",
+  "wrong": {
+   "B": "Thứ tự nộp không phản ánh risk.",
+   "C": "ROI cao không có nghĩa risk thấp; dễ bỏ qua use case nguy hiểm.",
+   "D": "Dừng hết làm tăng việc vượt mặt board."
+  },
+  "refs": [
+   {
+    "label": "RAI Lens assess risks",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03.html"
+   },
+   {
+    "label": "NIST AI RMF Core",
+    "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+   }
+  ]
+ },
+ {
+  "id": "gov-15",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 1,
+  "stem": "A US-based industrial software company sells AI features to large enterprise customers in Europe and Asia. Procurement teams increasingly ask for independent, third-party evidence that the company runs a structured AI management system. The CEO wants a recognized approach that results in an auditable certificate.\nWhich framework should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Self-assessment against the NIST AI Risk Management Framework."
+   },
+   {
+    "k": "B",
+    "t": "Registration of all AI features in the EU database for high-risk AI systems."
+   },
+   {
+    "k": "C",
+    "t": "Certification against ISO/IEC 42001 by an accredited certification body."
+   },
+   {
+    "k": "D",
+    "t": "Adoption of ISO/IEC 23053 as the company's AI terminology standard."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: **independent, third-party, certificate** cho AI management system.\n- ISO/IEC 42001 là tiêu chuẩn AIMS certify được qua certification body.\n- AWS đạt chứng nhận này cho Amazon Bedrock từ 11/2024.",
+  "wrong": {
+   "A": "NIST AI RMF tự nguyện, không có certificate.",
+   "B": "Đăng ký EU database chỉ áp cho high-risk và không phải chứng nhận management system.",
+   "D": "ISO/IEC 23053 là framework và thuật ngữ cho hệ thống ML, không phải AIMS."
+  },
+  "refs": [
+   {
+    "label": "AWS ISO/IEC 42001 FAQ",
+    "url": "https://aws.amazon.com/compliance/iso-42001-faqs/"
+   },
+   {
+    "label": "AWS ISO/IEC 42001 certification",
+    "url": "https://aws.amazon.com/blogs/machine-learning/aws-achieves-iso-iec-420012023-artificial-intelligence-management-system-accredited-certification/"
+   },
+   {
+    "label": "ISO/IEC 42001",
+    "url": "https://www.iso.org/standard/42001"
+   }
+  ]
+ },
+ {
+  "id": "gov-16",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A utility company launched a GenAI assistant for billing questions three months ago. The only production metric is uptime. The customer service director recently learned from a newspaper that the assistant gave incorrect late-fee information to several customers. The executive sponsor wants to detect such problems before customers or the press do.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Rely on the user acceptance testing results from before launch."
+   },
+   {
+    "k": "B",
+    "t": "Add infrastructure metrics such as CPU utilization, error rates, and response latency to the uptime dashboard, with automated alerts to the operations team."
+   },
+   {
+    "k": "C",
+    "t": "Schedule an annual external audit of the assistant."
+   },
+   {
+    "k": "D",
+    "t": "Define key risk indicators, such as grounding failures and complaints, with thresholds, named owners, and an incident response plan."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: chỉ có **uptime**, risk do báo chí tìm ra trước công ty.\n- KRI theo dõi hành vi AI; threshold kích hoạt người có thẩm quyền hành động.\n- RAI Lens: baseline, drift detection, protocol kích hoạt human oversight.",
+  "wrong": {
+   "A": "UAT là ảnh chụp lúc launch, không thấy thay đổi sau đó.",
+   "B": "Metric về CPU và latency không đo câu trả lời sai.",
+   "C": "Một năm một lần quá chậm cho lỗi ảnh hưởng khách hằng ngày."
+  },
+  "refs": [
+   {
+    "label": "RAI Lens monitoring",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-17",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.3",
+  "source": "original",
+  "select": 2,
+  "stem": "A credit card issuer launched a credit-limit model last year after it passed fairness tests. Nine months later, after a sharp change in economic conditions, the complaints team notices that approved limits for applicants under 25 have fallen far more than for other groups. The chief risk officer asks the AI strategist how to respond now and prevent a repeat.\nWhich actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Monitor fairness metrics on live predictions continuously, with alert thresholds and named owners."
+   },
+   {
+    "k": "B",
+    "t": "Remove the age attribute and every field derived from date of birth from the training data, which will resolve the bias against younger applicants."
+   },
+   {
+    "k": "C",
+    "t": "Investigate how the live data distribution has shifted, then retrain or recalibrate with representative recent data under governance review."
+   },
+   {
+    "k": "D",
+    "t": "Wait for the scheduled annual model review before taking action."
+   },
+   {
+    "k": "E",
+    "t": "Replace the model with a larger model that has more parameters and was trained on a broader national dataset of credit card customers."
+   }
+  ],
+  "answer": [
+   "A",
+   "C"
+  ],
+  "explain": "- Tín hiệu: qua test lúc launch nhưng lệch sau khi **dữ liệu live thay đổi**, tức bias drift.\n- Bias tăng khi dữ liệu live khác dữ liệu train; cần theo dõi liên tục.\n- Tìm nguyên nhân dữ liệu rồi retrain có review.",
+  "wrong": {
+   "B": "Feature khác vẫn là proxy cho tuổi; phải đo kết quả theo nhóm.",
+   "D": "Khách đang bị ảnh hưởng ngay bây giờ.",
+   "E": "Model lớn hơn không sửa được dữ liệu lệch."
+  },
+  "refs": [
+   {
+    "label": "SageMaker Clarify bias drift",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-monitor-bias-drift.html"
+   },
+   {
+    "label": "SageMaker Clarify pre-training bias",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-data-bias.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-18",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A logistics company plans to train an ML model that screens applicants for warehouse supervisor roles. The training data is ten years of the company's past hiring decisions. Historically, very few women were promoted into supervisor roles. The HR director asks the AI strategist where bias could enter the system.\nWhat should the AI strategist recommend FIRST?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Choose the algorithm with the highest validation accuracy, because bias in hiring models comes mainly from the choice of algorithm."
+   },
+   {
+    "k": "B",
+    "t": "Assess the training data for historical and representation bias before model training begins."
+   },
+   {
+    "k": "C",
+    "t": "Deploy the model and measure bias once it has made real hiring decisions."
+   },
+   {
+    "k": "D",
+    "t": "Exclude the gender field from the training data, which removes the bias."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: label là **quyết định tuyển dụng cũ** vốn ít thăng chức nữ.\n- Bias vào từ giai đoạn dữ liệu, nên đo pre-training bias trước khi train.\n- Tuyển dụng còn là use case high-risk theo EU AI Act.",
+  "wrong": {
+   "A": "Accuracy cao trên label lệch chỉ tái tạo bias cũ chính xác hơn.",
+   "C": "Đo sau khi đã quyết định trên ứng viên thật là muộn.",
+   "D": "Proxy như chức danh, khoảng nghỉ việc vẫn mang thông tin giới tính."
+  },
+  "refs": [
+   {
+    "label": "SageMaker Clarify pre-training bias",
+    "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-data-bias.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-19",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.3",
+  "source": "original",
+  "select": 1,
+  "stem": "An education technology company is adding a GenAI tutor to its learning app for students aged 10 to 15. Parents' groups have raised concerns about inappropriate content and about students tricking the tutor into ignoring its instructions. The product launch is in two months, and the company has limited moderation staff.\nWhich approach should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Configure guardrails with strict content filters, prompt attack protection, and denied topics, red-team before launch, and add a parent reporting channel."
+   },
+   {
+    "k": "B",
+    "t": "Rely on the built-in safety training of the foundation model."
+   },
+   {
+    "k": "C",
+    "t": "Maintain an extensive keyword block list of inappropriate words and phrases, updated monthly by the moderation staff based on student and parent reports."
+   },
+   {
+    "k": "D",
+    "t": "Have the moderation staff review every tutor response before students see it, and delay the launch until enough additional moderators can be hired and trained."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explain": "- Tín hiệu: user là **trẻ em**, lo nội dung độc hại và jailbreak, ít moderator.\n- Bedrock Guardrails có content filters, prompt attack, denied topics chỉnh theo use case.\n- Red teaming tìm lỗ hổng trước launch.",
+  "wrong": {
+   "B": "Safety mặc định của model không chỉnh theo độ tuổi và chủ đề của app.",
+   "C": "Word filter khớp chính xác bỏ sót ngữ cảnh và jailbreak.",
+   "D": "Không scale với ít moderator và làm hỏng trải nghiệm học."
+  },
+  "refs": [
+   {
+    "label": "Bedrock Guardrails policies",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-components.html"
+   },
+   {
+    "label": "Nova AI Service Card",
+    "url": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-20",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A 200-person marketing agency wants to use GenAI image generation to produce campaign visuals for retail clients and cut production time by half. Several clients have asked whether they could face copyright claims for the generated images. The agency's legal counsel wants to reduce IP exposure without banning the technology.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Assume that AI-generated images cannot infringe copyright because each image is newly created, and tell clients that no additional review is needed."
+   },
+   {
+    "k": "B",
+    "t": "Use only open-source image models hosted in the agency's own environment so that no provider terms or license conditions apply to the outputs."
+   },
+   {
+    "k": "C",
+    "t": "Prefer a provider that offers output IP indemnity, review its conditions, avoid prompts that imitate specific artists, and keep human review."
+   },
+   {
+    "k": "D",
+    "t": "Ban GenAI image generation for all client work."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explain": "- Tín hiệu: lo **third-party copyright claim** nhưng không muốn cấm.\n- AWS Service Terms 50.10: AWS defend và trả claim IP cho output của service GA trong danh sách, ví dụ Amazon Nova.\n- Indemnity có loại trừ; prompt bắt chước nghệ sĩ là risk tự tạo, nên vẫn cần human review.",
+  "wrong": {
+   "A": "Output vẫn có thể giống tác phẩm có bản quyền.",
+   "B": "Model open-source vẫn có license và không có indemnity.",
+   "D": "Bỏ mất lợi ích trong khi có cách giảm risk."
+  },
+  "refs": [
+   {
+    "label": "AWS Service Terms 50.10",
+    "url": "https://aws.amazon.com/service-terms/"
+   },
+   {
+    "label": "Nova AI Service Card",
+    "url": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-21",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.3",
+  "source": "original",
+  "select": 2,
+  "stem": "A legal services company launched a GenAI research assistant for its lawyers. Within a month, a lawyer nearly filed a brief that cited two court cases that do not exist. The managing director wants to keep the assistant because it saves hours of research, but insists that fabricated citations must not reach clients or courts.\nWhich actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Increase the model's temperature so that it explores a wider range of possible answers and is less likely to repeat the same wrong citation."
+   },
+   {
+    "k": "B",
+    "t": "Ground responses in a curated, approved legal document repository and require citations to retrieved sources."
+   },
+   {
+    "k": "C",
+    "t": "Fine-tune the model on a large set of general internet text."
+   },
+   {
+    "k": "D",
+    "t": "Add contextual grounding checks that block unsupported answers, and require lawyer review before any filing."
+   },
+   {
+    "k": "E",
+    "t": "Switch to a model with a larger context window so that it can read more case law in each request, and make no other process changes."
+   }
+  ],
+  "answer": [
+   "B",
+   "D"
+  ],
+  "explain": "- Tín hiệu: **hallucination** trích dẫn, hệ quả pháp lý cao.\n- RAG trên nguồn đã duyệt và bắt buộc citation giảm bịa.\n- Contextual grounding check chặn câu trả lời không bám nguồn; human review cho output quan trọng.",
+  "wrong": {
+   "A": "Temperature cao làm output đa dạng hơn, dễ bịa hơn.",
+   "C": "Dữ liệu internet chung không thêm nguồn pháp lý đã kiểm chứng.",
+   "E": "Context window lớn không bảo đảm câu trả lời bám nguồn."
+  },
+  "refs": [
+   {
+    "label": "Bedrock Guardrails policies",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-components.html"
+   },
+   {
+    "label": "AWS blog: sensitive data in RAG",
+    "url": "https://aws.amazon.com/blogs/machine-learning/protect-sensitive-data-in-rag-applications-with-amazon-bedrock/"
+   }
+  ]
+ },
+ {
+  "id": "gov-22",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A grocery chain's demand forecasting model has become steadily less accurate over six weeks, causing stockouts of fresh produce. Investigation shows that a supplier changed the format of its delivery data feed, and many fields now arrive empty. The supply chain VP asks the AI strategist how to fix the problem and prevent similar issues.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Retrain the model every day on the latest data feed regardless of input data quality, so that it adapts automatically to any supplier format change."
+   },
+   {
+    "k": "B",
+    "t": "Replace the forecasting model with a GenAI model."
+   },
+   {
+    "k": "C",
+    "t": "Increase the model's complexity so that it can compensate for missing fields."
+   },
+   {
+    "k": "D",
+    "t": "Assign data ownership at the source with quality checks and SLAs, then retrain against the release baseline and monitor drift."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explain": "- Tín hiệu: accuracy giảm do **data quality degradation** ở nguồn upstream.\n- Sửa và kiểm soát dữ liệu ở nguồn trước, rồi retrain và so với baseline.\n- RAI Lens: đặt baseline và drift detection cho production.",
+  "wrong": {
+   "A": "Retrain trên dữ liệu hỏng chỉ học sai nhanh hơn.",
+   "B": "Đổi loại model không sửa dữ liệu đầu vào.",
+   "C": "Model phức tạp hơn không bù được dữ liệu thiếu có hệ thống."
+  },
+  "refs": [
+   {
+    "label": "RAI Lens monitoring",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01.html"
+   }
+  ]
+ },
+ {
+  "id": "gov-23",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.1",
+  "source": "original",
+  "select": 1,
+  "stem": "A European logistics company is piloting an AI agent that reviews supplier invoices and can issue payments of up to EUR 250,000 without human involvement. In testing, the agent handled 92% of routine invoices correctly, but it occasionally paid duplicate invoices when supplier names were spelled differently. The CFO wants to keep the efficiency gain. The head of internal audit is concerned that payments cannot be reversed once they are sent.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Let the agent pay all invoices autonomously, log every payment, and have internal audit review a random sample of payments at the end of each quarter."
+   },
+   {
+    "k": "B",
+    "t": "Let the agent process routine low-value invoices, and require human sign-off before high-value, possible duplicate, or low-confidence payments execute."
+   },
+   {
+    "k": "C",
+    "t": "Require a finance clerk to approve every invoice permanently, including small routine payments, before the agent can take any action."
+   },
+   {
+    "k": "D",
+    "t": "Replace the agent with a larger foundation model and allow full autonomy once its accuracy exceeds 99% in testing."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: action **không đảo ngược được** (payment), lỗi ở edge case, CFO muốn giữ hiệu quả.\n- Tiered autonomy: tự động case thường, human sign-off trước khi action risk cao thực thi.\n- AWS mô tả lộ trình Assist, Supervised, Autonomous; ngoại lệ vẫn về người.",
+  "wrong": {
+   "A": "Review sau khi tiền đã gửi không chặn được lỗi không đảo ngược.",
+   "C": "Duyệt mọi case không scale, và reviewer mệt dễ duyệt cho qua.",
+   "D": "Model lớn hơn không thay escalation criteria; accuracy khi test không bảo đảm edge case."
+  },
+  "refs": [
+   {
+    "label": "AWS blog: HITL claims processing",
+    "url": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/"
+   }
+  ]
+ },
+ {
+  "id": "gov-24",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.2",
+  "source": "original",
+  "select": 2,
+  "stem": "A German HR technology vendor sells an AI feature that ranks job applicants for employers across the EU. In August 2026, the product director proposes pausing all EU AI Act compliance work for a year because the high-risk deadline has moved. The same product includes a chatbot that answers candidate questions. The general counsel asks the AI strategist to set priorities based on the current legal timeline.\nWhich actions should the AI strategist recommend? (Select TWO.)",
+  "options": [
+   {
+    "k": "A",
+    "t": "Continue the high-risk compliance program for the ranking feature, planning to meet the Annex III obligations that now apply from 2 December 2027."
+   },
+   {
+    "k": "B",
+    "t": "Pause all compliance work until the European Commission confirms that the high-risk deadline will not move again."
+   },
+   {
+    "k": "C",
+    "t": "Make sure candidates are told that they are interacting with an AI chatbot, because the Article 50 transparency obligations apply from August 2026."
+   },
+   {
+    "k": "D",
+    "t": "Reclassify the ranking feature as limited risk, because the Digital Omnibus removed employment from the list of high-risk use cases."
+   },
+   {
+    "k": "E",
+    "t": "Treat the ranking feature as minimal risk, because a recruiter reviews the shortlist before any hiring decision is made."
+   }
+  ],
+  "answer": [
+   "A",
+   "C"
+  ],
+  "explain": "- Tín hiệu: deadline high-risk đã dời, nhưng sản phẩm còn có chatbot.\n- Digital Omnibus, Regulation (EU) 2026/1744, dời Annex III sang 2027-12-02 và không xoá use case employment.\n- Article 50 transparency vẫn áp từ 2026-08-02, nên chatbot phải disclose AI ngay.",
+  "wrong": {
+   "B": "Ngày mới đã cố định trong luật; dừng hết thì trễ cả Article 50 đang áp.",
+   "D": "Employment vẫn nằm trong Annex III; Omnibus chỉ dời ngày áp.",
+   "E": "Recruiter xem shortlist không đưa hệ thống ranking ứng viên ra khỏi Annex III."
+  },
+  "refs": [
+   {
+    "label": "European Commission: AI Act",
+    "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+   },
+   {
+    "label": "Digital Omnibus on AI",
+    "url": "https://artificialintelligenceact.eu/ai-act-explorer/digital-omnibus/"
+   },
+   {
+    "label": "EU AI Act Article 50",
+    "url": "https://artificialintelligenceact.eu/article/50/"
+   }
+  ]
+ },
+ {
+  "id": "gov-25",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A media company plans to generate marketing images for a new campaign. It has fine-tuned a third-party image model on Amazon Bedrock with its archive of licensed photos. The CFO assumes that the cloud provider's generative AI IP indemnity covers every image the company publishes. The general counsel asks the AI strategist to check whether this assumption is safe before the campaign launches in six weeks.\nWhat should the AI strategist advise?",
+  "options": [
+   {
+    "k": "A",
+    "t": "The assumption is safe, because every model accessed through a cloud provider's managed AI service, including fine-tuned models, is covered by the same indemnity."
+   },
+   {
+    "k": "B",
+    "t": "Check which services the indemnity lists and its exclusions, such as third-party models and fine-tuning, and keep legal and human review of published images."
+   },
+   {
+    "k": "C",
+    "t": "Stop using fine-tuned models, because fine-tuning on licensed photos always transfers the copyright of generated images to the photo owners."
+   },
+   {
+    "k": "D",
+    "t": "Rely on the third-party model card and the vendor's marketing statements, because these documents replace the contractual indemnity terms."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: **model bên thứ ba** đã **fine-tune**, CFO tin indemnity phủ hết.\n- AWS Service Terms 50.10 chỉ liệt kê service GA như Amazon Nova, Amazon Q, Amazon Quick.\n- Điều khoản loại trừ claim do fine-tuning gây ra; model bên thứ ba trên Bedrock là Third-Party Content.",
+  "wrong": {
+   "A": "Indemnity chỉ áp cho service trong danh sách và có loại trừ.",
+   "C": "Khẳng định tuyệt đối không có cơ sở; việc cần làm là kiểm tra license của dữ liệu train.",
+   "D": "Model card nêu intended use và limitations, không phải cam kết bồi thường."
+  },
+  "refs": [
+   {
+    "label": "AWS Service Terms 50.10",
+    "url": "https://aws.amazon.com/service-terms/"
+   }
+  ]
+ },
+ {
+  "id": "gov-26",
+  "topic": "governance",
+  "domain": "D3",
+  "task": "3.3",
+  "source": "original",
+  "select": 1,
+  "stem": "A health insurer runs a GenAI assistant that explains plan benefits to its members. The model provider announces a new model version and will retire the current version in 90 days. The IT team proposes switching all traffic next week because the new version scores higher on public benchmarks. The chief compliance officer is concerned that members could receive inaccurate answers about their benefits.\nWhat should the AI strategist recommend?",
+  "options": [
+   {
+    "k": "A",
+    "t": "Switch all traffic next week, because higher scores on public benchmarks show that the new version will also be more accurate for benefit questions."
+   },
+   {
+    "k": "B",
+    "t": "Re-run evaluation against the assistant's release criteria, update the system registry, then switch in stages before the retirement date."
+   },
+   {
+    "k": "C",
+    "t": "Keep the current version indefinitely and ask the provider for an exception to the announced retirement date."
+   },
+   {
+    "k": "D",
+    "t": "Ask the provider for the new model card and switch all traffic as soon as the card states that the version is safer."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explain": "- Tín hiệu: vendor đổi model version, compliance lo câu trả lời sai về quyền lợi.\n- RAIER01-BP03: mỗi lần update hệ thống thì chạy lại evaluation và cập nhật registry.\n- Benchmark công khai không thay release criteria của use case.",
+  "wrong": {
+   "A": "Benchmark chung không đo use case của bạn.",
+   "C": "Version cũ sẽ bị retire; trì hoãn chỉ dồn risk về business continuity.",
+   "D": "Model card của vendor không thay đánh giá trên use case của bạn."
+  },
+  "refs": [
+   {
+    "label": "RAI Lens evaluation",
+    "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01.html"
+   }
+  ]
+ }
+]

@@ -1,0 +1,407 @@
+[
+ {
+  "id": "ai-readiness",
+  "term": "AI readiness",
+  "aliases": [
+   "readiness assessment"
+  ],
+  "cat": "Transformation",
+  "what": "Mức sẵn sàng của tổ chức để adopt AI, xét qua leadership alignment, data, culture, technical infrastructure và governance.",
+  "means": [
+   "Đề hỏi bước FIRST thường trỏ tới readiness assessment.",
+   "Gap ở một dimension có thể chặn cả initiative dù technology mạnh."
+  ],
+  "related": [
+   "ai-maturity-model",
+   "aws-caf"
+  ],
+  "src": {
+   "label": "GenAI maturity level 1: Envision",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+  }
+ },
+ {
+  "id": "ai-maturity-model",
+  "term": "AI maturity model",
+  "aliases": [
+   "maturity model",
+   "GenAI maturity model"
+  ],
+  "cat": "Transformation",
+  "what": "Khung xếp mức trưởng thành AI; bản của AWS cho generative AI có 4 level Envision, Experiment, Launch, Scale.",
+  "means": [
+   "Mỗi aspect xét độc lập, không gán một nhãn cho cả tổ chức.",
+   "Nhiều PoC mà chưa có production là dấu hiệu level Experiment."
+  ],
+  "related": [
+   "ai-readiness",
+   "envision-phase",
+   "pilot-purgatory"
+  ],
+  "src": {
+   "label": "GenAI maturity model: levels",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+  }
+ },
+ {
+  "id": "aws-caf",
+  "term": "AWS CAF",
+  "full": "AWS Cloud Adoption Framework",
+  "aliases": [
+   "AWS Cloud Adoption Framework",
+   "CAF-AI",
+   "AWS CAF for AI"
+  ],
+  "cat": "AWS",
+  "what": "Khung của AWS gồm 6 perspective và 4 phase lặp Envision, Align, Launch, Scale; CAF-AI mở rộng riêng cho AI.",
+  "means": [
+   "Perspective: Business, People, Governance, Platform, Security, Operations.",
+   "Align là phase tìm capability gap và concern của stakeholder."
+  ],
+  "related": [
+   "envision-phase",
+   "ai-coe"
+  ],
+  "src": {
+   "label": "AWS CAF: cloud transformation journey",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html"
+  }
+ },
+ {
+  "id": "envision-phase",
+  "term": "Envision phase",
+  "aliases": [
+   "Envision"
+  ],
+  "cat": "Transformation",
+  "what": "Phase đầu của AWS CAF: xác định và ưu tiên cơ hội AI theo business objective, gắn stakeholder và outcome đo được.",
+  "means": [
+   "CAF-AI thêm việc xác định data asset mà mỗi cơ hội cần.",
+   "Trong maturity model, Envision là level chưa có project chính thức."
+  ],
+  "related": [
+   "aws-caf",
+   "ai-maturity-model"
+  ],
+  "src": {
+   "label": "CAF-AI: AI transformation journey",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html"
+  }
+ },
+ {
+  "id": "data-silo",
+  "term": "Data silo",
+  "aliases": [
+   "data silos",
+   "silo"
+  ],
+  "cat": "Transformation",
+  "what": "Data bị giữ riêng trong từng hệ thống hoặc BU, định nghĩa khác nhau, khó tìm và khó ghép.",
+  "means": [
+   "Tín hiệu: team AI mất phần lớn thời gian đi tìm và đối chiếu data.",
+   "Cách gỡ: data strategy, data owner, catalog, định nghĩa chung."
+  ],
+  "related": [
+   "data-ownership",
+   "data-mesh"
+  ],
+  "src": {
+   "label": "CAF-AI: Governance perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+  }
+ },
+ {
+  "id": "data-ownership",
+  "term": "Data ownership",
+  "aliases": [
+   "data owner",
+   "data owners",
+   "data steward"
+  ],
+  "cat": "Transformation",
+  "what": "Việc gán người hoặc team chịu trách nhiệm chất lượng, định nghĩa và quyền dùng của từng dataset.",
+  "means": [
+   "Lỗi data lặp lại mà không ai phía business chịu trách nhiệm là gap ownership.",
+   "Owner nên ở domain sinh ra data, không chỉ ở IT."
+  ],
+  "related": [
+   "data-silo",
+   "data-mesh"
+  ],
+  "src": {
+   "label": "CAF-AI: Governance perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+  }
+ },
+ {
+  "id": "data-mesh",
+  "term": "Data mesh",
+  "aliases": [
+   "data product",
+   "data products"
+  ],
+  "cat": "Transformation",
+  "what": "Cách tổ chức data phi tập trung theo 4 nguyên tắc: domain ownership, data as a product, self-service platform, federated governance.",
+  "means": [
+   "Hợp khi central data team thành bottleneck mà controls vẫn phải thống nhất.",
+   "Federated governance giữ policy chung cho mọi domain."
+  ],
+  "related": [
+   "data-ownership",
+   "data-silo"
+  ],
+  "src": {
+   "label": "Data mesh strategy on AWS",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-mesh/introduction.html"
+  }
+ },
+ {
+  "id": "executive-sponsor",
+  "term": "Executive sponsor",
+  "aliases": [
+   "executive sponsorship",
+   "sponsor"
+  ],
+  "cat": "Transformation",
+  "what": "Lãnh đạo cấp cao cam kết công khai với initiative: đặt vision, budget, ưu tiên và gỡ rào cản giữa các bộ phận.",
+  "means": [
+   "AWS: sponsor active và visible là yếu tố lớn nhất cho change adoption.",
+   "AI là cốt lõi của strategy thì cần sponsor phía business."
+  ],
+  "related": [
+   "ai-champion",
+   "change-management"
+  ],
+  "src": {
+   "label": "OCA: sponsor roadmap",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/oca-framework-envision-future/sponsor.html"
+  }
+ },
+ {
+  "id": "ai-champion",
+  "term": "AI champion",
+  "aliases": [
+   "AI champions",
+   "champion network"
+  ],
+  "cat": "Transformation",
+  "what": "Nhân viên có uy tín trong team, được trao thời gian và quyền để lan toả AI, hỗ trợ đồng nghiệp và thu feedback.",
+  "means": [
+   "Giữ momentum khi central team không với tới mọi BU.",
+   "AWS gợi ý chọn AI champion ngay ở level Envision."
+  ],
+  "related": [
+   "executive-sponsor",
+   "ai-literacy"
+  ],
+  "src": {
+   "label": "GenAI maturity level 1: Envision",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html"
+  }
+ },
+ {
+  "id": "ai-coe",
+  "term": "AI Center of Excellence",
+  "full": "AI CoE",
+  "aliases": [
+   "AI CoE",
+   "CoE",
+   "center of excellence",
+   "AI/ML CoE"
+  ],
+  "cat": "Transformation",
+  "what": "Đơn vị chuyên trách AI đặt standard, governance, platform và nhân rộng kiến thức cho mọi AI initiative.",
+  "means": [
+   "CAF-AI: CoE là bước đầu thường gặp; reporting line phải gần C-suite.",
+   "Lỗi hay gặp: CoE dựng model hay nhưng không giao business value."
+  ],
+  "related": [
+   "aws-caf",
+   "federated-model",
+   "mlops"
+  ],
+  "src": {
+   "label": "CAF-AI: People perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+  }
+ },
+ {
+  "id": "change-management",
+  "term": "Change management",
+  "aliases": [
+   "organizational change management",
+   "OCM",
+   "change acceleration"
+  ],
+  "cat": "Transformation",
+  "what": "Cách có hệ thống để đưa con người từ cách làm cũ sang cách làm mới; AWS dùng Change Acceleration 6-Point Framework.",
+  "means": [
+   "Sáu điểm: Mobilize Team, Align Leaders, Envision the Future, Engage the Organization, Enable Capacity, Make It Stick.",
+   "Gồm communication, training, reward và quản lý resistance."
+  ],
+  "related": [
+   "executive-sponsor",
+   "ai-literacy"
+  ],
+  "src": {
+   "label": "AWS Change Acceleration 6-Point Framework",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/introduction.html"
+  }
+ },
+ {
+  "id": "ai-literacy",
+  "term": "AI literacy",
+  "aliases": [
+   "ML fluency",
+   "AI fluency"
+  ],
+  "cat": "Transformation",
+  "what": "Hiểu biết chung về AI đủ để mọi role dùng đúng, đặt kỳ vọng đúng và nói cùng một ngôn ngữ.",
+  "means": [
+   "CAF-AI gọi capability này là ML fluency trong People perspective.",
+   "Program theo role, kèm responsible AI training, tốt hơn chỉ đào tạo IT."
+  ],
+  "related": [
+   "ai-champion",
+   "change-management"
+  ],
+  "src": {
+   "label": "CAF-AI: People perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html"
+  }
+ },
+ {
+  "id": "pilot-purgatory",
+  "term": "Pilot purgatory",
+  "aliases": [
+   "pilot fatigue"
+  ],
+  "cat": "Transformation",
+  "what": "Tình trạng tổ chức chạy hết pilot này tới pilot khác mà không đưa được giải pháp nào vào production.",
+  "means": [
+   "AWS dẫn số liệu 88% AI pilot không lên production và gọi hệ quả là pilot fatigue.",
+   "Cách thoát: production readiness, operating model, KPI rõ cho từng pilot."
+  ],
+  "related": [
+   "proof-of-concept",
+   "ai-maturity-model"
+  ],
+  "src": {
+   "label": "GenAI maturity model: introduction",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/introduction.html"
+  }
+ },
+ {
+  "id": "proof-of-concept",
+  "term": "Proof of concept",
+  "full": "PoC",
+  "aliases": [
+   "PoC",
+   "POC",
+   "proofs of concept"
+  ],
+  "cat": "Transformation",
+  "what": "Bản thử nhỏ, có giới hạn thời gian, để chứng minh một use case khả thi và có giá trị trước khi đầu tư lớn.",
+  "means": [
+   "Mỗi PoC cần success criteria và business metric viết trước.",
+   "AWS: PoC có thể dùng model mạnh, rồi đánh giá model nhỏ hơn cho production."
+  ],
+  "related": [
+   "pilot-purgatory",
+   "mlops"
+  ],
+  "src": {
+   "label": "GenAI maturity level 2: Experiment",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html"
+  }
+ },
+ {
+  "id": "mlops",
+  "term": "MLOps",
+  "full": "Machine Learning Operations",
+  "aliases": [
+   "AI lifecycle management"
+  ],
+  "cat": "AI Fundamentals",
+  "what": "Thực hành quản lý vòng đời model từ build, deploy tới monitoring và cập nhật, mang tư duy DevOps vào AI.",
+  "means": [
+   "Là capability AI Lifecycle Management and MLOps trong CAF-AI Platform perspective.",
+   "Thiếu MLOps là gap technology khi đưa pilot lên production."
+  ],
+  "related": [
+   "ai-coe",
+   "proof-of-concept"
+  ],
+  "src": {
+   "label": "CAF-AI: Platform perspective",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/platform-perspective-infrastructure-for-and-applications-of-aiml.html"
+  }
+ },
+ {
+  "id": "raci-matrix",
+  "term": "RACI matrix",
+  "aliases": [
+   "RACI"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Bảng gán vai trò Responsible, Accountable, Consulted, Informed cho từng việc hoặc quyết định.",
+  "means": [
+   "Đề có \"no one knows who approves\" thì đáp án thường có RACI với một người accountable.",
+   "Maturity model của AWS formalize RACI ở level Launch và Scale."
+  ],
+  "related": [
+   "executive-sponsor",
+   "ai-coe"
+  ],
+  "src": {
+   "label": "GenAI maturity model: levels",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+  }
+ },
+ {
+  "id": "federated-model",
+  "term": "federated operating model",
+  "aliases": [
+   "federated model",
+   "Federated",
+   "hub-and-spoke",
+   "Hub-and-spoke"
+  ],
+  "cat": "Transformation",
+  "what": "Operating model trong đó LOB lái use case, còn team trung tâm giữ guardrails, model risk, privacy và compliance.",
+  "means": [
+   "BU muốn giữ tốc độ nhưng controls không thống nhất thì chọn federated.",
+   "Ngành hay gọi mô hình gần giống là hub-and-spoke; tên gọi chưa thống nhất."
+  ],
+  "related": [
+   "ai-coe",
+   "data-mesh"
+  ],
+  "src": {
+   "label": "AWS blog: GenAI operating models",
+   "url": "https://aws.amazon.com/blogs/machine-learning/generative-ai-operating-models-in-enterprise-organizations-with-amazon-bedrock/"
+  }
+ },
+ {
+  "id": "adkar",
+  "term": "ADKAR",
+  "full": "Awareness, Desire, Knowledge, Ability, Reinforcement",
+  "aliases": [
+   "ADKAR model"
+  ],
+  "cat": "Transformation",
+  "what": "Mô hình change management của Prosci cho từng cá nhân, gồm 5 phần tử nối tiếp nhau.",
+  "means": [
+   "Awareness: hiểu vì sao cần change; Desire: chọn tham gia; Knowledge: biết cách làm.",
+   "Ability: làm được thật; Reinforcement: giữ cách mới, không quay lại cách cũ."
+  ],
+  "related": [
+   "change-management",
+   "executive-sponsor"
+  ],
+  "src": {
+   "label": "Prosci ADKAR Model",
+   "url": "https://www.prosci.com/methodology/adkar"
+  }
+ }
+]

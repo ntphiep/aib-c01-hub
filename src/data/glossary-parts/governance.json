@@ -1,0 +1,377 @@
+[
+ {
+  "id": "responsible-ai",
+  "term": "responsible AI",
+  "aliases": [
+   "Responsible AI"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Cách thiết kế, build và dùng AI để tối đa benefit và giảm risk, AWS đo bằng 8 dimension.",
+  "means": [
+   "Đề cho một vấn đề, bạn gọi tên dimension liên quan rồi chọn control.",
+   "8 dimension: fairness, explainability, privacy and security, safety, controllability, veracity and robustness, governance, transparency."
+  ],
+  "related": [
+   "explainability",
+   "bedrock-guardrails",
+   "ai-governance-board"
+  ],
+  "src": {
+   "label": "AWS Responsible AI",
+   "url": "https://aws.amazon.com/ai/responsible-ai/"
+  }
+ },
+ {
+  "id": "explainability",
+  "term": "explainability",
+  "aliases": [
+   "Explainability",
+   "explainable"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Khả năng hiểu và đánh giá vì sao hệ thống AI cho ra một output cụ thể.",
+  "means": [
+   "Tín hiệu trong đề: khách hoặc regulator hỏi vì sao bị từ chối.",
+   "Thường đánh đổi với accuracy; chọn model dễ giải thích nếu đạt ngưỡng business."
+  ],
+  "related": [
+   "responsible-ai",
+   "model-card"
+  ],
+  "src": {
+   "label": "AWS Responsible AI",
+   "url": "https://aws.amazon.com/ai/responsible-ai/"
+  }
+ },
+ {
+  "id": "human-in-the-loop",
+  "term": "human-in-the-loop",
+  "full": "HITL",
+  "aliases": [
+   "HITL",
+   "Human-in-the-loop"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Con người duyệt hoặc sửa từng output của AI trước khi output có hiệu lực.",
+  "means": [
+   "Dùng cho quyết định tác động lớn: từ chối, số tiền cao, ngoại lệ, confidence thấp.",
+   "Duyệt mọi case vĩnh viễn không scale; đề thường chọn mô hình theo tier."
+  ],
+  "related": [
+   "human-on-the-loop",
+   "escalation-criteria"
+  ],
+  "src": {
+   "label": "AWS blog: HITL claims processing",
+   "url": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/"
+  }
+ },
+ {
+  "id": "human-on-the-loop",
+  "term": "human-on-the-loop",
+  "full": "HOTL",
+  "aliases": [
+   "HOTL",
+   "Human-on-the-loop"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Con người theo dõi KRI và mẫu case, can thiệp hoặc dừng hệ thống khi cần, không duyệt từng output.",
+  "means": [
+   "Hợp với case lặp lại khi AI đã có accuracy ổn định.",
+   "Cần threshold rõ và người có thẩm quyền hành động."
+  ],
+  "related": [
+   "human-in-the-loop",
+   "escalation-criteria"
+  ],
+  "src": {
+   "label": "AWS blog: HITL claims processing",
+   "url": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/"
+  }
+ },
+ {
+  "id": "escalation-criteria",
+  "term": "escalation criteria",
+  "aliases": [
+   "escalation rules",
+   "Escalation criteria"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Điều kiện chuyển một case từ AI sang con người quyết định.",
+  "means": [
+   "Ví dụ: tác động lớn, confidence thấp, hành động không đảo ngược được, ngoại lệ policy.",
+   "Đề hỏi cách tự động hoá phần lớn mà vẫn giữ control ở case quan trọng."
+  ],
+  "related": [
+   "human-in-the-loop",
+   "human-on-the-loop"
+  ],
+  "src": {
+   "label": "AWS blog: HITL claims processing",
+   "url": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/"
+  }
+ },
+ {
+  "id": "bedrock-guardrails",
+  "term": "Amazon Bedrock Guardrails",
+  "aliases": [
+   "Bedrock Guardrails",
+   "guardrails",
+   "Guardrails"
+  ],
+  "cat": "AWS",
+  "what": "Safeguard cấu hình được để lọc input và output của ứng dụng GenAI theo policy của doanh nghiệp.",
+  "means": [
+   "Content filters, prompt attack, denied topics, word filters, PII filters, contextual grounding, Automated Reasoning checks.",
+   "Dùng được cho FM trong Bedrock và model self-hosted."
+  ],
+  "related": [
+   "responsible-ai",
+   "red-teaming"
+  ],
+  "src": {
+   "label": "Bedrock Guardrails policies",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-components.html"
+  }
+ },
+ {
+  "id": "eu-ai-act",
+  "term": "EU AI Act",
+  "full": "Regulation (EU) 2024/1689",
+  "aliases": [
+   "AI Act"
+  ],
+  "cat": "Regulation & Standards",
+  "what": "Luật AI của EU, phân hệ thống AI thành 4 tier risk với nghĩa vụ tăng dần.",
+  "means": [
+   "Tier: unacceptable, high-risk, limited, minimal.",
+   "Phạt tới EUR 35M hoặc 7% doanh thu toàn cầu cho prohibited practices.",
+   "Digital Omnibus dời high-risk Annex III sang 2027-12-02, Annex I sang 2028-08-02."
+  ],
+  "related": [
+   "digital-omnibus",
+   "high-risk-ai-system",
+   "nist-ai-rmf"
+  ],
+  "src": {
+   "label": "European Commission: AI Act",
+   "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+  }
+ },
+ {
+  "id": "high-risk-ai-system",
+  "term": "high-risk AI system",
+  "aliases": [
+   "high-risk",
+   "High-risk"
+  ],
+  "cat": "Regulation & Standards",
+  "what": "Hệ thống AI theo Annex III hoặc safety component của sản phẩm Annex I, chịu nghĩa vụ nặng nhất được phép.",
+  "means": [
+   "Ví dụ: tuyển dụng, chấm điểm tín dụng, giáo dục, essential services.",
+   "Cần risk management, logging, human oversight, conformity assessment."
+  ],
+  "related": [
+   "eu-ai-act",
+   "human-in-the-loop"
+  ],
+  "src": {
+   "label": "EU AI Act Annex III",
+   "url": "https://artificialintelligenceact.eu/annex/3/"
+  }
+ },
+ {
+  "id": "nist-ai-rmf",
+  "term": "NIST AI RMF",
+  "full": "NIST AI Risk Management Framework",
+  "aliases": [
+   "AI RMF"
+  ],
+  "cat": "Regulation & Standards",
+  "what": "Framework tự nguyện của NIST để quản lý risk AI, gồm 4 function Govern, Map, Measure, Manage.",
+  "means": [
+   "Govern là function cross-cutting, thấm vào 3 function còn lại.",
+   "Không certify; NIST AI 600-1 là profile cho generative AI."
+  ],
+  "related": [
+   "eu-ai-act"
+  ],
+  "src": {
+   "label": "NIST AI RMF",
+   "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+  }
+ },
+ {
+  "id": "ai-governance-board",
+  "term": "AI governance board",
+  "aliases": [
+   "AI governance council",
+   "governance council",
+   "governance board"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Nhóm cross-functional đặt policy AI, risk appetite và duyệt use case high-risk.",
+  "means": [
+   "Thành phần: executive sponsor, legal, compliance, risk, security, data, business.",
+   "Đề hỏi FIRST step khi nhiều business unit làm AI rời rạc."
+  ],
+  "related": [
+   "responsible-ai"
+  ],
+  "src": {
+   "label": "AWS CAF for AI: Governance",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html"
+  }
+ },
+ {
+  "id": "bias-drift",
+  "term": "bias drift",
+  "aliases": [
+   "Bias drift"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Bias tăng dần trong production khi dữ liệu live lệch khỏi dữ liệu train.",
+  "means": [
+   "Qua test fairness lúc launch chưa đủ; cần monitoring liên tục theo nhóm.",
+   "Xử lý: tìm data shift, retrain có review."
+  ],
+  "related": [
+   "responsible-ai"
+  ],
+  "src": {
+   "label": "SageMaker Clarify bias drift",
+   "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-monitor-bias-drift.html"
+  }
+ },
+ {
+  "id": "model-card",
+  "term": "model card",
+  "aliases": [
+   "model cards",
+   "AI Service Card",
+   "AI Service Cards",
+   "system card"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Tài liệu nêu intended use, limitations, đánh giá và design choice của một model hoặc hệ thống AI.",
+  "means": [
+   "AWS AI Service Cards là dạng này cho service và model của AWS.",
+   "Card của vendor không thay đánh giá cho use case của bạn."
+  ],
+  "related": [
+   "explainability"
+  ],
+  "src": {
+   "label": "AWS AI Service Cards",
+   "url": "https://aws.amazon.com/ai/responsible-ai/resources/"
+  }
+ },
+ {
+  "id": "red-teaming",
+  "term": "red teaming",
+  "aliases": [
+   "red-team",
+   "red-teaming"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Thử tấn công và lạm dụng hệ thống AI một cách có chủ đích để tìm harmful behavior trước khi launch.",
+  "means": [
+   "Kết hợp automated và manual, người thử đa dạng.",
+   "Đề chọn khi cần tìm lỗ hổng safety trước launch."
+  ],
+  "related": [
+   "bedrock-guardrails"
+  ],
+  "src": {
+   "label": "Nova AI Service Card",
+   "url": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html"
+  }
+ },
+ {
+  "id": "ip-indemnity",
+  "term": "IP indemnity",
+  "full": "intellectual property indemnity",
+  "aliases": [
+   "indemnity"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Cam kết của provider bảo vệ khách trước claim vi phạm IP của bên thứ ba liên quan tới output.",
+  "means": [
+   "AWS Service Terms 50.10 phủ output của service GA trong danh sách, ví dụ Amazon Nova.",
+   "Loại trừ input vi phạm, tắt filter, fine-tuning; model bên thứ ba không thuộc danh sách.",
+   "Indemnity không thay human review và kiểm tra quyền dữ liệu."
+  ],
+  "related": [
+   "red-teaming"
+  ],
+  "src": {
+   "label": "AWS Service Terms 50.10",
+   "url": "https://aws.amazon.com/service-terms/"
+  }
+ },
+ {
+  "id": "data-residency",
+  "term": "data residency",
+  "aliases": [
+   "Data residency"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Yêu cầu dữ liệu được lưu và xử lý trong một quốc gia hoặc geography xác định.",
+  "means": [
+   "Chọn Region trong geography đó, hoặc geographic cross-Region inference profile như EU.",
+   "Global inference profile có thể xử lý ở Region ngoài geography."
+  ],
+  "related": [],
+  "src": {
+   "label": "Bedrock cross-Region inference",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html"
+  }
+ },
+ {
+  "id": "digital-omnibus",
+  "term": "Digital Omnibus on AI",
+  "full": "Regulation (EU) 2026/1744",
+  "aliases": [
+   "Digital Omnibus",
+   "AI Omnibus",
+   "Omnibus"
+  ],
+  "cat": "Regulation & Standards",
+  "what": "Regulation sửa EU AI Act, hiệu lực 2026-07-27, dời hạn high-risk và thêm một prohibited practice mới.",
+  "means": [
+   "High-risk Annex III áp từ 2027-12-02, Annex I từ 2028-08-02.",
+   "Article 50 transparency vẫn áp từ 2026-08-02.",
+   "Cấm AI tạo CSAM và intimate imagery không đồng thuận từ 2026-12-02."
+  ],
+  "related": [
+   "eu-ai-act",
+   "high-risk-ai-system"
+  ],
+  "src": {
+   "label": "European Commission: AI Act",
+   "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+  }
+ },
+ {
+  "id": "three-lines-of-defense",
+  "term": "three lines of defense",
+  "aliases": [
+   "Three lines of defense",
+   "three lines of defence"
+  ],
+  "cat": "Governance & Risk",
+  "what": "Mô hình chia vai trò risk: business tự quản risk, risk và compliance review độc lập, internal audit kiểm tra cả hai.",
+  "means": [
+   "Người build model không tự duyệt model của mình lên production.",
+   "AWS khuyên gắn AI governance vào enterprise risk management có sẵn."
+  ],
+  "related": [
+   "ai-governance-board",
+   "responsible-ai"
+  ],
+  "src": {
+   "label": "AWS blog: AI enterprise risk management",
+   "url": "https://aws.amazon.com/blogs/security/enabling-ai-adoption-at-scale-through-enterprise-risk-management-framework-part-2/"
+  }
+ }
+]

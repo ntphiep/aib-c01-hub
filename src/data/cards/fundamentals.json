@@ -1,0 +1,218 @@
+[
+ {
+  "id": "fun-c01",
+  "front": "AI vs ML vs GenAI",
+  "back": "AI is the umbrella term; ML learns patterns from data to predict; GenAI is a subset that creates new content. AI rộng nhất, GenAI là phần tạo nội dung mới.",
+  "ref": {
+   "label": "AI vs ML",
+   "url": "https://aws.amazon.com/compare/the-difference-between-artificial-intelligence-and-machine-learning/"
+  }
+ },
+ {
+  "id": "fun-c02",
+  "front": "Training vs inference",
+  "back": "Training adjusts model parameters on historical data; inference runs the trained model on new input. Cost inference lặp lại theo từng request.",
+  "ref": {
+   "label": "What is inference",
+   "url": "https://aws.amazon.com/what-is/inferencing/"
+  }
+ },
+ {
+  "id": "fun-c03",
+  "front": "Structured vs unstructured data",
+  "back": "Structured data fits a predefined schema; unstructured data (text, audio, video, images) needs preprocessing. GenAI và NLP mở khoá phần unstructured.",
+  "ref": {
+   "label": "Structured vs unstructured data",
+   "url": "https://aws.amazon.com/compare/the-difference-between-structured-data-and-unstructured-data/"
+  }
+ },
+ {
+  "id": "fun-c04",
+  "front": "MOST important factor for AI outcomes",
+  "back": "Data quality: completeness, accuracy, consistency, timeliness. Model tốt không cứu được data sai.",
+  "ref": {
+   "label": "GenAI workload assessment: data strategy",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/data-strategy.html"
+  }
+ },
+ {
+  "id": "fun-c05",
+  "front": "Model reproduces unfair past decisions",
+  "back": "It learned bias present in the historical training data; audit and rebalance the data. Model học lại đúng bias của quá khứ.",
+  "ref": {
+   "label": "GenAI workload assessment: data strategy",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/data-strategy.html"
+  }
+ },
+ {
+  "id": "fun-c06",
+  "front": "Unified AI terminology standard",
+  "back": "ISO/IEC 22989 (concepts and terminology); ISO/IEC 23053 adds a framework for ML-based AI systems. Đề ghi vocabulary thì nghĩ tới hai chuẩn này.",
+  "ref": {
+   "label": "ISO/IEC 23053 (AFNOR)",
+   "url": "https://www.boutique.afnor.org/en-gb/standard/iso-iec-230532022/framework-for-artificial-intelligence-ai-systems-using-machine-learning-ml/xs139450/326655"
+  }
+ },
+ {
+  "id": "fun-c07",
+  "front": "Certifiable AI management system",
+  "back": "ISO/IEC 42001: requirements to establish, maintain and continually improve an AIMS. Đây là chuẩn certify được cho tổ chức.",
+  "ref": {
+   "label": "AWS ISO/IEC 42001 FAQ",
+   "url": "https://aws.amazon.com/compliance/iso-42001-faqs/"
+  }
+ },
+ {
+  "id": "fun-c08",
+  "front": "Our cloud provider is ISO/IEC 42001 certified",
+  "back": "Certification is not inherited; the company must certify its own AIMS. Certification của AWS chỉ giúp quá trình dễ hơn.",
+  "ref": {
+   "label": "AWS ISO/IEC 42001 FAQ",
+   "url": "https://aws.amazon.com/compliance/iso-42001-faqs/"
+  }
+ },
+ {
+  "id": "fun-c09",
+  "front": "Stable logic, auditors need exact traceability",
+  "back": "Rule-based automation. Kết quả deterministic, truy được về từng rule.",
+  "ref": {
+   "label": "ML Lens MLCOST02-BP01",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+  }
+ },
+ {
+  "id": "fun-c10",
+  "front": "Justify an ML project cost-effectively",
+  "back": "Use the existing rules-based approach as a baseline and compare accuracy, inference time and total cost. ML phải thắng baseline.",
+  "ref": {
+   "label": "ML Lens MLCOST02-BP01",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+  }
+ },
+ {
+  "id": "fun-c11",
+  "front": "AI agent core capabilities",
+  "back": "Autonomy, planning, tool use, memory, agent-to-agent communication, orchestration. Agent hành động trên hệ thống thật, chatbot chỉ trả lời.",
+  "ref": {
+   "label": "What are AI agents",
+   "url": "https://aws.amazon.com/what-is/ai-agents/"
+  }
+ },
+ {
+  "id": "fun-c12",
+  "front": "Orchestrator pattern",
+  "back": "A central agent plans, delegates subtasks to specialist agents and synthesizes results. Hợp với việc chia vai rõ ràng.",
+  "ref": {
+   "label": "Workflow for orchestration",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/workflow-for-orchestration.html"
+  }
+ },
+ {
+  "id": "fun-c13",
+  "front": "Agents on different platforms must collaborate",
+  "back": "Use a standard agent-to-agent protocol such as A2A or MCP inter-agent. Protocol chung giúp agent khác vendor trao đổi task.",
+  "ref": {
+   "label": "Agent-to-agent protocols",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/agent-to-agent-protocols.html"
+  }
+ },
+ {
+  "id": "fun-c14",
+  "front": "Agent can take irreversible actions",
+  "back": "Require human approval above defined thresholds. Human-in-the-loop là control exam hay hỏi.",
+  "ref": {
+   "label": "Govern AI adoption (AWS blog)",
+   "url": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/"
+  }
+ },
+ {
+  "id": "fun-c15",
+  "front": "Accurate at launch, declining since, no code changes",
+  "back": "Model drift; monitor against KPI thresholds and retrain on recent data. Thực tế đổi nên pattern cũ hết đúng.",
+  "ref": {
+   "label": "Detecting drift in production",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+  }
+ },
+ {
+  "id": "fun-c16",
+  "front": "Data drift vs concept drift",
+  "back": "Data drift: input distribution changes. Concept drift: the input-to-correct-output relationship changes. Concept drift khó detect hơn.",
+  "ref": {
+   "label": "Detecting drift in production",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html"
+  }
+ },
+ {
+  "id": "fun-c17",
+  "front": "When to retrain",
+  "back": "When monitored performance falls below defined KPIs, not on an arbitrary schedule. Retrain theo lịch cố định tốn cost vô ích.",
+  "ref": {
+   "label": "ML Lens MLSUS06-BP02",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp02.html"
+  }
+ },
+ {
+  "id": "fun-c18",
+  "front": "Reduce shadow AI",
+  "back": "Provide approved tools first, classify tools as approved, under evaluation or blocked, and monitor usage. Ban toàn bộ chỉ đẩy usage ra khỏi tầm nhìn.",
+  "ref": {
+   "label": "Shadow generative AI",
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/navigating-security-landscape-genai/shadow-generative-ai.html"
+  }
+ },
+ {
+  "id": "fun-c19",
+  "front": "Generic, inconsistent GenAI output; fix this week, low cost",
+  "back": "Prompt engineering: role, context, few-shot examples, output format. Bước rẻ và nhanh nhất.",
+  "ref": {
+   "label": "What is prompt engineering",
+   "url": "https://aws.amazon.com/what-is/prompt-engineering/"
+  }
+ },
+ {
+  "id": "fun-c20",
+  "front": "Assistant forgets early details in long sessions",
+  "back": "Context window pressure; summarize or trim history. Lịch sử dài còn làm tăng cost và latency.",
+  "ref": {
+   "label": "Agentic AI Lens AGENTPERF03-BP02",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentperf03-bp02.html"
+  }
+ },
+ {
+  "id": "fun-c21",
+  "front": "Frequently changing facts with source citations",
+  "back": "RAG. Tài liệu mới vào trong vài phút, câu trả lời có reference.",
+  "ref": {
+   "label": "RAG vs fine-tuning",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+  }
+ },
+ {
+  "id": "fun-c22",
+  "front": "Consistent brand voice and domain terminology",
+  "back": "Fine-tuning. Không dùng fine-tuning để nạp fact hay đổi.",
+  "ref": {
+   "label": "RAG vs fine-tuning",
+   "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html"
+  }
+ },
+ {
+  "id": "fun-c23",
+  "front": "How reliable are AI agents on real computer tasks today?",
+  "back": "Stanford AI Index 2026: success on OSWorld rose from 12% to about 66%, so agents still fail roughly 1 in 3 tasks. Vì vậy cần human approval trước action không đảo ngược.",
+  "ref": {
+   "label": "Stanford AI Index 2026",
+   "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report"
+  }
+ },
+ {
+  "id": "fun-c24",
+  "front": "Truncated answers vs inconsistent answers",
+  "back": "Cut off mid-answer or forgetting early turns: context window or max tokens. Too random or too rigid: temperature and top P. Hai triệu chứng, hai cách xử lý khác nhau.",
+  "ref": {
+   "label": "Bedrock inference parameters",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html"
+  }
+ }
+]

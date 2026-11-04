@@ -1,0 +1,324 @@
+[
+ {
+  "id": "amazon-bedrock",
+  "term": "Amazon Bedrock",
+  "aliases": [
+   "Bedrock"
+  ],
+  "cat": "AWS",
+  "what": "Fully managed service cho GenAI, truy cập hơn 100 foundation model của nhiều provider qua một API, trả theo token.",
+  "means": [
+   "Chọn khi cần GenAI app với LEAST operational overhead, không host model.",
+   "Input và output không dùng để train model, không chia sẻ với model provider.",
+   "Kèm Knowledge Bases, Guardrails, model customization, AgentCore."
+  ],
+  "related": [
+   "bedrock-knowledge-bases",
+   "bedrock-service-tiers",
+   "provisioned-throughput"
+  ],
+  "src": {
+   "label": "What is Amazon Bedrock",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
+  }
+ },
+ {
+  "id": "bedrock-knowledge-bases",
+  "term": "Bedrock Knowledge Bases",
+  "aliases": [
+   "Knowledge Bases",
+   "Knowledge Base"
+  ],
+  "cat": "AWS",
+  "what": "Tính năng RAG managed của Amazon Bedrock: tìm đoạn tài liệu công ty liên quan rồi đưa vào prompt để trả lời có nguồn.",
+  "means": [
+   "Đáp án cho data đổi thường xuyên và cần trích dẫn nguồn.",
+   "Tài liệu mới chỉ cần sync, không train lại model.",
+   "Nối S3, SharePoint, Confluence và các data source khác."
+  ],
+  "related": [
+   "amazon-bedrock"
+  ],
+  "src": {
+   "label": "Bedrock Knowledge Bases",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+  }
+ },
+ {
+  "id": "bedrock-service-tiers",
+  "term": "Bedrock service tiers",
+  "aliases": [
+   "service tiers",
+   "Priority tier",
+   "Flex tier",
+   "Reserved tier"
+  ],
+  "cat": "AWS",
+  "what": "Bốn mức inference của Amazon Bedrock: Reserved, Priority, Standard, Flex, cân bằng availability, tốc độ và cost.",
+  "means": [
+   "Priority trả premium để nhanh nhất; Flex có discount cho workload chờ được.",
+   "Reserved giữ tokens-per-minute 1 hoặc 3 tháng, target 99.5% uptime.",
+   "Standard là mặc định khi không chọn tier."
+  ],
+  "related": [
+   "amazon-bedrock",
+   "provisioned-throughput"
+  ],
+  "src": {
+   "label": "Bedrock service tiers",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html"
+  }
+ },
+ {
+  "id": "provisioned-throughput",
+  "term": "Provisioned Throughput",
+  "aliases": [
+   "Model Units"
+  ],
+  "cat": "AWS",
+  "what": "Cách mua throughput cố định cho một model trên Amazon Bedrock, tính tiền theo giờ cho mỗi Model Unit.",
+  "means": [
+   "Custom model trên Bedrock thường cần Provisioned Throughput để dùng.",
+   "Trả theo giờ cả khi idle, nên không hợp job chạy vài giờ mỗi đêm."
+  ],
+  "related": [
+   "amazon-bedrock",
+   "bedrock-service-tiers"
+  ],
+  "src": {
+   "label": "Provisioned Throughput",
+   "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html"
+  }
+ },
+ {
+  "id": "amazon-sagemaker-ai",
+  "term": "Amazon SageMaker AI",
+  "aliases": [
+   "SageMaker AI",
+   "Amazon SageMaker"
+  ],
+  "cat": "AWS",
+  "what": "Fully managed ML service để data scientist build, train và deploy custom model; đổi tên từ Amazon SageMaker ngày 2024-12-03.",
+  "means": [
+   "Chọn khi đề nêu full control over training, custom model, có team data science.",
+   "Giá instance-based; usage ổn định thì dùng SageMaker AI Savings Plans."
+  ],
+  "related": [
+   "sagemaker-jumpstart"
+  ],
+  "src": {
+   "label": "What is SageMaker AI",
+   "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html"
+  }
+ },
+ {
+  "id": "sagemaker-jumpstart",
+  "term": "SageMaker JumpStart",
+  "aliases": [
+   "JumpStart"
+  ],
+  "cat": "AWS",
+  "what": "Hub trong SageMaker AI cung cấp pretrained open-source model, solution template và notebook mẫu để bắt đầu nhanh.",
+  "means": [
+   "Đáp án khi data scientist muốn bắt đầu từ model có sẵn rồi fine-tune.",
+   "Vẫn cần ML skill; không phải lựa chọn no-code cho business user."
+  ],
+  "related": [
+   "amazon-sagemaker-ai"
+  ],
+  "src": {
+   "label": "SageMaker JumpStart",
+   "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html"
+  }
+ },
+ {
+  "id": "amazon-quick",
+  "term": "Amazon Quick",
+  "aliases": [
+   "Quick Suite",
+   "Amazon Quick Suite",
+   "Quick Sight"
+  ],
+  "cat": "AWS",
+  "what": "AI-powered service cho knowledge worker: chat, research, BI, automation và app building, AI agent làm việc trên data đã kết nối.",
+  "means": [
+   "Gồm Quick Sight, Quick Index, Quick Research, Quick Flows, Quick Automate, Apps in Quick.",
+   "Phát triển từ QuickSight; AWS gọi Quick là bước tiếp theo của Amazon Q Business.",
+   "Seat-based: USD mỗi user mỗi tháng, cộng infrastructure fee cho plan tổ chức."
+  ],
+  "related": [
+   "shared-responsibility-model"
+  ],
+  "src": {
+   "label": "What is Amazon Quick",
+   "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+  }
+ },
+ {
+  "id": "shared-responsibility-model",
+  "term": "AWS shared responsibility model",
+  "aliases": [
+   "shared responsibility model",
+   "shared responsibility"
+  ],
+  "cat": "AWS",
+  "what": "Mô hình chia trách nhiệm: AWS lo security of the cloud, customer lo security in the cloud theo service đã chọn.",
+  "means": [
+   "Với Bedrock và Quick, AWS lo infrastructure và host model.",
+   "Customer luôn giữ data, access control, phân loại data, responsible use, compliance.",
+   "Service càng managed, phần customer phải cấu hình càng ít, nhưng không bằng 0."
+  ],
+  "related": [
+   "responsible-ai-lens"
+  ],
+  "src": {
+   "label": "Shared responsibility model",
+   "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+  }
+ },
+ {
+  "id": "responsible-ai-lens",
+  "term": "Responsible AI Lens",
+  "aliases": [
+   "Well-Architected Responsible AI Lens"
+  ],
+  "cat": "AWS",
+  "what": "Lens của AWS Well-Architected Framework, ra 11/2025, hướng dẫn build và operate AI workload một cách responsible.",
+  "means": [
+   "10 dimension: controllability, privacy, security, safety, veracity, robustness, fairness, explainability, transparency, governance.",
+   "Đáp án cho review responsible AI có cấu trúc trước production.",
+   "Generative AI Lens là lens khác, tập trung kiến trúc GenAI."
+  ],
+  "related": [
+   "shared-responsibility-model"
+  ],
+  "src": {
+   "label": "Responsible AI Lens",
+   "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html"
+  }
+ },
+ {
+  "id": "aws-pricing-calculator",
+  "term": "AWS Pricing Calculator",
+  "aliases": [
+   "Pricing Calculator"
+  ],
+  "cat": "AWS",
+  "what": "Planning tool miễn phí để ước tính cost của AWS service trước khi build, ra con số upfront, monthly và annual.",
+  "means": [
+   "Dùng cho business case và so sánh scenario khi chưa có usage.",
+   "Không phân tích spend thực tế; việc đó là của Cost Explorer."
+  ],
+  "related": [
+   "aws-cost-explorer"
+  ],
+  "src": {
+   "label": "AWS Pricing Calculator",
+   "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+  }
+ },
+ {
+  "id": "aws-cost-explorer",
+  "term": "AWS Cost Explorer",
+  "aliases": [
+   "Cost Explorer"
+  ],
+  "cat": "AWS",
+  "what": "Công cụ xem và phân tích cost, usage AWS tới 13 tháng trước và forecast 18 tháng tới.",
+  "means": [
+   "Tìm service hay team nào làm cost AI tăng sau launch.",
+   "Đưa recommendation mức commitment Savings Plans.",
+   "Ghép với AWS Budgets khi cần alert tự động."
+  ],
+  "related": [
+   "aws-pricing-calculator"
+  ],
+  "src": {
+   "label": "AWS Cost Explorer",
+   "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html"
+  }
+ },
+ {
+  "id": "aws-marketplace",
+  "term": "AWS Marketplace",
+  "aliases": [
+   "Marketplace",
+   "private offer"
+  ],
+  "cat": "AWS",
+  "what": "Catalog để tìm, mua, deploy software, data và AI agent của bên thứ ba, với charge nằm trên AWS bill.",
+  "means": [
+   "Kênh buy hoặc partner trong quyết định build-buy-partner.",
+   "Private offer cho giá và EULA riêng, rút ngắn procurement.",
+   "Mục AI Agents and Tools có agent chạy trên Bedrock AgentCore."
+  ],
+  "related": [
+   "aws-pricing-calculator"
+  ],
+  "src": {
+   "label": "What is AWS Marketplace",
+   "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+  }
+ },
+ {
+  "id": "seat-based-pricing",
+  "term": "Seat-based pricing",
+  "aliases": [
+   "seat-based",
+   "per user per month"
+  ],
+  "cat": "AWS",
+  "what": "Kiểu giá trả theo số user mỗi tháng, ví dụ Amazon Quick, không theo token hay instance-hour.",
+  "means": [
+   "Budget dễ dự báo khi rollout cho nhiều nhân viên.",
+   "Seat không ai dùng vẫn tính tiền: theo dõi adoption."
+  ],
+  "related": [
+   "amazon-quick"
+  ],
+  "src": {
+   "label": "Amazon Quick pricing",
+   "url": "https://aws.amazon.com/quick/pricing/"
+  }
+ },
+ {
+  "id": "cost-allocation-tags",
+  "term": "Cost allocation tags",
+  "aliases": [
+   "cost allocation tag"
+  ],
+  "cat": "AWS",
+  "what": "Nhãn gắn lên resource để Cost Explorer lọc và tách cost theo team, project hay initiative.",
+  "means": [
+   "Phải activate thì mới xuất hiện trong Cost Explorer.",
+   "Nền cho showback, chargeback và ROI từng initiative."
+  ],
+  "related": [
+   "aws-cost-explorer"
+  ],
+  "src": {
+   "label": "Cost allocation tags",
+   "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html"
+  }
+ },
+ {
+  "id": "bedrock-agentcore",
+  "term": "Amazon Bedrock AgentCore",
+  "aliases": [
+   "AgentCore"
+  ],
+  "cat": "AWS",
+  "what": "Platform để deploy và operate AI agent ở quy mô enterprise với bất kỳ framework và model nào.",
+  "means": [
+   "Gồm runtime, memory, gateway tới tool, identity, observability, evaluations.",
+   "Đề nêu agent hành động trên nhiều hệ thống, cần governance: AgentCore."
+  ],
+  "related": [
+   "amazon-bedrock"
+  ],
+  "src": {
+   "label": "What is AgentCore",
+   "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html"
+  }
+ }
+]

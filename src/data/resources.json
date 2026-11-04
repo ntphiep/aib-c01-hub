@@ -1,0 +1,59 @@
+[
+ {
+  "group": "Chính thức",
+  "md": "Exam guide là nguồn quyết định phạm vi. Trang Skill Builder cần đăng nhập.",
+  "items": [
+   {"label": "AIB-C01 exam guide", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html", "kind": "official", "note": "4 domain, mọi task và skill, danh sách service in-scope và out-of-scope; ghi 130 phút cho bản chuẩn."},
+   {"label": "Trang AWS Certified AI Business Strategist", "url": "https://aws.amazon.com/certification/certified-ai-business-strategist/", "kind": "official", "note": "Bản beta 85 câu, 170 phút, 50 USD; Early Adopter badge nếu đậu trước 15/02/2027; Official Practice Exam chưa có trong beta."},
+   {"label": "Blog AWS: Introducing AWS Certified AI Business Strategist", "url": "https://aws.amazon.com/blogs/training-and-certification/introducing-aws-certified-ai-business-strategist-built-for-the-people-who-scale-ai/", "kind": "official", "note": "Đối tượng thi, lộ trình học 13 module trên Skill Builder, mở đăng ký 01/09 và thi từ 29/09/2026.", "date": "2026-09-01"},
+   {"label": "Skill Builder: Exam Prep Plan và Official Practice Question Set", "url": "https://skillbuilder.aws/category/exam-prep/ai-business-strategist-business-AIB-C01", "kind": "practice", "note": "Lộ trình ôn chính thức; gồm Practice Question Set và Walk-through Questions theo mô tả của blog AWS."},
+   {"label": "Skill Builder: AWS AI Business Strategist learning plan", "url": "https://skillbuilder.aws/learning-plan/TSP9R1XQ6P/aws-ai-business-strategist-learning-plan/BDE88AHVZN", "kind": "course", "note": "Digital course 13 module map vào 4 domain, hợp khi mới với business framework."},
+   {"label": "AWS CAF for AI, ML, and Generative AI", "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/aws-caf-for-ai.html", "kind": "docs", "note": "6 perspective, capability AI và hành trình transformation; AWS gắn nhãn historical reference nhưng exam guide vẫn dùng.", "date": "2024-02-13"},
+   {"label": "Responsible AI Lens", "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html", "kind": "docs", "note": "10 dimension của responsible AI và câu hỏi review workload, nguồn chính cho D3.", "date": "2025-11-19"},
+   {"label": "Generative AI Lens", "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html", "kind": "docs", "note": "Best practice GenAI theo 6 pillar, gồm cost và sustainability như chọn đúng model, hỏi GenAI có cần không.", "date": "2025-11-19"},
+   {"label": "Maturity model for adopting generative AI on AWS", "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/introduction.html", "kind": "docs", "note": "Các level Envision, Experiment, Launch, Scale và hoạt động từng pillar, dùng cho D2 và D4."}
+  ]
+ },
+ {
+  "group": "Khoá học và đề luyện",
+  "md": "Người thi beta báo đề thật thiên về scenario business, nhiều đáp án nghe hợp lý; đề luyện bên thứ ba chỉ để làm quen.",
+  "items": [
+   {"label": "Stephane Maarek: Ultimate AWS Certified AI Business Strategist AIB-C01 (Udemy)", "url": "https://www.udemy.com/course/aws-certified-ai-business-strategist-aib/", "kind": "course", "note": "Video course bám exam guide, kèm 1 practice exam; nhiều người thi beta dùng.", "date": "2026-10"},
+   {"label": "Tutorials Dojo: AIB-C01 Practice Exams", "url": "https://portal.tutorialsdojo.com/courses/aws-certified-ai-business-strategist-aib-c01-practice-exams/", "kind": "practice", "note": "Hơn 100 câu, các mode timed, review, theo section, kèm flashcard; trả phí.", "date": "2026-10-15"},
+   {"label": "Tutorials Dojo: FREE AIB-C01 Practice Exams Sampler", "url": "https://portal.tutorialsdojo.com/courses/free-aws-certified-ai-business-strategist-practice-exams-aib-c01-sampler/", "kind": "practice", "note": "20 câu miễn phí để thử độ khó trước khi mua.", "date": "2026-09-17"},
+   {"label": "Whizlabs: AIB-C01 AWS AI Business Strategist Course", "url": "https://www.whizlabs.com/aws-certified-ai-business-strategist/", "kind": "course", "note": "Course bản beta kèm practice test và quiz; trả phí."}
+  ]
+ },
+ {
+  "group": "Video",
+  "items": [
+   {"label": "Getting Started: AWS Certified AI Business Strategist", "url": "https://www.youtube.com/watch?v=VSsweS2VkPg", "kind": "video", "note": "Video giới thiệu chính thức của kênh Amazon Web Services, khoảng 5 phút.", "date": "2026-09-01"},
+   {"label": "re:Invent 2025 SNR305: A leader's guide to AI strategy and implementation", "url": "https://www.youtube.com/watch?v=_tv1sP9jJzI", "kind": "video", "note": "Kênh AWS Events; operating model nối AI capability với business value, hợp D2 và D4.", "date": "2025-12-02"},
+   {"label": "re:Invent 2025 AIM231: Delivering Measurable ROI with Generative AI on AWS", "url": "https://www.youtube.com/watch?v=0Ss7PcSLS_8", "kind": "video", "note": "Kênh AWS Events; vì sao nhiều GenAI project không tới production và cách đo ROI, 20 phút.", "date": "2025-12-04"},
+   {"label": "re:Invent 2025 AIM422: Agentic AI meets responsible AI", "url": "https://www.youtube.com/watch?v=OGvXA1dAh1U", "kind": "video", "note": "Kênh AWS Events; risk và best practice khi đưa agent vào production, hợp D1 và D3.", "date": "2025-12-07"},
+   {"label": "re:Invent 2025 AIM209: Scaling AI with confidence, from PoC to production", "url": "https://www.youtube.com/watch?v=b3d_n0rldmo", "kind": "video", "note": "Kênh AWS Events; đưa PoC lên production có compliance, hợp task 4.4.", "date": "2025-12-09"},
+   {"label": "Maruchin Tech: AIB-C01 Exam Prep Course (beta)", "url": "https://www.youtube.com/watch?v=DpDoGeJ_cxY", "kind": "video", "note": "Course đầy đủ gần 4 giờ của bên thứ ba, miễn phí trên YouTube.", "date": "2026-09-08"},
+   {"label": "Bakul Kapoor: AWS CAF for AI, AIB-C01 Ep 10", "url": "https://www.youtube.com/watch?v=IoUHJohL0D0", "kind": "video", "note": "Giải thích CAF for AI trong 11 phút, thuộc series AIB-C01 của bên thứ ba.", "date": "2026-10-29"}
+  ]
+ },
+ {
+  "group": "Blog và kinh nghiệm thi",
+  "items": [
+   {"label": "How I passed AIB-C01 beta (dev.to, AWS Builders)", "url": "https://dev.to/aws-builders/how-i-passed-aws-certified-ai-business-strategist-ab1-c01-beta-369o", "kind": "blog", "note": "743 điểm; cheat sheet thuật ngữ và decision rule cho từng domain; bài viết gọi exam là AB1-C01.", "date": "2026-09-29"},
+   {"label": "Carla Jenkins: passed AIB-C01 beta on day 1 (Medium)", "url": "https://carlarjenkins.medium.com/i-passed-the-new-aws-certified-ai-business-strategist-beta-exam-on-day-1-0444721b88a9", "kind": "blog", "note": "Đề hỏi data drift và concept drift, context window và temperature, RAG và fine-tuning, CoE tập trung và federated.", "date": "2026-09-30"},
+   {"label": "HackerNoon: passed AIB-C01 beta with Claude and Notion", "url": "https://hackernoon.com/i-passed-the-aws-ai-business-strategist-aib-c01-beta-with-claude-and-notion-heres-how", "kind": "blog", "note": "Lịch ôn dùng exam guide, CAF-AI, Responsible AI Lens, maturity model và các bộ đề luyện.", "date": "2026-10-07"},
+   {"label": "AWS Builder Center: What we know about AIB-C01", "url": "https://builder.aws.com/content/3Ilmw2V8qHCLpZeM5yy3BFpQt37/what-we-know-about-the-new-aws-certified-ai-business-strategist-aib-c01-exam", "kind": "blog", "note": "Bài của Community Builder: trọng số domain, cách chấm điểm, chênh lệch 170 và 130 phút.", "date": "2026-09-02"},
+   {"label": "Tutorials Dojo: AIB-C01 Study Guide", "url": "https://tutorialsdojo.com/aib-c01-aws-certified-ai-business-strategist-study-guide/", "kind": "blog", "note": "Tóm tắt domain, chủ đề chính và service cần nắm.", "date": "2026-09-16"}
+  ]
+ },
+ {
+  "group": "Cộng đồng",
+  "md": "ExamTopics chưa có trang AIB-C01 tính tới 11/2026.",
+  "items": [
+   {"label": "Reddit: Passed AIB-C01 beta, 884 điểm (r/AWSCertifications)", "url": "https://www.reddit.com/r/AWSCertifications/comments/1xhqc2i/passed_aws_certified_ai_business_strategist/", "kind": "community", "note": "Khoảng 10 giờ ôn với Exam Prep Plan, Practice Question Set, CAF-AI và Well-Architected lens.", "date": "2026-10-28"},
+   {"label": "Reddit: Passed AIB-C01 beta 805/1000, kèm study notes", "url": "https://www.reddit.com/r/AWSCertifications/comments/1x1xer7/passed_ai_business_strategist_beta_ab1c01_8051000/", "kind": "community", "note": "Chỉ dùng Skill Builder miễn phí; đề không có câu định nghĩa dễ như 42001 so với 23053.", "date": "2026-10-09"},
+   {"label": "Reddit: Passed AIB-C01 with 3 days of preparation", "url": "https://www.reddit.com/r/AWSCertifications/comments/1x6d3n9/passed_aws_certified_ai_business_strategist/", "kind": "community", "note": "Đề thật khác đề luyện Udemy: scenario business có nhiều đáp án nghe đúng.", "date": "2026-10-15"},
+   {"label": "GitHub: markodowd/aws-study-notes, ai-business-strategist", "url": "https://github.com/markodowd/aws-study-notes/tree/main/ai-business-strategist", "kind": "repo", "note": "Ghi chú bullet theo 4 domain của người đậu 805 điểm.", "date": "2026-10-09"}
+  ]
+ }
+]

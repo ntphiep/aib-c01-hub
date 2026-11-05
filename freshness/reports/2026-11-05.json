@@ -1,0 +1,165 @@
+{
+ "date": "2026-11-05",
+ "hub": "aib-c01-hub",
+ "verified": "2026-11-04",
+ "exam": [],
+ "releases": [],
+ "changed": [],
+ "broken": [],
+ "moved": [
+  {
+   "url": "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/",
+   "to": "https://aws.amazon.com/ai/security/generative-ai-scoping-matrix/",
+   "where": [
+    "src/data/topics/aws.json#aws#build-buy",
+    "src/data/topics/governance.json#governance#security",
+    "src/data/quiz/governance.json#gov-12",
+    "src/data/cards/governance.json#gov-c16"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/ai-cloud-transformation-value-chain.html",
+   "to": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "where": [
+    "src/data/topics/strategy.json#strategy#use-cases",
+    "src/data/topics/strategy.json#strategy#prioritize",
+    "src/data/topics/strategy.json#strategy#competitive",
+    "src/data/quiz/strategy.json#str-22",
+    "src/data/quiz/strategy.json#str-28"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/aws-caf-for-ai.html",
+   "to": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "where": [
+    "src/data/resources.json",
+    "src/data/topics/aws.json#aws#caf",
+    "src/data/topics/fundamentals.json#fundamentals#ai-ml-genai"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html",
+   "to": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "where": [
+    "src/data/glossary-parts/strategy.json#build-buy-partner",
+    "src/data/glossary-parts/strategy.json#data-flywheel",
+    "src/data/glossary-parts/strategy.json#proprietary-data",
+    "src/data/topics/strategy.json#strategy#use-cases",
+    "src/data/topics/strategy.json#strategy#prioritize",
+    "src/data/topics/strategy.json#strategy#build-buy",
+    "src/data/topics/strategy.json#strategy#kpi",
+    "src/data/topics/strategy.json#strategy#competitive",
+    "src/data/topics/strategy.json#strategy#advantage",
+    "src/data/quiz/strategy.json#str-01",
+    "src/data/quiz/strategy.json#str-05",
+    "src/data/quiz/strategy.json#str-06",
+    "src/data/quiz/strategy.json#str-21",
+    "src/data/quiz/strategy.json#str-22",
+    "src/data/quiz/strategy.json#str-23",
+    "src/data/quiz/strategy.json#str-24",
+    "src/data/quiz/strategy.json#str-25",
+    "src/data/quiz/strategy.json#str-26",
+    "src/data/cards/strategy.json#str-c01",
+    "src/data/cards/strategy.json#str-c08",
+    "src/data/cards/strategy.json#str-c24"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/foundational-ai-capabilities.html",
+   "to": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "where": [
+    "src/data/topics/aws.json#aws#caf",
+    "src/data/topics/transformation.json#transformation#readiness",
+    "src/data/topics/transformation.json#transformation#gaps",
+    "src/data/quiz/aws.json#aws-14",
+    "src/data/cards/transformation.json#trn-c05",
+    "src/data/cards/transformation.json#trn-c07"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html",
+   "to": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "where": [
+    "src/data/glossary-parts/governance.json#ai-governance-board",
+    "src/data/glossary-parts/transformation.json#data-silo",
+    "src/data/glossary-parts/transformation.json#data-ownership",
+    "src/data/topics/governance.json#governance#structures",
+    "src/data/topics/transformation.json#transformation#data",
+    "src/data/topics/transformation.json#transformation#foundations",
+    "src/data/quiz/governance.json#gov-08",
+    "src/data/quiz/transformation.json#trn-03",
+    "src/data/quiz/transformation.json#trn-06",
+    "src/data/quiz/transformation.json#trn-07",
+    "src/data/quiz/transformation.json#trn-24",
+    "src/data/cards/governance.json#gov-c10",
+    "src/data/cards/transformation.json#trn-c09",
+    "src/data/cards/transformation.json#trn-c26"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/operations-perspective-health-and-availability-of-the-aiml-landscape.html",
+   "to": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "where": [
+    "src/data/topics/transformation.json#transformation#coe",
+    "src/data/topics/transformation.json#transformation#production",
+    "src/data/quiz/transformation.json#trn-12",
+    "src/data/quiz/transformation.json#trn-21",
+    "src/data/quiz/transformation.json#trn-26"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html",
+   "to": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "where": [
+    "src/data/glossary-parts/transformation.json#ai-coe",
+    "src/data/glossary-parts/transformation.json#ai-literacy",
+    "src/data/topics/transformation.json#transformation#gaps",
+    "src/data/topics/transformation.json#transformation#culture",
+    "src/data/topics/transformation.json#transformation#workforce",
+    "src/data/topics/transformation.json#transformation#coe",
+    "src/data/quiz/transformation.json#trn-05",
+    "src/data/quiz/transformation.json#trn-15",
+    "src/data/quiz/transformation.json#trn-16",
+    "src/data/quiz/transformation.json#trn-17",
+    "src/data/quiz/transformation.json#trn-25",
+    "src/data/cards/transformation.json#trn-c25"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/platform-perspective-infrastructure-for-and-applications-of-aiml.html",
+   "to": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "where": [
+    "src/data/glossary-parts/transformation.json#mlops",
+    "src/data/topics/transformation.json#transformation#foundations"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html",
+   "to": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "where": [
+    "src/data/glossary-parts/transformation.json#envision-phase",
+    "src/data/topics/transformation.json#transformation#readiness",
+    "src/data/topics/transformation.json#transformation#maturity",
+    "src/data/topics/transformation.json#transformation#gaps",
+    "src/data/topics/transformation.json#transformation#data",
+    "src/data/topics/transformation.json#transformation#journey",
+    "src/data/quiz/strategy.json#str-01",
+    "src/data/quiz/strategy.json#str-03",
+    "src/data/quiz/transformation.json#trn-01",
+    "src/data/quiz/transformation.json#trn-12",
+    "src/data/quiz/transformation.json#trn-18",
+    "src/data/quiz/transformation.json#trn-19",
+    "src/data/cards/transformation.json#trn-c01",
+    "src/data/cards/transformation.json#trn-c20"
+   ]
+  },
+  {
+   "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/shared-responsibility-model.html",
+   "to": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+   "where": [
+    "src/data/topics/aws.json#aws#shared-responsibility"
+   ]
+  }
+ ],
+ "unreachable": []
+}

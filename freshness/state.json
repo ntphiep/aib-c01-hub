@@ -1,0 +1,1242 @@
+{
+ "checked": "2026-11-05",
+ "exam": {
+  "https://aws.amazon.com/certification/certified-ai-business-strategist/": {
+   "date": null,
+   "hash": null,
+   "pdfs": [],
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01-domain1.html": {
+   "date": null,
+   "hash": "5278441c538516d8",
+   "pdfs": [],
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01-domain2.html": {
+   "date": null,
+   "hash": "bad17e4ba099d114",
+   "pdfs": [],
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01-domain3.html": {
+   "date": null,
+   "hash": "4416b42783b654ee",
+   "pdfs": [],
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01-domain4.html": {
+   "date": null,
+   "hash": "b770068a90bf0e02",
+   "pdfs": [],
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html": {
+   "date": null,
+   "hash": "8e8b0386b968dec1",
+   "pdfs": [],
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-in-scope-services.html": {
+   "date": null,
+   "hash": "8e6b2436931bf4f9",
+   "pdfs": [],
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-out-of-scope-services.html": {
+   "date": null,
+   "hash": "496e2b2f6b6c142b",
+   "pdfs": [],
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-technologies-concepts.html": {
+   "date": null,
+   "hash": "ca69eb5f35e9f20a",
+   "pdfs": [],
+   "status": 200
+  }
+ },
+ "feeds": {
+  "https://aws.amazon.com/about-aws/whats-new/recent/feed/": "2026-11-04"
+ },
+ "urls": {
+  "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/": {
+   "date": null,
+   "final": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+   "hash": null,
+   "status": 200
+  },
+  "https://airc.nist.gov/img/pblanding_image_vsusanne_cropped.png": {
+   "date": null,
+   "final": "https://airc.nist.gov/img/pblanding_image_vsusanne_cropped.png",
+   "hash": null,
+   "status": 200
+  },
+  "https://artificialintelligenceact.eu/ai-act-explorer/digital-omnibus/": {
+   "date": null,
+   "final": "https://artificialintelligenceact.eu/ai-act-explorer/digital-omnibus/",
+   "hash": null,
+   "status": 200
+  },
+  "https://artificialintelligenceact.eu/annex/3/": {
+   "date": null,
+   "final": "https://artificialintelligenceact.eu/annex/3/",
+   "hash": null,
+   "status": 200
+  },
+  "https://artificialintelligenceact.eu/article/14/": {
+   "date": null,
+   "final": "https://artificialintelligenceact.eu/article/14/",
+   "hash": null,
+   "status": 200
+  },
+  "https://artificialintelligenceact.eu/article/26/": {
+   "date": null,
+   "final": "https://artificialintelligenceact.eu/article/26/",
+   "hash": null,
+   "status": 200
+  },
+  "https://artificialintelligenceact.eu/article/4/": {
+   "date": null,
+   "final": "https://artificialintelligenceact.eu/article/4/",
+   "hash": null,
+   "status": 200
+  },
+  "https://artificialintelligenceact.eu/article/50/": {
+   "date": null,
+   "final": "https://artificialintelligenceact.eu/article/50/",
+   "hash": null,
+   "status": 200
+  },
+  "https://artificialintelligenceact.eu/article/99/": {
+   "date": null,
+   "final": "https://artificialintelligenceact.eu/article/99/",
+   "hash": null,
+   "status": 200
+  },
+  "https://artificialintelligenceact.eu/high-level-summary/": {
+   "date": null,
+   "final": "https://artificialintelligenceact.eu/high-level-summary/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/": {
+   "date": null,
+   "final": "https://aws.amazon.com/ai/security/generative-ai-scoping-matrix/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/ai/responsible-ai/": {
+   "date": null,
+   "final": "https://aws.amazon.com/ai/responsible-ai/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/ai/responsible-ai/resources/": {
+   "date": null,
+   "final": "https://aws.amazon.com/ai/responsible-ai/resources/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/ai/security/generative-ai-scoping-matrix/": {
+   "date": null,
+   "final": "https://aws.amazon.com/ai/security/generative-ai-scoping-matrix/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/ai/services/": {
+   "date": null,
+   "final": "https://aws.amazon.com/ai/services/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/bedrock/": {
+   "date": null,
+   "final": "https://aws.amazon.com/bedrock/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/bedrock/faqs/": {
+   "date": null,
+   "final": "https://aws.amazon.com/bedrock/faqs/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/bedrock/pricing/": {
+   "date": null,
+   "final": "https://aws.amazon.com/bedrock/pricing/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/bedrock/security-compliance/": {
+   "date": null,
+   "final": "https://aws.amazon.com/bedrock/security-compliance/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/apn/aws-partner-guide-to-ai-agents-and-tools-in-aws-marketplace": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/apn/aws-partner-guide-to-ai-agents-and-tools-in-aws-marketplace/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/awsmarketplace/aws-marketplace-simplifying-the-path-from-discovery-to-deployment-in-the-ai-era": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/awsmarketplace/aws-marketplace-simplifying-the-path-from-discovery-to-deployment-in-the-ai-era/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/enterprise-strategy/navigating-the-generative-ai-landscape-a-strategic-blueprint-for-ceos-and-cios/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/machine-learning/aws-achieves-iso-iec-420012023-artificial-intelligence-management-system-accredited-certification/": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/machine-learning/aws-achieves-iso-iec-420012023-artificial-intelligence-management-system-accredited-certification/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/machine-learning/establishing-an-ai-ml-center-of-excellence/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/machine-learning/generative-ai-operating-models-in-enterprise-organizations-with-amazon-bedrock/": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/machine-learning/generative-ai-operating-models-in-enterprise-organizations-with-amazon-bedrock/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/machine-learning/protect-sensitive-data-in-rag-applications-with-amazon-bedrock/": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/machine-learning/protect-sensitive-data-in-rag-applications-with-amazon-bedrock/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/migration-and-modernization/govern-ai-adoption-before-it-governs-you/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/publicsector/human-in-the-loop-claims-processing-with-amazon-bedrock-agentcore/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/security/enabling-ai-adoption-at-scale-through-enterprise-risk-management-framework-part-2/": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/security/enabling-ai-adoption-at-scale-through-enterprise-risk-management-framework-part-2/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/blogs/training-and-certification/introducing-aws-certified-ai-business-strategist-built-for-the-people-who-scale-ai/": {
+   "date": null,
+   "final": "https://aws.amazon.com/blogs/training-and-certification/introducing-aws-certified-ai-business-strategist-built-for-the-people-who-scale-ai/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/certification/certified-ai-business-strategist/": {
+   "date": null,
+   "final": "https://aws.amazon.com/certification/certified-ai-business-strategist/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/compare/the-difference-between-artificial-intelligence-and-machine-learning/": {
+   "date": null,
+   "final": "https://aws.amazon.com/compare/the-difference-between-artificial-intelligence-and-machine-learning/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/compare/the-difference-between-structured-data-and-unstructured-data/": {
+   "date": null,
+   "final": "https://aws.amazon.com/compare/the-difference-between-structured-data-and-unstructured-data/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/compliance/iso-42001-faqs/": {
+   "date": null,
+   "final": "https://aws.amazon.com/compliance/iso-42001-faqs/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/compliance/shared-responsibility-model/": {
+   "date": null,
+   "final": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/": {
+   "date": null,
+   "final": "https://aws.amazon.com/executive-insights/podcast/calculating-the-cost-and-roi-of-generative-ai/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/marketplace/solutions/ai-agents-and-tools": {
+   "date": null,
+   "final": "https://aws.amazon.com/marketplace/solutions/ai-agents-and-tools",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/q/business/": {
+   "date": null,
+   "final": "https://aws.amazon.com/q/business/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/quick/pricing/": {
+   "date": null,
+   "final": "https://aws.amazon.com/quick/pricing/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/sagemaker/ai/pricing/": {
+   "date": null,
+   "final": "https://aws.amazon.com/sagemaker/ai/pricing/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/savingsplans/ml-pricing/": {
+   "date": null,
+   "final": "https://aws.amazon.com/savingsplans/ml-pricing/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/service-terms/": {
+   "date": null,
+   "final": "https://aws.amazon.com/service-terms/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/what-is/ai-agents/": {
+   "date": null,
+   "final": "https://aws.amazon.com/what-is/ai-agents/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/what-is/ai-hallucinations/": {
+   "date": null,
+   "final": "https://aws.amazon.com/what-is/ai-hallucinations/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/what-is/foundation-models/": {
+   "date": null,
+   "final": "https://aws.amazon.com/what-is/foundation-models/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/what-is/generative-ai/": {
+   "date": null,
+   "final": "https://aws.amazon.com/what-is/generative-ai/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/what-is/inferencing/": {
+   "date": null,
+   "final": "https://aws.amazon.com/what-is/inferencing/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/what-is/machine-learning/": {
+   "date": null,
+   "final": "https://aws.amazon.com/what-is/machine-learning/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/what-is/prompt-engineering/": {
+   "date": null,
+   "final": "https://aws.amazon.com/what-is/prompt-engineering/",
+   "hash": null,
+   "status": 200
+  },
+  "https://aws.amazon.com/what-is/retrieval-augmented-generation/": {
+   "date": null,
+   "final": "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+   "hash": null,
+   "status": 200
+  },
+  "https://builder.aws.com/content/2duPyVMFWNoHMuu3GZbei4GbHOi/genai_project_prioritization": {
+   "date": null,
+   "final": "https://builder.aws.com/content/2duPyVMFWNoHMuu3GZbei4GbHOi/genai_project_prioritization",
+   "hash": null,
+   "status": 200
+  },
+  "https://builder.aws.com/content/3Ilmw2V8qHCLpZeM5yy3BFpQt37/what-we-know-about-the-new-aws-certified-ai-business-strategist-aib-c01-exam": {
+   "date": null,
+   "final": "https://builder.aws.com/content/3Ilmw2V8qHCLpZeM5yy3BFpQt37/what-we-know-about-the-new-aws-certified-ai-business-strategist-aib-c01-exam",
+   "hash": null,
+   "status": 200
+  },
+  "https://carlarjenkins.medium.com/i-passed-the-new-aws-certified-ai-business-strategist-beta-exam-on-day-1-0444721b88a9": {
+   "date": null,
+   "fails": 1,
+   "final": "https://carlarjenkins.medium.com/i-passed-the-new-aws-certified-ai-business-strategist-beta-exam-on-day-1-0444721b88a9",
+   "hash": null,
+   "status": 403
+  },
+  "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/product-categories/ai-ml/artificial-intelligence/approved/images/Gen-AI-Security-Scoping-final.a379ac7f1ed883db46e1dd9310213f67e6353281.png": {
+   "date": null,
+   "final": "https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/product-categories/ai-ml/artificial-intelligence/approved/images/Gen-AI-Security-Scoping-final.a379ac7f1ed883db46e1dd9310213f67e6353281.png",
+   "hash": null,
+   "status": 200
+  },
+  "https://dev.to/aws-builders/how-i-passed-aws-certified-ai-business-strategist-ab1-c01-beta-369o": {
+   "date": null,
+   "final": "https://dev.to/aws-builders/how-i-passed-aws-certified-ai-business-strategist-ab1-c01-beta-369o",
+   "hash": null,
+   "status": 200
+  },
+  "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai": {
+   "date": null,
+   "final": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+   "hash": null,
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
+   "hash": "05ba19e6b0daeac9",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html",
+   "hash": "8e8b0386b968dec1",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-in-scope-services.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-in-scope-services.html",
+   "hash": "8e6b2436931bf4f9",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-out-of-scope-services.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-out-of-scope-services.html",
+   "hash": "496e2b2f6b6c142b",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
+   "hash": "813ae0e7298fa162",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a.html",
+   "hash": "249f1e3f57240b43",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+   "hash": "08afd0dbd1e2d420",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/amazon-bedrock-marketplace.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/amazon-bedrock-marketplace.html",
+   "hash": "2f92ad952d379fbf",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+   "hash": "bddf980b9ecf3bca",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+   "hash": "7b7a7f21ce19f0fe",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html",
+   "hash": "c4c15820a56b6a44",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-components.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-components.html",
+   "hash": "d4ee5da467065f16",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+   "hash": "4b142de807ccd87f",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+   "hash": "2f91f0618e404251",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-how-it-works.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-how-it-works.html",
+   "hash": "16bd8f705141796a",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html",
+   "hash": "8d0df96ff1ecabd9",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+   "hash": "2e908d62e8447dbd",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-haiku-4-5.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-haiku-4-5.html",
+   "hash": "44396c8bc55bcbac",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-55.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-55.html",
+   "hash": "1dea3a73dd194fc2",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html",
+   "hash": "d162df82499ea6c6",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html",
+   "hash": "7352ae9fb0a4487f",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html",
+   "hash": "d83d1e95b9774d70",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+   "hash": "24531fc25e495a2a",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/security.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/security.html",
+   "hash": "be7ae1517651296e",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/service-tiers-inference.html",
+   "hash": "0a4d61915d03ea86",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+   "hash": "ea43f16a03234475",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html",
+   "hash": "d611919ab14dd6c0",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/machine-learning/latest/dg/when-to-use-machine-learning.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/machine-learning/latest/dg/when-to-use-machine-learning.html",
+   "hash": "cede55b39d420633",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-managing-subscriptions.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-managing-subscriptions.html",
+   "hash": "e8f5e36ff0072268",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/marketplace/latest/buyerguide/contract-structure.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/contract-structure.html",
+   "hash": "303b6a54e5118c98",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html",
+   "hash": "5e7fe8a4b15c6079",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/agent-to-agent-protocols.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/agent-to-agent-protocols.html",
+   "hash": "1faaf30a2c865dda",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/multi-agent-collaboration.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/multi-agent-collaboration.html",
+   "hash": "46715df66a70e185",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/workflow-for-orchestration.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/workflow-for-orchestration.html",
+   "hash": "680d07a45ad93468",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/dev-architecting.html",
+   "hash": "0f1d4de1ee7ebfb9",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-lifecycle-operational-excellence/prod-monitoring-drift.html",
+   "hash": "9926497b7617830b",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/data-strategy.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/data-strategy.html",
+   "hash": "29e1b24d9190754d",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/use-cases.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/gen-ai-workload-assessment/use-cases.html",
+   "hash": "2341a97173e119c1",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/oca-framework-envision-future/sponsor.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/oca-framework-envision-future/sponsor.html",
+   "hash": "869828dcc8e0e448",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-vs-fine-tuning.html",
+   "hash": "bf3ab35da6753a38",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-accelerate-software-dev-lifecycle-gen-ai/measuring-success.html",
+   "hash": "ab5f8cb3ceb1c297",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-considerations-gen-ai/journey.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-considerations-gen-ai/journey.html",
+   "hash": "92dfcf311d96d9cb",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-mesh/introduction.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-data-mesh/introduction.html",
+   "hash": "43cf161a55989074",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html",
+   "hash": "6f92d9275c194f4c",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/introduction.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/introduction.html",
+   "hash": "ec1c922b1537d384",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-1.html",
+   "hash": "e05926f48cd5cdf7",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-2.html",
+   "hash": "7017313cb2fde4f4",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-3.html",
+   "hash": "848884d81501834c",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-4.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/level-4.html",
+   "hash": "39b946891fd8b7e5",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html",
+   "hash": "865783545523e654",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/enable-capacity.html",
+   "hash": "228d25d6e284f060",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/engage-organization.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/engage-organization.html",
+   "hash": "fdd5aa4f9c3ba91d",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/introduction.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/introduction.html",
+   "hash": "13e6a37fcc4bfb17",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/make-it-stick.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-ocm/make-it-stick.html",
+   "hash": "ab451920450cb8f6",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/create-configure-estimate.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/create-configure-estimate.html",
+   "hash": "cd17c5627cd02a12",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html",
+   "hash": "d2cb5fbb8767c192",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html",
+   "hash": "032fa7b420a0e6a8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html",
+   "hash": "7f1f91ed6e2434e6",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-configure-processing-jobs.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-configure-processing-jobs.html",
+   "hash": "3e9807cabb05a55c",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-data-bias.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-data-bias.html",
+   "hash": "6d820b4f2ba373e3",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-monitor-bias-drift.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-monitor-bias-drift.html",
+   "hash": "7d4c5b9612b3a453",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-mlconcepts.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-mlconcepts.html",
+   "hash": "e8188c41b93db739",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-availability-change.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-availability-change.html",
+   "hash": "aebe5f943c066197",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html",
+   "hash": "99083666f2a657be",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html",
+   "hash": "c7a4bceb629c0be5",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html",
+   "hash": "4f2e273a96b53c80",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/savingsplans/latest/userguide/plan-types.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/savingsplans/latest/userguide/plan-types.html",
+   "hash": "904113ab6c65bbda",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/savingsplans/latest/userguide/return-sp.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/savingsplans/latest/userguide/return-sp.html",
+   "hash": "04c2c5e7d0cd0407",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-services.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-services.html",
+   "hash": "7d49c3269d534055",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html",
+   "hash": "4a67c6ecda21504e",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentcost03-bp02.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentcost03-bp02.html",
+   "hash": "5e10df73254f7081",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentperf03-bp02.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentperf03-bp02.html",
+   "hash": "67872f83df7a0123",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/agentic-ai.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/agentic-ai.html",
+   "hash": "363d0da1e946edce",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost01-bp01.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost01-bp01.html",
+   "hash": "c86fe7c51c61ba0e",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+   "hash": "1373b90d166f1f75",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lifecycle.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lifecycle.html",
+   "hash": "75b39700efe037ff",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/sustainability.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/sustainability.html",
+   "hash": "a3fc52d159ad399f",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html",
+   "hash": "cc679be44f91913c",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp02.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp02.html",
+   "hash": "30b90a4cc71d11b8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html",
+   "hash": "d4185cd7267f1557",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html",
+   "hash": "a8df8b877a2c93ae",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp02.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp02.html",
+   "hash": "4da2e058924b7847",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/design-principles.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/design-principles.html",
+   "hash": "b24e86c593d8b97e",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03.html",
+   "hash": "69af192e6d5fc60b",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01.html",
+   "hash": "d0c10ca514df49d5",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01.html",
+   "hash": "33d7e0df07038f76",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc01.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc01.html",
+   "hash": "283c57902cdbe72f",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc02.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc02.html",
+   "hash": "0b73fee2c0cdba36",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html",
+   "hash": "c9496a42047bd854",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/ai-cloud-transformation-value-chain.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "hash": "50766d554f79f6f8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/aws-caf-for-ai.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "hash": "50766d554f79f6f8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/business-perspective-the-ai-strategy-in-the-age-of-aiml.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "hash": "50766d554f79f6f8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/foundational-ai-capabilities.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "hash": "50766d554f79f6f8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/governance-perspective-managing-an-aiml-driven-organization.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "hash": "50766d554f79f6f8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/operations-perspective-health-and-availability-of-the-aiml-landscape.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "hash": "50766d554f79f6f8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/people-perspective-culture-and-change-towards-aiml-first.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "hash": "50766d554f79f6f8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/platform-perspective-infrastructure-for-and-applications-of-aiml.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "hash": "50766d554f79f6f8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/your-ai-transformation-journey.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+   "hash": "50766d554f79f6f8",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/shared-responsibility-model.html": {
+   "date": null,
+   "final": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+   "hash": null,
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/navigating-security-landscape-genai/shadow-generative-ai.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/whitepapers/latest/navigating-security-landscape-genai/shadow-generative-ai.html",
+   "hash": "8114e43a8b5e50e0",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/accelerating-business-outcomes.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/accelerating-business-outcomes.html",
+   "hash": "223e116eeb499972",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html",
+   "hash": "5acbd2952601901d",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/welcome.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/welcome.html",
+   "hash": "ebc51024dc815828",
+   "status": 200
+  },
+  "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html": {
+   "date": null,
+   "final": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/your-cloud-transformation-journey.html",
+   "hash": "937a698ede680e29",
+   "status": 200
+  },
+  "https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus/": {
+   "date": null,
+   "final": "https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus/",
+   "hash": null,
+   "status": 200
+  },
+  "https://gdpr-info.eu/art-22-gdpr/": {
+   "date": null,
+   "final": "https://gdpr-info.eu/art-22-gdpr/",
+   "hash": null,
+   "status": 200
+  },
+  "https://gdpr-info.eu/art-35-gdpr/": {
+   "date": null,
+   "final": "https://gdpr-info.eu/art-35-gdpr/",
+   "hash": null,
+   "status": 200
+  },
+  "https://github.com/markodowd/aws-study-notes/tree/main/ai-business-strategist": {
+   "date": null,
+   "final": "https://github.com/markodowd/aws-study-notes/tree/main/ai-business-strategist",
+   "hash": null,
+   "status": 200
+  },
+  "https://hackernoon.com/i-passed-the-aws-ai-business-strategist-aib-c01-beta-with-claude-and-notion-heres-how": {
+   "date": null,
+   "final": "https://hackernoon.com/i-passed-the-aws-ai-business-strategist-aib-c01-beta-with-claude-and-notion-heres-how",
+   "hash": null,
+   "status": 200
+  },
+  "https://hai.stanford.edu/ai-index/2026-ai-index-report": {
+   "date": null,
+   "final": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+   "hash": null,
+   "status": 200
+  },
+  "https://hbr.org/2026/10/the-deployment-failure-holding-back-your-ai-investments": {
+   "date": null,
+   "final": "https://hbr.org/2026/10/the-deployment-failure-holding-back-your-ai-investments",
+   "hash": null,
+   "status": 200
+  },
+  "https://iapp.org/resources/article/ai-governance-profession-report/": {
+   "date": null,
+   "final": "https://iapp.org/resources/article/ai-governance-profession-report",
+   "hash": null,
+   "status": 200
+  },
+  "https://learn.microsoft.com/en-us/training/modules/create-business-value/2-business-strategy": {
+   "date": "2026-07-09",
+   "final": "https://learn.microsoft.com/en-us/training/modules/create-business-value/2-business-strategy",
+   "hash": null,
+   "status": 200
+  },
+  "https://oecd.ai/en/ai-principles": {
+   "date": null,
+   "final": "https://oecd.ai/en/ai-principles",
+   "hash": null,
+   "status": 200
+  },
+  "https://portal.tutorialsdojo.com/courses/aws-certified-ai-business-strategist-aib-c01-practice-exams/": {
+   "date": null,
+   "final": "https://portal.tutorialsdojo.com/courses/aws-certified-ai-business-strategist-aib-c01-practice-exams/",
+   "hash": null,
+   "status": 200
+  },
+  "https://portal.tutorialsdojo.com/courses/free-aws-certified-ai-business-strategist-practice-exams-aib-c01-sampler/": {
+   "date": null,
+   "final": "https://portal.tutorialsdojo.com/courses/free-aws-certified-ai-business-strategist-practice-exams-aib-c01-sampler/",
+   "hash": null,
+   "status": 200
+  },
+  "https://skillbuilder.aws/category/exam-prep/ai-business-strategist-business-AIB-C01": {
+   "date": null,
+   "final": "https://skillbuilder.aws/category/exam-prep/ai-business-strategist-business-AIB-C01",
+   "hash": null,
+   "status": 200
+  },
+  "https://skillbuilder.aws/learning-plan/TSP9R1XQ6P/aws-ai-business-strategist-learning-plan/BDE88AHVZN": {
+   "date": null,
+   "final": "https://skillbuilder.aws/learning-plan/TSP9R1XQ6P/aws-ai-business-strategist-learning-plan/BDE88AHVZN",
+   "hash": null,
+   "status": 200
+  },
+  "https://tutorialsdojo.com/aib-c01-aws-certified-ai-business-strategist-study-guide/": {
+   "date": null,
+   "final": "https://tutorialsdojo.com/aib-c01-aws-certified-ai-business-strategist-study-guide/",
+   "hash": null,
+   "status": 200
+  },
+  "https://webstore.iec.ch/en/publication/77839": {
+   "date": null,
+   "final": "https://webstore.iec.ch/en/publication/77839",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.boutique.afnor.org/en-gb/standard/iso-iec-230532022/framework-for-artificial-intelligence-ai-systems-using-machine-learning-ml/xs139450/326655": {
+   "date": null,
+   "final": "https://www.boutique.afnor.org/en-gb/standard/iso-iec-230532022/framework-for-artificial-intelligence-ai-systems-using-machine-learning-ml/xs139450/326655",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.dataiku.com/blog/5-ai-operating-models-that-enable-scalable-success": {
+   "date": null,
+   "final": "https://www.dataiku.com/blog/5-ai-operating-models-that-enable-scalable-success",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.iso.org/standard/42001": {
+   "date": null,
+   "fails": 1,
+   "final": "https://www.iso.org/standard/42001",
+   "hash": null,
+   "status": 403
+  },
+  "https://www.iso.org/standard/74438.html": {
+   "date": null,
+   "fails": 1,
+   "final": "https://www.iso.org/standard/74438.html",
+   "hash": null,
+   "status": 403
+  },
+  "https://www.nist.gov/itl/ai-risk-management-framework": {
+   "date": null,
+   "final": "https://www.nist.gov/itl/ai-risk-management-framework",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.prosci.com/methodology/adkar": {
+   "date": null,
+   "final": "https://www.prosci.com/methodology/adkar",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.reddit.com/r/AWSCertifications/comments/1x1xer7/passed_ai_business_strategist_beta_ab1c01_8051000/": {
+   "date": null,
+   "fails": 1,
+   "final": "https://www.reddit.com/r/AWSCertifications/comments/1x1xer7/passed_ai_business_strategist_beta_ab1c01_8051000/",
+   "hash": null,
+   "status": 403
+  },
+  "https://www.reddit.com/r/AWSCertifications/comments/1x6d3n9/passed_aws_certified_ai_business_strategist/": {
+   "date": null,
+   "fails": 1,
+   "final": "https://www.reddit.com/r/AWSCertifications/comments/1x6d3n9/passed_aws_certified_ai_business_strategist/",
+   "hash": null,
+   "status": 403
+  },
+  "https://www.reddit.com/r/AWSCertifications/comments/1xhqc2i/passed_aws_certified_ai_business_strategist/": {
+   "date": null,
+   "fails": 1,
+   "final": "https://www.reddit.com/r/AWSCertifications/comments/1xhqc2i/passed_aws_certified_ai_business_strategist/",
+   "hash": null,
+   "status": 403
+  },
+  "https://www.udemy.com/course/aws-certified-ai-business-strategist-aib/": {
+   "date": null,
+   "fails": 1,
+   "final": "https://www.udemy.com/course/aws-certified-ai-business-strategist-aib/",
+   "hash": null,
+   "status": 403
+  },
+  "https://www.whizlabs.com/aws-certified-ai-business-strategist/": {
+   "date": null,
+   "fails": 1,
+   "final": "https://www.whizlabs.com/aws-certified-ai-business-strategist/",
+   "hash": null,
+   "status": 403
+  },
+  "https://www.youtube.com/watch?v=0Ss7PcSLS_8": {
+   "date": null,
+   "final": "https://www.youtube.com/watch?v=0Ss7PcSLS_8",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.youtube.com/watch?v=DpDoGeJ_cxY": {
+   "date": null,
+   "final": "https://www.youtube.com/watch?v=DpDoGeJ_cxY",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.youtube.com/watch?v=Ea96YI1KKM0": {
+   "date": null,
+   "final": "https://www.youtube.com/watch?v=Ea96YI1KKM0",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.youtube.com/watch?v=IoUHJohL0D0": {
+   "date": null,
+   "final": "https://www.youtube.com/watch?v=IoUHJohL0D0",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.youtube.com/watch?v=OGvXA1dAh1U": {
+   "date": null,
+   "final": "https://www.youtube.com/watch?v=OGvXA1dAh1U",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.youtube.com/watch?v=VSsweS2VkPg": {
+   "date": null,
+   "final": "https://www.youtube.com/watch?v=VSsweS2VkPg",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.youtube.com/watch?v=_tv1sP9jJzI": {
+   "date": null,
+   "final": "https://www.youtube.com/watch?v=_tv1sP9jJzI",
+   "hash": null,
+   "status": 200
+  },
+  "https://www.youtube.com/watch?v=b3d_n0rldmo": {
+   "date": null,
+   "final": "https://www.youtube.com/watch?v=b3d_n0rldmo",
+   "hash": null,
+   "status": 200
+  }
+ }
+}

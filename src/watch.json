@@ -1,0 +1,19 @@
+{
+  "hub": "aib-c01-hub",
+  "verified": "2026-11-04",
+  "exam": [
+    {"label": "AIB-C01 exam guide", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01.html"},
+    {"label": "Domain 1", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01-domain1.html"},
+    {"label": "Domain 2", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01-domain2.html"},
+    {"label": "Domain 3", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01-domain3.html"},
+    {"label": "Domain 4", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/ai-business-strategist-01-domain4.html"},
+    {"label": "Technologies and concepts", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-technologies-concepts.html"},
+    {"label": "In-scope services", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-in-scope-services.html"},
+    {"label": "Out-of-scope services", "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-business-strategist-01/aib-01-out-of-scope-services.html"},
+    {"label": "Certification page", "url": "https://aws.amazon.com/certification/certified-ai-business-strategist/"}
+  ],
+  "feeds": [
+    {"label": "AWS What's New", "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/",
+     "keywords": ["bedrock", "sagemaker", "amazon quick", "quick suite", "agentcore", "amazon nova", "amazon q", "kiro", "responsible ai", "ai service card", "guardrails", "marketplace", "cost explorer", "savings plans", "well-architected", "cloud adoption framework", "generative ai", "agentic"]}
+  ]
+}
